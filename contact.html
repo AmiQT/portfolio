@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Noor Azami</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #0c7ff2;
+            --background-color: #121212;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #333333;
+            --card-background: #1e1e1e;
+            --button-hover: #1a6ed8;
+            --border-color: #444444;
+        }
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+        }
+        .card {
+            @apply bg-[var(--card-background)] rounded-lg shadow-md p-6;
+        }
+        .input {
+            @apply bg-[var(--accent-color)] text-[var(--text-primary)] border border-[var(--border-color)] rounded-lg py-3 px-4 w-full focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition-colors;
+        }
+        .button_primary {
+            @apply bg-[var(--primary-color)] text-white py-2 px-4 rounded-lg hover:bg-[var(--button-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50 transition-colors;
+        }
+        .fade-in-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .fade-in-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="dark">
+    <header class="fixed top-0 w-full z-10 bg-[var(--background-color)]">
+    </header>
+
+    <main class="container mx-auto px-4 py-8 pt-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div class="space-y-8 fade-in-scroll">
+                <h1 class="text-4xl font-bold mb-6 text-center md:text-left">Get in Touch</h1>
+                <form action="#" class="space-y-6" method="POST">
+                    <div>
+                        <label class="sr-only" for="name">Your Name</label>
+                        <input class="input" id="name" name="name" placeholder="Your Name" type="text"/>
+                    </div>
+                    <div>
+                        <label class="sr-only" for="email">Your Email</label>
+                        <input class="input" id="email" name="email" placeholder="Your Email" type="email"/>
+                    </div>
+                    <div>
+                        <label class="sr-only" for="message">Your Message</label>
+                        <textarea class="input" id="message" name="message" placeholder="Your Message" rows="6"></textarea>
+                    </div>
+                    <div>
+                        <button class="button_primary w-full md:w-auto" type="submit">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="space-y-8 fade-in-scroll">
+                <div class="card">
+                    <h2 class="text-2xl font-semibold mb-4">Contact Information</h2>
+                    <div class="space-y-4 text-base leading-relaxed">
+                        <div class="flex items-center gap-4">
+                            <svg class="size-6 text-[var(--text-secondary)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M224,48H32a8,8,0,0,0-8,8V192a8,8,0,0,0,8,8H224a8,8,0,0,0,8-8V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM40,183.34V72.66L128,153.3,216,72.66V183.34Z"></path></svg>
+                            <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="mailto:noorazami@outlook.my">noorazami@outlook.my</a>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <svg class="size-6 text-[var(--text-secondary)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M216,152v48a8,8,0,0,1-8,8h-8a8,8,0,0,1-8-8c-2.31,0-80-7.39-80-82.47,0-16.73,5.18-40.42,13.2-56.1a8,8,0,0,1,13.6,8.2C130,86.67,128,103,128,120c0,42.3,42,48,48,48a8,8,0,0,1,8,8v8a8,8,0,0,1,8,8h8a8,8,0,0,1,8,8Zm24.49-96.49a8,8,0,0,0-10.61,3.13l-19.43,38.87a8,8,0,0,0,13.14,9.39l19.43-38.87A8,8,0,0,0,240.49,55.51Zm-62-35.15a8,8,0,0,0,5.06-14.78l-40-22.86a8,8,0,0,0-10.12,4.37l-16,48a8,8,0,0,0,14.78,5.06l16-48L178.47,20.36Z"></path></svg>
+                            <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="tel:013-8799702">013-8799702</a>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <svg class="size-6 text-[var(--text-secondary)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path></svg>
+                            <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="https://www.linkedin.com/in/noor-azami/" rel="noopener noreferrer" target="_blank">linkedin.com/in/noor-azami</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="aspect-video w-full rounded-lg overflow-hidden">
+                    <div class="w-full h-full bg-cover bg-center" style='background-image: url("https://placehold.co/600x400/1e1e1e/e0e0e0?text=Google+Maps");'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="navigation.js"></script>
+    <script src="back-to-top.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeInScrolls = document.querySelectorAll('.fade-in-scroll');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+
+            fadeInScrolls.forEach(fadeInScroll => {
+                observer.observe(fadeInScroll);
+            });
+        });
+    </script>
+</body>
+</html>gApC4hmwaV3KEbYtb_tsSqTGIYL8fVn8U3qMbfh6O3YmZ7n943BU");'>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

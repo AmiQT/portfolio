@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Noor Azami</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #0c7ff2;
+            --background-color: #121212;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #333333;
+            --card-background: #1e1e1e;
+            --button-hover: #1a6ed8;
+            --border-color: #444444;
+        }
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+        }
+        .button_primary {
+            @apply bg-[var(--primary-color)] text-white py-2 px-4 rounded-lg hover:bg-[var(--button-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50 transition-colors duration-300;
+        }
+        .button_secondary {
+            @apply bg-transparent border border-[var(--primary-color)] text-[var(--primary-color)] py-2 px-4 rounded-lg hover:bg-[var(--primary-color)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50 transition-colors duration-300;
+        }
+        .card {
+            @apply bg-[var(--card-background)] rounded-lg shadow-md p-6;
+        }
+        .fade-in-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-gradient {
+            background: linear-gradient(-45deg, #121212, #1a1a1a, #0c7ff2, #121212);
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+        }
+    </style>
+</head>
+<body class="dark">
+    <header class="fixed top-0 w-full z-10 bg-[var(--background-color)]/80 backdrop-blur-sm">
+    </header>
+
+    <main class="pt-16">
+        <section class="relative flex items-center justify-center h-screen text-center px-4 sm:px-6 lg:px-8 animated-gradient">
+            <div class="z-10">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight text-white">Noor Azami</h1>
+                <p class="text-xl md:text-2xl text-text-secondary font-light mb-8 max-w-3xl mx-auto">IT enthusiast and problem-solver, passionate about leveraging technology to create innovative solutions.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="project.html" class="button_primary text-lg font-bold px-8 py-3">
+                        View My Work
+                    </a>
+                    <a href="contact.html" class="button_secondary text-lg font-bold px-8 py-3">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+                <a class="animate-bounce" href="#about">
+                    <svg class="h-8 w-8 text-text-secondary hover:text-primary-color transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center fade-in-scroll">
+                    <div class="w-full aspect-square max-w-md mx-auto lg:mx-0 rounded-lg bg-center bg-no-repeat bg-cover" style='background-image: url("https://placehold.co/400x400/1e1e1e/e0e0e0?text=Noor+Azami");'></div>
+                    <div class="text-left">
+                        <h2 class="text-3xl font-bold mb-4">About Me</h2>
+                        <p class="text-lg text-text-secondary leading-relaxed mb-6">
+                            I am an IT undergraduate at Universiti Tun Hussein Onn Malaysia with hands-on experience in technical support, leadership, and multimedia content creation. I thrive on solving IT problems, optimizing systems, and delivering creative solutions using technology.
+                        </p>
+                        <a href="about.html" class="button_primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-24 px-4 sm:px-6 lg:px-8 bg-[var(--accent-color)]/20">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 fade-in-scroll">Featured Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card fade-in-scroll">
+                        <div class="aspect-video bg-cover bg-center rounded-t-lg mb-4" style="background-image: url('https://placehold.co/600x400/121212/0c7ff2?text=Project+1');"></div>
+                        <h3 class="text-xl font-semibold mb-2">Project Title 1</h3>
+                        <p class="text-text-secondary mb-4">A brief description of the project and its main technologies.</p>
+                        <a href="project.html" class="text-[var(--primary-color)] hover:underline">View Details</a>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <div class="aspect-video bg-cover bg-center rounded-t-lg mb-4" style="background-image: url('https://placehold.co/600x400/121212/0c7ff2?text=Project+2');"></div>
+                        <h3 class="text-xl font-semibold mb-2">Project Title 2</h3>
+                        <p class="text-text-secondary mb-4">A brief description of the project and its main technologies.</p>
+                        <a href="project.html" class="text-[var(--primary-color)] hover:underline">View Details</a>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <div class="aspect-video bg-cover bg-center rounded-t-lg mb-4" style="background-image: url('https://placehold.co/600x400/121212/0c7ff2?text=Project+3');"></div>
+                        <h3 class="text-xl font-semibold mb-2">Project Title 3</h3>
+                        <p class="text-text-secondary mb-4">A brief description of the project and its main technologies.</p>
+                        <a href="project.html" class="text-[var(--primary-color)] hover:underline">View Details</a>
+                    </div>
+                </div>
+                <div class="text-center mt-12 fade-in-scroll">
+                    <a href="project.html" class="button_secondary">View All Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-cta" class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto text-center fade-in-scroll">
+                <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
+                <p class="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. Feel free to reach out.</p>
+                <a href="contact.html" class="button_primary text-lg font-bold px-8 py-3">
+                    Get In Touch
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="navigation.js"></script>
+    <script src="back-to-top.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeInScrolls = document.querySelectorAll('.fade-in-scroll');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeInScrolls.forEach(fadeInScroll => {
+                observer.observe(fadeInScroll);
+            });
+        });
+    </script>
+</body>
+</html>

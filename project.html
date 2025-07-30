@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Noor Azami</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #0c7ff2;
+            --background-color: #121212;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #333333;
+            --card-background: #1e1e1e;
+            --button-hover: #1a6ed8;
+        }
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+        }
+        .card {
+            @apply bg-[var(--card-background)] rounded-lg shadow-md p-6 transition-transform duration-300;
+        }
+        .card:hover {
+            @apply transform scale-105 shadow-2xl;
+        }
+        .button_primary {
+            @apply bg-[var(--primary-color)] text-white py-2 px-4 rounded-lg hover:bg-[var(--button-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50;
+        }
+        .fade-in-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .fade-in-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="dark">
+    <header class="fixed top-0 w-full z-10 bg-[var(--background-color)]">
+    </header>
+
+    <main class="container mx-auto px-4 py-8 pt-24">
+        <section class="mb-20 fade-in-scroll">
+            <h2 class="text-3xl font-bold text-center mb-8">Featured Project</h2>
+            <div class="card md:flex gap-8 items-center bg-[var(--card-background)] p-8 rounded-2xl">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <div class="w-full aspect-video bg-center bg-cover rounded-xl shadow-md" style='background-image: url("https://placehold.co/600x400/1e1e1e/e0e0e0?text=Featured+Project");'></div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-xl font-bold mb-2">Featured Project</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">
+                        This is a placeholder featured project to demonstrate layout.
+                    </p>
+                    <a href="#" class="button_primary">View Details</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-3xl font-bold text-center mb-8">All Projects</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card flex flex-col group overflow-hidden fade-in-scroll">
+                    <div class="w-full h-48 bg-center bg-cover" style='background-image: url("https://placehold.co/400x300/1e1e1e/e0e0e0?text=Project+1");'></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold mb-2">Project Placeholder</h3>
+                        <p class="text-[var(--text-secondary)] mb-4 flex-grow">
+                            This is a placeholder project.
+                        </p>
+                        <a href="#" class="button_primary mt-auto self-start">View Details</a>
+                    </div>
+                </div>
+                <div class="card flex flex-col group overflow-hidden fade-in-scroll">
+                    <div class="w-full h-48 bg-center bg-cover" style='background-image: url("https://placehold.co/400x300/1e1e1e/e0e0e0?text=Project+2");'></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold mb-2">Project Placeholder</h3>
+                        <p class="text-[var(--text-secondary)] mb-4 flex-grow">
+                            This is a placeholder project.
+                        </p>
+                        <a href="#" class="button_primary mt-auto self-start">View Details</a>
+                    </div>
+                </div>
+                <div class="card flex flex-col group overflow-hidden fade-in-scroll">
+                    <div class="w-full h-48 bg-center bg-cover" style='background-image: url("https://placehold.co/400x300/1e1e1e/e0e0e0?text=Project+3");'></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold mb-2">Project Placeholder</h3>
+                        <p class="text-[var(--text-secondary)] mb-4 flex-grow">
+                            This is a placeholder project.
+                        </p>
+                        <a href="#" class="button_primary mt-auto self-start">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="navigation.js"></script>
+    <script src="back-to-top.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeInScrolls = document.querySelectorAll('.fade-in-scroll');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+
+            fadeInScrolls.forEach(fadeInScroll => {
+                observer.observe(fadeInScroll);
+            });
+        });
+    </script>
+</body>
+</html>
