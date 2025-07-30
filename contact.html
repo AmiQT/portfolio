@@ -34,7 +34,7 @@
         .fade-in-scroll {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         .fade-in-scroll.visible {
             opacity: 1;
@@ -43,85 +43,70 @@
     </style>
 </head>
 <body class="dark">
-    <header class="fixed top-0 w-full z-10 bg-[var(--background-color)]">
+    <header class="fixed top-0 w-full z-10 bg-[var(--background-color)]/80 backdrop-blur-sm">
     </header>
 
-    <main class="container mx-auto px-4 py-8 pt-24">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <div class="space-y-8 fade-in-scroll">
-                <h1 class="text-4xl font-bold mb-6 text-center md:text-left">Get in Touch</h1>
-                <form action="#" class="space-y-6" method="POST">
-                    <div>
-                        <label class="sr-only" for="name">Your Name</label>
-                        <input class="input" id="name" name="name" placeholder="Your Name" type="text"/>
-                    </div>
-                    <div>
-                        <label class="sr-only" for="email">Your Email</label>
-                        <input class="input" id="email" name="email" placeholder="Your Email" type="email"/>
-                    </div>
-                    <div>
-                        <label class="sr-only" for="message">Your Message</label>
-                        <textarea class="input" id="message" name="message" placeholder="Your Message" rows="6"></textarea>
-                    </div>
-                    <div>
-                        <button class="button_primary w-full md:w-auto" type="submit">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
+    <main class="pt-16">
+        <section class="py-24 px-4 sm:px-6 lg:px-8 text-center">
+            <div class="container mx-auto fade-in-scroll">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
+                <p class="text-lg text-text-secondary max-w-3xl mx-auto">I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out.</p>
             </div>
-            <div class="space-y-8 fade-in-scroll">
-                <div class="card">
-                    <h2 class="text-2xl font-semibold mb-4">Contact Information</h2>
-                    <div class="space-y-4 text-base leading-relaxed">
-                        <div class="flex items-center gap-4">
-                            <svg class="size-6 text-[var(--text-secondary)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M224,48H32a8,8,0,0,0-8,8V192a8,8,0,0,0,8,8H224a8,8,0,0,0,8-8V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM40,183.34V72.66L128,153.3,216,72.66V183.34Z"></path></svg>
-                            <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="mailto:noorazami@outlook.my">noorazami@outlook.my</a>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <svg class="size-6 text-[var(--text-secondary)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M216,152v48a8,8,0,0,1-8,8h-8a8,8,0,0,1-8-8c-2.31,0-80-7.39-80-82.47,0-16.73,5.18-40.42,13.2-56.1a8,8,0,0,1,13.6,8.2C130,86.67,128,103,128,120c0,42.3,42,48,48,48a8,8,0,0,1,8,8v8a8,8,0,0,1,8,8h8a8,8,0,0,1,8,8Zm24.49-96.49a8,8,0,0,0-10.61,3.13l-19.43,38.87a8,8,0,0,0,13.14,9.39l19.43-38.87A8,8,0,0,0,240.49,55.51Zm-62-35.15a8,8,0,0,0,5.06-14.78l-40-22.86a8,8,0,0,0-10.12,4.37l-16,48a8,8,0,0,0,14.78,5.06l16-48L178.47,20.36Z"></path></svg>
-                            <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="tel:013-8799702">013-8799702</a>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <svg class="size-6 text-[var(--text-secondary)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path></svg>
-                            <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="https://www.linkedin.com/in/noor-azami/" rel="noopener noreferrer" target="_blank">linkedin.com/in/noor-azami</a>
+        </section>
+
+        <section class="pb-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                    <div class="space-y-8 fade-in-scroll">
+                        <form action="https://formspree.io/f/mldllrqd" class="space-y-6" method="POST">
+                            <div>
+                                <label class="sr-only" for="name">Your Name</label>
+                                <input class="input" id="name" name="name" placeholder="Your Name" type="text"/>
+                            </div>
+                            <div>
+                                <label class="sr-only" for="email">Your Email</label>
+                                <input class="input" id="email" name="email" placeholder="Your Email" type="email"/>
+                            </div>
+                            <div>
+                                <label class="sr-only" for="message">Your Message</label>
+                                <textarea class="input" id="message" name="message" placeholder="Your Message" rows="6"></textarea>
+                            </div>
+                            <div>
+                                <button class="button_primary w-full md:w-auto" type="submit">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="space-y-8 fade-in-scroll">
+                        <div class="card">
+                            <h2 class="text-2xl font-semibold mb-4">Contact Information</h2>
+                            <div class="space-y-4 text-base leading-relaxed">
+                                <div class="flex items-center gap-4">
+                                    <svg class="size-6 text-[var(--text-secondary)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M224,48H32a8,8,0,0,0-8,8V192a8,8,0,0,0,8,8H224a8,8,0,0,0,8-8V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM40,183.34V72.66L128,153.3,216,72.66V183.34Z"></path></svg>
+                                    <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="mailto:noorazami@outlook.my">noorazami@outlook.my</a>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <svg class="size-6 text-[var(--text-secondary)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M216,152v48a8,8,0,0,1-8,8h-8a8,8,0,0,1-8-8c-2.31,0-80-7.39-80-82.47,0-16.73,5.18-40.42,13.2-56.1a8,8,0,0,1,13.6,8.2C130,86.67,128,103,128,120c0,42.3,42,48,48,48a8,8,0,0,1,8,8v8a8,8,0,0,1,8,8h8a8,8,0,0,1,8,8Zm24.49-96.49a8,8,0,0,0-10.61,3.13l-19.43,38.87a8,8,0,0,0,13.14,9.39l19.43-38.87A8,8,0,0,0,240.49,55.51Zm-62-35.15a8,8,0,0,0,5.06-14.78l-40-22.86a8,8,0,0,0-10.12,4.37l-16,48a8,8,0,0,0,14.78,5.06l16-48L178.47,20.36Z"></path></svg>
+                                    <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="tel:013-8799702">013-8799702</a>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <svg class="size-6 text-[var(--text-secondary)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path></svg>
+                                    <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="https://www.linkedin.com/in/noor-azami/" rel="noopener noreferrer" target="_blank">linkedin.com/in/noor-azami</a>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <svg class="size-6 text-[var(--text-secondary)]" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1 0-1.3-.5-2.4-1.3-3.2.4-.3.5-1.1.1-2.1 0 0-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1c-.4 1-.3 1.8.1 2.1-.8.8-1.3 1.9-1.3 3.2 0 4.7 2.7 5.8 5.5 6.1-.6.5-.9 1.2-.9 2.2v3.5"></path></svg>
+                                    <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="https://github.com/AmiQT" rel="noopener noreferrer" target="_blank">github.com/AmiQT</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="aspect-video w-full rounded-lg overflow-hidden">
-                    <div class="w-full h-full bg-cover bg-center" style='background-image: url("https://placehold.co/600x400/1e1e1e/e0e0e0?text=Google+Maps");'>
-                    </div>
-                </div>
             </div>
-        </div>
+        </section>
     </main>
 
-    <script src="navigation.js"></script>
-    <script src="back-to-top.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const fadeInScrolls = document.querySelectorAll('.fade-in-scroll');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            });
-
-            fadeInScrolls.forEach(fadeInScroll => {
-                observer.observe(fadeInScroll);
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
+    <script src="js/back-to-top.js"></script>
 </body>
-</html>gApC4hmwaV3KEbYtb_tsSqTGIYL8fVn8U3qMbfh6O3YmZ7n943BU");'>
-</div>
-</div>
-</div>
-</div>
-</main>
-</div>
-</div>
-
-</body></html>
+</html>

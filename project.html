@@ -15,6 +15,7 @@
             --accent-color: #333333;
             --card-background: #1e1e1e;
             --button-hover: #1a6ed8;
+            --border-color: #444444;
         }
         body {
             font-family: "Space Grotesk", sans-serif;
@@ -22,18 +23,12 @@
             color: var(--text-primary);
         }
         .card {
-            @apply bg-[var(--card-background)] rounded-lg shadow-md p-6 transition-transform duration-300;
-        }
-        .card:hover {
-            @apply transform scale-105 shadow-2xl;
-        }
-        .button_primary {
-            @apply bg-[var(--primary-color)] text-white py-2 px-4 rounded-lg hover:bg-[var(--button-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50;
+            @apply bg-[var(--card-background)] rounded-lg shadow-md p-6 transition-transform duration-300 hover:transform hover:-translate-y-2;
         }
         .fade-in-scroll {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         .fade-in-scroll.visible {
             opacity: 1;
@@ -42,80 +37,62 @@
     </style>
 </head>
 <body class="dark">
-    <header class="fixed top-0 w-full z-10 bg-[var(--background-color)]">
+    <header class="fixed top-0 w-full z-10 bg-[var(--background-color)]/80 backdrop-blur-sm">
     </header>
 
-    <main class="container mx-auto px-4 py-8 pt-24">
-        <section class="mb-20 fade-in-scroll">
-            <h2 class="text-3xl font-bold text-center mb-8">Featured Project</h2>
-            <div class="card md:flex gap-8 items-center bg-[var(--card-background)] p-8 rounded-2xl">
-                <div class="md:w-1/2 mb-6 md:mb-0">
-                    <div class="w-full aspect-video bg-center bg-cover rounded-xl shadow-md" style='background-image: url("https://placehold.co/600x400/1e1e1e/e0e0e0?text=Featured+Project");'></div>
-                </div>
-                <div class="md:w-1/2">
-                    <h3 class="text-xl font-bold mb-2">Featured Project</h3>
-                    <p class="text-[var(--text-secondary)] mb-4">
-                        This is a placeholder featured project to demonstrate layout.
-                    </p>
-                    <a href="#" class="button_primary">View Details</a>
-                </div>
+    <main class="pt-16">
+        <section class="py-24 px-4 sm:px-6 lg:px-8 text-center">
+            <div class="container mx-auto fade-in-scroll">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">My Projects</h1>
+                <p class="text-lg text-text-secondary max-w-3xl mx-auto">A collection of my work, from web applications to design projects.</p>
             </div>
         </section>
 
-        <section>
-            <h2 class="text-3xl font-bold text-center mb-8">All Projects</h2>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card flex flex-col group overflow-hidden fade-in-scroll">
-                    <div class="w-full h-48 bg-center bg-cover" style='background-image: url("https://placehold.co/400x300/1e1e1e/e0e0e0?text=Project+1");'></div>
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-lg font-bold mb-2">Project Placeholder</h3>
-                        <p class="text-[var(--text-secondary)] mb-4 flex-grow">
-                            This is a placeholder project.
-                        </p>
-                        <a href="#" class="button_primary mt-auto self-start">View Details</a>
+        <section class="pb-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card fade-in-scroll">
+                        <div class="aspect-video bg-cover bg-center rounded-t-lg mb-4" style="background-image: url('https://placehold.co/600x400/121212/0c7ff2?text=Project+1');"></div>
+                        <h3 class="text-xl font-semibold mb-2">Project Title 1</h3>
+                        <p class="text-text-secondary mb-4">A brief description of the project and its main technologies.</p>
+                        <a href="#" class="text-[var(--primary-color)] hover:underline">View Details</a>
                     </div>
-                </div>
-                <div class="card flex flex-col group overflow-hidden fade-in-scroll">
-                    <div class="w-full h-48 bg-center bg-cover" style='background-image: url("https://placehold.co/400x300/1e1e1e/e0e0e0?text=Project+2");'></div>
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-lg font-bold mb-2">Project Placeholder</h3>
-                        <p class="text-[var(--text-secondary)] mb-4 flex-grow">
-                            This is a placeholder project.
-                        </p>
-                        <a href="#" class="button_primary mt-auto self-start">View Details</a>
+                    <div class="card fade-in-scroll">
+                        <div class="aspect-video bg-cover bg-center rounded-t-lg mb-4" style="background-image: url('https://placehold.co/600x400/121212/0c7ff2?text=Project+2');"></div>
+                        <h3 class="text-xl font-semibold mb-2">Project Title 2</h3>
+                        <p class="text-text-secondary mb-4">A brief description of the project and its main technologies.</p>
+                        <a href="#" class="text-[var(--primary-color)] hover:underline">View Details</a>
                     </div>
-                </div>
-                <div class="card flex flex-col group overflow-hidden fade-in-scroll">
-                    <div class="w-full h-48 bg-center bg-cover" style='background-image: url("https://placehold.co/400x300/1e1e1e/e0e0e0?text=Project+3");'></div>
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-lg font-bold mb-2">Project Placeholder</h3>
-                        <p class="text-[var(--text-secondary)] mb-4 flex-grow">
-                            This is a placeholder project.
-                        </p>
-                        <a href="#" class="button_primary mt-auto self-start">View Details</a>
+                    <div class="card fade-in-scroll">
+                        <div class="aspect-video bg-cover bg-center rounded-t-lg mb-4" style="background-image: url('https://placehold.co/600x400/121212/0c7ff2?text=Project+3');"></div>
+                        <h3 class="text-xl font-semibold mb-2">Project Title 3</h3>
+                        <p class="text-text-secondary mb-4">A brief description of the project and its main technologies.</p>
+                        <a href="#" class="text-[var(--primary-color)] hover:underline">View Details</a>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <div class="aspect-video bg-cover bg-center rounded-t-lg mb-4" style="background-image: url('https://placehold.co/600x400/121212/0c7ff2?text=Project+4');"></div>
+                        <h3 class="text-xl font-semibold mb-2">Project Title 4</h3>
+                        <p class="text-text-secondary mb-4">A brief description of the project and its main technologies.</p>
+                        <a href="#" class="text-[var(--primary-color)] hover:underline">View Details</a>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <div class="aspect-video bg-cover bg-center rounded-t-lg mb-4" style="background-image: url('https://placehold.co/600x400/121212/0c7ff2?text=Project+5');"></div>
+                        <h3 class="text-xl font-semibold mb-2">Project Title 5</h3>
+                        <p class="text-text-secondary mb-4">A brief description of the project and its main technologies.</p>
+                        <a href="#" class="text-[var(--primary-color)] hover:underline">View Details</a>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <div class="aspect-video bg-cover bg-center rounded-t-lg mb-4" style="background-image: url('https://placehold.co/600x400/121212/0c7ff2?text=Project+6');"></div>
+                        <h3 class="text-xl font-semibold mb-2">Project Title 6</h3>
+                        <p class="text-text-secondary mb-4">A brief description of the project and its main technologies.</p>
+                        <a href="#" class="text-[var(--primary-color)] hover:underline">View Details</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <script src="navigation.js"></script>
-    <script src="back-to-top.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const fadeInScrolls = document.querySelectorAll('.fade-in-scroll');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            });
-
-            fadeInScrolls.forEach(fadeInScroll => {
-                observer.observe(fadeInScroll);
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
+    <script src="js/back-to-top.js"></script>
 </body>
 </html>

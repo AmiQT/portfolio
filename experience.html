@@ -15,6 +15,7 @@
             --accent-color: #333333;
             --card-background: #1e1e1e;
             --button-hover: #1a6ed8;
+            --border-color: #444444;
         }
         body {
             font-family: "Space Grotesk", sans-serif;
@@ -22,62 +23,89 @@
             color: var(--text-primary);
         }
         .card {
-            @apply bg-[var(--card-background)] rounded-lg shadow-md p-6;
+            @apply bg-[var(--card-background)] rounded-lg shadow-md p-6 transition-transform duration-300 hover:transform hover:-translate-y-2;
+        }
+        .fade-in-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline-item {
+            @apply relative pl-8 sm:pl-12 pb-12;
+        }
+        .timeline-item:last-child {
+            @apply pb-0;
+        }
+        .timeline-marker {
+            @apply absolute top-1 left-0 sm:left-2.5 w-5 h-5 bg-[var(--primary-color)] rounded-full border-4 border-[var(--background-color)];
+        }
+        .timeline-line {
+            @apply absolute top-1 left-2 sm:left-5 w-0.5 h-full bg-[var(--border-color)];
         }
     </style>
 </head>
 <body class="dark">
-    <header class="fixed top-0 w-full z-10 bg-[var(--background-color)]">
+    <header class="fixed top-0 w-full z-10 bg-[var(--background-color)]/80 backdrop-blur-sm">
     </header>
 
-    <main class="container mx-auto px-4 py-8 pt-24">
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold text-[var(--text-primary)] border-b-2 border-[var(--primary-color)] pb-2 mb-8">Experience</h2>
-            <div class="relative">
-                <div class="absolute left-5 top-0 h-full w-0.5 bg-[var(--accent-color)]"></div>
-                <div class="space-y-12">
-                    <div class="relative pl-12">
-                        <div class="absolute left-5 top-2 -translate-x-1/2 w-6 h-6 bg-[var(--accent-color)] rounded-full border-4 border-[var(--background-color)]"></div>
-                        <p class="font-semibold text-lg text-[var(--text-primary)]">Vice President, Information Technology Club (2023 – 2025)</p>
-                        <p class="text-[var(--text-secondary)]">Led 24 club members and executed 17 events. Developed program plans, assisted president, represented club in official settings.</p>
-                    </div>
-                    <div class="relative pl-12">
-                        <div class="absolute left-5 top-2 -translate-x-1/2 w-6 h-6 bg-[var(--accent-color)] rounded-full border-4 border-[var(--background-color)]"></div>
-                        <p class="font-semibold text-lg text-[var(--text-primary)]">Facilitator, Food Department Orientation Day (2024)</p>
-                        <p class="text-[var(--text-secondary)]">Managed food distribution for 1,900 students, ensured quality and safety.</p>
-                    </div>
-                    <div class="relative pl-12">
-                        <div class="absolute left-5 top-2 -translate-x-1/2 w-6 h-6 bg-[var(--accent-color)] rounded-full border-4 border-[var(--background-color)]"></div>
-                        <p class="font-semibold text-lg text-[var(--text-primary)]">Student Representative Council, UiTM (2021 – 2023)</p>
-                        <p class="text-[var(--text-secondary)]">Produced multimedia content and provided backstage technical support.</p>
-                    </div>
-                </div>
+    <main class="pt-16">
+        <section class="py-24 px-4 sm:px-6 lg:px-8 text-center">
+            <div class="container mx-auto fade-in-scroll">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">My Experience</h1>
+                <p class="text-lg text-text-secondary max-w-3xl mx-auto">A timeline of my professional journey and accomplishments.</p>
             </div>
         </section>
 
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold text-[var(--text-primary)] border-b-2 border-[var(--primary-color)] pb-2 mb-8">Education</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="card">
-                    <h3 class="text-xl font-semibold text-[var(--text-primary)]">Bachelor of Information Technology</h3>
-                    <p class="text-[var(--text-secondary)]">Universiti Tun Hussein Onn Malaysia (2023 – 2026)</p>
+        <section class="pb-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-3xl">
+                <div class="relative">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-item fade-in-scroll">
+                        <div class="timeline-marker"></div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold">Vice President Club, Information Technology Club</h3>
+                            <p class="text-text-secondary mb-2">Universiti Tun Hussein Onn Malaysia | December 2023 - January 2025</p>
+                            <ul class="list-disc list-inside text-text-secondary space-y-1">
+                                <li>Successfully managed and executed 17 club events, including meetings, annual grand dinners, and team-building activities.</li>
+                                <li>Provided critical support to the club president, including assisting with urgent matters and representing the club in official settings.</li>
+                                <li>Actively participated in and led various club departments, demonstrating strong leadership and teamwork skills.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in-scroll">
+                        <div class="timeline-marker"></div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold">Facilitator Food Department Orientation Day (MHS)</h3>
+                            <p class="text-text-secondary mb-2">Universiti Tun Hussein Onn Malaysia | October 2024 - October 2024 (2 Week)</p>
+                            <ul class="list-disc list-inside text-text-secondary space-y-1">
+                                <li>Managed a food station responsible for collecting, gathering, and distributing food packs to 1900 students.</li>
+                                <li>Conducted thorough inspections of food upon delivery from vendors to ensure quantity, quality, and safety standards were met.</li>
+                                <li>Prioritized the dietary needs of all participants, ensuring immediate replacement of any food items causing allergic reactions.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in-scroll">
+                        <div class="timeline-marker"></div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold">Student Representative Council</h3>
+                            <p class="text-text-secondary mb-2">MPP Universiti Teknologi MARA, Johor | December 2021 - February 2023</p>
+                            <ul class="list-disc list-inside text-text-secondary space-y-1">
+                                <li>Proficient in managing and creating engaging content for Instagram, Facebook, and Telegram platforms.</li>
+                                <li>Skilled in designing and producing high-quality visual content, including social media graphics, mockups, and merchandise designs.</li>
+                                <li>Experienced in editing video content for various purposes, including montages, trailers, and opening event sequences.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3 class="text-xl font-semibold text-[var(--text-primary)]">Associate Degree in Information Management</h3>
-                    <p class="text-[var(--text-secondary)]">Universiti Teknologi MARA (2020 – 2023)</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="text-3xl font-bold text-[var(--text-primary)] border-b-2 border-[var(--primary-color)] pb-2 mb-8">Certifications</h2>
-            <div class="flex flex-wrap gap-4">
-                <div class="bg-[var(--accent-color)] text-[var(--text-primary)] text-sm font-medium py-2 px-4 rounded-full">CCNA: Introduction to Networks (Cisco, 2024)</div>
-                <div class="bg-[var(--accent-color)] text-[var(--text-primary)] text-sm font-medium py-2 px-4 rounded-full">Google IT Support (Google, 2024)</div>
             </div>
         </section>
     </main>
-    <script src="navigation.js"></script>
-    <script src="back-to-top.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/back-to-top.js"></script>
 </body>
 </html>
