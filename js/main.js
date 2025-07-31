@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Fetch and inject the header, then attach event listeners
-    fetch('partials/_header.html')
+    fetch('../partials/_header.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
