@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="The portfolio of Noor Azami, an IT enthusiast and problem-solver, showcasing projects and experience.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Noor Azami</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries" async></script>
     <style type="text/tailwindcss">
         :root {
-            --primary-color: #0c7ff2;
+            --primary-color: #0a58ca;
             --background-color: #121212;
             --text-primary: #e0e0e0;
             --text-secondary: #a0a0a0;
@@ -61,13 +65,13 @@
 <body class="dark">
     <header class="fixed top-0 w-full z-10 bg-[var(--background-color)]/80 backdrop-blur-sm">
 <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <a href="index.html" class="text-2xl font-bold">Noor Azami</a>
+    <a href="/" class="text-2xl font-bold">Noor Azami</a>
     <div class="hidden lg:flex items-center space-x-8">
-        <a href="index.html" class="text-lg hover:text-[var(--primary-color)] transition-colors">Home</a>
-        <a href="about.html" class="text-lg hover:text-[var(--primary-color)] transition-colors">About</a>
-        <a href="project.html" class="text-lg hover:text-[var(--primary-color)] transition-colors">Projects</a>
-        <a href="experience.html" class="text-lg hover:text-[var(--primary-color)] transition-colors">Experience</a>
-        <a href="contact.html" class="text-lg hover:text-[var(--primary-color)] transition-colors">Contact</a>
+        <a href="/" class="text-lg hover:text-[var(--primary-color)] transition-colors">Home</a>
+        <a href="/about/" class="text-lg hover:text-[var(--primary-color)] transition-colors">About</a>
+        <a href="/project/" class="text-lg hover:text-[var(--primary-color)] transition-colors">Projects</a>
+        <a href="/experience/" class="text-lg hover:text-[var(--primary-color)] transition-colors">Experience</a>
+        <a href="/contact/" class="text-lg hover:text-[var(--primary-color)] transition-colors">Contact</a>
     </div>
     <div class="lg:hidden">
         <button id="menu-toggle" class="text-white focus:outline-none">
@@ -79,11 +83,11 @@
 </nav>
 <div id="mobile-menu" class="hidden lg:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors">Home</a>
-        <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors">About</a>
-        <a href="project.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors">Projects</a>
-        <a href="experience.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors">Experience</a>
-        <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors">Contact</a>
+        <a href="/" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors">Home</a>
+        <a href="/about/" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors">About</a>
+        <a href="/project/" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors">Projects</a>
+        <a href="/experience/" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors">Experience</a>
+        <a href="/contact/" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors">Contact</a>
     </div>
 </div>
     </header>
@@ -94,7 +98,7 @@
                 <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight text-white">Noor Azami</h1>
                 <p class="text-xl md:text-2xl text-text-secondary font-light mb-8 max-w-3xl mx-auto">IT enthusiast and problem-solver, passionate about leveraging technology to create innovative solutions.</p>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="project.html" class="button_primary text-lg font-bold px-8 py-3">
+                    <a href="/project/" class="button_primary text-lg font-bold px-8 py-3">
                         View My Work
                     </a>
                     <a href="assets/IT Support.pdf" download class="button_secondary text-lg font-bold px-8 py-3">
@@ -103,10 +107,11 @@
                 </div>
             </div>
             <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
-                <a class="animate-bounce" href="#about">
+                <a class="animate-bounce" href="#about" aria-label="Scroll to about section">
                     <svg class="h-8 w-8 text-text-secondary hover:text-primary-color transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                     </svg>
+                    <span class="sr-only">Scroll to about section</span>
                 </a>
             </div>
         </section>
@@ -114,13 +119,13 @@
         <section id="about" class="py-24 px-4 sm:px-6 lg:px-8">
             <div class="container mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center fade-in-scroll">
-                    <div class="w-full aspect-square max-w-md mx-auto lg:mx-0 rounded-lg bg-center bg-no-repeat bg-cover" style='background-image: url("assets/profile.png");'></div>
+                    <div class="w-full aspect-square max-w-md mx-auto lg:mx-0 rounded-lg bg-center bg-no-repeat bg-cover" style='background-image: url("assets/profile.webp");'></div>
                     <div class="text-left">
                         <h2 class="text-3xl font-bold mb-4">About Me</h2>
                         <p class="text-lg text-text-secondary leading-relaxed mb-6">
                             I am an IT undergraduate at Universiti Tun Hussein Onn Malaysia with hands-on experience in technical support, leadership, and multimedia content creation. I thrive on solving IT problems, optimizing systems, and delivering creative solutions using technology.
                         </p>
-                        <a href="about.html" class="button_primary">Learn More</a>
+                        <a href="/about/" class="button_primary">More About Me</a>
                     </div>
                 </div>
             </div>
@@ -133,26 +138,32 @@
                     <!-- Project: Rumah Tenang -->
                     <div class="project-card fade-in-scroll" data-category="landing-page">
                         <div class="bg-gray-800 p-6 flex justify-center items-center aspect-video">
-                            <img src="assets/rumah_tenang.png" alt="Rumah Tenang Project" class="w-full h-full object-cover rounded-lg">
+                            <picture>
+                                <source srcset="assets/rumah_tenang.webp" type="image/webp">
+                                <img src="assets/rumah_tenang.png" alt="Rumah Tenang Project" class="w-full h-full object-cover rounded-lg" width="368" height="178">
+                            </picture>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <span class="inline-block bg-green-500/20 text-green-300 text-xs font-semibold px-2 py-1 rounded-full mb-2">Landing Page</span>
                             <h3 class="text-xl font-semibold mb-2">Rumah Tenang - Your Authentic Malaysian Escape</h3>
                             <p class="text-text-secondary mb-4 text-sm flex-grow">A landing page for the Rumah Tenang experience, featuring a hero section, gallery, packages, testimonials, and a booking form.</p>
-                            <a href="project.html" class="text-[var(--primary-color)] hover:underline mt-auto">View Details &rarr;</a>
+                            <a href="/project/" class="text-[var(--primary-color)] hover:underline mt-auto">View Details &rarr;</a>
                         </div>
                     </div>
 
                     <!-- Project: Nasi Lemak Burger -->
                     <div class="project-card fade-in-scroll" data-category="landing-page">
                         <div class="bg-gray-800 p-6 flex justify-center items-center aspect-video">
-                            <img src="assets/burger.png" alt="Nasi Lemak Burger Project" class="w-full h-full object-cover rounded-lg">
+                            <picture>
+                                <source srcset="assets/burger.webp" type="image/webp">
+                                <img src="assets/burger.png" alt="Nasi Lemak Burger Project" class="w-full h-full object-cover rounded-lg" width="354" height="179">
+                            </picture>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <span class="inline-block bg-green-500/20 text-green-300 text-xs font-semibold px-2 py-1 rounded-full mb-2">Landing Page</span>
                             <h3 class="text-xl font-semibold mb-2">Nasi Lemak Burger</h3>
                             <p class="text-text-secondary mb-4 text-sm flex-grow">A responsive landing page to promote a limited-time offer for the Nasi Lemak Burger.</p>
-                            <a href="project.html" class="text-[var(--primary-color)] hover:underline mt-auto">View Details &rarr;</a>
+                            <a href="/project/" class="text-[var(--primary-color)] hover:underline mt-auto">View Details &rarr;</a>
                         </div>
                     </div>
                     <!-- Project 1: Healthy Food App -->
@@ -178,7 +189,7 @@
                             <span class="inline-block bg-blue-500/20 text-blue-300 text-xs font-semibold px-2 py-1 rounded-full mb-2">Mobile App</span>
                             <h3 class="text-xl font-semibold mb-2">Healthy Food App</h3>
                             <p class="text-text-secondary mb-4 text-sm flex-grow">A comprehensive healthy food and meal planning app built with Flutter.</p>
-                            <a href="project.html" class="text-[var(--primary-color)] hover:underline mt-auto">View Details &rarr;</a>
+                            <a href="/project/" class="text-[var(--primary-color)] hover:underline mt-auto">View Details &rarr;</a>
                         </div>
                     </div>
 
@@ -206,13 +217,13 @@
                             <span class="inline-block bg-purple-500/20 text-purple-300 text-xs font-semibold px-2 py-1 rounded-full mb-2">C++</span>
                             <h3 class="text-xl font-semibold mb-2">Hotel Management System</h3>
                             <p class="text-text-secondary mb-4 text-sm flex-grow">A simple command-line hotel management system using OOP principles.</p>
-                            <a href="project.html" class="text-[var(--primary-color)] hover:underline mt-auto">View Details &rarr;</a>
+                            <a href="/project/" class="text-[var(--primary-color)] hover:underline mt-auto">View Details &rarr;</a>
                         </div>
                     </div>
 
                     <!-- More Projects Card -->
                     <div class="fade-in-scroll flex items-center justify-center bg-[var(--card-background)] rounded-lg shadow-md p-6 transition-transform duration-300 hover:transform hover:-translate-y-2">
-                        <a href="project.html" class="text-center">
+                        <a href="/project/" class="text-center">
                             <h3 class="text-2xl font-semibold text-white mb-2">View All Projects</h3>
                             <p class="text-text-secondary">Explore the full gallery of my work.</p>
                             <div class="text-4xl mt-4 text-[var(--primary-color)]">&rarr;</div>
@@ -220,7 +231,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-12 fade-in-scroll">
-                    <a href="project.html" class="button_secondary">View All Projects</a>
+                    <a href="/project/" class="button_secondary">View All Projects</a>
                 </div>
             </div>
         </section>
@@ -229,14 +240,14 @@
             <div class="container mx-auto text-center fade-in-scroll">
                 <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
                 <p class="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. Feel free to reach out.</p>
-                <a href="contact.html" class="button_primary text-lg font-bold px-8 py-3">
+                <a href="/contact/" class="button_primary text-lg font-bold px-8 py-3">
                     Get In Touch
                 </a>
             </div>
         </section>
     </main>
 
-    <script src="js/main.js"></script>
-    <script src="js/back-to-top.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/back-to-top.js"></script>
 </body>
 </html>
