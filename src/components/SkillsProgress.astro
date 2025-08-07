@@ -1,0 +1,62 @@
+---
+export interface Props {
+    skills: Array<{
+        name: string;
+        level: number; // 0-100
+        category: string;
+    }>;
+}
+
+const { skills } = Astro.props;
+---
+
+<div class="skills-progress">
+    {skills.map(skill => (
+        <div class="skill-item mb-6">
+            <div class="flex justify-between items-center mb-2">
+                <span class="font-medium text-[var(--text-primary)]">{skill.name}</span>
+                <span class="text-sm text-[var(--text-secondary)]">{skill.level}%</span>
+            </div>
+            <div class="w-full bg-[var(--accent-color)] rounded-full h-2">
+                <div 
+                    class="bg-gradient-to-r from-[var(--primary-color)] to-[var(--button-hover)] h-2 rounded-full transition-all duration-1000 ease-out"
+                    style={`width: ${skill.level}%`}
+                    data-level={skill.level}
+                ></div>
+            </div>
+        </div>
+    ))}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const skillBars = document.querySelectorAll('.skill-item .bg-gradient-to-r');
+    
+    const animateSkillBars = () => {
+        skillBars.forEach(bar => {
+            const level = bar.getAttribute('data-level');
+            if (level) {
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = level + '%';
+                }, 100);
+            }
+        });
+    };
+    
+    // Animate when skills section comes into view
+    const skillsSection = document.querySelector('.skills-progress');
+    if (skillsSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(skillsSection);
+    }
+});
+</script> 

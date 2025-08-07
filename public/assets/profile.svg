@@ -1,0 +1,8 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#1e1e1e"/>
+  <circle cx="200" cy="150" r="60" fill="#0a58ca"/>
+  <rect x="100" y="230" width="200" height="20" rx="10" fill="#0a58ca"/>
+  <rect x="120" y="260" width="160" height="15" rx="7.5" fill="#0a58ca"/>
+  <rect x="140" y="285" width="120" height="15" rx="7.5" fill="#0a58ca"/>
+  <text x="200" y="350" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="16">Noor Azami</text>
+</svg> 
