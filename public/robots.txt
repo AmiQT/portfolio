@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://noorazami.github.io/portfolio/sitemap.xml 
+Sitemap: https://amiqt.github.io/portfolio/sitemap.xml 
