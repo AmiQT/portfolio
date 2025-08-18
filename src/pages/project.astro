@@ -19,17 +19,56 @@ import Header from '../components/Header.astro';
                 <div class="flex flex-col items-center mb-12 fade-in-scroll">
                     <div class="flex justify-center flex-wrap gap-4 mb-4">
                         <button class="filter-button active" data-filter="all">All</button>
-                        <button class="filter-button" data-filter="landing-page">Landing Page</button>
+                        <button class="filter-button" data-filter="web-development">Web Development</button>
                         <button class="filter-button" data-filter="mobile">Mobile App</button>
                         <button class="filter-button" data-filter="c++">C++</button>
                     </div>
-                    <div class="filter-counter">Showing 4 projects</div>
+                    <div class="filter-counter">Showing 5 projects</div>
                 </div>
 
                 <!-- Project Grid -->
                 <div class="projects-grid project-grid">
+                    <!-- Project: StyleHub -->
+                    <div class="project-card fade-in-scroll" data-category="web-development">
+                        <div class="project-image-container">
+                            <div class="w-full h-full bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-lg flex items-center justify-center border border-pink-500/30">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-pink-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-pink-400">StyleHub</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">StyleHub - Fashion E-Commerce Platform</h3>
+                                <div class="project-badges">
+                                    <span class="project-badge web-development">Web Development</span>
+                                    <div class="skills-tags">
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">React</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-green-500/20 text-green-400 border border-green-500/30 rounded">Node.js</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded">PostgreSQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">A modern, responsive e-commerce website built with React, Node.js, and PostgreSQL. Features a complete shopping experience with user authentication, product management, shopping cart, and order processing.</p>
+                            <div class="project-actions">
+                                <a href={import.meta.env.BASE_URL + "projects/stylehub"} class="project-action-button primary">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    View Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Project: Rumah Tenang -->
-                    <div class="project-card fade-in-scroll" data-category="landing-page">
+                    <div class="project-card fade-in-scroll" data-category="web-development">
                         <div class="project-image-container">
                             <img src={import.meta.env.BASE_URL + "assets/rumah_tenang.webp"} alt="Rumah Tenang Project" class="w-full h-full object-contain rounded-lg" width="368" height="178" loading="lazy">
                         </div>
@@ -37,7 +76,7 @@ import Header from '../components/Header.astro';
                             <div class="project-header">
                                 <h3 class="project-title">Rumah Tenang - Your Authentic Malaysian Escape</h3>
                                 <div class="project-badges">
-                                    <span class="project-badge landing-page">Landing Page</span>
+                                    <span class="project-badge web-development">Web Development</span>
                                     <div class="skills-tags">
                                         <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">HTML</span>
                                         <span class="px-2 py-1 text-xs font-semibold bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded">CSS</span>
@@ -59,7 +98,7 @@ import Header from '../components/Header.astro';
                     </div>
 
                     <!-- Project: Nasi Lemak Burger -->
-                    <div class="project-card fade-in-scroll" data-category="landing-page">
+                    <div class="project-card fade-in-scroll" data-category="web-development">
                         <div class="project-image-container">
                             <img src={import.meta.env.BASE_URL + "assets/burger.webp"} alt="Nasi Lemak Burger Project" class="w-full h-full object-contain rounded-lg" width="354" height="179" loading="lazy">
                         </div>
@@ -67,7 +106,7 @@ import Header from '../components/Header.astro';
                             <div class="project-header">
                                 <h3 class="project-title">Nasi Lemak Burger</h3>
                                 <div class="project-badges">
-                                    <span class="project-badge landing-page">Landing Page</span>
+                                    <span class="project-badge web-development">Web Development</span>
                                     <div class="skills-tags">
                                         <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">HTML</span>
                                         <span class="px-2 py-1 text-xs font-semibold bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded">CSS</span>
