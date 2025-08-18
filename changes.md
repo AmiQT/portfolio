@@ -7,7 +7,7 @@
 
 ### To Do
 
-- [x] **Add a Blog or "Writings" Section**
+- [x] **All items completed**
 
 ---
 
