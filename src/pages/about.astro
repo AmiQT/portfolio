@@ -50,18 +50,89 @@ const softSkills = [
         </section>
 
         <section class="pb-24 px-4 sm:px-6 lg:px-8">
-            <div class="container mx-auto">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    					<div class="w-full aspect-square max-w-md mx-auto lg:mx-0 rounded-lg bg-center bg-no-repeat bg-cover fade-in-scroll shadow-lg" style={`background-image: url("${import.meta.env.BASE_URL}assets/profile.webp")`}></div>
-                    <div class="text-left fade-in-scroll">
-                        <h2 class="text-2xl font-bold mb-6">My Journey</h2>
-                        <p class="text-lg text-text-secondary leading-relaxed mb-4">
-                            I am an IT undergraduate at Universiti Tun Hussein Onn Malaysia with hands-on experience in technical support, leadership, and multimedia content creation. I thrive on solving IT problems, optimizing systems, and delivering creative solutions using technology.
-                        </p>
-                        <p class="text-lg text-text-secondary leading-relaxed mb-6">
-                            My experience ranges from managing IT events and troubleshooting systems to designing multimedia content and leading student organizations. I believe in combining technical expertise with strong people skills to deliver efficient and user-friendly IT solutions.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
+            <div class="container mx-auto max-w-6xl">
+                <!-- Profile Image - Centered and Larger -->
+                <div class="text-center mb-16 fade-in-scroll">
+                    <div class="w-80 h-80 mx-auto rounded-lg bg-center bg-no-repeat bg-cover shadow-2xl" style={`background-image: url("${import.meta.env.BASE_URL}assets/profile.webp")`}></div>
+                </div>
+                
+                <!-- Content Sections - 3 Rows × 2 Sections Grid Layout -->
+                <div class="space-y-16 fade-in-scroll">
+                    <!-- Row 1: Personal Introduction + My Journey -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Personal Introduction -->
+                        <div class="card p-8 text-center lg:text-left">
+                            <h2 class="text-3xl font-bold mb-6">Personal Introduction</h2>
+                            <p class="text-lg text-text-secondary leading-relaxed">
+                                I am an IT undergraduate at Universiti Tun Hussein Onn Malaysia with hands-on experience in technical support, leadership, and multimedia content creation. I thrive on solving IT problems, optimizing systems, and delivering creative solutions using technology.
+                            </p>
+                        </div>
+                        
+                        <!-- My Journey -->
+                        <div class="card p-8 text-center lg:text-left">
+                            <h3 class="text-2xl font-bold mb-6">My Journey</h3>
+                            <p class="text-lg text-text-secondary leading-relaxed">
+                                My experience ranges from managing IT events and troubleshooting systems to designing multimedia content and leading student organizations. I believe in combining technical expertise with strong people skills to deliver efficient and user-friendly IT solutions.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Creative Break Line 1 -->
+                    <div class="flex justify-center">
+                        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[var(--primary-color)] to-transparent"></div>
+                        <div class="mx-4 w-3 h-3 rounded-full bg-[var(--primary-color)]"></div>
+                        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[var(--primary-color)] to-transparent"></div>
+                    </div>
+                    
+                    <!-- Row 2: Technical Skills + Career Goals -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Technical Skills Overview -->
+                        <div class="card p-8 text-center lg:text-left">
+                            <h3 class="text-2xl font-bold mb-6">Technical Skills Overview</h3>
+                            <p class="text-lg text-text-secondary leading-relaxed">
+                                I specialize in IT infrastructure, web development, mobile app development with Flutter, and multimedia design. My technical foundation includes networking, system administration, and emerging technologies like cloud computing and AI.
+                            </p>
+                        </div>
+                        
+                        <!-- Career Goals -->
+                        <div class="card p-8 text-center lg:text-left">
+                            <h3 class="text-2xl font-bold mb-6">Career Goals</h3>
+                            <p class="text-lg text-text-secondary leading-relaxed">
+                                My goal is to secure an IT internship at a multinational company in Malaysia where I can grow my skills in cloud computing and network security. I am eager to contribute to large-scale IT infrastructure and learn from experienced professionals in the industry.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Creative Break Line 2 -->
+                    <div class="flex justify-center">
+                        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[var(--primary-color)] to-transparent"></div>
+                        <div class="mx-4 w-3 h-3 rounded-full bg-[var(--primary-color)]"></div>
+                        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[var(--primary-color)] to-transparent"></div>
+                    </div>
+                    
+                    <!-- Row 3: Malaysian Tech Ecosystem + What I'm Looking For -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Malaysian Tech Ecosystem -->
+                        <div class="card p-8 text-center lg:text-left">
+                            <h3 class="text-2xl font-bold mb-6">My Interest in the Malaysian Tech Ecosystem</h3>
+                            <p class="text-lg text-text-secondary leading-relaxed">
+                                I am actively following the growth of Malaysia's digital economy, particularly the developments outlined in the MyDIGITAL blueprint. I am excited by the increasing focus on cloud computing and cybersecurity within the nation's key industries and am eager to contribute to the innovative Malaysian companies driving this transformation.
+                            </p>
+                        </div>
+                        
+                        <!-- What I'm Looking For -->
+                        <div class="card p-8 text-center lg:text-left">
+                            <h3 class="text-2xl font-bold mb-6">What I'm Looking For</h3>
+                            <p class="text-lg text-text-secondary leading-relaxed">
+                                I'm seeking opportunities to apply my technical skills in real-world projects, particularly in cloud computing, network security, and system administration. I'm looking for mentorship from experienced professionals and the chance to contribute to meaningful IT solutions that drive business growth.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Highlights - Centered below the grid -->
+                    <div class="text-center mt-16">
+                        <h3 class="text-2xl font-bold mb-8">Key Highlights</h3>
+                        <div class="flex flex-wrap gap-6 justify-center">
                             <div class="flex items-center gap-2 text-sm text-text-secondary">
                                 <svg class="w-4 h-4 text-[var(--primary-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>

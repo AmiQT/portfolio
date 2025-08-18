@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export const frontmatter = {
+  title: 'My First Blog Post',
+  pubDate: '2025-08-18',
+  description: 'This is the first post on my new blog.',
+  author: 'Noor Azami',
+  image: {
+    url: 'https://via.placeholder.com/1200x600',
+    alt: 'Placeholder image'
+  },
+  tags: ["astro", "blogging", "learning in public"]
+};
+---
+<Layout title={frontmatter.title}>
+  <article>
+    <h1>{frontmatter.title}</h1>
+    <p>Published on: {frontmatter.pubDate}</p>
+    <p>{frontmatter.description}</p>
+    <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
+    <p>This is the content of my first blog post. I'm excited to start sharing my thoughts and experiences with you!</p>
+  </article>
+</Layout>

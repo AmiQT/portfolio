@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const allPosts = await Astro.glob('./posts/*.astro');
+---
+
+<Layout title="My Blog">
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8 text-center">My Blog</h1>
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {allPosts.map((post) => (
+        <a href={post.url} class="block p-6 bg-[var(--card-background-color)] rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <h2 class="text-2xl font-bold mb-2">{post.frontmatter.title}</h2>
+          <p class="text-gray-400 mb-4">{post.frontmatter.pubDate}</p>
+          <p>{post.frontmatter.description}</p>
+        </a>
+      ))}
+    </div>
+  </main>
+</Layout>
