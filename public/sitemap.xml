@@ -1,8 +1,5 @@
-<!--
-  This file is served as XML, not HTML.
-  GitHub Pages should serve this with content-type: application/xml
--->
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href=""?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://amiqt.github.io/portfolio/</loc>
