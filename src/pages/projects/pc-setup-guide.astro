@@ -1,0 +1,395 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+---
+
+<Layout title="Windows 10/11 PC Setup & Optimization Guide | Noor Azami" description="A comprehensive step-by-step guide for setting up and optimizing Windows 10/11 systems. Covers installation, software setup, security configuration, and performance optimization.">
+    <Header />
+    <main class="pt-16">
+        <!-- Back Button -->
+        <div class="px-4 sm:px-6 lg:px-8 py-4">
+            <button id="back-to-projects" class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group cursor-pointer">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Projects
+            </button>
+        </div>
+        <!-- Project Hero Section -->
+        <section class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-12 fade-in-scroll">
+                    <div class="flex justify-center mb-6">
+                        <span class="project-badge documentation text-lg px-6 py-3">IT Support Documentation</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Windows 10/11 PC Setup & Optimization Guide</h1>
+                    <p class="text-xl text-text-secondary max-w-3xl mx-auto">A comprehensive guide for setting up new Windows systems with best practices for performance, security, and user management.</p>
+                </div>
+
+                <!-- Project Overview -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Project Type</h3>
+                        <p class="text-text-secondary">IT Support documentation and best practices guide for Windows system setup and optimization.</p>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Target Audience</h3>
+                        <p class="text-text-secondary">IT Support technicians, system administrators, and end-users seeking optimization guidance.</p>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Coverage</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded text-sm">Setup</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded text-sm">Security</span>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded text-sm">Optimization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documentation Content -->
+                <div class="mb-16 fade-in-scroll">
+                    <h2 class="text-3xl font-bold mb-8">Complete Setup Guide</h2>
+
+                    <!-- Table of Contents -->
+                    <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mb-8">
+                        <h3 class="text-xl font-semibold mb-4">📋 Table of Contents</h3>
+                        <ul class="space-y-2 text-text-secondary">
+                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Pre-Installation Checklist</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Windows Installation Process</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Initial System Configuration</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Essential Software Installation</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Security Hardening</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Performance Optimization</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Backup & Recovery Setup</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> User Account Management</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 1 -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-blue-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">1. Pre-Installation Checklist</h3>
+                            <div class="bg-gray-800/30 border border-gray-700 rounded p-4 mb-4">
+                                <p class="text-text-secondary mb-3"><strong>Before you start, ensure you have:</strong></p>
+                                <ul class="list-disc list-inside text-text-secondary space-y-2">
+                                    <li>Windows 10/11 installation media (USB drive - 8GB minimum)</li>
+                                    <li>Product key or license (if required)</li>
+                                    <li>Backup of important data</li>
+                                    <li>Device drivers (motherboard, chipset, graphics)</li>
+                                    <li>Network connection (Ethernet preferred initially)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-green-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">2. Windows Installation</h3>
+                            <div class="space-y-4">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-green-500/20 px-3 py-1 rounded text-sm">STEP 1</span> Create Installation Media</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Insert 8GB USB drive into working computer</li>
+                                        <li>Download Windows 10/11 Media Creation Tool</li>
+                                        <li>Run tool and select "Create installation media"</li>
+                                        <li>Choose language, edition, and architecture (64-bit recommended)</li>
+                                        <li>Select USB drive as destination</li>
+                                        <li>Wait for process to complete (15-30 minutes)</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-green-500/20 px-3 py-1 rounded text-sm">STEP 2</span> Boot from USB</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Insert USB drive into target computer</li>
+                                        <li>Restart computer and enter BIOS (DEL, F2, or F12 during startup)</li>
+                                        <li>Set USB as first boot device</li>
+                                        <li>Save and exit BIOS</li>
+                                        <li>Computer will boot from USB automatically</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-green-500/20 px-3 py-1 rounded text-sm">STEP 3</span> Installation Process</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Click "Install Now"</li>
+                                        <li>Accept license terms</li>
+                                        <li>Select "Custom: Install Windows only"</li>
+                                        <li>Select target drive (delete partitions if needed)</li>
+                                        <li>Click "Next" and wait for installation (20-45 minutes)</li>
+                                        <li>Computer will restart multiple times</li>
+                                        <li>Complete initial setup (language, region, keyboard)</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-purple-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">3. Initial System Configuration</h3>
+                            <div class="space-y-4">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Update Windows & Drivers</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Open Settings → Update & Security</li>
+                                        <li>Click "Check for updates"</li>
+                                        <li>Install all available updates (may require restart)</li>
+                                        <li>Install chipset and graphics drivers from manufacturer</li>
+                                        <li>Check for updates again until no more available</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Configure Network</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Click network icon (bottom-right system tray)</li>
+                                        <li>Select WiFi network or connect Ethernet</li>
+                                        <li>Enter WiFi password if required</li>
+                                        <li>Wait for connection to establish</li>
+                                        <li>Open Settings to configure additional network options</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4 -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-yellow-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">4. Essential Software Installation</h3>
+                            <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                <p class="text-text-secondary mb-4"><strong>Recommended Essential Software:</strong></p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-gray-900/50 p-3 rounded border border-gray-700">
+                                        <p class="font-semibold text-blue-400">Office Suite</p>
+                                        <p class="text-text-secondary text-sm">Microsoft Office or LibreOffice</p>
+                                    </div>
+                                    <div class="bg-gray-900/50 p-3 rounded border border-gray-700">
+                                        <p class="font-semibold text-blue-400">PDF Reader</p>
+                                        <p class="text-text-secondary text-sm">Adobe Acrobat or Foxit Reader</p>
+                                    </div>
+                                    <div class="bg-gray-900/50 p-3 rounded border border-gray-700">
+                                        <p class="font-semibold text-blue-400">Antivirus</p>
+                                        <p class="text-text-secondary text-sm">Windows Defender (built-in) or third-party</p>
+                                    </div>
+                                    <div class="bg-gray-900/50 p-3 rounded border border-gray-700">
+                                        <p class="font-semibold text-blue-400">Browser</p>
+                                        <p class="text-text-secondary text-sm">Chrome, Firefox, or Edge</p>
+                                    </div>
+                                    <div class="bg-gray-900/50 p-3 rounded border border-gray-700">
+                                        <p class="font-semibold text-blue-400">Communication</p>
+                                        <p class="text-text-secondary text-sm">Slack, Teams, or Discord</p>
+                                    </div>
+                                    <div class="bg-gray-900/50 p-3 rounded border border-gray-700">
+                                        <p class="font-semibold text-blue-400">Backup Tool</p>
+                                        <p class="text-text-secondary text-sm">Acronis, Macrium, or built-in backup</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 5 -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-red-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">5. Security Hardening</h3>
+                            <div class="space-y-4">
+                                <div class="bg-red-900/20 border border-red-700 rounded p-4 mb-4">
+                                    <p class="text-red-300 font-semibold">⚠️ CRITICAL: These steps are essential for system security</p>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Enable Windows Firewall</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Open Settings → Update & Security → Windows Security</li>
+                                        <li>Click "Firewall & network protection"</li>
+                                        <li>Ensure firewall is ON for all network types</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Configure User Account Control (UAC)</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Type "UAC" in search bar</li>
+                                        <li>Click "Change User Account Control settings"</li>
+                                        <li>Set slider to "Notify me only when apps try to make changes"</li>
+                                        <li>Click OK</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Enable Windows Defender</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Open Windows Defender Antivirus</li>
+                                        <li>Ensure real-time protection is enabled</li>
+                                        <li>Run quick scan regularly (weekly)</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Setup Strong Password Policy</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Use minimum 12 characters</li>
+                                        <li>Include uppercase, lowercase, numbers, symbols</li>
+                                        <li>Change password every 90 days</li>
+                                        <li>Avoid using personal information</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 6 -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-cyan-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">6. Performance Optimization</h3>
+                            <div class="space-y-4">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Manage Startup Programs</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Right-click taskbar → Task Manager</li>
+                                        <li>Click "Startup" tab</li>
+                                        <li>Disable unnecessary programs (right-click → Disable)</li>
+                                        <li>Restart computer to apply changes</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Optimize Storage</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Open Settings → System → Storage</li>
+                                        <li>Enable "Storage Sense"</li>
+                                        <li>Run disk cleanup regularly</li>
+                                        <li>Monitor C: drive space (keep 20% free minimum)</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Enable Virtual Memory</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Right-click "This PC" → Properties</li>
+                                        <li>Click "Advanced system settings"</li>
+                                        <li>Performance section → Settings</li>
+                                        <li>Advanced tab → Virtual memory</li>
+                                        <li>Set initial size to 1.5x RAM, max size to 3x RAM</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Disable Visual Effects (if needed)</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Settings → System → About → Advanced system settings</li>
+                                        <li>Performance → Settings</li>
+                                        <li>Select "Adjust for best performance" (optional)</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 7 -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-green-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">7. Backup & Recovery Setup</h3>
+                            <div class="space-y-4">
+                                <div class="bg-green-900/20 border border-green-700 rounded p-4 mb-4">
+                                    <p class="text-green-300 font-semibold">✓ RECOMMENDED: Setup backup immediately after installation</p>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Enable System Image Backup</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Open Control Panel → Backup and Restore</li>
+                                        <li>Click "Create a system image"</li>
+                                        <li>Choose backup location (external drive recommended)</li>
+                                        <li>Select drives to include (usually C:)</li>
+                                        <li>Confirm and start backup</li>
+                                        <li>Schedule weekly backups</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Create Windows Recovery Drive</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Search for "Recovery drive" in Windows</li>
+                                        <li>Select "Create a recovery drive"</li>
+                                        <li>Use USB drive (8GB minimum)</li>
+                                        <li>Click "Next" and follow prompts</li>
+                                        <li>Store drive in safe location</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Tips -->
+                    <div class="bg-blue-900/20 border border-blue-700 rounded-lg p-6 mt-8">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">💡 Pro Tips</h3>
+                        <ul class="space-y-2 text-text-secondary">
+                            <li>• Always keep Windows updated for security patches</li>
+                            <li>• Use strong, unique passwords for all accounts</li>
+                            <li>• Enable Windows Defender or reputable antivirus</li>
+                            <li>• Backup data regularly (3-2-1 rule: 3 copies, 2 media types, 1 offsite)</li>
+                            <li>• Run disk cleanup monthly to free up space</li>
+                            <li>• Monitor startup programs and disable unnecessary ones</li>
+                            <li>• Keep drivers updated for better performance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Additional Resources -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-4">📚 Related Documentation</h3>
+                        <ul class="text-text-secondary space-y-2">
+                            <li>• <a href="/projects/windows-troubleshooting-guide" class="text-blue-400 hover:text-blue-300">Common IT Issues Troubleshooting</a></li>
+                            <li>• <a href="/projects/network-setup-guide" class="text-blue-400 hover:text-blue-300">Network & Remote Access Setup</a></li>
+                            <li>• Windows Security Best Practices</li>
+                            <li>• Software Installation Guide</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-4">🛠️ Useful Tools & Resources</h3>
+                        <ul class="text-text-secondary space-y-2">
+                            <li>• <a href="https://www.microsoft.com/en-us/software-download/windows10" class="text-blue-400 hover:text-blue-300" target="_blank">Windows 10 Download</a></li>
+                            <li>• <a href="https://www.microsoft.com/en-us/software-download/windows11" class="text-blue-400 hover:text-blue-300" target="_blank">Windows 11 Download</a></li>
+                            <li>• Windows Media Creation Tool</li>
+                            <li>• Rufus (Create bootable USB)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .documentation {
+        @apply bg-indigo-500/20 text-indigo-400 border border-indigo-500/30;
+    }
+</style>
+
+<script>
+    // IT Support Projects - PC Setup Guide is an IT project
+    document.addEventListener('DOMContentLoaded', function() {
+        const backButton = document.getElementById('back-to-projects');
+        if (backButton) {
+            backButton.addEventListener('click', function() {
+                const profile = localStorage.getItem('selectedProfile') || 'software-developer';
+                const baseUrl = window.location.pathname.startsWith('/portfolio') ? '/portfolio' : '';
+                
+                if (profile === 'it-support') {
+                    // Go to IT Support projects
+                    window.location.href = baseUrl + '/role-it-support/projects';
+                } else {
+                    // Default to Software Developer projects
+                    window.location.href = baseUrl + '/role-software-developer/projects';
+                }
+            });
+        }
+    });
+</script>

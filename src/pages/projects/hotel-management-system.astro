@@ -6,6 +6,15 @@ import Header from '../../components/Header.astro';
 <Layout title="Hotel Management System - C++ Command Line Application | Noor Azami" description="A complete command-line hotel management system implementing all essential booking flow operations using Object-Oriented Programming principles.">
     <Header />
     <main class="pt-16">
+        <!-- Back Button -->
+        <div class="px-4 sm:px-6 lg:px-8 py-4">
+            <a href={import.meta.env.BASE_URL + "project"} class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Projects
+            </a>
+        </div>
         <!-- Project Hero Section -->
         <section class="py-24 px-4 sm:px-6 lg:px-8">
             <div class="container mx-auto max-w-4xl">

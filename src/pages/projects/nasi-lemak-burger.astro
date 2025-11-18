@@ -6,6 +6,15 @@ import Header from '../../components/Header.astro';
 <Layout title="Nasi Lemak Burger - Promotional Landing Page | Noor Azami" description="A dynamic promotional landing page featuring a countdown timer that resets on each visit, creating urgency for limited-time food promotions.">
     <Header />
     <main class="pt-16">
+        <!-- Back Button -->
+        <div class="px-4 sm:px-6 lg:px-8 py-4">
+            <button id="back-to-projects" class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group cursor-pointer">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Projects
+            </button>
+        </div>
         <!-- Project Hero Section -->
         <section class="py-24 px-4 sm:px-6 lg:px-8">
             <div class="container mx-auto max-w-4xl">
@@ -230,3 +239,24 @@ import Header from '../../components/Header.astro';
         </section>
     </main>
 </Layout>
+
+<script>
+    // Software Developer Projects - Nasi Lemak Burger is a developer project
+    document.addEventListener('DOMContentLoaded', function() {
+        const backButton = document.getElementById('back-to-projects');
+        if (backButton) {
+            backButton.addEventListener('click', function() {
+                const profile = localStorage.getItem('selectedProfile') || 'software-developer';
+                const baseUrl = window.location.pathname.startsWith('/portfolio') ? '/portfolio' : '';
+                
+                if (profile === 'it-support') {
+                    // If IT Support is selected, go to IT Support projects
+                    window.location.href = baseUrl + '/role-it-support/projects';
+                } else {
+                    // Default to Software Developer projects
+                    window.location.href = baseUrl + '/role-software-developer/projects';
+                }
+            });
+        }
+    });
+</script>

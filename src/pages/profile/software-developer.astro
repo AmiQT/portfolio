@@ -1,0 +1,288 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+---
+
+<Layout title="Software Developer Profile - Noor Azami" description="Software Developer profile showcasing full-stack development, mobile apps, and programming expertise.">
+    <Header />
+    <main class="pt-16">
+        <!-- Back to Profiles -->
+        <div class="px-4 sm:px-6 lg:px-8 py-4">
+            <a href={import.meta.env.BASE_URL + "profile"} class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Profiles
+            </a>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-12 fade-in-scroll">
+                    <div class="inline-block mb-4 px-4 py-2 bg-green-500/20 border border-green-500/30 rounded-full">
+                        <span class="text-green-400 font-semibold text-sm">Software Developer</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Noor Azami</h1>
+                    <p class="text-xl text-text-secondary">Full-Stack Developer | Mobile Developer | Creative Technologist</p>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                    <div class="card text-center fade-in-scroll">
+                        <div class="text-3xl font-bold text-green-400 mb-2">5+</div>
+                        <p class="text-text-secondary">Projects Completed</p>
+                    </div>
+                    <div class="card text-center fade-in-scroll">
+                        <div class="text-3xl font-bold text-green-400 mb-2">8+</div>
+                        <p class="text-text-secondary">Technologies Mastered</p>
+                    </div>
+                    <div class="card text-center fade-in-scroll">
+                        <div class="text-3xl font-bold text-green-400 mb-2">100%</div>
+                        <p class="text-text-secondary">Passionate Developer</p>
+                    </div>
+                </div>
+
+                <!-- Core Competencies -->
+                <div class="mb-16 fade-in-scroll">
+                    <h2 class="text-3xl font-bold mb-8">Development Expertise</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="card">
+                            <h3 class="text-lg font-semibold text-green-400 mb-4">Frontend Development</h3>
+                            <ul class="space-y-2 text-text-secondary">
+                                <li>✓ React & Modern JavaScript</li>
+                                <li>✓ HTML5 & CSS3</li>
+                                <li>✓ Responsive Design</li>
+                                <li>✓ UI/UX Implementation</li>
+                                <li>✓ Web Performance Optimization</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-lg font-semibold text-green-400 mb-4">Backend Development</h3>
+                            <ul class="space-y-2 text-text-secondary">
+                                <li>✓ Node.js & Express</li>
+                                <li>✓ Database Design (SQL)</li>
+                                <li>✓ RESTful APIs</li>
+                                <li>✓ Authentication & Security</li>
+                                <li>✓ Server-Side Architecture</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-lg font-semibold text-green-400 mb-4">Mobile Development</h3>
+                            <ul class="space-y-2 text-text-secondary">
+                                <li>✓ Flutter & Dart</li>
+                                <li>✓ Cross-Platform Development</li>
+                                <li>✓ Native Features Integration</li>
+                                <li>✓ Firebase Integration</li>
+                                <li>✓ App Performance</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-lg font-semibold text-green-400 mb-4">Other Specializations</h3>
+                            <ul class="space-y-2 text-text-secondary">
+                                <li>✓ C++ Systems Programming</li>
+                                <li>✓ Object-Oriented Design</li>
+                                <li>✓ Git & Version Control</li>
+                                <li>✓ Testing & Debugging</li>
+                                <li>✓ Technical Documentation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Software Projects -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 fade-in-scroll">Featured Projects</h2>
+                    <p class="text-text-secondary mb-8 fade-in-scroll">I've developed a diverse range of applications across web and mobile platforms:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- StyleHub -->
+                        <a href={import.meta.env.BASE_URL + "projects/stylehub"} class="group">
+                            <div class="card hover:border-green-400/50 fade-in-scroll">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">StyleHub - E-Commerce</h3>
+                                        <p class="text-sm text-text-secondary mt-1">React, Node.js, PostgreSQL</p>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary text-sm mb-4">Modern responsive e-commerce platform with complete shopping experience, user authentication, and order processing.</p>
+                                <span class="inline-flex items-center gap-2 text-green-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                    View Project
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Healthy Food App -->
+                        <a href={import.meta.env.BASE_URL + "projects/healthy-food-app"} class="group">
+                            <div class="card hover:border-green-400/50 fade-in-scroll">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Healthy Food App</h3>
+                                        <p class="text-sm text-text-secondary mt-1">Flutter, Dart, Firebase</p>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary text-sm mb-4">Comprehensive mobile app for meal planning with recipe generation, shop integration, and subscription-based premium features.</p>
+                                <span class="inline-flex items-center gap-2 text-green-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                    View Project
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Rumah Tenang -->
+                        <a href={import.meta.env.BASE_URL + "projects/rumah-tenang"} class="group">
+                            <div class="card hover:border-green-400/50 fade-in-scroll">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-3m0 0l7-4 7 4M5 9v10a1 1 0 001 1h12a1 1 0 001-1V9m-9 16l4-4m0 0l4 4m-4-4v4m0-11l-4 2m0 0L9 7m4-4l4 2m0 0l3-2"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Rumah Tenang</h3>
+                                        <p class="text-sm text-text-secondary mt-1">HTML, CSS, JavaScript</p>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary text-sm mb-4">Responsive landing page for Malaysian homestay with interactive gallery and booking inquiry system.</p>
+                                <span class="inline-flex items-center gap-2 text-green-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                    View Project
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Nasi Lemak Burger -->
+                        <a href={import.meta.env.BASE_URL + "projects/nasi-lemak-burger"} class="group">
+                            <div class="card hover:border-green-400/50 fade-in-scroll">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Nasi Lemak Burger</h3>
+                                        <p class="text-sm text-text-secondary mt-1">HTML, CSS, JavaScript</p>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary text-sm mb-4">Dynamic promotional landing page with countdown timer creating urgency for limited-time food promotions.</p>
+                                <span class="inline-flex items-center gap-2 text-green-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                    View Project
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Hotel Management System -->
+                        <a href={import.meta.env.BASE_URL + "projects/hotel-management-system"} class="group">
+                            <div class="card hover:border-green-400/50 fade-in-scroll">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Hotel Management System</h3>
+                                        <p class="text-sm text-text-secondary mt-1">C++, OOP, CLI</p>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary text-sm mb-4">Command-line hotel management system demonstrating OOP principles with complete booking flow operations.</p>
+                                <span class="inline-flex items-center gap-2 text-green-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                    View Project
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- View All Projects -->
+                        <a href={import.meta.env.BASE_URL + "projects"} class="group">
+                            <div class="card hover:border-green-400/50 fade-in-scroll">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">View All Projects</h3>
+                                        <p class="text-sm text-text-secondary mt-1">Complete portfolio showcase</p>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary text-sm mb-4">Browse the complete collection of all development projects, including web, mobile, and systems programming.</p>
+                                <span class="inline-flex items-center gap-2 text-green-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                    Explore Projects
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Technical Stack -->
+                <div class="mb-16 fade-in-scroll">
+                    <h2 class="text-3xl font-bold mb-8">Technical Stack</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-green-400 mb-4">Languages & Frameworks</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded text-sm">JavaScript</span>
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded text-sm">React</span>
+                                <span class="px-3 py-1 bg-green-600/20 text-green-400 border border-green-600/30 rounded text-sm">Node.js</span>
+                                <span class="px-3 py-1 bg-blue-600/20 text-blue-400 border border-blue-600/30 rounded text-sm">Flutter</span>
+                                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded text-sm">C++</span>
+                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded text-sm">HTML/CSS</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-green-400 mb-4">Tools & Platforms</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-orange-500/20 text-orange-400 border border-orange-500/30 rounded text-sm">Git</span>
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded text-sm">Firebase</span>
+                                <span class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded text-sm">PostgreSQL</span>
+                                <span class="px-3 py-1 bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 rounded text-sm">VS Code</span>
+                                <span class="px-3 py-1 bg-red-500/20 text-red-400 border border-red-500/30 rounded text-sm">Adobe XD</span>
+                                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded text-sm">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center p-8 bg-green-500/10 border border-green-500/30 rounded-lg fade-in-scroll">
+                    <h3 class="text-2xl font-bold mb-4">Ready to Collaborate on Development Projects?</h3>
+                    <p class="text-text-secondary mb-6">I'm open to discussing exciting development opportunities and innovative projects.</p>
+                    <a href={import.meta.env.BASE_URL + "contact"} class="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-semibold transition-colors">
+                        Let's Talk
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

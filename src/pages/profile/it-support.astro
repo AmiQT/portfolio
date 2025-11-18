@@ -1,0 +1,266 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+---
+
+<Layout title="IT Support Profile - Noor Azami" description="IT Support professional profile showcasing technical support expertise, system administration, and infrastructure knowledge.">
+    <Header />
+    <main class="pt-16">
+        <!-- Back to Profiles -->
+        <div class="px-4 sm:px-6 lg:px-8 py-4">
+            <a href={import.meta.env.BASE_URL + "profile"} class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Profiles
+            </a>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-12 fade-in-scroll">
+                    <div class="inline-block mb-4 px-4 py-2 bg-blue-500/20 border border-blue-500/30 rounded-full">
+                        <span class="text-blue-400 font-semibold text-sm">IT Support Professional</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Noor Azami</h1>
+                    <p class="text-xl text-text-secondary">IT Support Specialist | System Administrator | Technical Support Expert</p>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                    <div class="card text-center fade-in-scroll">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">5+</div>
+                        <p class="text-text-secondary">Years IT Experience</p>
+                    </div>
+                    <div class="card text-center fade-in-scroll">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">100+</div>
+                        <p class="text-text-secondary">Issues Resolved</p>
+                    </div>
+                    <div class="card text-center fade-in-scroll">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">24/7</div>
+                        <p class="text-text-secondary">Support Availability</p>
+                    </div>
+                </div>
+
+                <!-- Core Competencies -->
+                <div class="mb-16 fade-in-scroll">
+                    <h2 class="text-3xl font-bold mb-8">Core IT Competencies</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="card">
+                            <h3 class="text-lg font-semibold text-blue-400 mb-4">System Administration</h3>
+                            <ul class="space-y-2 text-text-secondary">
+                                <li>✓ Active Directory Management</li>
+                                <li>✓ Windows Server Administration</li>
+                                <li>✓ User Account Management</li>
+                                <li>✓ Group Policy Configuration</li>
+                                <li>✓ Network Troubleshooting</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-lg font-semibold text-blue-400 mb-4">Technical Support</h3>
+                            <ul class="space-y-2 text-text-secondary">
+                                <li>✓ Hardware Troubleshooting</li>
+                                <li>✓ Software Installation & Setup</li>
+                                <li>✓ Printer & Device Setup</li>
+                                <li>✓ Remote Support & RDP</li>
+                                <li>✓ Performance Optimization</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-lg font-semibold text-blue-400 mb-4">Infrastructure</h3>
+                            <ul class="space-y-2 text-text-secondary">
+                                <li>✓ Network Configuration</li>
+                                <li>✓ VPN Setup & Management</li>
+                                <li>✓ Backup & Disaster Recovery</li>
+                                <li>✓ Security Hardening</li>
+                                <li>✓ System Monitoring</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-lg font-semibold text-blue-400 mb-4">Technical Knowledge</h3>
+                            <ul class="space-y-2 text-text-secondary">
+                                <li>✓ Windows 10/11 Administration</li>
+                                <li>✓ Linux Basics</li>
+                                <li>✓ Networking Fundamentals</li>
+                                <li>✓ Cloud Infrastructure</li>
+                                <li>✓ IT Security Best Practices</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IT Documentation Projects -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 fade-in-scroll">Technical Documentation</h2>
+                    <p class="text-text-secondary mb-8 fade-in-scroll">I've created comprehensive documentation guides for common IT support scenarios:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- PC Setup Guide -->
+                        <a href={import.meta.env.BASE_URL + "projects/pc-setup-guide"} class="group">
+                            <div class="card hover:border-blue-400/50 fade-in-scroll">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">PC Setup & Optimization</h3>
+                                        <p class="text-sm text-text-secondary mt-1">Complete Windows setup guide</p>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary text-sm mb-4">Step-by-step guide for setting up and optimizing Windows systems including security hardening and performance tuning.</p>
+                                <span class="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                    Read Guide
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Troubleshooting Guide -->
+                        <a href={import.meta.env.BASE_URL + "projects/windows-troubleshooting-guide"} class="group">
+                            <div class="card hover:border-blue-400/50 fade-in-scroll">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Troubleshooting Guide</h3>
+                                        <p class="text-sm text-text-secondary mt-1">Solutions for common issues</p>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary text-sm mb-4">Practical solutions for WiFi issues, printer problems, app crashes, and performance problems.</p>
+                                <span class="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                    Read Guide
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Network Setup Guide -->
+                        <a href={import.meta.env.BASE_URL + "projects/network-setup-guide"} class="group">
+                            <div class="card hover:border-blue-400/50 fade-in-scroll">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-teal-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20m0 0l-.75 3M9 20H5m15-5h-3.75M15 5h-3m0 0h-3m3 0V2m0 3H6m0 0h-.75m.75 0l-.75-3M19 11l3-.75m0 0l.75-3M22 11h-3m0 0v3m0-3V8"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Network & Remote Access</h3>
+                                        <p class="text-sm text-text-secondary mt-1">VPN, RDP, and networking</p>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary text-sm mb-4">Complete guide for network configuration, VPN setup, and remote desktop access troubleshooting.</p>
+                                <span class="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                    Read Guide
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Active Directory Guide -->
+                        <a href={import.meta.env.BASE_URL + "projects/active-directory-guide"} class="group">
+                            <div class="card hover:border-blue-400/50 fade-in-scroll">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Active Directory Admin</h3>
+                                        <p class="text-sm text-text-secondary mt-1">User & domain management</p>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary text-sm mb-4">Master Active Directory administration, user accounts, group policies, and permissions management.</p>
+                                <span class="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                    Read Guide
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Backup & DR Guide -->
+                        <a href={import.meta.env.BASE_URL + "projects/backup-recovery-guide"} class="group">
+                            <div class="card hover:border-blue-400/50 fade-in-scroll">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Backup & Disaster Recovery</h3>
+                                        <p class="text-sm text-text-secondary mt-1">Business continuity planning</p>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary text-sm mb-4">Comprehensive backup strategies, RTO/RPO metrics, recovery procedures, and testing methodologies.</p>
+                                <span class="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                    Read Guide
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Key Skills -->
+                <div class="mb-16 fade-in-scroll">
+                    <h2 class="text-3xl font-bold mb-8">Technical Expertise</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/30 rounded-lg border border-gray-700">
+                            <span class="text-blue-400 font-bold">→</span>
+                            <span>Operating Systems: Windows 10/11, Windows Server, Linux</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/30 rounded-lg border border-gray-700">
+                            <span class="text-blue-400 font-bold">→</span>
+                            <span>Networking: TCP/IP, DNS, DHCP, VPN, RDP</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/30 rounded-lg border border-gray-700">
+                            <span class="text-blue-400 font-bold">→</span>
+                            <span>Directory Services: Active Directory, LDAP, GPO</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/30 rounded-lg border border-gray-700">
+                            <span class="text-blue-400 font-bold">→</span>
+                            <span>Security: Firewalls, Antivirus, Access Control</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/30 rounded-lg border border-gray-700">
+                            <span class="text-blue-400 font-bold">→</span>
+                            <span>Backup & Recovery: Planning, Testing, Implementation</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/30 rounded-lg border border-gray-700">
+                            <span class="text-blue-400 font-bold">→</span>
+                            <span>Support Tools: Remote Support, Ticketing Systems</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center p-8 bg-blue-500/10 border border-blue-500/30 rounded-lg fade-in-scroll">
+                    <h3 class="text-2xl font-bold mb-4">Ready to Discuss IT Support Opportunities?</h3>
+                    <p class="text-text-secondary mb-6">I'm available for discussions about IT support roles and technical challenges.</p>
+                    <a href={import.meta.env.BASE_URL + "contact"} class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors">
+                        Get in Touch
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

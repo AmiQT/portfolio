@@ -1,0 +1,513 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+---
+
+<Layout title="Common IT Issues Troubleshooting Guide | Noor Azami" description="Step-by-step troubleshooting guide for common IT support issues including WiFi problems, printer setup, application crashes, and system performance.">
+    <Header />
+    <main class="pt-16">
+        <!-- Back Button -->
+        <div class="px-4 sm:px-6 lg:px-8 py-4">
+            <button id="back-to-projects" class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group cursor-pointer">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Projects
+            </button>
+        </div>
+        <!-- Project Hero Section -->
+        <section class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-12 fade-in-scroll">
+                    <div class="flex justify-center mb-6">
+                        <span class="project-badge documentation text-lg px-6 py-3">IT Support Documentation</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Common IT Issues Troubleshooting Guide</h1>
+                    <p class="text-xl text-text-secondary max-w-3xl mx-auto">A practical guide for resolving the most common IT support issues that occur in the workplace.</p>
+                </div>
+
+                <!-- Project Overview -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Project Type</h3>
+                        <p class="text-text-secondary">Practical troubleshooting documentation covering 80% of IT support tickets.</p>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Target Audience</h3>
+                        <p class="text-text-secondary">IT Support staff, help desk technicians, and end-users.</p>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Coverage</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 border border-orange-500/30 rounded text-sm">WiFi</span>
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 border border-orange-500/30 rounded text-sm">Printer</span>
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 border border-orange-500/30 rounded text-sm">Software</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documentation Content -->
+                <div class="mb-16 fade-in-scroll">
+                    <h2 class="text-3xl font-bold mb-8">Troubleshooting Guide</h2>
+
+                    <!-- Table of Contents -->
+                    <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mb-8">
+                        <h3 class="text-xl font-semibold mb-4">📋 Quick Navigation</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-text-secondary">
+                            <div class="flex items-center gap-2"><span class="text-orange-400">→</span> WiFi Connectivity Issues</div>
+                            <div class="flex items-center gap-2"><span class="text-orange-400">→</span> Printer Setup & Troubleshooting</div>
+                            <div class="flex items-center gap-2"><span class="text-orange-400">→</span> Application Crashes & Freezing</div>
+                            <div class="flex items-center gap-2"><span class="text-orange-400">→</span> Disk Space Management</div>
+                            <div class="flex items-center gap-2"><span class="text-orange-400">→</span> Slow Computer Performance</div>
+                            <div class="flex items-center gap-2"><span class="text-orange-400">→</span> Software Installation Issues</div>
+                        </div>
+                    </div>
+
+                    <!-- Issue 1: WiFi -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-blue-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">1. WiFi Connectivity Issues</h3>
+                            
+                            <div class="bg-gray-800/30 border border-gray-700 rounded p-4 mb-4">
+                                <h4 class="font-semibold mb-3 text-blue-300">🔧 Quick Diagnostic Steps</h4>
+                                <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                    <li>Check if WiFi icon shows network available</li>
+                                    <li>Try connecting to a different WiFi network</li>
+                                    <li>Restart modem and router (power off 30 seconds)</li>
+                                    <li>Check router placement and signal strength</li>
+                                    <li>Restart network driver</li>
+                                </ol>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-blue-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Can't see WiFi network</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Check WiFi is enabled on computer (Fn + WiFi key or airplane mode OFF)</li>
+                                            <li>Restart network adapter: Settings → Network → WiFi → scroll down → Related settings → Device Manager</li>
+                                            <li>Right-click network adapter → Disable, wait 5 seconds, then Enable</li>
+                                            <li>Search for available networks again</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-blue-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Connected but no internet</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Forget network: Right-click network → Forget</li>
+                                            <li>Reconnect with correct password</li>
+                                            <li>Open Command Prompt as Administrator</li>
+                                            <li>Type: <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">ipconfig /release</code> and press Enter</li>
+                                            <li>Type: <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">ipconfig /renew</code> and press Enter</li>
+                                            <li>Wait 1 minute and check internet connection</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-blue-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Slow WiFi speed</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Check router placement (center of home/office, elevated)</li>
+                                            <li>Check for interference (microwave, cordless phone)</li>
+                                            <li>Move closer to router</li>
+                                            <li>Change WiFi channel in router settings (5GHz preferred)</li>
+                                            <li>Limit connected devices</li>
+                                            <li>Restart router</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-blue-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Connection keeps dropping</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Update network driver: Device Manager → Network adapters → right-click → Update driver</li>
+                                            <li>Disable power saving mode for adapter: Device Manager → Network adapters → right-click → Properties → Power Management → uncheck power saving</li>
+                                            <li>Update router firmware</li>
+                                            <li>Check for overheating router (ensure ventilation)</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Issue 2: Printer -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-purple-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">2. Printer Setup & Troubleshooting</h3>
+
+                            <div class="space-y-3">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-purple-500/20 px-3 py-1 rounded text-sm">SETUP</span> Installing a Network Printer</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Connect printer to network (WiFi or Ethernet)</li>
+                                            <li>Open Settings → Devices → Printers & scanners</li>
+                                            <li>Click "Add a printer or scanner"</li>
+                                            <li>Wait for system to detect printer</li>
+                                            <li>Select printer from list and click "Add device"</li>
+                                            <li>Download and install latest drivers from manufacturer</li>
+                                            <li>Print test page to confirm</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-purple-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Printer not found</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Verify printer is powered on and connected to network</li>
+                                            <li>Check printer's IP address on printer display or web interface</li>
+                                            <li>In Windows Settings → Add printer → Add manually</li>
+                                            <li>Select "Add a TCP/IP printer by hostname or IP address"</li>
+                                            <li>Enter printer IP address</li>
+                                            <li>Follow wizard to complete setup</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-purple-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Printer offline</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Check printer power and network connection</li>
+                                            <li>Check for paper jams or error messages on printer</li>
+                                            <li>Power cycle printer (off 30 seconds, then on)</li>
+                                            <li>On computer: Settings → Devices → Printers → right-click printer → See what's printing</li>
+                                            <li>Click "Printer" menu → "Cancel All Documents"</li>
+                                            <li>Restart computer</li>
+                                            <li>If still offline: remove and re-add printer</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-purple-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Print jobs stuck in queue</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Open Command Prompt as Administrator</li>
+                                            <li>Type: <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">net stop spooler</code></li>
+                                            <li>Press Enter and wait</li>
+                                            <li>Navigate to: C:\Windows\System32\spool\PRINTERS</li>
+                                            <li>Delete all files in this folder</li>
+                                            <li>Type: <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">net start spooler</code></li>
+                                            <li>Restart printer and try again</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-purple-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Poor print quality</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Check ink/toner levels</li>
+                                            <li>Clean printhead (printer menu → Maintenance → Clean)</li>
+                                            <li>Check print settings: Printing preferences → Quality settings (High quality)</li>
+                                            <li>Use correct paper type</li>
+                                            <li>Replace cartridges if low</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Issue 3: Application Crashes -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-red-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">3. Application Crashes & Freezing</h3>
+
+                            <div class="space-y-3">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-red-500/20 px-3 py-1 rounded text-sm">QUICK FIX</span> Force close application</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Right-click taskbar → Task Manager</li>
+                                            <li>Find frozen application</li>
+                                            <li>Click to select it</li>
+                                            <li>Click "End Task"</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-red-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Application crashes on launch</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Check Windows updates are installed</li>
+                                            <li>Update application to latest version</li>
+                                            <li>Try running in compatibility mode: right-click app → Properties → Compatibility → Run this program in compatibility mode for → select older Windows version</li>
+                                            <li>Run as Administrator: right-click app → "Run as administrator"</li>
+                                            <li>Reinstall application</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-red-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Application freezes periodically</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Check system resources in Task Manager (CPU, Memory, Disk)</li>
+                                            <li>Close unnecessary background programs</li>
+                                            <li>Update graphics drivers</li>
+                                            <li>Disable hardware acceleration in application settings</li>
+                                            <li>Clear application cache: application settings → cache/temp files → clear</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-red-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Application won't uninstall</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Close application if running</li>
+                                            <li>Settings → Apps → Apps & features</li>
+                                            <li>Find application → click → Uninstall → Uninstall</li>
+                                            <li>If fails: use Control Panel → Programs → Uninstall a program</li>
+                                            <li>If still fails: use CCleaner or Revo Uninstaller</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Issue 4: Disk Space -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-yellow-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">4. Disk Space Management</h3>
+
+                            <div class="space-y-3">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-yellow-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Low disk space warning</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Quick Actions:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Open File Explorer → This PC</li>
+                                            <li>Check C: drive used space</li>
+                                            <li>Delete Downloads folder (old files)</li>
+                                            <li>Empty Recycle Bin</li>
+                                            <li>Run Disk Cleanup: type "Disk Cleanup" in search</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-yellow-500/20 px-3 py-1 rounded text-sm">SOLUTION</span> Deep Disk Cleanup</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Run: <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">cleanmgr</code> (Disk Cleanup tool)</li>
+                                            <li>Select C: drive</li>
+                                            <li>Check: Temporary files, Recycle bin, Windows updates</li>
+                                            <li>Click "Clean up system files"</li>
+                                            <li>Review files and click "OK"</li>
+                                            <li>Check freed space</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-yellow-500/20 px-3 py-1 rounded text-sm">FIND</span> Large files taking space</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>File Explorer → right-click C: → Properties</li>
+                                            <li>Use TreeSize Free tool (download)</li>
+                                            <li>See which folders use most space</li>
+                                            <li>Move large files to external drive or cloud storage</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Issue 5: Slow Performance -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-cyan-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">5. Slow Computer Performance</h3>
+
+                            <div class="space-y-3">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-cyan-500/20 px-3 py-1 rounded text-sm">DIAGNOSE</span> Check resource usage</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Right-click taskbar → Task Manager</li>
+                                            <li>Click "Performance" tab</li>
+                                            <li>Check CPU, Memory, Disk usage</li>
+                                            <li>If high: click "Processes" tab to identify cause</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-cyan-500/20 px-3 py-1 rounded text-sm">SOLUTION</span> Reduce startup programs</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Task Manager → "Startup" tab</li>
+                                            <li>Right-click unnecessary apps → Disable</li>
+                                            <li>Restart computer</li>
+                                            <li>Startup time should improve</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-cyan-500/20 px-3 py-1 rounded text-sm">SOLUTION</span> Check for malware</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Open Windows Defender</li>
+                                            <li>Click "Scan" → "Full scan"</li>
+                                            <li>Let it complete (may take 30+ minutes)</li>
+                                            <li>If threats found: quarantine them</li>
+                                            <li>If none found: continue troubleshooting</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-cyan-500/20 px-3 py-1 rounded text-sm">SOLUTION</span> Update drivers</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Right-click Start → Device Manager</li>
+                                            <li>Look for yellow warning icons</li>
+                                            <li>Right-click device → Update driver</li>
+                                            <li>Select "Search automatically for drivers"</li>
+                                            <li>Restart if prompted</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Issue 6: Software Installation -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-green-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">6. Software Installation Issues</h3>
+
+                            <div class="space-y-3">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-green-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Installation fails midway</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Uninstall partial installation: Settings → Apps → Uninstall</li>
+                                            <li>Restart computer</li>
+                                            <li>Disable antivirus temporarily (if trusted software)</li>
+                                            <li>Re-download installer from official source</li>
+                                            <li>Run as Administrator: right-click installer → Run as administrator</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-green-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Setup requires older .NET Framework</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Download required .NET Framework from Microsoft</li>
+                                            <li>Install .NET Framework first</li>
+                                            <li>Restart computer</li>
+                                            <li>Then install main software</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-green-500/20 px-3 py-1 rounded text-sm">ISSUE</span> Permission denied error</h4>
+                                    <div class="ml-4 text-text-secondary space-y-2">
+                                        <p><strong>Solution:</strong></p>
+                                        <ol class="list-decimal list-inside space-y-1">
+                                            <li>Right-click installer → Run as administrator</li>
+                                            <li>Click "Yes" when prompted by User Account Control</li>
+                                            <li>Continue installation</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pro Tips -->
+                    <div class="bg-orange-900/20 border border-orange-700 rounded-lg p-6 mt-8">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">💡 IT Support Pro Tips</h3>
+                        <ul class="space-y-2 text-text-secondary">
+                            <li>• Always restart first - fixes 70% of issues</li>
+                            <li>• Keep a USB with troubleshooting tools handy</li>
+                            <li>• Document issues and solutions for future reference</li>
+                            <li>• Ask users "What changed?" before the issue occurred</li>
+                            <li>• Use Google to search error codes (add "Windows" to search)</li>
+                            <li>• Backup data before major troubleshooting</li>
+                            <li>• Know when to escalate vs. troubleshoot</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Additional Resources -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-4">📚 Related Documentation</h3>
+                        <ul class="text-text-secondary space-y-2">
+                            <li>• <a href="/projects/pc-setup-guide" class="text-blue-400 hover:text-blue-300">Windows 10/11 Setup Guide</a></li>
+                            <li>• <a href="/projects/network-setup-guide" class="text-blue-400 hover:text-blue-300">Network & Remote Access Setup</a></li>
+                            <li>• Common Error Codes Reference</li>
+                            <li>• Remote Support Procedures</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-4">🛠️ Useful Tools</h3>
+                        <ul class="text-text-secondary space-y-2">
+                            <li>• <a href="https://www.ccleaner.com/" class="text-blue-400 hover:text-blue-300" target="_blank">CCleaner</a> - System cleanup</li>
+                            <li>• <a href="https://www.malwarebytes.com/" class="text-blue-400 hover:text-blue-300" target="_blank">Malwarebytes</a> - Malware removal</li>
+                            <li>• <a href="https://www.sherrodcomputing.com/treesize-free/" class="text-blue-400 hover:text-blue-300" target="_blank">TreeSize Free</a> - Disk analysis</li>
+                            <li>• <a href="https://www.7-zip.org/" class="text-blue-400 hover:text-blue-300" target="_blank">7-Zip</a> - File compression</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .documentation {
+        @apply bg-indigo-500/20 text-indigo-400 border border-indigo-500/30;
+    }
+</style>
+
+<script>
+    // IT Support Projects - Windows Troubleshooting Guide is an IT project
+    document.addEventListener('DOMContentLoaded', function() {
+        const backButton = document.getElementById('back-to-projects');
+        if (backButton) {
+            backButton.addEventListener('click', function() {
+                const profile = localStorage.getItem('selectedProfile') || 'software-developer';
+                const baseUrl = window.location.pathname.startsWith('/portfolio') ? '/portfolio' : '';
+                
+                if (profile === 'it-support') {
+                    // Go to IT Support projects
+                    window.location.href = baseUrl + '/role-it-support/projects';
+                } else {
+                    // Default to Software Developer projects
+                    window.location.href = baseUrl + '/role-software-developer/projects';
+                }
+            });
+        }
+    });
+</script>

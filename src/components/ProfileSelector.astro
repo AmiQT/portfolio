@@ -1,0 +1,196 @@
+---
+// Profile selection modal - displays on first visit
+// This component handles profile selection and sets context
+---
+
+<div id="profile-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" style="display: none;">
+    <div class="bg-gray-900 border border-gray-700 rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <!-- Header -->
+        <div class="sticky top-0 bg-gradient-to-b from-gray-900 via-gray-900 to-transparent p-8 border-b border-gray-700">
+            <h1 class="text-3xl font-bold mb-2">Welcome to My Portfolio</h1>
+            <p class="text-text-secondary">Choose your profile to see a customized experience</p>
+        </div>
+
+        <!-- Content -->
+        <div class="p-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- IT Support Option -->
+                <button 
+                    id="select-it-support" 
+                    class="profile-option group text-left p-6 border-2 border-gray-700 rounded-lg hover:border-blue-500 hover:bg-blue-500/5 transition-all duration-300"
+                    data-profile="it-support"
+                >
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-16 h-16 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/30 transition-colors">
+                            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20m0 0l-.75 3M9 20H5m15-5h-3.75M15 5h-3m0 0h-3m3 0V2m0 3H6m0 0h-.75m.75 0l-.75-3M19 11l3-.75m0 0l.75-3M22 11h-3m0 0v3m0-3V8"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold group-hover:text-blue-400 transition-colors">IT Support Professional</h2>
+                            <p class="text-sm text-text-secondary mt-1">Technical support & administration</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-sm text-text-secondary">
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-400">✓</span>
+                            <span>System Administration</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-400">✓</span>
+                            <span>Technical Documentation</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-400">✓</span>
+                            <span>Infrastructure & Networking</span>
+                        </li>
+                    </ul>
+                </button>
+
+                <!-- Software Developer Option -->
+                <button 
+                    id="select-software-dev" 
+                    class="profile-option group text-left p-6 border-2 border-gray-700 rounded-lg hover:border-green-500 hover:bg-green-500/5 transition-all duration-300"
+                    data-profile="software-developer"
+                >
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-16 h-16 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/30 transition-colors">
+                            <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold group-hover:text-green-400 transition-colors">Software Developer</h2>
+                            <p class="text-sm text-text-secondary mt-1">Full-stack & mobile development</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-sm text-text-secondary">
+                        <li class="flex items-center gap-2">
+                            <span class="text-green-400">✓</span>
+                            <span>Full-Stack Development</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-green-400">✓</span>
+                            <span>Mobile Apps & Flutter</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-green-400">✓</span>
+                            <span>Web & Systems Programming</span>
+                        </li>
+                    </ul>
+                </button>
+            </div>
+
+            <!-- Info Section -->
+            <div class="p-4 bg-gray-800/30 border border-gray-700 rounded-lg">
+                <p class="text-sm text-text-secondary">
+                    <strong>💡 Tip:</strong> You can change your profile preference anytime by visiting the Profile page from the navigation menu.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Check if user has already selected a profile
+    function checkProfileSelection() {
+        const savedProfile = localStorage.getItem('selectedProfile');
+        const modal = document.getElementById('profile-modal');
+        
+        if (!savedProfile && modal) {
+            // Show modal if no profile selected
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    // Handle profile selection
+    function setupProfileSelection() {
+        const itSupportBtn = document.getElementById('select-it-support');
+        const softwareDevBtn = document.getElementById('select-software-dev');
+        const modal = document.getElementById('profile-modal');
+
+        if (itSupportBtn) {
+            itSupportBtn.addEventListener('click', () => {
+                selectProfile('it-support');
+            });
+        }
+
+        if (softwareDevBtn) {
+            softwareDevBtn.addEventListener('click', () => {
+                selectProfile('software-developer');
+            });
+        }
+
+        // Allow closing modal by clicking backdrop if user already has a profile
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    const hasProfile = localStorage.getItem('selectedProfile');
+                    if (hasProfile) {
+                        // Allow closing if user already has profile
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+            });
+        }
+    }
+
+    // Save profile selection and redirect to appropriate home page
+    function selectProfile(profile) {
+        localStorage.setItem('selectedProfile', profile);
+        const modal = document.getElementById('profile-modal');
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Dispatch custom event so other components can react
+        window.dispatchEvent(new CustomEvent('profileSelected', { detail: { profile } }));
+        
+        // Get base URL
+        const baseUrl = window.location.pathname.startsWith('/portfolio') ? '/portfolio' : '';
+        
+        // Redirect to appropriate home page based on profile
+        const redirectUrl = profile === 'it-support' 
+            ? baseUrl + '/home-it-support/' 
+            : baseUrl + '/home-software-developer/';
+        
+        setTimeout(() => {
+            window.location.href = redirectUrl;
+        }, 300);
+    }
+
+    // Get current profile
+    function getCurrentProfile() {
+        return localStorage.getItem('selectedProfile') || 'software-developer'; // default
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', checkProfileSelection);
+    setupProfileSelection();
+
+    // Make functions available globally
+    window.selectProfile = selectProfile;
+    window.getCurrentProfile = getCurrentProfile;
+</script>
+
+<style>
+    #profile-modal {
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .profile-option {
+        cursor: pointer;
+    }
+</style>

@@ -1,0 +1,470 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+---
+
+<Layout title="Backup & Disaster Recovery Plan | Noor Azami" description="Complete backup and disaster recovery documentation for IT support professionals. Includes strategies, procedures, testing, and implementation best practices.">
+    <Header />
+    <main class="pt-16">
+        <!-- Back Button -->
+        <div class="px-4 sm:px-6 lg:px-8 py-4">
+            <button id="back-to-projects" class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group cursor-pointer">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Projects
+            </button>
+        </div>
+        <!-- Project Hero Section -->
+        <section class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-12 fade-in-scroll">
+                    <div class="flex justify-center mb-6">
+                        <span class="project-badge documentation text-lg px-6 py-3">IT Documentation</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Backup & Disaster Recovery Plan</h1>
+                    <p class="text-xl text-text-secondary max-w-3xl mx-auto">Comprehensive guide to develop, implement, and maintain robust backup strategies and disaster recovery procedures to protect critical business data.</p>
+                </div>
+
+                <!-- Project Overview -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Project Type</h3>
+                        <p class="text-text-secondary">Business continuity and data protection planning documentation.</p>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Target Audience</h3>
+                        <p class="text-text-secondary">IT administrators, system managers, and business continuity planners.</p>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Coverage</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded text-sm">Backup Strategy</span>
+                            <span class="px-3 py-1 bg-red-500/20 text-red-400 border border-red-500/30 rounded text-sm">DR Planning</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded text-sm">Testing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documentation Content -->
+                <div class="mb-16 fade-in-scroll">
+                    <h2 class="text-3xl font-bold mb-8">Backup & Disaster Recovery Documentation</h2>
+
+                    <!-- Table of Contents -->
+                    <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mb-8">
+                        <h3 class="text-xl font-semibold mb-4">📋 Topics Covered</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-text-secondary">
+                            <div class="flex items-center gap-2"><span class="text-blue-400">→</span> Backup Fundamentals</div>
+                            <div class="flex items-center gap-2"><span class="text-blue-400">→</span> Backup Types & Methods</div>
+                            <div class="flex items-center gap-2"><span class="text-blue-400">→</span> DR Planning & Strategy</div>
+                            <div class="flex items-center gap-2"><span class="text-blue-400">→</span> RTO & RPO Metrics</div>
+                            <div class="flex items-center gap-2"><span class="text-blue-400">→</span> Testing & Validation</div>
+                            <div class="flex items-center gap-2"><span class="text-blue-400">→</span> Recovery Procedures</div>
+                        </div>
+                    </div>
+
+                    <!-- Section 1: Backup Fundamentals -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-blue-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">1. Backup Fundamentals</h3>
+                            
+                            <div class="bg-blue-900/20 border border-blue-700 rounded p-4 mb-4">
+                                <p class="text-blue-300 font-semibold">Why Backups Matter?</p>
+                                <p class="text-text-secondary text-sm mt-2">Backups protect against data loss from hardware failures, ransomware attacks, accidental deletion, and disasters. A solid backup strategy is critical for business continuity.</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">3-2-1 Backup Rule</h4>
+                                    <div class="text-text-secondary space-y-2">
+                                        <p class="font-semibold text-blue-400">Best Practice Standard:</p>
+                                        <ul class="list-disc list-inside space-y-1 ml-2">
+                                            <li><strong>3</strong> copies of your data (original + 2 backups)</li>
+                                            <li><strong>2</strong> different storage media types (disk + tape)</li>
+                                            <li><strong>1</strong> copy offsite (cloud or remote location)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Critical Data Identification</h4>
+                                    <ul class="list-disc list-inside text-text-secondary space-y-2">
+                                        <li>Databases and application data</li>
+                                        <li>Financial records and billing systems</li>
+                                        <li>Customer and employee information</li>
+                                        <li>Email and communication records</li>
+                                        <li>Configuration and system files</li>
+                                        <li>Intellectual property and trade secrets</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Backup Types -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-cyan-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">2. Backup Types & Methods</h3>
+
+                            <div class="space-y-4">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 text-cyan-400">Full Backup</h4>
+                                    <ul class="list-disc list-inside text-text-secondary space-y-2">
+                                        <li>Complete copy of all data</li>
+                                        <li>Time-intensive but complete recovery</li>
+                                        <li>Frequency: Weekly or Monthly</li>
+                                        <li>Storage: High (entire dataset)</li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 text-cyan-400">Incremental Backup</h4>
+                                    <ul class="list-disc list-inside text-text-secondary space-y-2">
+                                        <li>Only changes since last backup</li>
+                                        <li>Fast and storage-efficient</li>
+                                        <li>Frequency: Daily</li>
+                                        <li>Recovery: Requires full + all incrementals</li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 text-cyan-400">Differential Backup</h4>
+                                    <ul class="list-disc list-inside text-text-secondary space-y-2">
+                                        <li>Changes since last full backup</li>
+                                        <li>Balanced speed and storage</li>
+                                        <li>Frequency: Daily</li>
+                                        <li>Recovery: Requires full + latest differential</li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Recommended Backup Schedule</h4>
+                                    <div class="bg-gray-900 rounded p-4 text-sm">
+                                        <p class="text-cyan-300 font-mono mb-3">Example: Full + Differential Strategy</p>
+                                        <div class="space-y-1 text-text-secondary font-mono text-xs">
+                                            <p><span class="text-green-400">Monday:</span>    Full Backup (Sunday night)</p>
+                                            <p><span class="text-cyan-400">Tuesday:</span>    Differential Backup</p>
+                                            <p><span class="text-cyan-400">Wednesday:</span>  Differential Backup</p>
+                                            <p><span class="text-cyan-400">Thursday:</span>   Differential Backup</p>
+                                            <p><span class="text-cyan-400">Friday:</span>     Differential Backup</p>
+                                            <p><span class="text-green-400">Next Monday:</span> Full Backup</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: RTO & RPO -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-purple-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">3. Recovery Metrics: RTO & RPO</h3>
+
+                            <div class="space-y-4">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 text-purple-400">RTO (Recovery Time Objective)</h4>
+                                    <div class="text-text-secondary space-y-2">
+                                        <p><strong>Definition:</strong> Maximum acceptable time to restore services after outage</p>
+                                        <div class="bg-gray-900 p-3 rounded mt-2 text-sm">
+                                            <p class="text-purple-300">Example: "Our RTO is 4 hours"</p>
+                                            <p class="text-text-secondary mt-1">System must be operational within 4 hours of disaster</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 text-purple-400">RPO (Recovery Point Objective)</h4>
+                                    <div class="text-text-secondary space-y-2">
+                                        <p><strong>Definition:</strong> Maximum acceptable amount of data loss</p>
+                                        <div class="bg-gray-900 p-3 rounded mt-2 text-sm">
+                                            <p class="text-purple-300">Example: "Our RPO is 1 hour"</p>
+                                            <p class="text-text-secondary mt-1">Data loss cannot exceed 1 hour of work</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">RTO/RPO by System Priority</h4>
+                                    <table class="w-full text-sm">
+                                        <thead>
+                                            <tr class="border-b border-gray-700">
+                                                <th class="text-left py-2 text-purple-400">Priority</th>
+                                                <th class="text-left py-2 text-purple-400">RTO</th>
+                                                <th class="text-left py-2 text-purple-400">RPO</th>
+                                                <th class="text-left py-2 text-purple-400">Example</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-text-secondary space-y-2">
+                                            <tr class="border-b border-gray-700">
+                                                <td class="py-2">Critical</td>
+                                                <td>1 hour</td>
+                                                <td>15 min</td>
+                                                <td>Database servers</td>
+                                            </tr>
+                                            <tr class="border-b border-gray-700">
+                                                <td class="py-2">High</td>
+                                                <td>4 hours</td>
+                                                <td>1 hour</td>
+                                                <td>Email servers</td>
+                                            </tr>
+                                            <tr class="border-b border-gray-700">
+                                                <td class="py-2">Medium</td>
+                                                <td>24 hours</td>
+                                                <td>6 hours</td>
+                                                <td>File servers</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2">Low</td>
+                                                <td>72 hours</td>
+                                                <td>24 hours</td>
+                                                <td>Dev systems</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: DR Planning -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-red-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">4. Disaster Recovery Planning</h3>
+
+                            <div class="space-y-4">
+                                <div class="bg-red-900/20 border border-red-700 rounded p-4">
+                                    <p class="text-red-300 font-semibold">What is a Disaster?</p>
+                                    <p class="text-text-secondary text-sm mt-2">Any event that renders IT systems unavailable: hardware failure, ransomware, natural disaster, power outage, or human error.</p>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-red-500/20 px-3 py-1 rounded text-sm">STEP 1</span> Document Recovery Steps</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>List each critical system</li>
+                                        <li>Document recovery procedures:
+                                            <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                                                <li>Backup location and access method</li>
+                                                <li>Required hardware/software</li>
+                                                <li>Step-by-step restoration process</li>
+                                                <li>Testing procedures</li>
+                                                <li>Validation methods</li>
+                                            </ul>
+                                        </li>
+                                        <li>Create run-books for each recovery scenario</li>
+                                        <li>Assign recovery owners and contacts</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-red-500/20 px-3 py-1 rounded text-sm">STEP 2</span> Create Recovery Run-Book Template</h4>
+                                    <div class="bg-gray-900 rounded p-4 text-sm">
+                                        <p class="text-cyan-300 font-mono mb-3">Example Run-Book: Email Server Recovery</p>
+                                        <div class="space-y-2 text-text-secondary font-mono text-xs">
+                                            <p><strong>System:</strong> Exchange Server 2019</p>
+                                            <p><strong>RTO:</strong> 2 hours | <strong>RPO:</strong> 30 minutes</p>
+                                            <p><strong>Backup Location:</strong> NAS at 192.168.1.100</p>
+                                            <p className="mt-2"><strong>Recovery Steps:</strong></p>
+                                            <p className="ml-4">1. Check NAS connectivity</p>
+                                            <p className="ml-4">2. Provision new server with 50GB disk</p>
+                                            <p className="ml-4">3. Install Exchange 2019 with same version</p>
+                                            <p className="ml-4">4. Restore mailbox database from backup</p>
+                                            <p className="ml-4">5. Run integrity check</p>
+                                            <p className="ml-4">6. Validate user access</p>
+                                            <p className="ml-4">7. Resume public access</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Recovery Priority List</h4>
+                                    <ul class="list-disc list-inside text-text-secondary space-y-1">
+                                        <li><strong>Tier 1 (0-1 hour):</strong> Database servers, email systems</li>
+                                        <li><strong>Tier 2 (1-4 hours):</strong> File servers, domain controllers</li>
+                                        <li><strong>Tier 3 (4-24 hours):</strong> Print servers, backup systems</li>
+                                        <li><strong>Tier 4 (24+ hours):</strong> Dev environments, archives</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Testing & Validation -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-green-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">5. Backup Testing & Validation</h3>
+
+                            <div class="bg-green-900/20 border border-green-700 rounded p-4 mb-4">
+                                <p class="text-green-300 font-semibold">Why Test Backups?</p>
+                                <p class="text-text-secondary text-sm mt-2">"A backup is only useful if you can restore it." Testing ensures your backups are valid and recovery procedures work before disaster strikes.</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-green-500/20 px-3 py-1 rounded text-sm">MONTHLY</span> Backup Restore Test</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Select a random backup</li>
+                                        <li>Restore to test/isolated environment</li>
+                                        <li>Verify all files are readable</li>
+                                        <li>Validate data integrity</li>
+                                        <li>Test application functionality</li>
+                                        <li>Document results and any issues</li>
+                                        <li>Compare restore time with RTO</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-green-500/20 px-3 py-1 rounded text-sm">QUARTERLY</span> DR Drill Exercise</h4>
+                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                        <li>Simulate a disaster scenario</li>
+                                        <li>Activate recovery team</li>
+                                        <li>Execute recovery run-books</li>
+                                        <li>Test all Tier 1 systems recovery</li>
+                                        <li>Validate application functionality</li>
+                                        <li>Document performance metrics</li>
+                                        <li>Hold post-drill meeting and document lessons learned</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Testing Checklist</h4>
+                                    <div class="space-y-2 text-text-secondary text-sm">
+                                        <label class="flex items-center gap-2"><input type="checkbox" class="rounded" disabled /> Backup file integrity verified</label>
+                                        <label class="flex items-center gap-2"><input type="checkbox" class="rounded" disabled /> Data restored without corruption</label>
+                                        <label class="flex items-center gap-2"><input type="checkbox" class="rounded" disabled /> Recovery time within RTO</label>
+                                        <label class="flex items-center gap-2"><input type="checkbox" class="rounded" disabled /> Applications functional after restore</label>
+                                        <label class="flex items-center gap-2"><input type="checkbox" class="rounded" disabled /> User access verified</label>
+                                        <label class="flex items-center gap-2"><input type="checkbox" class="rounded" disabled /> Database consistency verified</label>
+                                        <label class="flex items-center gap-2"><input type="checkbox" class="rounded" disabled /> All recovery contacts available</label>
+                                        <label class="flex items-center gap-2"><input type="checkbox" class="rounded" disabled /> Test results documented</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 6: Recovery Procedures -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-orange-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">6. Emergency Recovery Procedures</h3>
+
+                            <div class="space-y-4">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-orange-500/20 px-3 py-1 rounded text-sm">PHASE 1</span> Incident Assessment (0-15 min)</h4>
+                                    <ul class="list-disc list-inside text-text-secondary space-y-2">
+                                        <li>Identify which systems are affected</li>
+                                        <li>Determine root cause if possible</li>
+                                        <li>Assess business impact</li>
+                                        <li>Notify leadership and stakeholders</li>
+                                        <li>Activate recovery team</li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-orange-500/20 px-3 py-1 rounded text-sm">PHASE 2</span> Recovery Preparation (15-45 min)</h4>
+                                    <ul class="list-disc list-inside text-text-secondary space-y-2">
+                                        <li>Provision hardware/infrastructure if needed</li>
+                                        <li>Gather backup media/files</li>
+                                        <li>Prepare isolated test environment</li>
+                                        <li>Verify backup integrity</li>
+                                        <li>Brief recovery team on procedures</li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-orange-500/20 px-3 py-1 rounded text-sm">PHASE 3</span> System Restoration</h4>
+                                    <ul class="list-disc list-inside text-text-secondary space-y-2">
+                                        <li>Execute recovery run-books in priority order</li>
+                                        <li>Monitor restore process</li>
+                                        <li>Verify data integrity</li>
+                                        <li>Test application functionality</li>
+                                        <li>Resume production gradually</li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-orange-500/20 px-3 py-1 rounded text-sm">PHASE 4</span> Post-Recovery Validation</h4>
+                                    <ul class="list-disc list-inside text-text-secondary space-y-2">
+                                        <li>Validate all user access restored</li>
+                                        <li>Confirm business systems operational</li>
+                                        <li>Check data consistency</li>
+                                        <li>Monitor system stability</li>
+                                        <li>Document incident and recovery</li>
+                                        <li>Communicate status to stakeholders</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pro Tips -->
+                    <div class="bg-blue-900/20 border border-blue-700 rounded-lg p-6 mt-8">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">💡 Backup & DR Pro Tips</h3>
+                        <ul class="space-y-2 text-text-secondary">
+                            <li>• Automate backup processes to ensure consistency</li>
+                            <li>• Store offsite copies in geographically diverse location</li>
+                            <li>• Keep backup credentials separate and secure</li>
+                            <li>• Test backups monthly, run full DR drills quarterly</li>
+                            <li>• Maintain detailed documentation of all systems and procedures</li>
+                            <li>• Encrypt sensitive backups to protect data confidentiality</li>
+                            <li>• Track RTO/RPO metrics and review annually</li>
+                            <li>• Have recovery contacts available 24/7</li>
+                            <li>• Verify backup media integrity before relying on it</li>
+                            <li>• Keep backup hardware separated from primary systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Additional Resources -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-4">📚 Related Documentation</h3>
+                        <ul class="text-text-secondary space-y-2">
+                            <li>• <a href={import.meta.env.BASE_URL + "projects/pc-setup-guide"} class="text-blue-400 hover:text-blue-300">Windows PC Setup Guide</a></li>
+                            <li>• <a href={import.meta.env.BASE_URL + "projects/active-directory-guide"} class="text-blue-400 hover:text-blue-300">Active Directory Management</a></li>
+                            <li>• Network Security Best Practices</li>
+                            <li>• Business Continuity Planning</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-4">🛠️ Backup Tools & Software</h3>
+                        <ul class="text-text-secondary space-y-2">
+                            <li>• Windows Server Backup</li>
+                            <li>• Veeam Backup & Replication</li>
+                            <li>• Acronis Cyber Backup</li>
+                            <li>• Bacula Enterprise Backup</li>
+                            <li>• Cloud Backup (AWS, Azure, GCP)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .documentation {
+        @apply bg-indigo-500/20 text-indigo-400 border border-indigo-500/30;
+    }
+</style>
+
+<script>
+    // IT Support Projects - Backup Recovery Guide is an IT project
+    document.addEventListener('DOMContentLoaded', function() {
+        const backButton = document.getElementById('back-to-projects');
+        if (backButton) {
+            backButton.addEventListener('click', function() {
+                const profile = localStorage.getItem('selectedProfile') || 'software-developer';
+                const baseUrl = window.location.pathname.startsWith('/portfolio') ? '/portfolio' : '';
+                
+                if (profile === 'it-support') {
+                    // Go to IT Support projects
+                    window.location.href = baseUrl + '/role-it-support/projects';
+                } else {
+                    // Default to Software Developer projects
+                    window.location.href = baseUrl + '/role-software-developer/projects';
+                }
+            });
+        }
+    });
+</script>

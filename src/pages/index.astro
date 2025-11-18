@@ -3,37 +3,38 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 ---
 
-<Layout title="Home - Noor Azami" description="The portfolio of Noor Azami, an IT enthusiast and problem-solver, showcasing projects and experience." canonical="/">
+<Layout title="Home - Noor Azami" description="The portfolio of Noor Azami, showcasing IT support expertise and software development projects." canonical="/">
 	<Header />
 	<main class="pt-16">
-		<section class="relative flex items-center justify-center h-screen text-center px-4 sm:px-6 lg:px-8 animated-gradient">
+		<!-- Hero Section -->
+		<section class="hero-section relative flex items-center justify-center h-screen text-center px-4 sm:px-6 lg:px-8 animated-gradient">
 			<div class="z-10">
 				<h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight text-white">Noor Azami</h1>
 				<p class="text-xl md:text-2xl font-bold mb-6 max-w-4xl mx-auto leading-relaxed">
-					A certified IT Support Specialist with a passion for network administration and system efficiency, seeking to contribute to a leading technology team in Malaysia.
+					Full-Stack Developer crafting elegant software solutions with web technologies, mobile apps, and creative digital experiences.
 				</p>
 				<p class="text-lg text-text-secondary mb-8 max-w-3xl mx-auto font-medium">
-					<span class="text-white font-semibold">Seeking IT Internship Opportunities</span> 
+					<span class="text-white font-semibold">Creative Developer</span> 
 					<span class="text-text-secondary mx-2">|</span> 
-					<span class="text-text-secondary">Open to Remote/Hybrid/Relocation</span>
+					<span class="text-text-secondary">UI/UX Focused</span>
 				</p>
 				<div class="flex flex-wrap justify-center gap-4 mb-8">
 					<span class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--button-hover)]/20 border border-[var(--primary-color)]/40 rounded-full text-sm font-medium hover:bg-gradient-to-r hover:from-[var(--primary-color)]/30 hover:to-[var(--button-hover)]/30 hover:border-[var(--primary-color)]/60 hover:scale-105 hover:shadow-lg hover:shadow-[var(--primary-color)]/20 transition-all duration-300 cursor-pointer transform hover:-translate-y-1">
-						📍 Remote Ready
+						💻 Full-Stack Development
 					</span>
 					<span class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--button-hover)]/20 border border-[var(--primary-color)]/40 rounded-full text-sm font-medium hover:bg-gradient-to-r hover:from-[var(--primary-color)]/30 hover:to-[var(--button-hover)]/30 hover:border-[var(--primary-color)]/60 hover:scale-105 hover:shadow-lg hover:shadow-[var(--primary-color)]/20 transition-all duration-300 cursor-pointer transform hover:-translate-y-1">
-						🏢 Hybrid Preferred
+						📱 Mobile Apps
 					</span>
 					<span class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--button-hover)]/20 border border-[var(--primary-color)]/40 rounded-full text-sm font-medium hover:bg-gradient-to-r hover:from-[var(--primary-color)]/30 hover:to-[var(--button-hover)]/30 hover:border-[var(--primary-color)]/60 hover:scale-105 hover:shadow-lg hover:shadow-[var(--primary-color)]/20 transition-all duration-300 cursor-pointer transform hover:-translate-y-1">
-						🌍 Relocation Open
+						🎨 UI/UX Design
 					</span>
 				</div>
 				<div class="flex flex-wrap justify-center gap-4">
 					<a href="/portfolio/contact" class="button_primary text-lg font-bold px-8 py-3">
 						Get In Touch
 					</a>
-					<a href={import.meta.env.BASE_URL + "assets/IT Support.pdf"} download class="button_secondary text-lg font-bold px-8 py-3">
-						Download Resume
+					<a href={import.meta.env.BASE_URL + "project"} class="button_secondary text-lg font-bold px-8 py-3">
+						View Projects
 					</a>
 				</div>
 			</div>
@@ -44,6 +45,46 @@ import Header from '../components/Header.astro';
 					</svg>
 					<span class="sr-only">Scroll to about section</span>
 				</a>
+			</div>
+		</section>
+
+		<!-- Profile Guide Section -->
+		<section class="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-500/10 to-green-500/10 border-y border-gray-700/50">
+			<div class="container mx-auto max-w-4xl">
+				<div class="flex flex-col md:flex-row items-center justify-between gap-8">
+					<div class="flex-1">
+						<h3 class="text-xl font-semibold mb-3 flex items-center gap-2">
+							<svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+							</svg>
+							Customize Your Experience
+						</h3>
+						<p class="text-text-secondary mb-4">
+							First time here? Look for the <span class="font-semibold text-white">profile icon button</span> in the bottom-left corner to switch between two different portfolio profiles tailored for your role.
+						</p>
+						<div class="flex flex-wrap gap-4">
+							<div class="flex items-center gap-2">
+								<span class="px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded-full text-sm font-medium">IT Support Profile</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<span class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded-full text-sm font-medium">Developer Profile</span>
+							</div>
+						</div>
+					</div>
+					<div class="flex-shrink-0">
+						<div class="w-20 h-20 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full border-2 border-dashed border-gray-600 flex items-center justify-center relative group">
+							<svg class="w-10 h-10 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+							</svg>
+							<div class="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 rounded-full border-2 border-gray-900 flex items-center justify-center">
+								<svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+									<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L9 4.414V16a1 1 0 102 0V4.414l6.293 6.293a1 1 0 001.414-1.414l-7-7z"></path>
+								</svg>
+							</div>
+						</div>
+						<p class="text-xs text-gray-500 text-center mt-2">Profile Button</p>
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -328,6 +369,5 @@ import Header from '../components/Header.astro';
 				behavior: 'smooth'
 			});
 		});
+
 	});
-</script>
-</script>
