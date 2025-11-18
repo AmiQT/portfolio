@@ -1,0 +1,162 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import ProfileSelector from '../../components/ProfileSelector.astro';
+---
+
+<Layout title="Analytics Projects - Noor Azami" description="Data analytics projects including Power BI dashboards, business intelligence, and data visualization showcasing analytical expertise." canonical="/role-data-analyst/projects">
+    <Header />
+    <ProfileSelector />
+    <main class="pt-16">
+        <section class="py-24 px-4 sm:px-6 lg:px-8 text-center">
+            <div class="container mx-auto fade-in-scroll">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Analytics Projects</h1>
+                <p class="text-lg text-text-secondary max-w-3xl mx-auto">Data visualization and business intelligence projects showcasing Power BI expertise and analytical insights.</p>
+            </div>
+        </section>
+
+        <section class="pb-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-6xl">
+                <!-- Filter Counter -->
+                <div class="flex flex-col items-center mb-12 fade-in-scroll">
+                    <div class="filter-counter text-lg font-semibold">3 Analytics Projects</div>
+                </div>
+
+                <!-- Project Grid -->
+                <div class="projects-grid project-grid">
+                    <!-- Project: Sales Dashboard -->
+                    <div class="project-card fade-in-scroll" data-category="analytics">
+                        <div class="project-image-container">
+                            <div class="w-full h-full bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-lg flex items-center justify-center border border-amber-500/30">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-amber-400">Sales Analytics</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Sales Performance Dashboard</h3>
+                                <div class="project-badges">
+                                    <span class="project-badge analytics">Power BI</span>
+                                    <div class="skills-tags">
+                                        <span class="px-2 py-1 text-xs font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded">DAX</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded">Data Modeling</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded">SQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">Multi-dimensional sales analytics dashboard tracking revenue, regional performance, product trends, and sales team metrics with interactive filtering and drill-down capabilities.</p>
+                            <div class="project-actions">
+                                <button class="project-action-button primary cursor-not-allowed opacity-75" disabled>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    Coming Soon
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project: Customer Analytics -->
+                    <div class="project-card fade-in-scroll" data-category="analytics">
+                        <div class="project-image-container">
+                            <div class="w-full h-full bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-lg flex items-center justify-center border border-amber-500/30">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.856-1.487M15 10a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-amber-400">Customer Analytics</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Customer Behavior Analytics</h3>
+                                <div class="project-badges">
+                                    <span class="project-badge analytics">Power BI</span>
+                                    <div class="skills-tags">
+                                        <span class="px-2 py-1 text-xs font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded">Segmentation</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded">ETL</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded">Analytics</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">Comprehensive customer analytics dashboard featuring segmentation analysis, cohort behavior tracking, retention metrics, and lifetime value calculations with predictive insights.</p>
+                            <div class="project-actions">
+                                <button class="project-action-button primary cursor-not-allowed opacity-75" disabled>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    Coming Soon
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project: Operations Dashboard -->
+                    <div class="project-card fade-in-scroll" data-category="analytics">
+                        <div class="project-image-container">
+                            <div class="w-full h-full bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-lg flex items-center justify-center border border-amber-500/30">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-amber-400">Operations</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Operations Performance Metrics</h3>
+                                <div class="project-badges">
+                                    <span class="project-badge analytics">Power BI</span>
+                                    <div class="skills-tags">
+                                        <span class="px-2 py-1 text-xs font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded">KPI Tracking</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded">Real-time</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded">Monitoring</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">Real-time operational dashboard monitoring key performance indicators, efficiency metrics, process bottlenecks, and resource allocation with automated alerts and performance trending.</p>
+                            <div class="project-actions">
+                                <button class="project-action-button primary cursor-not-allowed opacity-75" disabled>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    Coming Soon
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto text-center fade-in-scroll">
+                <h2 class="text-3xl font-bold mb-6">Ready to Explore Data-Driven Solutions?</h2>
+                <p class="text-lg text-text-secondary mb-8 max-w-3xl mx-auto">Let's build powerful analytics with Power BI</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="/portfolio/contact" class="button_primary">Get In Touch</a>
+                    <a href="/portfolio/about" class="button_secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<script>
+	localStorage.setItem('selectedProfile', 'data-analyst');
+</script>
