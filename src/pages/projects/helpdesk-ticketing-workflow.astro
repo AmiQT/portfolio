@@ -1,0 +1,202 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+---
+
+<Layout title="Helpdesk Ticketing System & Workflow | Noor Azami" description="A guide to setting up and managing an efficient IT helpdesk ticketing system, including SLA definitions, ticket lifecycle, and prioritization.">
+    <Header />
+    <main class="pt-16">
+        <!-- Back Button -->
+        <div class="px-4 sm:px-6 lg:px-8 py-4">
+            <button id="back-to-projects" class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group cursor-pointer">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Projects
+            </button>
+        </div>
+        <!-- Project Hero Section -->
+        <section class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-12 fade-in-scroll">
+                    <div class="flex justify-center mb-6">
+                        <span class="project-badge documentation text-lg px-6 py-3">IT Support Documentation</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Helpdesk Ticketing System & Workflow</h1>
+                    <p class="text-xl text-text-secondary max-w-3xl mx-auto">A guide to setting up and managing an efficient IT helpdesk ticketing system, including SLA definitions, ticket lifecycle, and prioritization.</p>
+                </div>
+
+                <!-- Project Overview -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Project Type</h3>
+                        <p class="text-text-secondary">IT Service Management (ITSM) process documentation.</p>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Target Audience</h3>
+                        <p class="text-text-secondary">Helpdesk Managers, IT Support Agents, and Service Desk Leads.</p>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Coverage</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded text-sm">Ticketing</span>
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded text-sm">SLA</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded text-sm">Workflow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documentation Content -->
+                <div class="mb-16 fade-in-scroll">
+                    <h2 class="text-3xl font-bold mb-8">Workflow Guide</h2>
+
+                    <!-- Table of Contents -->
+                    <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mb-8">
+                        <h3 class="text-xl font-semibold mb-4">📋 Table of Contents</h3>
+                        <ul class="space-y-2 text-text-secondary">
+                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Ticket Lifecycle</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Categorization & Prioritization</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Service Level Agreements (SLAs)</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Escalation Procedures</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Knowledge Base Management</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 1 -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-blue-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">1. Ticket Lifecycle</h3>
+                            <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                <h4 class="font-semibold mb-3">Standard Stages</h4>
+                                <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                    <li><strong>New / Open:</strong> Ticket created by user or agent.</li>
+                                    <li><strong>In Progress:</strong> Agent is actively working on the issue.</li>
+                                    <li><strong>Pending User:</strong> Waiting for more info from the requester.</li>
+                                    <li><strong>Pending Vendor:</strong> Waiting for 3rd party support.</li>
+                                    <li><strong>Resolved:</strong> Issue fixed, waiting for user confirmation.</li>
+                                    <li><strong>Closed:</strong> Confirmed fixed and archived.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-yellow-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">2. Categorization & Prioritization</h3>
+                            <div class="space-y-4">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                    <h4 class="font-semibold mb-3">Priority Matrix</h4>
+                                    <p class="text-text-secondary mb-2">Priority is determined by <strong>Impact</strong> (number of users affected) and <strong>Urgency</strong> (business criticality).</p>
+                                    <ul class="list-disc list-inside text-text-secondary space-y-2 ml-4">
+                                        <li><strong>P1 - Critical:</strong> System down, entire company affected. (e.g., Internet outage, Server crash)</li>
+                                        <li><strong>P2 - High:</strong> Critical function down for some users. (e.g., Payroll software down)</li>
+                                        <li><strong>P3 - Medium:</strong> Single user issue, workaround available. (e.g., Printer jam, PC slow)</li>
+                                        <li><strong>P4 - Low:</strong> Service request or minor issue. (e.g., Password reset, Software install)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="space-y-6 mb-12">
+                        <div class="border-l-4 border-green-500 pl-6">
+                            <h3 class="text-2xl font-bold mb-4">3. Service Level Agreements (SLAs)</h3>
+                            <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
+                                <h4 class="font-semibold mb-3">Response vs. Resolution Time</h4>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-left text-text-secondary">
+                                        <thead>
+                                            <tr class="border-b border-gray-700">
+                                                <th class="py-2">Priority</th>
+                                                <th class="py-2">Response Time</th>
+                                                <th class="py-2">Resolution Target</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border-b border-gray-700/50">
+                                                <td class="py-2 text-red-400 font-bold">P1</td>
+                                                <td class="py-2">15 Minutes</td>
+                                                <td class="py-2">4 Hours</td>
+                                            </tr>
+                                            <tr class="border-b border-gray-700/50">
+                                                <td class="py-2 text-orange-400 font-bold">P2</td>
+                                                <td class="py-2">1 Hour</td>
+                                                <td class="py-2">8 Hours</td>
+                                            </tr>
+                                            <tr class="border-b border-gray-700/50">
+                                                <td class="py-2 text-yellow-400 font-bold">P3</td>
+                                                <td class="py-2">4 Hours</td>
+                                                <td class="py-2">3 Business Days</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 text-green-400 font-bold">P4</td>
+                                                <td class="py-2">8 Hours</td>
+                                                <td class="py-2">5 Business Days</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Tips -->
+                    <div class="bg-blue-900/20 border border-blue-700 rounded-lg p-6 mt-8">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">💡 Pro Tips</h3>
+                        <ul class="space-y-2 text-text-secondary">
+                            <li>• <strong>Communication is Key:</strong> Always update the user, even if there is no progress ("We are still investigating").</li>
+                            <li>• <strong>Document Everything:</strong> Add notes to the ticket for every step taken.</li>
+                            <li>• <strong>Shift Left:</strong> Create Knowledge Base articles for common issues so users can self-solve.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Additional Resources -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-4">📚 Related Documentation</h3>
+                        <ul class="text-text-secondary space-y-2">
+                            <li>• <a href={import.meta.env.BASE_URL + "projects/windows-troubleshooting-guide"} class="text-blue-400 hover:text-blue-300">Troubleshooting Guide</a></li>
+                            <li>• <a href={import.meta.env.BASE_URL + "projects/active-directory-guide"} class="text-blue-400 hover:text-blue-300">Active Directory Guide</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-4">🛠️ Popular Tools</h3>
+                        <ul class="text-text-secondary space-y-2">
+                            <li>• Jira Service Management</li>
+                            <li>• Freshdesk / Zendesk</li>
+                            <li>• ServiceNow</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .documentation {
+        @apply bg-indigo-500/20 text-indigo-400 border border-indigo-500/30;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const backButton = document.getElementById('back-to-projects');
+        if (backButton) {
+            backButton.addEventListener('click', function() {
+                const profile = localStorage.getItem('selectedProfile') || 'software-developer';
+                const baseUrl = window.location.pathname.startsWith('/portfolio') ? '/portfolio' : '';
+                
+                if (profile === 'it-support') {
+                    window.location.href = baseUrl + '/role-it-support/projects';
+                } else {
+                    window.location.href = baseUrl + '/role-software-developer/projects';
+                }
+            });
+        }
+    });
+</script>
