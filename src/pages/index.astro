@@ -349,7 +349,9 @@ import Header from '../components/Header.astro';
 <script>
 	// Back to Top Button Functionality
 	document.addEventListener('DOMContentLoaded', function() {
-		const backToTopButton = document.getElementById('back-to-top');
+		const backToTopButton = document.getElementById('back-to-top') as HTMLElement | null;
+		
+		if (!backToTopButton) return;
 		
 		// Show/hide button based on scroll position
 		window.addEventListener('scroll', function() {
