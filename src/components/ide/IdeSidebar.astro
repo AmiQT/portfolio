@@ -1,0 +1,27 @@
+---
+interface Props {
+  files: { name: string; active: boolean; icon: string }[];
+}
+
+const { files } = Astro.props;
+---
+
+<aside class="w-64 bg-gray-50 dark:bg-[#0d1117] border-r border-gray-200 dark:border-gray-800 flex-col hidden lg:flex transition-colors duration-300">
+  <div class="p-3 text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Explorer</div>
+  <div class="px-2">
+    <div class="flex items-center gap-1 text-sm font-bold text-gray-700 dark:text-gray-200 mb-1 cursor-pointer">
+      <span class="transform rotate-90">›</span> PORTFOLIO-V2
+    </div>
+    <div class="pl-4 flex flex-col gap-1">
+      {files.map(file => (
+        <div 
+          class={`flex items-center gap-2 px-2 py-1 rounded cursor-pointer text-sm ${file.active ? 'bg-white dark:bg-[#1f2428] text-black dark:text-white shadow-sm' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-[#1f2428] hover:text-black dark:hover:text-white'}`}
+          data-file={file.name}
+        >
+          <span>{file.icon}</span>
+          <span>{file.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</aside>
