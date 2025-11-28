@@ -76,5 +76,14 @@ export const projects = [
         link: "projects/healthy-food-app",
         color: "green",
         icon: "apple"
+    },
+    {
+        title: "KME Pest Control",
+        type: "Web",
+        desc: "Professional pest control service platform featuring a dual-architecture approach with a legacy static site and a modern React application.",
+        image: "gradient",
+        link: "projects/kme-pest-control",
+        color: "teal",
+        icon: "shield"
     }
 ];

@@ -2,8 +2,9 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://noorazami.github.io/portfolio/sitemap.xml
+Sitemap: https://amiqt.github.io/portfolio/sitemap.xml
 
-# Disallow admin or private areas (if any)
-Disallow: /admin/
-Disallow: /private/ 
+# Additional directives for better crawling
+Disallow: /partials/
+Disallow: /src/
+Disallow: /.github/ 
