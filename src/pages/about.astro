@@ -1,0 +1,241 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import SkillsProgress from '../components/SkillsProgress.astro';
+import SkillsCategorized from '../components/SkillsCategorized.astro';
+
+const infrastructureSkills = [
+    { name: "IT Troubleshooting", level: "Advanced" },
+    { name: "Networking", level: "Advanced" },
+    { name: "Remote Support", level: "Advanced" },
+    { name: "Linux Administration", level: "Intermediate" },
+    { name: "Windows Administration", level: "Intermediate" },
+    { name: "VMware", level: "Intermediate" }
+];
+
+const developmentSkills = [
+    { name: "Python", level: "Intermediate" },
+    { name: "Web Development", level: "Intermediate" },
+    { name: "Mobile App Development (Flutter)", level: "Intermediate" },
+    { name: "System Development", level: "Intermediate" },
+    { name: "Multimedia Design", level: "Intermediate" },
+    { name: "Adobe Photoshop", level: "Intermediate" },
+    { name: "Adobe Illustrator", level: "Intermediate" },
+    { name: "Canva", level: "Advanced" }
+];
+
+const emergingTechSkills = [
+    { name: "Prompt Engineering", level: "Intermediate" },
+    { name: "AWS Cloud", level: "Learning" }
+];
+
+const softSkills = [
+    { name: "Problem-Solving", level: "Advanced" },
+    { name: "Communication", level: "Advanced" },
+    { name: "Leadership", level: "Advanced" },
+    { name: "Project Management", level: "Intermediate" },
+    { name: "Organization", level: "Intermediate" },
+    { name: "Team Management", level: "Intermediate" }
+];
+---
+
+<Layout title="About - Noor Azami" description="Learn more about Noor Azami, an IT undergraduate with a passion for technology, problem-solving, and creative solutions." canonical="/about">
+    <Header />
+    <main class="pt-16">
+        <section class="py-24 px-4 sm:px-6 lg:px-8 text-center">
+            <div class="container mx-auto fade-in-scroll">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">About Me</h1>
+                <p class="text-lg text-text-secondary max-w-3xl mx-auto">A passionate IT student with a knack for problem-solving and a drive to create impactful technology solutions.</p>
+            </div>
+        </section>
+
+        <section class="pb-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-6xl">
+                <!-- Profile Image - Centered and Larger -->
+                <div class="text-center mb-16 fade-in-scroll">
+                    <div class="w-80 h-80 mx-auto rounded-lg bg-center bg-no-repeat bg-cover shadow-2xl" style={`background-image: url("${import.meta.env.BASE_URL}assets/profile.webp")`}></div>
+                </div>
+                
+                <!-- Content Sections - 3 Rows × 2 Sections Grid Layout -->
+                <div class="space-y-16 fade-in-scroll">
+                    <!-- Row 1: Personal Introduction + My Journey -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Personal Introduction -->
+                        <div class="card p-8 text-center lg:text-left">
+                            <h2 class="text-3xl font-bold mb-6">Personal Introduction</h2>
+                            <p class="text-lg text-text-secondary leading-relaxed">
+                                I am an IT undergraduate at Universiti Tun Hussein Onn Malaysia with hands-on experience in technical support, leadership, and multimedia content creation. I thrive on solving IT problems, optimizing systems, and delivering creative solutions using technology.
+                            </p>
+                        </div>
+                        
+                        <!-- My Journey -->
+                        <div class="card p-8 text-center lg:text-left">
+                            <h3 class="text-2xl font-bold mb-6">My Journey</h3>
+                            <p class="text-lg text-text-secondary leading-relaxed">
+                                My experience ranges from managing IT events and troubleshooting systems to designing multimedia content and leading student organizations. I believe in combining technical expertise with strong people skills to deliver efficient and user-friendly IT solutions.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Creative Break Line 1 -->
+                    <div class="flex justify-center">
+                        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[var(--primary-color)] to-transparent"></div>
+                        <div class="mx-4 w-3 h-3 rounded-full bg-[var(--primary-color)]"></div>
+                        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[var(--primary-color)] to-transparent"></div>
+                    </div>
+                    
+                    <!-- Row 2: Technical Skills + Career Goals -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Technical Skills Overview -->
+                        <div class="card p-8 text-center lg:text-left">
+                            <h3 class="text-2xl font-bold mb-6">Technical Skills Overview</h3>
+                            <p class="text-lg text-text-secondary leading-relaxed">
+                                I specialize in IT infrastructure, web development, mobile app development with Flutter, and multimedia design. My technical foundation includes networking, system administration, and emerging technologies like cloud computing and AI.
+                            </p>
+                        </div>
+                        
+                        <!-- Career Goals -->
+                        <div class="card p-8 text-center lg:text-left">
+                            <h3 class="text-2xl font-bold mb-6">Career Goals</h3>
+                            <p class="text-lg text-text-secondary leading-relaxed">
+                                My goal is to secure an IT internship at a multinational company in Malaysia where I can grow my skills in cloud computing and network security. I am eager to contribute to large-scale IT infrastructure and learn from experienced professionals in the industry.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Creative Break Line 2 -->
+                    <div class="flex justify-center">
+                        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[var(--primary-color)] to-transparent"></div>
+                        <div class="mx-4 w-3 h-3 rounded-full bg-[var(--primary-color)]"></div>
+                        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[var(--primary-color)] to-transparent"></div>
+                    </div>
+                    
+                    <!-- Row 3: Malaysian Tech Ecosystem + What I'm Looking For -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Malaysian Tech Ecosystem -->
+                        <div class="card p-8 text-center lg:text-left">
+                            <h3 class="text-2xl font-bold mb-6">My Interest in the Malaysian Tech Ecosystem</h3>
+                            <p class="text-lg text-text-secondary leading-relaxed">
+                                I am actively following the growth of Malaysia's digital economy, particularly the developments outlined in the MyDIGITAL blueprint. I am excited by the increasing focus on cloud computing and cybersecurity within the nation's key industries and am eager to contribute to the innovative Malaysian companies driving this transformation.
+                            </p>
+                        </div>
+                        
+                        <!-- What I'm Looking For -->
+                        <div class="card p-8 text-center lg:text-left">
+                            <h3 class="text-2xl font-bold mb-6">What I'm Looking For</h3>
+                            <p class="text-lg text-text-secondary leading-relaxed">
+                                I'm seeking opportunities to apply my technical skills in real-world projects, particularly in cloud computing, network security, and system administration. I'm looking for mentorship from experienced professionals and the chance to contribute to meaningful IT solutions that drive business growth.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Highlights - Centered below the grid -->
+                    <div class="text-center mt-16">
+                        <h3 class="text-2xl font-bold mb-8">Key Highlights</h3>
+                        <div class="flex flex-wrap gap-6 justify-center">
+                            <div class="flex items-center gap-2 text-sm text-text-secondary">
+                                <svg class="w-4 h-4 text-[var(--primary-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>3+ Years IT Experience</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-text-secondary">
+                                <svg class="w-4 h-4 text-[var(--primary-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Leadership Roles</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-text-secondary">
+                                <svg class="w-4 h-4 text-[var(--primary-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Multimedia Expertise</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-24 px-4 sm:px-6 lg:px-8 bg-[var(--accent-color)]/20">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 fade-in-scroll">My Certificates</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <a href="https://www.coursera.org/account/accomplishments/specialization/TJF7D2MPEIKO" target="_blank" rel="noopener noreferrer" class="card fade-in-scroll hover:transform hover:-translate-y-1 transition-transform duration-300 group">
+                        <div class="flex items-center gap-4">
+                            <svg class="size-8 text-[var(--primary-color)] group-hover:scale-110 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/><path d="M12 12v-4"/></svg>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary-color)] transition-colors duration-300">Google IT Support</h3>
+                                <p class="text-[var(--text-secondary)]">Google</p>
+                                <p class="text-sm text-[var(--primary-color)]">2023</p>
+                            </div>
+                            <svg class="size-5 text-[var(--text-secondary)] group-hover:text-[var(--primary-color)] group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6l6 6-6 6"></path>
+                            </svg>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.credly.com/badges/9575fc0c-f43d-4870-b20f-d2b4546b2bc6/linked_in_profile" target="_blank" rel="noopener noreferrer" class="card fade-in-scroll hover:transform hover:-translate-y-1 transition-transform duration-300 group">
+                        <div class="flex items-center gap-4">
+                            <svg class="size-8 text-[var(--primary-color)] group-hover:scale-110 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m10.5 11.5-2 2L10 15l-2 1.5"/><path d="m13.5 11.5 2 2L14 15l2 1.5"/></svg>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary-color)] transition-colors duration-300">CCNA: Introduction to Networks</h3>
+                                <p class="text-[var(--text-secondary)]">Cisco</p>
+                                <p class="text-sm text-[var(--primary-color)]">2024</p>
+                            </div>
+                            <svg class="size-5 text-[var(--text-secondary)] group-hover:text-[var(--primary-color)] group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6l6 6-6 6"></path>
+                            </svg>
+                        </div>
+                    </a>
+                    
+                    <a href="https://hrdcorp-ntw.digitalbadges.skillsoft.com/e51a7ae1-c4d1-416e-9b46-1cd43fd3ac92#acc.JnPzsym8" target="_blank" rel="noopener noreferrer" class="card fade-in-scroll hover:transform hover:-translate-y-1 transition-transform duration-300 group">
+                        <div class="flex items-center gap-4">
+                            <svg class="size-8 text-[var(--primary-color)] group-hover:scale-110 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary-color)] transition-colors duration-300">AI Essentials for Frontliners</h3>
+                                <p class="text-[var(--text-secondary)]">HRD Corp & Skillsoft</p>
+                                <p class="text-sm text-[var(--primary-color)]">2024</p>
+                            </div>
+                            <svg class="size-5 text-[var(--text-secondary)] group-hover:text-[var(--primary-color)] group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6l6 6-6 6"></path>
+                            </svg>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.coursera.org/account/accomplishments/verify/URH9T1WFMC23" target="_blank" rel="noopener noreferrer" class="card fade-in-scroll hover:transform hover:-translate-y-1 transition-transform duration-300 group">
+                        <div class="flex items-center gap-4">
+                            <svg class="size-8 text-[var(--primary-color)] group-hover:scale-110 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary-color)] transition-colors duration-300">Principles of UX/UI Design</h3>
+                                <p class="text-[var(--text-secondary)]">Meta</p>
+                                <p class="text-sm text-[var(--primary-color)]">2024</p>
+                            </div>
+                            <svg class="size-5 text-[var(--text-secondary)] group-hover:text-[var(--primary-color)] group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6l6 6-6 6"></path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 fade-in-scroll">My Skillset</h2>
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div class="fade-in-scroll">
+                            <SkillsCategorized skills={infrastructureSkills} category="Infrastructure & IT Support" icon="🔧" />
+                            <SkillsCategorized skills={developmentSkills} category="Development" icon="💻" />
+                        </div>
+                        <div class="fade-in-scroll">
+                            <SkillsCategorized skills={emergingTechSkills} category="Cloud & Emerging Tech" icon="☁️" />
+                            <SkillsCategorized skills={softSkills} category="Soft Skills" icon="🤝" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

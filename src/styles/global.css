@@ -1,0 +1,995 @@
+:root {
+    --primary-color: #0a58ca;
+    --background-color: #121212;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent-color: #333333;
+    --card-background: #1e1e1e;
+    --button-hover: #1a6ed8;
+    --border-color: #444444;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lexend', sans-serif;
+}
+
+
+
+/* Button Styles */
+.button_primary {
+    @apply bg-[var(--primary-color)] text-white py-2 px-4 rounded-lg hover:bg-[var(--button-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50 transition-colors duration-300;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.button_secondary {
+    @apply bg-transparent border border-[var(--primary-color)] text-[var(--primary-color)] py-2 px-4 rounded-lg hover:bg-[var(--primary-color)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50 transition-colors duration-300;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Card Styles */
+.card {
+    @apply bg-[var(--card-background)] rounded-lg shadow-md p-6 transition-transform duration-300 hover:transform hover:-translate-y-2;
+    border: 1px solid var(--border-color);
+}
+
+/* Project Card Styles */
+.project-card {
+    @apply bg-[var(--card-background)] rounded-lg shadow-md overflow-hidden transition-all duration-500 hover:transform hover:-translate-y-2;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    position: relative;
+    background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+    width: 100%;
+    min-height: 400px;
+    height: auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Larger cards for bento effect */
+.projects-grid .project-card:nth-child(1),
+.projects-grid .project-card:nth-child(4) {
+    min-height: 450px;
+}
+
+@media (min-width: 1024px) {
+    .projects-grid .project-card:nth-child(1),
+    .projects-grid .project-card:nth-child(4) {
+        min-height: 500px;
+    }
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--button-hover));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover::before {
+    transform: scaleX(1);
+}
+
+.project-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-color);
+    transform: translateY(-8px);
+}
+
+/* Add subtle glow effect on hover */
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(10, 88, 202, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 8px;
+}
+
+.project-card:hover::after {
+    opacity: 1;
+}
+
+.project-card-image {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+.project-card-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(10, 88, 202, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-card-image::after {
+    opacity: 1;
+}
+
+.project-card-image img {
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.project-card:hover .project-card-image img {
+    transform: scale(1.05);
+}
+
+.project-card-content {
+    @apply p-6 flex flex-col;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    padding: 1.5rem;
+    justify-content: space-between;
+    min-height: 300px;
+    background: rgba(255, 255, 255, 0.02);
+    overflow: hidden;
+}
+
+.project-card-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.project-badge {
+    @apply inline-block text-xs font-semibold px-3 py-1 rounded-full mb-3;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.project-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.project-card:hover .project-badge::before {
+    left: 100%;
+}
+
+.project-badge.web-development {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.project-badge.mobile {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(34, 197, 94, 0.1) 100%);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.project-badge.cpp {
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.2) 0%, rgba(147, 51, 234, 0.1) 100%);
+    color: #a78bfa;
+    border: 1px solid rgba(147, 51, 234, 0.3);
+}
+
+.project-badge.documentation {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(99, 102, 241, 0.1) 100%);
+    color: #a5b4fc;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.project-badge.landing-page {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.project-badge.web-dev {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.project-badge.app-dev {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(34, 197, 94, 0.1) 100%);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.project-badge.analytics {
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.2) 0%, rgba(217, 119, 6, 0.1) 100%);
+    color: #fbbf24;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.project-description {
+    color: #d1d5db;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    display: block;
+    overflow: hidden;
+    max-height: 4rem;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.project-card:hover .project-description {
+    color: #d1d5db;
+}
+
+.project-link {
+    color: #ffffff;
+    text-decoration: none;
+    margin-top: 1rem;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--button-hover) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(10, 88, 202, 0.3);
+}
+
+.project-link::after {
+    content: '→';
+    transition: transform 0.3s ease;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.project-link:hover::after {
+    transform: translateX(4px);
+}
+
+.project-link:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--button-hover) 0%, var(--primary-color) 100%);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(10, 88, 202, 0.4);
+}
+
+/* Project Grid Layout - Bento Style */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: auto;
+    gap: 1.5rem;
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    grid-auto-flow: dense;
+}
+
+/* Bento box variations for visual interest - applies to all cards */
+.projects-grid .project-card {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* Make featured cards (1st, 4th, 7th, 10th) larger on desktop */
+@media (min-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .projects-grid .project-card:nth-child(4n+1) {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+}
+
+/* Medium screens - 3 columns with featured cards */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .projects-grid .project-card:nth-child(1),
+    .projects-grid .project-card:nth-child(4),
+    .projects-grid .project-card:nth-child(7),
+    .projects-grid .project-card:nth-child(10) {
+        grid-column: span 2;
+    }
+}
+
+/* Center grid items when there are fewer cards */
+.projects-grid:has(.project-card:nth-child(1):last-child),
+.projects-grid:has(.project-card:nth-child(2):last-child) {
+    justify-content: center;
+}
+
+/* Alternative approach for browsers that don't support :has() */
+.projects-grid[data-items="1"],
+.projects-grid[data-items="2"] {
+    justify-content: center;
+}
+
+/* Specific styling for 2 cards */
+.projects-grid[data-items="2"] {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Specific styling for 1 card */
+.projects-grid[data-items="1"] {
+    grid-template-columns: minmax(280px, 1fr);
+}
+
+.projects-grid::before {
+    content: '';
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    border-radius: 2px;
+}
+
+/* More Projects Card */
+.more-projects-card {
+    @apply flex items-center justify-center bg-[var(--card-background)] rounded-lg shadow-md p-8 transition-all duration-500 hover:transform hover:-translate-y-2;
+    border: 2px dashed var(--border-color);
+    background: linear-gradient(145deg, var(--card-background) 0%, rgba(30, 30, 30, 0.6) 100%);
+    position: relative;
+    overflow: hidden;
+    max-width: 400px;
+    width: 100%;
+    height: 550px;
+    min-height: 550px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.more-projects-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--button-hover));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.more-projects-card:hover::before {
+    transform: scaleX(1);
+}
+
+.more-projects-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.more-projects-card a {
+    @apply text-center;
+    position: relative;
+    z-index: 1;
+}
+
+.more-projects-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.more-projects-card:hover h3 {
+    color: var(--primary-color);
+}
+
+.more-projects-card .arrow {
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.more-projects-card:hover .arrow {
+    transform: translateX(8px) scale(1.1);
+}
+
+/* Project Image Container */
+.project-image-container {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    height: 250px;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px 8px 0 0;
+    padding: 1rem;
+}
+
+
+
+.project-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image-container img {
+    transform: scale(1.05);
+}
+
+.project-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(10, 88, 202, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.project-card:hover .project-image-container::before {
+    opacity: 1;
+}
+
+/* Mobile App Mockup */
+.mobile-mockup {
+    width: 200px;
+    height: 300px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 20px;
+    padding: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .mobile-mockup {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Terminal Mockup */
+.terminal-mockup {
+    width: 280px;
+    height: 200px;
+    background: #000;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #00ff00;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .terminal-mockup {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Animation Styles */
+.fade-in-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enhanced scroll animations */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-left.visible,
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-scale {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-scale.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Gradient Animation */
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+    background: linear-gradient(-45deg, #121212, #1a1a1a, #0c7ff2, #121212);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+}
+
+/* Timeline Styles */
+.timeline-item {
+    @apply relative pl-8 sm:pl-12 pb-12;
+}
+
+.timeline-item:last-child {
+    @apply pb-0;
+}
+
+.timeline-marker {
+    @apply absolute top-1 left-0 sm:left-2.5 w-5 h-5 bg-[var(--primary-color)] rounded-full border-4 border-[var(--background-color)];
+}
+
+.timeline-line {
+    @apply absolute top-1 left-2 sm:left-5 w-0.5 h-full bg-[var(--border-color)];
+}
+
+.timeline-item:last-child .timeline-line {
+    display: none;
+}
+
+/* Form Styles */
+.input {
+    @apply bg-[var(--accent-color)] text-[var(--text-primary)] border border-[var(--border-color)] rounded-lg py-3 px-4 w-full focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition-colors;
+}
+
+/* Skill Badge Styles */
+.skill-badge {
+    @apply bg-[var(--accent-color)] rounded-full px-4 py-2 text-sm font-medium flex items-center gap-2 transition-colors hover:bg-[var(--primary-color)];
+    border: 1px solid var(--border-color);
+}
+
+/* Newsletter Styles */
+.newsletter-signup {
+    background: linear-gradient(135deg, rgba(10, 88, 202, 0.1) 0%, rgba(51, 51, 51, 0.2) 100%);
+    border: 1px solid rgba(10, 88, 202, 0.2);
+}
+
+/* Focus Styles for Accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Image Styles */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Responsive Text */
+@media (max-width: 768px) {
+    .text-5xl {
+        font-size: 2.5rem;
+    }
+    .text-4xl {
+        font-size: 2rem;
+    }
+    .text-3xl {
+        font-size: 1.75rem;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .project-card {
+        max-width: 100%;
+        height: 500px;
+        min-height: 500px;
+        padding: 16px;
+    }
+    
+    .project-card-content {
+        height: 250px;
+        min-height: 250px;
+        padding: 1rem;
+    }
+    
+    .more-projects-card {
+        padding: 2rem;
+        height: 500px;
+        min-height: 500px;
+    }
+
+    .projects-grid[data-items="2"] {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .projects-grid[data-items="1"] {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image-container {
+        height: 200px;
+        min-height: 200px;
+    }
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Loading Animation for Project Cards */
+@keyframes projectCardLoad {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.project-card {
+    animation: projectCardLoad 0.8s ease forwards;
+    will-change: transform, opacity;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* Enhanced hover effects */
+.project-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+.skill-badge:hover {
+    transform: translateY(-2px) scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Filter Button Styles */
+.filter-button {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+    background: linear-gradient(135deg, var(--card-background) 0%, rgba(30, 30, 30, 0.8) 100%);
+    color: var(--text-secondary);
+    border: 2px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.filter-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(10, 88, 202, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.filter-button:hover::before {
+    left: 100%;
+}
+
+.filter-button:hover {
+    color: var(--text-primary);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(10, 88, 202, 0.2);
+}
+
+.filter-button.active {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--button-hover) 100%);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 25px rgba(10, 88, 202, 0.3);
+}
+
+.filter-button.active::before {
+    display: none;
+}
+
+/* Project Filter Animation */
+.project-card {
+    transition: all 0.5s ease;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.project-card.filtered-out {
+    opacity: 0;
+    transform: translateZ(0) scale(0.8);
+    pointer-events: none;
+}
+
+.project-card.filtered-in {
+    opacity: 1;
+    transform: translateZ(0) scale(1);
+    pointer-events: all;
+}
+
+/* Ensure filtered cards maintain proper size */
+.project-card.filtered-in,
+.project-card:not(.filtered-out) {
+    transform: translateZ(0) scale(1) !important;
+}
+
+/* Filter Counter */
+.filter-counter {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* No Results Message */
+.no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+}
+
+.no-results h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.no-results p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+
+
+/* Project Actions Layout */
+.project-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: auto;
+}
+
+.project-action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-action-button.primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--button-hover) 100%);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(10, 88, 202, 0.3);
+}
+
+.project-action-button.primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.project-action-button.primary:hover::before {
+    left: 100%;
+}
+
+.project-action-button.primary:hover {
+    background: linear-gradient(135deg, var(--button-hover) 0%, var(--primary-color) 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(10, 88, 202, 0.4);
+}
+
+.project-action-button.secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(10, 88, 202, 0.2);
+}
+
+.project-action-button.secondary:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(10, 88, 202, 0.3);
+}
+
+.project-action-button:focus {
+    outline: none;
+    ring: 3px;
+    ring-color: var(--primary-color);
+    ring-opacity: 30;
+}
+
+/* Mobile optimization for project actions */
+@media (max-width: 768px) {
+    .project-actions {
+        gap: 0.5rem;
+    }
+    
+    .project-action-button {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Project Header Structure */
+.project-header {
+    margin-bottom: 1rem;
+}
+
+.project-header .project-title {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    background: linear-gradient(135deg, #ffffff 0%, #e5e7eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.project-card:hover .project-header .project-title {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--button-hover) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.project-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+/* Project Details Section */
+.project-details {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+/* Adjust project card content for better button positioning */
+.project-card-content {
+    @apply p-6 flex flex-col;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    padding: 1.5rem;
+    justify-content: space-between;
+    min-height: 300px;
+    background: rgba(255, 255, 255, 0.02);
+    overflow: hidden;
+}
+
+/* Ensure project actions are always at the bottom */
+.project-actions {
+    margin-top: auto;
+    padding-top: 0.5rem;
+}

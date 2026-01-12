@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://amiqt.github.io/portfolio/sitemap.xml
+
+# Additional directives for better crawling
+Disallow: /partials/
+Disallow: /src/
+Disallow: /.github/ 

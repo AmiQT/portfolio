@@ -1,0 +1,256 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+---
+
+<Layout title="Rumah Tenang - Malaysian Homestay Landing Page | Noor Azami" description="A responsive landing page for a Malaysian homestay business targeting foreign tourists and vacationers. Features interactive image gallery and booking form.">
+    <Header />
+    <main class="pt-16">
+        <!-- Back Button -->
+        <div class="px-4 sm:px-6 lg:px-8 py-4">
+            <button id="back-to-projects" class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group cursor-pointer">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Projects
+            </button>
+        </div>
+        <!-- Project Hero Section -->
+        <section class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-12 fade-in-scroll">
+                    <div class="flex justify-center mb-6">
+                        <span class="project-badge landing-page text-lg px-6 py-3">Landing Page</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Rumah Tenang - Your Authentic Malaysian Escape</h1>
+                    <p class="text-xl text-text-secondary max-w-3xl mx-auto">A responsive landing page designed to showcase Malaysian hospitality and attract foreign tourists to a local homestay business.</p>
+                </div>
+
+                <!-- Project Image -->
+                <div class="mb-12 fade-in-scroll">
+                    <img src={import.meta.env.BASE_URL + "assets/rumah_tenang.webp"} alt="Rumah Tenang Landing Page" class="w-full rounded-lg shadow-2xl">
+                </div>
+
+                <!-- Project Overview -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Project Type</h3>
+                        <p class="text-text-secondary">Landing page for homestay business targeting foreign tourists and vacationers in Malaysia.</p>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Duration</h3>
+                        <p class="text-text-secondary">1-3 months as a solo developer, focusing on responsive design and user experience.</p>
+                    </div>
+                    <div class="card fade-in-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Technologies</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded text-sm">HTML</span>
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded text-sm">CSS</span>
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 border border-orange-500/30 rounded text-sm">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Description -->
+                <div class="mb-16 fade-in-scroll">
+                    <h2 class="text-3xl font-bold mb-8">Project Overview</h2>
+                    <div class="prose prose-invert max-w-none">
+                        <p class="text-lg leading-relaxed mb-6">
+                            Rumah Tenang is a comprehensive landing page designed to showcase the authentic Malaysian homestay experience to international tourists and vacationers. The project focuses on creating an immersive digital experience that captures the essence of Malaysian hospitality while providing practical booking functionality.
+                        </p>
+                        <p class="text-lg leading-relaxed mb-6">
+                            The landing page serves as the primary digital touchpoint for potential guests, featuring stunning imagery of the homestay, surrounding attractions, and local culture. The design emphasizes the unique selling points of the Malaysian homestay experience, from traditional architecture to local cuisine and cultural activities.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Key Features -->
+                <div class="mb-16 fade-in-scroll">
+                    <h2 class="text-3xl font-bold mb-8">Key Features</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="card">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">Interactive Image Gallery</h3>
+                                    <p class="text-text-secondary">Showcases local attractions, homestay facilities, and cultural experiences through an engaging image gallery that helps visitors visualize their stay.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">Contact Form</h3>
+                                    <p class="text-text-secondary">Integrated email contact form for booking inquiries, allowing potential guests to easily reach out for reservations and information.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">Responsive Design</h3>
+                                    <p class="text-text-secondary">Fully responsive layout that provides an optimal viewing experience across all devices, from mobile phones to desktop computers.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">Performance Optimized</h3>
+                                    <p class="text-text-secondary">Optimized images and assets for fast loading times, ensuring a smooth user experience even with high-quality visual content.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Implementation -->
+                <div class="mb-16 fade-in-scroll">
+                    <h2 class="text-3xl font-bold mb-8">Technical Implementation</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">Frontend Development</h3>
+                            <ul class="space-y-3 text-text-secondary">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Semantic HTML5 structure for accessibility
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Modern CSS3 with Flexbox and Grid
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Vanilla JavaScript for interactivity
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Mobile-first responsive design
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">User Experience</h3>
+                            <ul class="space-y-3 text-text-secondary">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Intuitive navigation and layout
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Fast loading and smooth interactions
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Clear call-to-action elements
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Cross-browser compatibility
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Challenges & Solutions -->
+                <div class="mb-16 fade-in-scroll">
+                    <h2 class="text-3xl font-bold mb-8">Challenges & Solutions</h2>
+                    <div class="space-y-8">
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-400">Challenge: Creating an Authentic Malaysian Experience</h3>
+                            <p class="text-text-secondary mb-4">Designing a landing page that authentically represents Malaysian culture and hospitality while appealing to international tourists.</p>
+                            <h4 class="font-semibold mb-2">Solution:</h4>
+                            <ul class="text-text-secondary space-y-2">
+                                <li>• Researched Malaysian cultural elements and traditional hospitality practices</li>
+                                <li>• Incorporated local imagery and cultural references throughout the design</li>
+                                <li>• Used warm, inviting color schemes that reflect Malaysian aesthetics</li>
+                                <li>• Created content that emphasizes the unique homestay experience</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4 text-green-400">Challenge: Mobile-First Responsive Design</h3>
+                            <p class="text-text-secondary mb-4">Ensuring the landing page provides an excellent user experience across all devices, especially mobile phones used by travelers.</p>
+                            <h4 class="font-semibold mb-2">Solution:</h4>
+                            <ul class="text-text-secondary space-y-2">
+                                <li>• Implemented mobile-first responsive design approach</li>
+                                <li>• Optimized image gallery for touch interactions on mobile devices</li>
+                                <li>• Created simplified navigation that works well on small screens</li>
+                                <li>• Ensured fast loading times for mobile users with limited data</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Links -->
+                <div class="text-center fade-in-scroll">
+                    <h2 class="text-3xl font-bold mb-8">Project Links</h2>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://amiqt.github.io/landing_page_1/" target="_blank" rel="noopener noreferrer" class="button_primary text-lg px-8 py-3">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                            View Live Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<script>
+    // Software Developer Projects - Rumah Tenang is a developer project
+    document.addEventListener('DOMContentLoaded', function() {
+        const backButton = document.getElementById('back-to-projects');
+        if (backButton) {
+            backButton.addEventListener('click', function() {
+                const profile = localStorage.getItem('selectedProfile') || 'software-developer';
+                const baseUrl = window.location.pathname.startsWith('/portfolio') ? '/portfolio' : '';
+                
+                if (profile === 'it-support') {
+                    // If IT Support is selected, go to IT Support projects
+                    window.location.href = baseUrl + '/role-it-support/projects';
+                } else {
+                    // Default to Software Developer projects
+                    window.location.href = baseUrl + '/role-software-developer/projects';
+                }
+            });
+        }
+    });
+</script>

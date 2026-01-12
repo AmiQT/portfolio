@@ -1,0 +1,65 @@
+---
+---
+
+<header class="fixed top-0 w-full z-10 bg-[var(--background-color)]/80 backdrop-blur-sm" role="banner">
+	<nav class="container mx-auto px-4 py-4 flex justify-between items-center" role="navigation" aria-label="Main navigation">
+		<a href={import.meta.env.BASE_URL} class="text-2xl font-bold focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-offset-2 focus:ring-offset-[var(--background-color)] rounded" aria-label="Home - Noor Azami Portfolio">Noor Azami</a>
+		<div class="hidden lg:flex items-center space-x-8" role="menubar">
+			<a href={import.meta.env.BASE_URL} class="text-lg hover:text-[var(--primary-color)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-offset-2 focus:ring-offset-[var(--background-color)] rounded px-2 py-1" role="menuitem" aria-current={Astro.url.pathname === import.meta.env.BASE_URL ? "page" : undefined}>Home</a>
+			<a href={import.meta.env.BASE_URL + "about"} class="text-lg hover:text-[var(--primary-color)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-offset-2 focus:ring-offset-[var(--background-color)] rounded px-2 py-1" role="menuitem" aria-current={Astro.url.pathname.includes('/about') ? "page" : undefined}>About</a>
+			<a href="#" id="projects-link" class="text-lg hover:text-[var(--primary-color)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-offset-2 focus:ring-offset-[var(--background-color)] rounded px-2 py-1" role="menuitem">Projects</a>
+			<a href={import.meta.env.BASE_URL + "experience"} class="text-lg hover:text-[var(--primary-color)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-offset-2 focus:ring-offset-[var(--background-color)] rounded px-2 py-1" role="menuitem" aria-current={Astro.url.pathname.includes('/experience') ? "page" : undefined}>Experience</a>
+			<a href={import.meta.env.BASE_URL + "contact"} class="text-lg hover:text-[var(--primary-color)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-offset-2 focus:ring-offset-[var(--background-color)] rounded px-2 py-1" role="menuitem" aria-current={Astro.url.pathname.includes('/contact') ? "page" : undefined}>Contact</a>
+		</div>
+		<div class="lg:hidden">
+			<button 
+				id="menu-toggle" 
+				class="text-white focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-offset-2 focus:ring-offset-[var(--background-color)] rounded p-1" 
+				aria-label="Toggle mobile menu"
+				aria-expanded="false"
+				aria-controls="mobile-menu"
+			>
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+				</svg>
+			</button>
+		</div>
+	</nav>
+	<div id="mobile-menu" class="hidden lg:hidden" role="menu" aria-labelledby="menu-toggle">
+		<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+			<a href={import.meta.env.BASE_URL} class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-offset-2 focus:ring-offset-[var(--background-color)]" role="menuitem" aria-current={Astro.url.pathname === import.meta.env.BASE_URL ? "page" : undefined}>Home</a>
+			<a href={import.meta.env.BASE_URL + "about"} class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-offset-2 focus:ring-offset-[var(--background-color)]" role="menuitem" aria-current={Astro.url.pathname.includes('/about') ? "page" : undefined}>About</a>
+			<a href="#" id="projects-link-mobile" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-offset-2 focus:ring-offset-[var(--background-color)]" role="menuitem">Projects</a>
+			<a href={import.meta.env.BASE_URL + "experience"} class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-offset-2 focus:ring-offset-[var(--background-color)]" role="menuitem" aria-current={Astro.url.pathname.includes('/experience') ? "page" : undefined}>Experience</a>
+			<a href={import.meta.env.BASE_URL + "contact"} class="block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--accent-color)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-offset-2 focus:ring-offset-[var(--background-color)]" role="menuitem" aria-current={Astro.url.pathname.includes('/contact') ? "page" : undefined}>Contact</a>
+		</div>
+	</div>
+</header>
+
+<script>
+	function updateProjectsLink() {
+		const baseUrl = import.meta.env.BASE_URL || '/';
+		const profile = localStorage.getItem('selectedProfile') || 'software-developer';
+		
+		let projectsPath;
+		if (profile === 'it-support') {
+			projectsPath = baseUrl + 'role-it-support/projects';
+		} else if (profile === 'data-analyst') {
+			projectsPath = baseUrl + 'role-data-analyst/projects';
+		} else {
+			projectsPath = baseUrl + 'role-software-developer/projects';
+		}
+		
+		const desktopLink = document.getElementById('projects-link');
+		const mobileLink = document.getElementById('projects-link-mobile');
+		
+		if (desktopLink) desktopLink.href = projectsPath;
+		if (mobileLink) mobileLink.href = projectsPath;
+	}
+	
+	// Update on page load
+	updateProjectsLink();
+	
+	// Listen for profile changes
+	window.addEventListener('profileChanged', updateProjectsLink);
+</script>

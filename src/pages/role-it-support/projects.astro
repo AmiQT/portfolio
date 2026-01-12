@@ -1,0 +1,352 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import ProfileSelector from '../../components/ProfileSelector.astro';
+---
+
+<Layout title="IT Support Projects - Noor Azami" description="IT Support and technical documentation projects showcasing system administration, networking, and infrastructure expertise." canonical="/role-it-support/projects">
+    <Header />
+    <ProfileSelector />
+    <main class="pt-16">
+        <section class="py-24 px-4 sm:px-6 lg:px-8 text-center">
+            <div class="container mx-auto fade-in-scroll">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">IT Support Projects</h1>
+                <p class="text-lg text-text-secondary max-w-3xl mx-auto">Comprehensive technical documentation and hands-on infrastructure projects demonstrating IT support expertise.</p>
+            </div>
+        </section>
+
+        <section class="pb-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-6xl">
+                <!-- Filter Counter -->
+                <div class="flex flex-col items-center mb-12 fade-in-scroll">
+                    <div class="filter-counter text-lg font-semibold">8 IT Support Projects</div>
+                </div>
+
+                <!-- Project Grid -->
+                <div class="projects-grid project-grid">
+                    <!-- Project: PC Setup Guide -->
+                    <div class="project-card fade-in-scroll" data-category="documentation">
+                        <div class="project-image-container">
+                            <div class="w-full h-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-blue-500/30">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20m0 0l-.75 3M9 20H5m15-5h-3.75M15 5h-3m0 0h-3m3 0V2m0 3H6m0 0h-.75m.75 0l-.75-3M19 11l3-.75m0 0l.75-3M22 11h-3m0 0v3m0-3V8"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-blue-400">PC Setup</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Windows PC Setup & Configuration Guide</h3>
+                                <div class="project-badges">
+                                    <span class="project-badge documentation">Documentation</span>
+                                    <div class="skills-tags">
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Windows</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Setup</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Configuration</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">Complete step-by-step guide for setting up and configuring Windows workstations. Covers BIOS settings, driver installation, Windows optimization, software deployment, and post-setup configuration best practices.</p>
+                            <div class="project-actions">
+                                <a href={import.meta.env.BASE_URL + "projects/pc-setup-guide"} class="project-action-button primary">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    View Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project: Windows Troubleshooting -->
+                    <div class="project-card fade-in-scroll" data-category="documentation">
+                        <div class="project-image-container">
+                            <div class="w-full h-full bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-lg flex items-center justify-center border border-blue-500/30">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-blue-400">Troubleshooting</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Windows Troubleshooting & Support Guide</h3>
+                                <div class="project-badges">
+                                    <span class="project-badge documentation">Documentation</span>
+                                    <div class="skills-tags">
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Troubleshooting</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Support</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Diagnostics</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">Comprehensive guide to diagnosing and resolving common Windows problems. Includes system tools, event log analysis, performance monitoring, and systematic troubleshooting methodologies for various system issues.</p>
+                            <div class="project-actions">
+                                <a href={import.meta.env.BASE_URL + "projects/windows-troubleshooting-guide"} class="project-action-button primary">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    View Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project: Network Setup -->
+                    <div class="project-card fade-in-scroll" data-category="documentation">
+                        <div class="project-image-container">
+                            <div class="w-full h-full bg-gradient-to-br from-blue-500/20 to-sky-500/20 rounded-lg flex items-center justify-center border border-blue-500/30">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.658 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-blue-400">Network Setup</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Network Setup, VPN & Remote Access Guide</h3>
+                                <div class="project-badges">
+                                    <span class="project-badge documentation">Documentation</span>
+                                    <div class="skills-tags">
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Networking</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">VPN</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Remote Access</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">Detailed guide for network configuration, TCP/IP setup, VPN implementation, and remote access solutions. Covers firewall configuration, DNS setup, RDP configuration, and security best practices for remote work.</p>
+                            <div class="project-actions">
+                                <a href={import.meta.env.BASE_URL + "projects/network-setup-guide"} class="project-action-button primary">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    View Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project: Active Directory -->
+                    <div class="project-card fade-in-scroll" data-category="documentation">
+                        <div class="project-image-container">
+                            <div class="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg flex items-center justify-center border border-blue-500/30">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 10H9m6 0h.01M9 20h6a2 2 0 002-2V7a2 2 0 00-2-2H9a2 2 0 00-2 2v11a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-blue-400">Active Directory</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Active Directory & User Management Guide</h3>
+                                <div class="project-badges">
+                                    <span class="project-badge documentation">Documentation</span>
+                                    <div class="skills-tags">
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Active Directory</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Users</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Group Policies</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">Comprehensive guide to Active Directory setup, administration, and management. Covers domain configuration, user and group management, organizational units, group policies, and security delegation for enterprise environments.</p>
+                            <div class="project-actions">
+                                <a href={import.meta.env.BASE_URL + "projects/active-directory-guide"} class="project-action-button primary">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    View Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project: Backup & Recovery -->
+                    <div class="project-card fade-in-scroll" data-category="documentation">
+                        <div class="project-image-container">
+                            <div class="w-full h-full bg-gradient-to-br from-blue-500/20 to-slate-500/20 rounded-lg flex items-center justify-center border border-blue-500/30">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3v-6"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-blue-400">Backup & DR</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Backup & Disaster Recovery Guide</h3>
+                                <div class="project-badges">
+                                    <span class="project-badge documentation">Documentation</span>
+                                    <div class="skills-tags">
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Backup</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Disaster Recovery</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Business Continuity</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">Complete guide to backup strategies, disaster recovery planning, and business continuity. Covers backup types, scheduling, off-site storage, recovery procedures, and creating comprehensive DR plans for organizational resilience.</p>
+                            <div class="project-actions">
+                                <a href={import.meta.env.BASE_URL + "projects/backup-recovery-guide"} class="project-action-button primary">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    View Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project: Office 365 Admin -->
+                    <div class="project-card fade-in-scroll" data-category="documentation">
+                        <div class="project-image-container">
+                            <div class="w-full h-full bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-lg flex items-center justify-center border border-orange-500/30">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-orange-400">Office 365</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Office 365 Administration & Migration</h3>
+                                <div class="project-badges">
+                                    <span class="project-badge documentation">Documentation</span>
+                                    <div class="skills-tags">
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">O365</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Exchange</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">SharePoint</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">Comprehensive guide for managing Office 365 environments, including user management, Exchange Online, SharePoint, and migration strategies.</p>
+                            <div class="project-actions">
+                                <a href={import.meta.env.BASE_URL + "projects/office-365-admin-guide"} class="project-action-button primary">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    View Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project: Cybersecurity -->
+                    <div class="project-card fade-in-scroll" data-category="documentation">
+                        <div class="project-image-container">
+                            <div class="w-full h-full bg-gradient-to-br from-red-500/20 to-pink-500/20 rounded-lg flex items-center justify-center border border-red-500/30">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-red-400">Security</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Cybersecurity Best Practices</h3>
+                                <div class="project-badges">
+                                    <span class="project-badge documentation">Documentation</span>
+                                    <div class="skills-tags">
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Security</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Phishing</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Policies</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">Essential cybersecurity practices for organizations and end-users, covering password policies, phishing awareness, and endpoint protection.</p>
+                            <div class="project-actions">
+                                <a href={import.meta.env.BASE_URL + "projects/cybersecurity-best-practices"} class="project-action-button primary">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    View Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project: Helpdesk Workflow -->
+                    <div class="project-card fade-in-scroll" data-category="documentation">
+                        <div class="project-image-container">
+                            <div class="w-full h-full bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-lg flex items-center justify-center border border-green-500/30">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-green-400">Helpdesk</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Helpdesk Ticketing Workflow</h3>
+                                <div class="project-badges">
+                                    <span class="project-badge documentation">Documentation</span>
+                                    <div class="skills-tags">
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">ITSM</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">SLA</span>
+                                        <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">Workflow</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">A guide to setting up and managing an efficient IT helpdesk ticketing system, including SLA definitions, ticket lifecycle, and prioritization.</p>
+                            <div class="project-actions">
+                                <a href={import.meta.env.BASE_URL + "projects/helpdesk-ticketing-workflow"} class="project-action-button primary">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    View Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-4 sm:px-6 lg:px-8 bg-accent-color text-center">
+            <div class="container mx-auto max-w-4xl fade-in-scroll">
+                <h2 class="text-4xl font-bold mb-6">All IT Support Competencies Covered</h2>
+                <p class="text-lg text-text-secondary mb-8">These projects demonstrate comprehensive expertise in systems administration, networking, infrastructure, and IT support documentation</p>
+                <a href={import.meta.env.BASE_URL + "role-it-support/"} class="button_primary text-lg font-bold px-8 py-3">
+                    Back to IT Support Profile
+                </a>
+            </div>
+        </section>
+    </main>
+</Layout>

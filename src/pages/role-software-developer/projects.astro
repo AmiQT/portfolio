@@ -1,0 +1,201 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import ProfileSelector from "../../components/ProfileSelector.astro";
+import { projectsData as projects } from "../../data/software-developer";
+---
+
+<Layout
+    title="Development Projects - Noor Azami"
+    description="Software development projects including web apps, mobile applications, and full-stack systems showcasing technical expertise."
+    canonical="/role-software-developer/projects"
+>
+    <Header />
+    <ProfileSelector />
+    <main class="pt-16">
+        <section class="py-24 px-4 sm:px-6 lg:px-8 text-center">
+            <div class="container mx-auto fade-in-scroll">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                    Development Projects
+                </h1>
+                <p class="text-lg text-text-secondary max-w-3xl mx-auto">
+                    A collection of full-stack applications, mobile apps, and
+                    web development projects showcasing technical skills and
+                    creative problem-solving.
+                </p>
+            </div>
+        </section>
+
+        <section class="pb-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-6xl">
+                <!-- Filter Counter -->
+                <div class="flex flex-col items-center mb-12 fade-in-scroll">
+                    <div class="filter-counter text-lg font-semibold">
+                        6 Development Projects
+                    </div>
+                </div>
+
+                <!-- Project Grid -->
+                <div class="projects-grid project-grid">
+                    {
+                        projects.map((project) => (
+                            <div
+                                class="project-card fade-in-scroll"
+                                data-category={
+                                    project.type === "App"
+                                        ? "mobile"
+                                        : "web-development"
+                                }
+                            >
+                                <div class="project-image-container">
+                                    {project.image === "gradient" ? (
+                                        <div
+                                            class={`w-full h-full bg-gradient-to-br from-${project.color}-500/20 to-${project.color === "teal" ? "emerald" : "amber"}-500/20 rounded-lg flex items-center justify-center border border-${project.color}-500/30`}
+                                        >
+                                            <div class="text-center">
+                                                <div
+                                                    class={`w-16 h-16 bg-${project.color}-500/20 rounded-full flex items-center justify-center mx-auto mb-2`}
+                                                >
+                                                    <svg
+                                                        class={`w-8 h-8 text-${project.color}-400`}
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        {/* Icon paths could be dynamic, but for now using a generic one or specific based on project title if needed, 
+                                                            or better yet, import icons. For simplicity in this refactor, I'll use a generic code/app icon or map based on project.icon string */}
+                                                        <path
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                                        />
+                                                    </svg>
+                                                </div>
+                                                <h4
+                                                    class={`text-sm font-bold text-${project.color}-400`}
+                                                >
+                                                    {project.title}
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    ) : project.placeholder ? (
+                                        <div
+                                            class={`w-full h-full bg-gradient-to-br from-${project.color}-500/20 to-${project.color === "teal" ? "emerald" : "amber"}-500/20 rounded-lg flex items-center justify-center border border-${project.color}-500/30`}
+                                        >
+                                            <div class="text-center">
+                                                <div
+                                                    class={`w-16 h-16 bg-${project.color}-500/20 rounded-full flex items-center justify-center mx-auto mb-2`}
+                                                >
+                                                    <svg
+                                                        class={`w-8 h-8 text-${project.color}-400`}
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                                                        />
+                                                    </svg>
+                                                </div>
+                                                <h4
+                                                    class={`text-sm font-bold text-${project.color}-400`}
+                                                >
+                                                    {project.title}
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <img
+                                            src={
+                                                import.meta.env.BASE_URL +
+                                                project.image
+                                            }
+                                            alt={project.title}
+                                            class="w-full h-full object-cover rounded-lg"
+                                            width="368"
+                                            height="178"
+                                            loading="lazy"
+                                        />
+                                    )}
+                                </div>
+                                <div class="project-card-content">
+                                    <div class="project-header">
+                                        <h3 class="project-title">
+                                            {project.title}
+                                        </h3>
+                                        <div class="project-badges">
+                                            <span
+                                                class={`project-badge ${project.type === "App" ? "mobile" : "web-development"}`}
+                                            >
+                                                {project.type === "App"
+                                                    ? "Mobile App"
+                                                    : "Web Development"}
+                                            </span>
+                                            {/* Skills tags could be added to data if needed, for now omitted or hardcoded generic */}
+                                        </div>
+                                    </div>
+                                    <p class="project-description mb-4">
+                                        {project.desc}
+                                    </p>
+                                    <div class="project-actions">
+                                        <a
+                                            href={
+                                                import.meta.env.BASE_URL +
+                                                project.link
+                                            }
+                                            class="project-action-button primary"
+                                        >
+                                            <svg
+                                                class="w-4 h-4"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                                />
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                                                />
+                                            </svg>
+                                            View Project
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-4 sm:px-6 lg:px-8 bg-accent-color text-center">
+            <div class="container mx-auto max-w-4xl fade-in-scroll">
+                <h2 class="text-4xl font-bold mb-6">
+                    Full-Stack Development Expertise
+                </h2>
+                <p class="text-lg text-text-secondary mb-8">
+                    From web applications to mobile apps, these projects
+                    demonstrate proficiency in modern development technologies
+                    and creative problem-solving
+                </p>
+                <a
+                    href="/portfolio/home-software-developer/"
+                    class="button_primary text-lg font-bold px-8 py-3"
+                >
+                    Back to Developer Profile
+                </a>
+            </div>
+        </section>
+    </main>
+</Layout>

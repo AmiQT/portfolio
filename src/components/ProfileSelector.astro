@@ -1,0 +1,255 @@
+---
+// Profile selection modal - displays on first visit
+// This component handles profile selection and sets context
+---
+
+<div id="profile-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" style="display: none;">
+    <div class="bg-gray-900 border border-gray-700 rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <!-- Header -->
+        <div class="sticky top-0 bg-gradient-to-b from-gray-900 via-gray-900 to-transparent p-8 border-b border-gray-700">
+            <h1 class="text-3xl font-bold mb-2">Welcome to My Portfolio</h1>
+            <p class="text-text-secondary">Choose your profile to see a customized experience</p>
+        </div>
+
+        <!-- Content -->
+        <div class="p-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- IT Support Option -->
+                <button 
+                    id="select-it-support" 
+                    class="profile-option group relative h-full text-left p-6 border-2 border-gray-700/50 rounded-xl hover:border-blue-500 hover:bg-blue-500/5 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
+                    data-profile="it-support"
+                >
+                    <!-- Hover accent line -->
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-blue-500/50 rounded-t-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <!-- Icon Box -->
+                    <div class="w-16 h-16 bg-blue-500/15 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-500/25 transition-colors">
+                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    
+                    <!-- Content -->
+                    <h2 class="text-lg font-bold text-white group-hover:text-blue-300 transition-colors mb-1">IT Support</h2>
+                    <p class="text-xs text-text-secondary mb-4 font-medium">Professional</p>
+                    
+                    <!-- Features -->
+                    <ul class="space-y-2.5">
+                        <li class="flex items-center gap-2.5 text-sm text-text-secondary">
+                            <span class="w-1.5 h-1.5 bg-blue-400 rounded-full flex-shrink-0"></span>
+                            <span>System Administration</span>
+                        </li>
+                        <li class="flex items-center gap-2.5 text-sm text-text-secondary">
+                            <span class="w-1.5 h-1.5 bg-blue-400 rounded-full flex-shrink-0"></span>
+                            <span>Infrastructure</span>
+                        </li>
+                        <li class="flex items-center gap-2.5 text-sm text-text-secondary">
+                            <span class="w-1.5 h-1.5 bg-blue-400 rounded-full flex-shrink-0"></span>
+                            <span>Documentation</span>
+                        </li>
+                    </ul>
+                </button>
+
+                <!-- Software Developer Option -->
+                <button 
+                    id="select-software-dev" 
+                    class="profile-option group relative h-full text-left p-6 border-2 border-gray-700/50 rounded-xl hover:border-green-500 hover:bg-green-500/5 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
+                    data-profile="software-developer"
+                >
+                    <!-- Hover accent line -->
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500 to-green-500/50 rounded-t-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <!-- Icon Box -->
+                    <div class="w-16 h-16 bg-green-500/15 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-500/25 transition-colors">
+                        <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    
+                    <!-- Content -->
+                    <h2 class="text-lg font-bold text-white group-hover:text-green-300 transition-colors mb-1">Software</h2>
+                    <p class="text-xs text-text-secondary mb-4 font-medium">Developer</p>
+                    
+                    <!-- Features -->
+                    <ul class="space-y-2.5">
+                        <li class="flex items-center gap-2.5 text-sm text-text-secondary">
+                            <span class="w-1.5 h-1.5 bg-green-400 rounded-full flex-shrink-0"></span>
+                            <span>Full-Stack Dev</span>
+                        </li>
+                        <li class="flex items-center gap-2.5 text-sm text-text-secondary">
+                            <span class="w-1.5 h-1.5 bg-green-400 rounded-full flex-shrink-0"></span>
+                            <span>Mobile Apps</span>
+                        </li>
+                        <li class="flex items-center gap-2.5 text-sm text-text-secondary">
+                            <span class="w-1.5 h-1.5 bg-green-400 rounded-full flex-shrink-0"></span>
+                            <span>Web Development</span>
+                        </li>
+                    </ul>
+                </button>
+
+                <!-- Data Analyst Option - HIDDEN FOR NOW -->
+                <button 
+                    id="select-data-analyst" 
+                    class="profile-option group relative h-full text-left p-6 border-2 border-gray-700/50 rounded-xl hover:border-amber-500 hover:bg-amber-500/5 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/20"
+                    data-profile="data-analyst"
+                    style="display: none;"
+                >
+                    <!-- Hover accent line -->
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-amber-500/50 rounded-t-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <!-- Icon Box -->
+                    <div class="w-16 h-16 bg-amber-500/15 rounded-xl flex items-center justify-center mb-4 group-hover:bg-amber-500/25 transition-colors">
+                        <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    
+                    <!-- Content -->
+                    <h2 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors mb-1">Data</h2>
+                    <p class="text-xs text-text-secondary mb-4 font-medium">Analyst</p>
+                    
+                    <!-- Features -->
+                    <ul class="space-y-2.5">
+                        <li class="flex items-center gap-2.5 text-sm text-text-secondary">
+                            <span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0"></span>
+                            <span>Power BI</span>
+                        </li>
+                        <li class="flex items-center gap-2.5 text-sm text-text-secondary">
+                            <span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0"></span>
+                            <span>Data Visualization</span>
+                        </li>
+                        <li class="flex items-center gap-2.5 text-sm text-text-secondary">
+                            <span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0"></span>
+                            <span>Business Analytics</span>
+                        </li>
+                    </ul>
+                </button>
+            </div>
+
+            <!-- Info Section -->
+            <div class="p-4 bg-gray-800/30 border border-gray-700 rounded-lg">
+                <p class="text-sm text-text-secondary">
+                    <strong>💡 Tip:</strong> You can change your profile preference anytime by visiting the Profile page from the navigation menu.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Check if user has already selected a profile
+    function checkProfileSelection() {
+        const savedProfile = localStorage.getItem('selectedProfile');
+        const modal = document.getElementById('profile-modal');
+        
+        if (!savedProfile && modal) {
+            // Show modal if no profile selected
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    // Handle profile selection
+    function setupProfileSelection() {
+        const itSupportBtn = document.getElementById('select-it-support');
+        const softwareDevBtn = document.getElementById('select-software-dev');
+        const dataAnalystBtn = document.getElementById('select-data-analyst');
+        const modal = document.getElementById('profile-modal');
+
+        if (itSupportBtn) {
+            itSupportBtn.addEventListener('click', () => {
+                selectProfile('it-support');
+            });
+        }
+
+        if (softwareDevBtn) {
+            softwareDevBtn.addEventListener('click', () => {
+                selectProfile('software-developer');
+            });
+        }
+
+        if (dataAnalystBtn) {
+            dataAnalystBtn.addEventListener('click', () => {
+                selectProfile('data-analyst');
+            });
+        }
+
+        // Allow closing modal by clicking backdrop if user already has a profile
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    const hasProfile = localStorage.getItem('selectedProfile');
+                    if (hasProfile) {
+                        // Allow closing if user already has profile
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+            });
+        }
+    }
+
+    // Save profile selection and redirect to appropriate home page
+    function selectProfile(profile) {
+        localStorage.setItem('selectedProfile', profile);
+        const modal = document.getElementById('profile-modal');
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Dispatch custom event so other components can react
+        window.dispatchEvent(new CustomEvent('profileSelected', { detail: { profile } }));
+        
+        // Get base URL
+        const baseUrl = window.location.pathname.startsWith('/portfolio') ? '/portfolio' : '';
+        
+        // Redirect to appropriate home page based on profile
+        let redirectUrl;
+        if (profile === 'it-support') {
+            redirectUrl = baseUrl + '/home-it-support/';
+        } else if (profile === 'data-analyst') {
+            redirectUrl = baseUrl + '/role-data-analyst/';
+        } else {
+            redirectUrl = baseUrl + '/home-software-developer/';
+        }
+        
+        setTimeout(() => {
+            window.location.href = redirectUrl;
+        }, 300);
+    }
+
+    // Get current profile
+    function getCurrentProfile() {
+        return localStorage.getItem('selectedProfile') || 'software-developer'; // default
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', checkProfileSelection);
+    setupProfileSelection();
+
+    // Make functions available globally
+    window.selectProfile = selectProfile;
+    window.getCurrentProfile = getCurrentProfile;
+</script>
+
+<style>
+    #profile-modal {
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .profile-option {
+        cursor: pointer;
+    }
+</style>
