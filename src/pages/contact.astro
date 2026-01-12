@@ -1,462 +1,761 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import Layout from "../layouts/Layout.astro";
+import IdeActivityBar from "../components/ide/IdeActivityBar.astro";
+import IdeSidebar from "../components/ide/IdeSidebar.astro";
+import MobileNav from "../components/ide/MobileNav.astro";
+import NotebookCell from "../components/NotebookCell.astro";
+
+// Files for sidebar
+const files = [
+    { name: "contact.ts", active: true, icon: "📧" },
+    { name: "home-software-developer.ipynb", active: false, icon: "📝" },
+    { name: "about.md", active: false, icon: "📄" },
+];
+
+const contactInfo = [
+    {
+        icon: "📧",
+        label: "Email",
+        value: "noorazami@outlook.my",
+        href: "mailto:noorazami@outlook.my",
+    },
+    {
+        icon: "📱",
+        label: "Phone",
+        value: "013-8799702",
+        href: "tel:013-8799702",
+    },
+    {
+        icon: "💼",
+        label: "LinkedIn",
+        value: "linkedin.com/in/noor-azami",
+        href: "https://www.linkedin.com/in/noor-azami/",
+    },
+    {
+        icon: "🐙",
+        label: "GitHub",
+        value: "github.com/AmiQT",
+        href: "https://github.com/AmiQT",
+    },
+];
+
+const faqs = [
+    {
+        category: "Career & Availability",
+        items: [
+            {
+                q: "What types of IT roles are you seeking?",
+                a: "I'm seeking entry-level IT internship opportunities, particularly in IT Support, Network Administration, and System Development.",
+            },
+            {
+                q: "What's your availability for new opportunities?",
+                a: "I'm currently available for internship opportunities and will be graduating in 6 months. I can start immediately.",
+            },
+            {
+                q: "Do you work remotely, hybrid, or on-site?",
+                a: "I'm flexible with all work arrangements. I prefer hybrid work environments but I'm equally comfortable with fully remote or on-site positions.",
+            },
+        ],
+    },
+    {
+        category: "Technical Expertise",
+        items: [
+            {
+                q: "What are your strongest technical skills?",
+                a: "IT Troubleshooting, Networking, Remote Support, and Multimedia Design. I hold Google IT Support and CCNA certifications.",
+            },
+            {
+                q: "What programming languages do you work with?",
+                a: "Python, C++, HTML/CSS/JavaScript for web development, and Dart for Flutter mobile app development.",
+            },
+        ],
+    },
+];
 ---
 
-<Layout title="Contact - Noor Azami" description="Contact Noor Azami to discuss projects, ideas, or opportunities. Get in touch via the contact form or social media." canonical="/contact">
-    <Header />
-    <main class="pt-16">
-        <section class="py-24 px-4 sm:px-6 lg:px-8 text-center">
-            <div class="container mx-auto fade-in-scroll">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
-                <p class="text-lg text-text-secondary max-w-3xl mx-auto">I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out.</p>
-            </div>
-        </section>
+<Layout
+    title="Contact - Noor Azami"
+    description="Contact Noor Azami to discuss projects, ideas, or opportunities. Get in touch via the contact form or social media."
+    canonical="/contact"
+>
+    <div
+        class="flex h-screen bg-white dark:bg-[#0d1117] text-gray-900 dark:text-gray-300 overflow-hidden font-sans transition-colors duration-300"
+    >
+        <IdeActivityBar />
+        <IdeSidebar files={files} />
 
-        <section class="pb-24 px-4 sm:px-6 lg:px-8">
-            <div class="container mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                    <div class="space-y-8 fade-in-scroll">
-                        <form id="contact-form" action="https://formspree.io/f/mldllrqd" class="space-y-6" method="POST">
-                            <div>
-                                <label class="block text-sm font-medium mb-2" for="name">Your Name *</label>
-                                <input 
-                                    class="input" 
-                                    id="name" 
-                                    name="name" 
-                                    placeholder="Your Name" 
-                                    type="text"
-                                    required
-                                    minlength="2"
-                                    maxlength="50"
-                                />
-                                <div class="error-message hidden text-red-400 text-sm mt-1"></div>
+        <!-- Main Editor Area -->
+        <main
+            class="flex-1 flex flex-col min-w-0 bg-white dark:bg-[#0d1117] transition-colors duration-300"
+        >
+            <!-- Tab Bar -->
+            <div
+                class="flex bg-gray-100 dark:bg-[#010409] border-b border-gray-200 dark:border-gray-800 overflow-x-auto scrollbar-hide transition-colors duration-300"
+            >
+                <div
+                    class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#0d1117] border-t-2 border-orange-500 text-gray-900 dark:text-white text-sm min-w-fit cursor-pointer transition-colors duration-300"
+                >
+                    <span>📧</span>
+                    <span>contact.ts</span>
+                    <span
+                        class="ml-2 text-gray-500 hover:text-gray-900 dark:hover:text-white cursor-pointer"
+                        title="Close Editor">×</span
+                    >
+                </div>
+                <a
+                    href={import.meta.env.BASE_URL + "home-software-developer/"}
+                    class="flex items-center gap-2 px-4 py-2 text-gray-500 hover:bg-gray-200 dark:hover:bg-[#161b22] cursor-pointer text-sm min-w-fit transition-colors duration-300"
+                >
+                    <span>📝</span>
+                    <span>home-software-developer.ipynb</span>
+                </a>
+            </div>
+
+            <!-- Breadcrumbs -->
+            <div
+                class="flex items-center gap-2 px-4 py-1 bg-white dark:bg-[#0d1117] border-b border-gray-200 dark:border-gray-800 text-xs text-gray-500 transition-colors duration-300"
+            >
+                <span>src</span>
+                <span>›</span>
+                <span>pages</span>
+                <span>›</span>
+                <span>contact.ts</span>
+                <div class="ml-auto flex gap-2">
+                    <span class="text-green-600 dark:text-green-400"
+                        >● Ready to connect</span
+                    >
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div
+                class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth"
+                id="contact-content"
+            >
+                <!-- Cell 1: Header -->
+                <NotebookCell
+                    cellNumber={1}
+                    code={`// Initialize contact module\nimport { ContactForm, SocialLinks } from '@portfolio/contact';\n\nconst developer = {\n  name: "Noor Azami",\n  status: "Open to Opportunities",\n  responseTime: "Within 24 hours"\n};\n\nconsole.log("Ready to connect! 🚀");`}
+                >
+                    <section
+                        class="relative flex flex-col items-center justify-center text-center py-12 md:py-16 bg-gradient-to-br from-green-900 to-slate-900 rounded-lg overflow-hidden border border-green-500/30 shadow-2xl"
+                    >
+                        <div class="z-10 px-4">
+                            <div
+                                class="w-16 h-16 mx-auto mb-4 bg-green-500/20 rounded-full flex items-center justify-center"
+                            >
+                                <span class="text-3xl">📧</span>
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-2" for="email">Your Email *</label>
-                                <input 
-                                    class="input" 
-                                    id="email" 
-                                    name="email" 
-                                    placeholder="your.email@example.com" 
-                                    type="email"
-                                    required
-                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                                />
-                                <div class="error-message hidden text-red-400 text-sm mt-1"></div>
+                            <h1
+                                class="text-3xl md:text-5xl font-bold mb-4 leading-tight text-white drop-shadow-lg"
+                            >
+                                Get in Touch
+                            </h1>
+                            <p
+                                class="text-lg md:text-xl font-medium mb-6 max-w-3xl mx-auto leading-relaxed text-gray-100"
+                            >
+                                I'm always open to discussing new projects,
+                                creative ideas, or opportunities.
+                            </p>
+                            <div class="flex flex-wrap justify-center gap-3">
+                                <span
+                                    class="px-3 py-1 bg-black/30 backdrop-blur-md border border-white/20 rounded-full text-sm text-white"
+                                    >⚡ Fast Response</span
+                                >
+                                <span
+                                    class="px-3 py-1 bg-black/30 backdrop-blur-md border border-white/20 rounded-full text-sm text-white"
+                                    >🤝 Open to Collaborate</span
+                                >
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-2" for="subject">Subject</label>
-                                <input 
-                                    class="input" 
-                                    id="subject" 
-                                    name="subject" 
-                                    placeholder="What's this about?" 
-                                    type="text"
-                                    maxlength="100"
-                                />
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-2" for="message">Your Message *</label>
-                                <textarea 
-                                    class="input" 
-                                    id="message" 
-                                    name="message" 
-                                    placeholder="Tell me about your project or opportunity..." 
-                                    rows="6"
-                                    required
-                                    minlength="10"
-                                    maxlength="1000"
-                                ></textarea>
-                                <div class="error-message hidden text-red-400 text-sm mt-1"></div>
-                                <div class="text-sm text-text-secondary mt-1">
-                                    <span id="char-count">0</span>/1000 characters
+                        </div>
+                    </section>
+                </NotebookCell>
+
+                <!-- Cell 2: Contact Form & Info -->
+                <NotebookCell
+                    cellNumber={2}
+                    code={`// Send message to developer\nawait ContactForm.submit({\n  name: formData.name,\n  email: formData.email,\n  message: formData.message\n});`}
+                >
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Contact Form -->
+                        <div
+                            class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
+                        >
+                            <h2
+                                class="text-xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
+                            >
+                                <span>✉️</span> Send a Message
+                            </h2>
+                            <form
+                                id="contact-form"
+                                action="https://formspree.io/f/mldllrqd"
+                                class="space-y-4"
+                                method="POST"
+                            >
+                                <div>
+                                    <label
+                                        class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                                        for="name">Your Name *</label
+                                    >
+                                    <input
+                                        class="w-full px-4 py-2 bg-gray-50 dark:bg-[#0d1117] border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors"
+                                        id="name"
+                                        name="name"
+                                        placeholder="Your Name"
+                                        type="text"
+                                        required
+                                        minlength="2"
+                                        maxlength="50"
+                                    />
+                                    <div
+                                        class="error-message hidden text-red-400 text-sm mt-1"
+                                    >
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <button 
+                                <div>
+                                    <label
+                                        class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                                        for="email">Your Email *</label
+                                    >
+                                    <input
+                                        class="w-full px-4 py-2 bg-gray-50 dark:bg-[#0d1117] border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors"
+                                        id="email"
+                                        name="email"
+                                        placeholder="your.email@example.com"
+                                        type="email"
+                                        required
+                                    />
+                                    <div
+                                        class="error-message hidden text-red-400 text-sm mt-1"
+                                    >
+                                    </div>
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                                        for="subject">Subject</label
+                                    >
+                                    <input
+                                        class="w-full px-4 py-2 bg-gray-50 dark:bg-[#0d1117] border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors"
+                                        id="subject"
+                                        name="subject"
+                                        placeholder="What's this about?"
+                                        type="text"
+                                        maxlength="100"
+                                    />
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                                        for="message">Your Message *</label
+                                    >
+                                    <textarea
+                                        class="w-full px-4 py-2 bg-gray-50 dark:bg-[#0d1117] border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors resize-none"
+                                        id="message"
+                                        name="message"
+                                        placeholder="Tell me about your project or opportunity..."
+                                        rows="5"
+                                        required
+                                        minlength="10"
+                                        maxlength="1000"></textarea>
+                                    <div
+                                        class="error-message hidden text-red-400 text-sm mt-1"
+                                    >
+                                    </div>
+                                    <div class="text-xs text-gray-500 mt-1">
+                                        <span id="char-count">0</span>/1000
+                                        characters
+                                    </div>
+                                </div>
+                                <button
                                     id="submit-btn"
-                                    class="button_primary w-full md:w-auto flex items-center justify-center gap-2" 
+                                    class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium flex items-center justify-center gap-2 transition-colors"
                                     type="submit"
                                 >
                                     <span id="submit-text">Send Message</span>
-                                    <svg id="loading-spinner" class="hidden w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
-                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    <svg
+                                        id="loading-spinner"
+                                        class="hidden w-5 h-5 animate-spin"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <circle
+                                            class="opacity-25"
+                                            cx="12"
+                                            cy="12"
+                                            r="10"
+                                            stroke="currentColor"
+                                            stroke-width="4"></circle>
+                                        <path
+                                            class="opacity-75"
+                                            fill="currentColor"
+                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                        ></path>
                                     </svg>
                                 </button>
-                            </div>
-                            
-                            <!-- Success Message -->
-                            <div id="success-message" class="hidden bg-green-500/20 border border-green-500/50 rounded-lg p-4 text-green-300">
-                                <div class="flex items-center gap-2">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span>Thank you! Your message has been sent successfully. I'll get back to you soon.</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Error Message -->
-                            <div id="error-message" class="hidden bg-red-500/20 border border-red-500/50 rounded-lg p-4 text-red-300">
-                                <div class="flex items-center gap-2">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    <span>Sorry, there was an error sending your message. Please try again or contact me directly.</span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="space-y-8 fade-in-scroll">
-                        <div class="card">
-                            <h2 class="text-2xl font-semibold mb-4">Contact Information</h2>
-                            <div class="space-y-4 text-base leading-relaxed">
-                                <div class="flex items-center gap-4">
-                                    <svg class="size-6 text-[var(--text-secondary)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M224,48H32a8,8,0,0,0-8,8V192a8,8,0,0,0,8,8H224a8,8,0,0,0,8-8V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM40,183.34V72.66L128,153.3,216,72.66V183.34Z"></path></svg>
-                                    <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="mailto:noorazami@outlook.my">noorazami@outlook.my</a>
-                                </div>
-                                <div class="flex items-center gap-4">
-                                    <svg class="w-6 h-6 text-[var(--text-secondary)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                    </svg>
-                                    <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="tel:013-8799702">013-8799702</a>
-                                </div>
-                                <div class="flex items-center gap-4">
-                                    <svg class="size-6 text-[var(--text-secondary)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path></svg>
-                                    <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="https://www.linkedin.com/in/noor-azami/" rel="noopener noreferrer" target="_blank">linkedin.com/in/noor-azami</a>
-                                </div>
-                                <div class="flex items-center gap-4">
-                                    <svg class="size-6 text-[var(--text-secondary)]" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1 0-1.3-.5-2.4-1.3-3.2.4-.3.5-1.1.1-2.1 0 0-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1c-.4 1-.3 1.8.1 2.1-.8.8-1.3 1.9-1.3 3.2 0 4.7 2.7 5.8 5.5 6.1-.6.5-.9 1.2-.9 2.2v3.5"></path></svg>
-                                    <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="https://github.com/AmiQT" rel="noopener noreferrer" target="_blank">github.com/AmiQT</a>
-                                </div>
-                                <div class="pt-4">
-                                    <h3 class="text-lg font-semibold mb-3">Other</h3>
-                                    <div class="flex items-center gap-4">
-                                        <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="https://www.fiverr.com/noorazami?public_mode=true" rel="noopener noreferrer" target="_blank">Fiverr Profile 💼</a>
-                                    </div>
-                                    <div class="flex items-center gap-4 mt-4">
-                                        <a class="text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="https://dribbble.com/noor_azami" rel="noopener noreferrer" target="_blank">Dribbble Portfolio 🏀</a>
+
+                                <!-- Success Message -->
+                                <div
+                                    id="success-message"
+                                    class="hidden bg-green-500/20 border border-green-500/50 rounded-lg p-4 text-green-600 dark:text-green-400"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <svg
+                                            class="w-5 h-5"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span
+                                            >Thank you! Your message has been
+                                            sent successfully.</span
+                                        >
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Response Time Info -->
-                        <div class="card">
-                            <h3 class="text-lg font-semibold mb-3">Response Time</h3>
-                            <div class="space-y-2 text-sm text-text-secondary">
-                                <div class="flex justify-between">
-                                    <span>Weekdays:</span>
-                                    <span class="text-text-primary">Within 24 hours</span>
+
+                                <!-- Error Message -->
+                                <div
+                                    id="error-message"
+                                    class="hidden bg-red-500/20 border border-red-500/50 rounded-lg p-4 text-red-600 dark:text-red-400"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <svg
+                                            class="w-5 h-5"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                            ></path>
+                                        </svg>
+                                        <span
+                                            >Sorry, there was an error. Please
+                                            try again.</span
+                                        >
+                                    </div>
                                 </div>
-                                <div class="flex justify-between">
-                                    <span>Weekends:</span>
-                                    <span class="text-text-primary">Within 48 hours</span>
+                            </form>
+                        </div>
+
+                        <!-- Contact Info -->
+                        <div class="space-y-4">
+                            <div
+                                class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
+                            >
+                                <h2
+                                    class="text-xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
+                                >
+                                    <span>📇</span> Contact Information
+                                </h2>
+                                <div class="space-y-3 font-mono text-sm">
+                                    {
+                                        contactInfo.map((info, i) => (
+                                            <div class="flex items-center gap-3 py-2 border-b border-gray-100 dark:border-gray-700/50">
+                                                <span class="text-lg">
+                                                    {info.icon}
+                                                </span>
+                                                <div class="flex-1 min-w-0">
+                                                    <div class="text-xs text-gray-500">
+                                                        {info.label}
+                                                    </div>
+                                                    <a
+                                                        href={info.href}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        class="text-blue-600 dark:text-blue-400 hover:underline truncate block"
+                                                    >
+                                                        {info.value}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+
+                            <!-- Response Time -->
+                            <div
+                                class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
+                            >
+                                <h3
+                                    class="text-lg font-bold mb-3 text-gray-900 dark:text-white flex items-center gap-2"
+                                >
+                                    <span>⏱️</span> Response Time
+                                </h3>
+                                <div class="space-y-2 text-sm">
+                                    <div
+                                        class="flex justify-between text-gray-700 dark:text-gray-300"
+                                    >
+                                        <span>Weekdays:</span>
+                                        <span
+                                            class="text-green-600 dark:text-green-400 font-medium"
+                                            >Within 24 hours</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="flex justify-between text-gray-700 dark:text-gray-300"
+                                    >
+                                        <span>Weekends:</span>
+                                        <span
+                                            class="text-yellow-600 dark:text-yellow-400 font-medium"
+                                            >Within 48 hours</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Other Links -->
+                            <div
+                                class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
+                            >
+                                <h3
+                                    class="text-lg font-bold mb-3 text-gray-900 dark:text-white flex items-center gap-2"
+                                >
+                                    <span>🔗</span> Other Platforms
+                                </h3>
+                                <div class="space-y-2">
+                                    <a
+                                        href="https://www.fiverr.com/noorazami?public_mode=true"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                                    >
+                                        <span>💼</span> Fiverr Profile
+                                    </a>
+                                    <a
+                                        href="https://dribbble.com/noor_azami"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                                    >
+                                        <span>🏀</span> Dribbble Portfolio
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </NotebookCell>
+
+                <!-- Cell 3: FAQ -->
+                <NotebookCell
+                    cellNumber={3}
+                    code={`// Frequently Asked Questions\nconst faqs = await loadFAQs();\nfaqs.render({ accordion: true });`}
+                >
+                    <div id="faq">
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white text-center mb-6"
+                        >
+                            Frequently Asked Questions
+                        </h2>
+                        <div class="space-y-6">
+                            {
+                                faqs.map((category) => (
+                                    <div class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                                        <h3 class="text-lg font-bold mb-4 text-blue-600 dark:text-blue-400">
+                                            {category.category}
+                                        </h3>
+                                        <div class="space-y-3">
+                                            {category.items.map((faq) => (
+                                                <div class="faq-item border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
+                                                    <button class="faq-question w-full px-4 py-3 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                                        <span class="font-medium text-gray-900 dark:text-white text-sm">
+                                                            {faq.q}
+                                                        </span>
+                                                        <svg
+                                                            class="faq-icon w-4 h-4 text-gray-500 transition-transform"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                            viewBox="0 0 24 24"
+                                                        >
+                                                            <path
+                                                                stroke-linecap="round"
+                                                                stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M19 9l-7 7-7-7"
+                                                            />
+                                                        </svg>
+                                                    </button>
+                                                    <div class="faq-answer hidden px-4 pb-3">
+                                                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                                                            {faq.a}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </NotebookCell>
+
+                <!-- Back to Profile -->
+                <div class="mt-8 text-center">
+                    <a
+                        href={import.meta.env.BASE_URL +
+                            "home-software-developer/"}
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-blue-500/50 hover:text-blue-600 dark:hover:text-blue-400 transition-all"
+                    >
+                        <span>←</span> Back to Developer Profile
+                    </a>
                 </div>
             </div>
-        </section>
+        </main>
 
-        <!-- FAQ Section -->
-        <section class="py-24 px-4 sm:px-6 lg:px-8 bg-[var(--accent-color)]/20">
-            <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-12 fade-in-scroll">Frequently Asked Questions</h2>
-                <div class="max-w-4xl mx-auto">
-                    <!-- Career & Availability -->
-                    <div class="mb-8 fade-in-scroll">
-                        <h3 class="text-xl font-semibold text-[var(--primary-color)] mb-6 text-center">Career & Availability</h3>
-                        <div class="space-y-4">
-                            <div class="faq-item bg-[var(--card-background)] border border-[var(--border-color)] rounded-lg overflow-hidden">
-                                <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between hover:bg-[var(--accent-color)]/50 transition-colors duration-300">
-                                    <span class="font-semibold text-[var(--text-primary)]">What types of IT roles are you seeking?</span>
-                                    <svg class="faq-icon w-5 h-5 text-[var(--primary-color)] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="faq-answer hidden px-6 pb-4">
-                                    <p class="text-[var(--text-secondary)] leading-relaxed">I'm seeking entry-level IT internship opportunities, particularly in IT Support, Network Administration, and System Development. I'm open to roles that combine technical skills with problem-solving and customer service.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="faq-item bg-[var(--card-background)] border border-[var(--border-color)] rounded-lg overflow-hidden">
-                                <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between hover:bg-[var(--accent-color)]/50 transition-colors duration-300">
-                                    <span class="font-semibold text-[var(--text-primary)]">What's your availability for new opportunities?</span>
-                                    <svg class="faq-icon w-5 h-5 text-[var(--primary-color)] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="faq-answer hidden px-6 pb-4">
-                                    <p class="text-[var(--text-secondary)] leading-relaxed">I'm currently available for internship opportunities and will be graduating in 6 months. I can start immediately and am flexible with work arrangements including remote, hybrid, or on-site positions.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="faq-item bg-[var(--card-background)] border border-[var(--border-color)] rounded-lg overflow-hidden">
-                                <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between hover:bg-[var(--accent-color)]/50 transition-colors duration-300">
-                                    <span class="font-semibold text-[var(--text-primary)]">Do you work remotely, hybrid, or on-site?</span>
-                                    <svg class="faq-icon w-5 h-5 text-[var(--primary-color)] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="faq-answer hidden px-6 pb-4">
-                                    <p class="text-[var(--text-secondary)] leading-relaxed">I'm flexible with all work arrangements. I prefer hybrid work environments as they offer the best balance of collaboration and focus, but I'm equally comfortable with fully remote or on-site positions.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Technical Expertise -->
-                    <div class="mb-8 fade-in-scroll">
-                        <h3 class="text-xl font-semibold text-[var(--primary-color)] mb-6 text-center">Technical Expertise</h3>
-                        <div class="space-y-4">
-                            <div class="faq-item bg-[var(--card-background)] border border-[var(--border-color)] rounded-lg overflow-hidden">
-                                <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between hover:bg-[var(--accent-color)]/50 transition-colors duration-300">
-                                    <span class="font-semibold text-[var(--text-primary)]">What are your strongest technical skills?</span>
-                                    <svg class="faq-icon w-5 h-5 text-[var(--primary-color)] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="faq-answer hidden px-6 pb-4">
-                                    <p class="text-[var(--text-secondary)] leading-relaxed">My strongest technical skills include IT Troubleshooting, Networking, Remote Support, and Multimedia Design. I'm also proficient in Python, web development, and mobile app development with Flutter. I hold Google IT Support and CCNA certifications.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="faq-item bg-[var(--card-background)] border border-[var(--border-color)] rounded-lg overflow-hidden">
-                                <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between hover:bg-[var(--accent-color)]/50 transition-colors duration-300">
-                                    <span class="font-semibold text-[var(--text-primary)]">What programming languages do you work with?</span>
-                                    <svg class="faq-icon w-5 h-5 text-[var(--primary-color)] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="faq-answer hidden px-6 pb-4">
-                                    <p class="text-[var(--text-secondary)] leading-relaxed">I work with Python (intermediate level), C++ for system development, HTML/CSS/JavaScript for web development, and Dart for Flutter mobile app development. I'm also learning AWS cloud technologies and prompt engineering.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="faq-item bg-[var(--card-background)] border border-[var(--border-color)] rounded-lg overflow-hidden">
-                                <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between hover:bg-[var(--accent-color)]/50 transition-colors duration-300">
-                                    <span class="font-semibold text-[var(--text-primary)]">Do you have experience with cloud platforms?</span>
-                                    <svg class="faq-icon w-5 h-5 text-[var(--primary-color)] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="faq-answer hidden px-6 pb-4">
-                                    <p class="text-[var(--text-secondary)] leading-relaxed">I'm currently learning AWS cloud technologies and working towards AWS Cloud Support Specialist certification. I have foundational knowledge of cloud concepts and am eager to gain hands-on experience with cloud platforms.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project & Collaboration -->
-                    <div class="mb-8 fade-in-scroll">
-                        <h3 class="text-xl font-semibold text-[var(--primary-color)] mb-6 text-center">Project & Collaboration</h3>
-                        <div class="space-y-4">
-                            <div class="faq-item bg-[var(--card-background)] border border-[var(--border-color)] rounded-lg overflow-hidden">
-                                <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between hover:bg-[var(--accent-color)]/50 transition-colors duration-300">
-                                    <span class="font-semibold text-[var(--text-primary)]">What types of projects do you work on?</span>
-                                    <svg class="faq-icon w-5 h-5 text-[var(--primary-color)] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="faq-answer hidden px-6 pb-4">
-                                    <p class="text-[var(--text-secondary)] leading-relaxed">I work on diverse projects including web development (landing pages, responsive designs), mobile app development with Flutter, system development with C++, and multimedia design projects. I enjoy both technical and creative challenges.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="faq-item bg-[var(--card-background)] border border-[var(--border-color)] rounded-lg overflow-hidden">
-                                <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between hover:bg-[var(--accent-color)]/50 transition-colors duration-300">
-                                    <span class="font-semibold text-[var(--text-primary)]">How do you approach problem-solving?</span>
-                                    <svg class="faq-icon w-5 h-5 text-[var(--primary-color)] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="faq-answer hidden px-6 pb-4">
-                                    <p class="text-[var(--text-secondary)] leading-relaxed">I follow a systematic approach: first understanding the problem, researching solutions, planning the implementation, and then executing with attention to detail. I believe in learning from each challenge and documenting solutions for future reference.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="faq-item bg-[var(--card-background)] border border-[var(--border-color)] rounded-lg overflow-hidden">
-                                <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between hover:bg-[var(--accent-color)]/50 transition-colors duration-300">
-                                    <span class="font-semibold text-[var(--text-primary)]">What's your preferred project management style?</span>
-                                    <svg class="faq-icon w-5 h-5 text-[var(--primary-color)] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="faq-answer hidden px-6 pb-4">
-                                    <p class="text-[var(--text-secondary)] leading-relaxed">I prefer collaborative project management with clear communication, defined milestones, and regular check-ins. I value both structured approaches and flexibility to adapt to changing requirements. I'm organized and detail-oriented while maintaining focus on the big picture.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        <MobileNav files={files} />
+    </div>
 </Layout>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const submitText = document.getElementById('submit-text');
-    const loadingSpinner = document.getElementById('loading-spinner');
-    const successMessage = document.getElementById('success-message');
-    const errorMessage = document.getElementById('error-message');
-    const messageTextarea = document.getElementById('message');
-    const charCount = document.getElementById('char-count');
+    document.addEventListener("DOMContentLoaded", function () {
+        // Theme Toggle Logic
+        const themeBtn = document.getElementById("theme-toggle-btn");
+        const sunIcon = document.getElementById("sun-icon");
+        const moonIcon = document.getElementById("moon-icon");
+        const html = document.documentElement;
 
-    // Character counter for message
-    if (messageTextarea && charCount) {
-        messageTextarea.addEventListener('input', function() {
-            charCount.textContent = this.value.length;
-        });
-    }
+        const savedTheme = localStorage.getItem("theme");
+        const systemDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+        ).matches;
 
-    // Form validation
-    function validateField(field) {
-        const errorDiv = field.parentElement.querySelector('.error-message');
-        let isValid = true;
-        let errorMsg = '';
-
-        // Remove existing error styling
-        field.classList.remove('border-red-500');
-        errorDiv.classList.add('hidden');
-
-        // Required field validation
-        if (field.hasAttribute('required') && !field.value.trim()) {
-            isValid = false;
-            errorMsg = 'This field is required.';
+        if (savedTheme === "dark" || (!savedTheme && systemDark)) {
+            html.classList.add("dark");
+            sunIcon?.classList.remove("hidden");
+            moonIcon?.classList.add("hidden");
+            document
+                .getElementById("mobile-sun-icon")
+                ?.classList.remove("hidden");
+            document
+                .getElementById("mobile-moon-icon")
+                ?.classList.add("hidden");
+        } else {
+            html.classList.remove("dark");
+            sunIcon?.classList.add("hidden");
+            moonIcon?.classList.remove("hidden");
+            document.getElementById("mobile-sun-icon")?.classList.add("hidden");
+            document
+                .getElementById("mobile-moon-icon")
+                ?.classList.remove("hidden");
         }
 
-        // Email validation
-        if (field.type === 'email' && field.value) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(field.value)) {
+        themeBtn?.addEventListener("click", () => {
+            html.classList.toggle("dark");
+            const isDark = html.classList.contains("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+
+            if (isDark) {
+                sunIcon?.classList.remove("hidden");
+                moonIcon?.classList.add("hidden");
+                document
+                    .getElementById("mobile-sun-icon")
+                    ?.classList.remove("hidden");
+                document
+                    .getElementById("mobile-moon-icon")
+                    ?.classList.add("hidden");
+            } else {
+                sunIcon?.classList.add("hidden");
+                moonIcon?.classList.remove("hidden");
+                document
+                    .getElementById("mobile-sun-icon")
+                    ?.classList.add("hidden");
+                document
+                    .getElementById("mobile-moon-icon")
+                    ?.classList.remove("hidden");
+            }
+        });
+
+        // Contact Form Logic
+        const form = document.getElementById("contact-form") as HTMLFormElement;
+        const submitBtn = document.getElementById("submit-btn");
+        const submitText = document.getElementById("submit-text");
+        const loadingSpinner = document.getElementById("loading-spinner");
+        const successMessage = document.getElementById("success-message");
+        const errorMessage = document.getElementById("error-message");
+        const messageTextarea = document.getElementById(
+            "message",
+        ) as HTMLTextAreaElement;
+        const charCount = document.getElementById("char-count");
+
+        // Character counter
+        if (messageTextarea && charCount) {
+            messageTextarea.addEventListener("input", function () {
+                charCount.textContent = this.value.length.toString();
+            });
+        }
+
+        // Form validation
+        function validateField(field: HTMLInputElement | HTMLTextAreaElement) {
+            const errorDiv = field.parentElement?.querySelector(
+                ".error-message",
+            ) as HTMLElement;
+            let isValid = true;
+            let errorMsg = "";
+
+            field.classList.remove("border-red-500");
+            errorDiv?.classList.add("hidden");
+
+            if (field.hasAttribute("required") && !field.value.trim()) {
                 isValid = false;
-                errorMsg = 'Please enter a valid email address.';
+                errorMsg = "This field is required.";
             }
-        }
 
-        // Length validation
-        if (field.hasAttribute('minlength') && field.value.length < parseInt(field.getAttribute('minlength'))) {
-            isValid = false;
-            errorMsg = `Minimum ${field.getAttribute('minlength')} characters required.`;
-        }
-
-        if (field.hasAttribute('maxlength') && field.value.length > parseInt(field.getAttribute('maxlength'))) {
-            isValid = false;
-            errorMsg = `Maximum ${field.getAttribute('maxlength')} characters allowed.`;
-        }
-
-        // Show error if invalid
-        if (!isValid) {
-            field.classList.add('border-red-500');
-            errorDiv.textContent = errorMsg;
-            errorDiv.classList.remove('hidden');
-        }
-
-        return isValid;
-    }
-
-    // Real-time validation
-    const inputs = form.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-        input.addEventListener('blur', () => validateField(input));
-        input.addEventListener('input', () => {
-            if (input.classList.contains('border-red-500')) {
-                validateField(input);
+            if (field.type === "email" && field.value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(field.value)) {
+                    isValid = false;
+                    errorMsg = "Please enter a valid email address.";
+                }
             }
-        });
-    });
 
-    // Form submission
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        // Validate all fields
-        let isFormValid = true;
-        inputs.forEach(input => {
-            if (!validateField(input)) {
-                isFormValid = false;
+            if (!isValid && errorDiv) {
+                field.classList.add("border-red-500");
+                errorDiv.textContent = errorMsg;
+                errorDiv.classList.remove("hidden");
             }
+
+            return isValid;
+        }
+
+        // Real-time validation
+        const inputs = form?.querySelectorAll("input, textarea") as NodeListOf<
+            HTMLInputElement | HTMLTextAreaElement
+        >;
+        inputs?.forEach((input) => {
+            input.addEventListener("blur", () => validateField(input));
+            input.addEventListener("input", () => {
+                if (input.classList.contains("border-red-500")) {
+                    validateField(input);
+                }
+            });
         });
 
-        if (!isFormValid) {
-            return;
-        }
+        // Form submission
+        form?.addEventListener("submit", async function (e) {
+            e.preventDefault();
 
-        // Show loading state
-        submitBtn.disabled = true;
-        submitText.textContent = 'Sending...';
-        loadingSpinner.classList.remove('hidden');
-        successMessage.classList.add('hidden');
-        errorMessage.classList.add('hidden');
-
-        try {
-            const formData = new FormData(form);
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
+            let isFormValid = true;
+            inputs?.forEach((input) => {
+                if (!validateField(input)) {
+                    isFormValid = false;
                 }
             });
 
-            if (response.ok) {
-                // Show success message
-                successMessage.classList.remove('hidden');
-                form.reset();
-                charCount.textContent = '0';
-                
-                // Reset form styling
-                inputs.forEach(input => {
-                    input.classList.remove('border-red-500');
-                    input.parentElement.querySelector('.error-message')?.classList.add('hidden');
+            if (!isFormValid) return;
+
+            if (submitBtn) submitBtn.setAttribute("disabled", "true");
+            if (submitText) submitText.textContent = "Sending...";
+            loadingSpinner?.classList.remove("hidden");
+            successMessage?.classList.add("hidden");
+            errorMessage?.classList.add("hidden");
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: { Accept: "application/json" },
                 });
-            } else {
-                throw new Error('Form submission failed');
-            }
-        } catch (error) {
-            // Show error message
-            errorMessage.classList.remove('hidden');
-        } finally {
-            // Reset button state
-            submitBtn.disabled = false;
-            submitText.textContent = 'Send Message';
-            loadingSpinner.classList.add('hidden');
-        }
-    });
 
-    // FAQ Accordion Functionality
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            const faqItem = question.closest('.faq-item');
-            const answer = faqItem.querySelector('.faq-answer');
-            const icon = question.querySelector('.faq-icon');
-            
-            // Close all other FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                if (item !== faqItem) {
-                    const otherAnswer = item.querySelector('.faq-answer');
-                    const otherIcon = item.querySelector('.faq-icon');
-                    otherAnswer.classList.add('hidden');
-                    otherIcon.style.transform = 'rotate(0deg)';
+                if (response.ok) {
+                    successMessage?.classList.remove("hidden");
+                    form.reset();
+                    if (charCount) charCount.textContent = "0";
+                } else {
+                    throw new Error("Form submission failed");
                 }
-            });
-            
-            // Toggle current FAQ item
-            answer.classList.toggle('hidden');
-            if (answer.classList.contains('hidden')) {
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                icon.style.transform = 'rotate(180deg)';
+            } catch (error) {
+                errorMessage?.classList.remove("hidden");
+            } finally {
+                if (submitBtn) submitBtn.removeAttribute("disabled");
+                if (submitText) submitText.textContent = "Send Message";
+                loadingSpinner?.classList.add("hidden");
             }
         });
+
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll(".faq-question");
+        faqQuestions.forEach((question) => {
+            question.addEventListener("click", () => {
+                const faqItem = question.closest(".faq-item");
+                const answer = faqItem?.querySelector(".faq-answer");
+                const icon = question.querySelector(".faq-icon") as HTMLElement;
+
+                document.querySelectorAll(".faq-item").forEach((item) => {
+                    if (item !== faqItem) {
+                        const otherAnswer = item.querySelector(".faq-answer");
+                        const otherIcon = item.querySelector(
+                            ".faq-icon",
+                        ) as HTMLElement;
+                        otherAnswer?.classList.add("hidden");
+                        if (otherIcon)
+                            otherIcon.style.transform = "rotate(0deg)";
+                    }
+                });
+
+                answer?.classList.toggle("hidden");
+                if (answer?.classList.contains("hidden")) {
+                    if (icon) icon.style.transform = "rotate(0deg)";
+                } else {
+                    if (icon) icon.style.transform = "rotate(180deg)";
+                }
+            });
+        });
+
+        // Mobile Navigation
+        const mobileFilesBtn = document.getElementById("mobile-files-btn");
+        const mobileFileMenu = document.getElementById("mobile-file-menu");
+        const mobileMenuContent = mobileFileMenu?.querySelector("div");
+
+        mobileFilesBtn?.addEventListener("click", () => {
+            if (mobileFileMenu && mobileMenuContent) {
+                mobileFileMenu.classList.remove("hidden");
+                setTimeout(() => {
+                    mobileFileMenu.classList.add("opacity-100");
+                    mobileMenuContent.classList.remove("translate-y-full");
+                }, 10);
+            }
+        });
+
+        document
+            .getElementById("mobile-theme-btn")
+            ?.addEventListener("click", () => {
+                themeBtn?.click();
+            });
     });
-});
 </script>
+
+<style>
+    #contact-content::-webkit-scrollbar {
+        width: 12px;
+    }
+    #contact-content::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    #contact-content::-webkit-scrollbar-thumb {
+        background-color: #d1d5db;
+        border-radius: 6px;
+        border: 3px solid transparent;
+        background-clip: content-box;
+    }
+    #contact-content::-webkit-scrollbar-thumb:hover {
+        background-color: #9ca3af;
+    }
+    :global(.dark) #contact-content::-webkit-scrollbar-thumb {
+        background-color: #30363d;
+    }
+    :global(.dark) #contact-content::-webkit-scrollbar-thumb:hover {
+        background-color: #484f58;
+    }
+</style>

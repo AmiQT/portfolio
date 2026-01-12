@@ -1,8 +1,25 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
-import ProfileSelector from "../../components/ProfileSelector.astro";
+import IdeActivityBar from "../../components/ide/IdeActivityBar.astro";
+import IdeSidebar from "../../components/ide/IdeSidebar.astro";
+import IdeTabBar from "../../components/ide/IdeTabBar.astro";
+import MobileNav from "../../components/ide/MobileNav.astro";
 import { projectsData as projects } from "../../data/software-developer";
+
+// Files for sidebar - organize projects as files
+const projectFiles = [
+    { name: 'projects.json', active: true, icon: '📦' },
+    ...projects.map(p => ({
+        name: p.type === 'App' ? `${p.title.toLowerCase().replace(/\s+/g, '-')}.tsx` : `${p.title.toLowerCase().replace(/\s+/g, '-')}.ts`,
+        active: false,
+        icon: p.type === 'App' ? '📱' : '🌐'
+    }))
+];
+
+// Helper for base URL
+const getAssetPath = (path: string) => {
+    return path.startsWith("http") ? path : import.meta.env.BASE_URL + path;
+};
 ---
 
 <Layout
@@ -10,192 +27,384 @@ import { projectsData as projects } from "../../data/software-developer";
     description="Software development projects including web apps, mobile applications, and full-stack systems showcasing technical expertise."
     canonical="/role-software-developer/projects"
 >
-    <Header />
-    <ProfileSelector />
-    <main class="pt-16">
-        <section class="py-24 px-4 sm:px-6 lg:px-8 text-center">
-            <div class="container mx-auto fade-in-scroll">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                    Development Projects
-                </h1>
-                <p class="text-lg text-text-secondary max-w-3xl mx-auto">
-                    A collection of full-stack applications, mobile apps, and
-                    web development projects showcasing technical skills and
-                    creative problem-solving.
-                </p>
+    <div class="flex h-screen bg-white dark:bg-[#0d1117] text-gray-900 dark:text-gray-300 overflow-hidden font-sans transition-colors duration-300">
+        <IdeActivityBar />
+        
+        <!-- Custom Sidebar for Projects -->
+        <aside class="w-64 bg-gray-50 dark:bg-[#0d1117] border-r border-gray-200 dark:border-gray-800 flex-col hidden lg:flex transition-colors duration-300">
+            <div class="p-3 text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Explorer</div>
+            <div class="px-2">
+                <div class="flex items-center gap-1 text-sm font-bold text-gray-700 dark:text-gray-200 mb-1 cursor-pointer">
+                    <span class="transform rotate-90">›</span> PROJECTS
+                </div>
+                
+                <!-- Web Apps Folder -->
+                <div class="pl-4 mb-2">
+                    <div class="flex items-center gap-1 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1 cursor-pointer" data-folder="web-apps">
+                        <span class="folder-arrow transform rotate-90 transition-transform">›</span>
+                        <span>📁</span> web-apps/
+                    </div>
+                    <div class="pl-4 flex flex-col gap-1 folder-content" id="web-apps-content">
+                        {projects.filter(p => p.type === 'Web').map((project, idx) => (
+                            <div 
+                                class="flex items-center gap-2 px-2 py-1 rounded cursor-pointer text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-[#1f2428] hover:text-black dark:hover:text-white transition-colors"
+                                data-project-file={project.title}
+                            >
+                                <span>🌐</span>
+                                <span class="truncate text-xs">{project.title.toLowerCase().replace(/\s+/g, '-')}.ts</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                
+                <!-- Mobile Apps Folder -->
+                <div class="pl-4">
+                    <div class="flex items-center gap-1 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1 cursor-pointer" data-folder="mobile-apps">
+                        <span class="folder-arrow transform rotate-90 transition-transform">›</span>
+                        <span>📁</span> mobile-apps/
+                    </div>
+                    <div class="pl-4 flex flex-col gap-1 folder-content" id="mobile-apps-content">
+                        {projects.filter(p => p.type === 'App').map((project) => (
+                            <div 
+                                class="flex items-center gap-2 px-2 py-1 rounded cursor-pointer text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-[#1f2428] hover:text-black dark:hover:text-white transition-colors"
+                                data-project-file={project.title}
+                            >
+                                <span>📱</span>
+                                <span class="truncate text-xs">{project.title.toLowerCase().replace(/\s+/g, '-')}.tsx</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
-        </section>
+            
+            <!-- Back to Profile Link -->
+            <div class="mt-auto p-4 border-t border-gray-200 dark:border-gray-800">
+                <a 
+                    href={import.meta.env.BASE_URL + "home-software-developer/"}
+                    class="flex items-center gap-2 text-xs text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                    <span>←</span> Back to Profile
+                </a>
+            </div>
+        </aside>
 
-        <section class="pb-24 px-4 sm:px-6 lg:px-8">
-            <div class="container mx-auto max-w-6xl">
-                <!-- Filter Counter -->
-                <div class="flex flex-col items-center mb-12 fade-in-scroll">
-                    <div class="filter-counter text-lg font-semibold">
-                        6 Development Projects
+        <!-- Main Editor Area -->
+        <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-[#0d1117] transition-colors duration-300">
+            <!-- Tab Bar -->
+            <div class="flex bg-gray-100 dark:bg-[#010409] border-b border-gray-200 dark:border-gray-800 overflow-x-auto scrollbar-hide transition-colors duration-300">
+                <div class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#0d1117] border-t-2 border-orange-500 text-gray-900 dark:text-white text-sm min-w-fit cursor-pointer transition-colors duration-300">
+                    <span>📦</span>
+                    <span>projects.json</span>
+                    <span class="ml-2 text-gray-500 hover:text-gray-900 dark:hover:text-white cursor-pointer" title="Close Editor">×</span>
+                </div>
+                <a 
+                    href={import.meta.env.BASE_URL + "home-software-developer/"}
+                    class="flex items-center gap-2 px-4 py-2 text-gray-500 hover:bg-gray-200 dark:hover:bg-[#161b22] cursor-pointer text-sm min-w-fit transition-colors duration-300"
+                >
+                    <span>📝</span>
+                    <span>home-software-developer.ipynb</span>
+                </a>
+            </div>
+
+            <!-- Breadcrumbs / Toolbar -->
+            <div class="flex items-center gap-2 px-4 py-1 bg-white dark:bg-[#0d1117] border-b border-gray-200 dark:border-gray-800 text-xs text-gray-500 transition-colors duration-300">
+                <span>src</span>
+                <span>›</span>
+                <span>data</span>
+                <span>›</span>
+                <span>projects.json</span>
+                <div class="ml-auto flex gap-4 text-xs">
+                    <span class="text-green-600 dark:text-green-400">{projects.length} projects loaded</span>
+                    <span class="text-blue-600 dark:text-blue-400">{projects.filter(p => p.type === 'Web').length} Web</span>
+                    <span class="text-purple-600 dark:text-purple-400">{projects.filter(p => p.type === 'App').length} Mobile</span>
+                </div>
+            </div>
+
+            <!-- Content Area (Scrollable) -->
+            <div class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth" id="projects-content">
+                <!-- JSON-like Header -->
+                <div class="mb-8 p-4 bg-gray-50 dark:bg-[#161b22] rounded-lg border border-gray-200 dark:border-gray-700 font-mono text-sm">
+                    <div class="text-gray-500 dark:text-gray-400">
+                        <span class="text-purple-600 dark:text-purple-400">{"{"}</span>
+                    </div>
+                    <div class="pl-4">
+                        <span class="text-blue-600 dark:text-blue-400">"title"</span>
+                        <span class="text-gray-500">:</span>
+                        <span class="text-green-600 dark:text-green-400">"Development Projects"</span>
+                        <span class="text-gray-500">,</span>
+                    </div>
+                    <div class="pl-4">
+                        <span class="text-blue-600 dark:text-blue-400">"developer"</span>
+                        <span class="text-gray-500">:</span>
+                        <span class="text-green-600 dark:text-green-400">"Noor Azami"</span>
+                        <span class="text-gray-500">,</span>
+                    </div>
+                    <div class="pl-4">
+                        <span class="text-blue-600 dark:text-blue-400">"count"</span>
+                        <span class="text-gray-500">:</span>
+                        <span class="text-orange-600 dark:text-orange-400">{projects.length}</span>
+                        <span class="text-gray-500">,</span>
+                    </div>
+                    <div class="pl-4">
+                        <span class="text-blue-600 dark:text-blue-400">"projects"</span>
+                        <span class="text-gray-500">:</span>
+                        <span class="text-purple-600 dark:text-purple-400">[</span>
+                        <span class="text-gray-400 text-xs ml-2">// scroll down for details...</span>
                     </div>
                 </div>
 
-                <!-- Project Grid -->
-                <div class="projects-grid project-grid">
-                    {
-                        projects.map((project) => (
-                            <div
-                                class="project-card fade-in-scroll"
-                                data-category={
-                                    project.type === "App"
-                                        ? "mobile"
-                                        : "web-development"
-                                }
-                            >
-                                <div class="project-image-container">
-                                    {project.image === "gradient" ? (
-                                        <div
-                                            class={`w-full h-full bg-gradient-to-br from-${project.color}-500/20 to-${project.color === "teal" ? "emerald" : "amber"}-500/20 rounded-lg flex items-center justify-center border border-${project.color}-500/30`}
-                                        >
-                                            <div class="text-center">
-                                                <div
-                                                    class={`w-16 h-16 bg-${project.color}-500/20 rounded-full flex items-center justify-center mx-auto mb-2`}
-                                                >
-                                                    <svg
-                                                        class={`w-8 h-8 text-${project.color}-400`}
-                                                        fill="none"
-                                                        stroke="currentColor"
-                                                        viewBox="0 0 24 24"
-                                                    >
-                                                        {/* Icon paths could be dynamic, but for now using a generic one or specific based on project title if needed, 
-                                                            or better yet, import icons. For simplicity in this refactor, I'll use a generic code/app icon or map based on project.icon string */}
-                                                        <path
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                                                        />
-                                                    </svg>
-                                                </div>
-                                                <h4
-                                                    class={`text-sm font-bold text-${project.color}-400`}
-                                                >
-                                                    {project.title}
-                                                </h4>
-                                            </div>
+                <!-- Project Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {projects.map((project, index) => (
+                        <div 
+                            class="bg-white dark:bg-[#161b22] rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:border-blue-500/50 transition-all group"
+                            id={`project-${project.title.toLowerCase().replace(/\s+/g, '-')}`}
+                        >
+                            <!-- Project Image / Preview -->
+                            {project.image === "gradient" ? (
+                                <div class="h-40 bg-gradient-to-br from-teal-100 dark:from-teal-900/40 to-emerald-100 dark:to-emerald-900/40 flex items-center justify-center border-b border-gray-200 dark:border-gray-700 relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-white/20 dark:bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                                    <div class="text-center z-10">
+                                        <div class="w-12 h-12 bg-teal-500/10 dark:bg-teal-500/20 rounded-full flex items-center justify-center mx-auto mb-2 backdrop-blur-sm">
+                                            <span class="text-2xl">{project.type === 'App' ? '📱' : '🌐'}</span>
                                         </div>
-                                    ) : project.placeholder ? (
-                                        <div
-                                            class={`w-full h-full bg-gradient-to-br from-${project.color}-500/20 to-${project.color === "teal" ? "emerald" : "amber"}-500/20 rounded-lg flex items-center justify-center border border-${project.color}-500/30`}
-                                        >
-                                            <div class="text-center">
-                                                <div
-                                                    class={`w-16 h-16 bg-${project.color}-500/20 rounded-full flex items-center justify-center mx-auto mb-2`}
-                                                >
-                                                    <svg
-                                                        class={`w-8 h-8 text-${project.color}-400`}
-                                                        fill="none"
-                                                        stroke="currentColor"
-                                                        viewBox="0 0 24 24"
-                                                    >
-                                                        <path
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                                                        />
-                                                    </svg>
-                                                </div>
-                                                <h4
-                                                    class={`text-sm font-bold text-${project.color}-400`}
-                                                >
-                                                    {project.title}
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    ) : (
-                                        <img
-                                            src={
-                                                import.meta.env.BASE_URL +
-                                                project.image
-                                            }
-                                            alt={project.title}
-                                            class="w-full h-full object-cover rounded-lg"
-                                            width="368"
-                                            height="178"
-                                            loading="lazy"
-                                        />
-                                    )}
-                                </div>
-                                <div class="project-card-content">
-                                    <div class="project-header">
-                                        <h3 class="project-title">
-                                            {project.title}
-                                        </h3>
-                                        <div class="project-badges">
-                                            <span
-                                                class={`project-badge ${project.type === "App" ? "mobile" : "web-development"}`}
-                                            >
-                                                {project.type === "App"
-                                                    ? "Mobile App"
-                                                    : "Web Development"}
-                                            </span>
-                                            {/* Skills tags could be added to data if needed, for now omitted or hardcoded generic */}
-                                        </div>
+                                        <h4 class="text-xs font-bold text-teal-700 dark:text-teal-300">{project.title}</h4>
                                     </div>
-                                    <p class="project-description mb-4">
+                                </div>
+                            ) : project.placeholder ? (
+                                <div class="h-40 bg-gray-100 dark:bg-gray-800 flex items-center justify-center relative overflow-hidden border-b border-gray-200 dark:border-gray-700">
+                                    <div class="text-center">
+                                        <div class="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <span class="text-2xl">{project.type === 'App' ? '📱' : '🌐'}</span>
+                                        </div>
+                                        <h4 class="text-xs font-bold text-gray-700 dark:text-gray-300">{project.title}</h4>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div class="h-40 bg-gray-200 dark:bg-gray-800 relative overflow-hidden border-b border-gray-200 dark:border-gray-700">
+                                    <img
+                                        src={getAssetPath(project.image)}
+                                        alt={project.title}
+                                        class="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            )}
+
+                            <!-- Project Details with Line Numbers -->
+                            <div class="p-4 font-mono text-xs">
+                                <!-- Line 1: Index -->
+                                <div class="flex gap-3 mb-1">
+                                    <span class="text-gray-400 dark:text-gray-600 w-4 text-right select-none">{index + 1}</span>
+                                    <span class="text-purple-600 dark:text-purple-400">{"{"}</span>
+                                </div>
+                                
+                                <!-- Line 2: Title -->
+                                <div class="flex gap-3 mb-1">
+                                    <span class="text-gray-400 dark:text-gray-600 w-4 text-right select-none">{index + 2}</span>
+                                    <div class="pl-4">
+                                        <span class="text-blue-600 dark:text-blue-400">"name"</span>
+                                        <span class="text-gray-500">:</span>
+                                        <span class="text-green-600 dark:text-green-400 ml-1">"{project.title}"</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Line 3: Type -->
+                                <div class="flex gap-3 mb-1">
+                                    <span class="text-gray-400 dark:text-gray-600 w-4 text-right select-none">{index + 3}</span>
+                                    <div class="pl-4">
+                                        <span class="text-blue-600 dark:text-blue-400">"type"</span>
+                                        <span class="text-gray-500">:</span>
+                                        <span class={`ml-1 px-1.5 py-0.5 rounded text-[10px] font-sans ${project.type === 'App' ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300' : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'}`}>
+                                            {project.type === 'App' ? 'Mobile App' : 'Web App'}
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Line 4: Description (truncated) -->
+                                <div class="flex gap-3 mb-2">
+                                    <span class="text-gray-400 dark:text-gray-600 w-4 text-right select-none">{index + 4}</span>
+                                    <div class="pl-4 text-gray-600 dark:text-gray-400 font-sans line-clamp-2">
                                         {project.desc}
-                                    </p>
-                                    <div class="project-actions">
-                                        <a
-                                            href={
-                                                import.meta.env.BASE_URL +
-                                                project.link
-                                            }
-                                            class="project-action-button primary"
-                                        >
-                                            <svg
-                                                class="w-4 h-4"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                viewBox="0 0 24 24"
-                                            >
-                                                <path
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="2"
-                                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                                                />
-                                                <path
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="2"
-                                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                                                />
-                                            </svg>
-                                            View Project
-                                        </a>
                                     </div>
                                 </div>
+                                
+                                <!-- Line 5: Closing -->
+                                <div class="flex gap-3 mb-3">
+                                    <span class="text-gray-400 dark:text-gray-600 w-4 text-right select-none">{index + 5}</span>
+                                    <span class="text-purple-600 dark:text-purple-400">{"}"}</span>
+                                </div>
+                                
+                                <!-- Action Button -->
+                                <a
+                                    href={getAssetPath(project.link)}
+                                    class="flex items-center justify-center gap-2 w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded text-xs font-sans font-medium transition-colors"
+                                >
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    View Project
+                                </a>
                             </div>
-                        ))
-                    }
+                        </div>
+                    ))}
+                </div>
+
+                <!-- JSON Closing -->
+                <div class="mt-8 p-4 bg-gray-50 dark:bg-[#161b22] rounded-lg border border-gray-200 dark:border-gray-700 font-mono text-sm">
+                    <div class="pl-4">
+                        <span class="text-purple-600 dark:text-purple-400">]</span>
+                    </div>
+                    <div class="text-gray-500 dark:text-gray-400">
+                        <span class="text-purple-600 dark:text-purple-400">{"}"}</span>
+                    </div>
+                </div>
+
+                <!-- Footer / Back Link -->
+                <div class="mt-8 text-center">
+                    <a
+                        href={import.meta.env.BASE_URL + "home-software-developer/"}
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-blue-500/50 hover:text-blue-600 dark:hover:text-blue-400 transition-all"
+                    >
+                        <span>←</span> Back to Developer Profile
+                    </a>
                 </div>
             </div>
-        </section>
+        </main>
 
-        <section class="py-24 px-4 sm:px-6 lg:px-8 bg-accent-color text-center">
-            <div class="container mx-auto max-w-4xl fade-in-scroll">
-                <h2 class="text-4xl font-bold mb-6">
-                    Full-Stack Development Expertise
-                </h2>
-                <p class="text-lg text-text-secondary mb-8">
-                    From web applications to mobile apps, these projects
-                    demonstrate proficiency in modern development technologies
-                    and creative problem-solving
-                </p>
-                <a
-                    href="/portfolio/home-software-developer/"
-                    class="button_primary text-lg font-bold px-8 py-3"
-                >
-                    Back to Developer Profile
-                </a>
-            </div>
-        </section>
-    </main>
+        <MobileNav files={projectFiles} />
+    </div>
 </Layout>
+
+<script>
+    // Theme Toggle Logic
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    const html = document.documentElement;
+
+    // Check local storage or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+        html.classList.add('dark');
+        sunIcon?.classList.remove('hidden');
+        moonIcon?.classList.add('hidden');
+        document.getElementById('mobile-sun-icon')?.classList.remove('hidden');
+        document.getElementById('mobile-moon-icon')?.classList.add('hidden');
+    } else {
+        html.classList.remove('dark');
+        sunIcon?.classList.add('hidden');
+        moonIcon?.classList.remove('hidden');
+        document.getElementById('mobile-sun-icon')?.classList.add('hidden');
+        document.getElementById('mobile-moon-icon')?.classList.remove('hidden');
+    }
+
+    themeBtn?.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        const isDark = html.classList.contains('dark');
+
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+        if (isDark) {
+            sunIcon?.classList.remove('hidden');
+            moonIcon?.classList.add('hidden');
+            document.getElementById('mobile-sun-icon')?.classList.remove('hidden');
+            document.getElementById('mobile-moon-icon')?.classList.add('hidden');
+        } else {
+            sunIcon?.classList.add('hidden');
+            moonIcon?.classList.remove('hidden');
+            document.getElementById('mobile-sun-icon')?.classList.add('hidden');
+            document.getElementById('mobile-moon-icon')?.classList.remove('hidden');
+        }
+    });
+
+    // Folder Toggle Logic
+    document.querySelectorAll('[data-folder]').forEach(folder => {
+        folder.addEventListener('click', (e) => {
+            const folderId = (e.currentTarget as HTMLElement).dataset.folder;
+            const content = document.getElementById(`${folderId}-content`);
+            const arrow = (e.currentTarget as HTMLElement).querySelector('.folder-arrow');
+            
+            if (content && arrow) {
+                content.classList.toggle('hidden');
+                arrow.classList.toggle('rotate-90');
+            }
+        });
+    });
+
+    // Project file click - scroll to project card
+    document.querySelectorAll('[data-project-file]').forEach(file => {
+        file.addEventListener('click', (e) => {
+            const projectName = (e.currentTarget as HTMLElement).dataset.projectFile;
+            if (projectName) {
+                const projectId = `project-${projectName.toLowerCase().replace(/\s+/g, '-')}`;
+                const projectCard = document.getElementById(projectId);
+                if (projectCard) {
+                    projectCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    projectCard.classList.add('ring-2', 'ring-blue-500');
+                    setTimeout(() => {
+                        projectCard.classList.remove('ring-2', 'ring-blue-500');
+                    }, 2000);
+                }
+            }
+        });
+    });
+
+    // Mobile Navigation Logic
+    const mobileFilesBtn = document.getElementById('mobile-files-btn');
+    const mobileFileMenu = document.getElementById('mobile-file-menu');
+    const mobileMenuContent = mobileFileMenu?.querySelector('div');
+
+    mobileFilesBtn?.addEventListener('click', () => {
+        if (mobileFileMenu && mobileMenuContent) {
+            mobileFileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                mobileFileMenu.classList.add('opacity-100');
+                mobileMenuContent.classList.remove('translate-y-full');
+            }, 10);
+        }
+    });
+
+    // Mobile Theme Toggle
+    document.getElementById('mobile-theme-btn')?.addEventListener('click', () => {
+        themeBtn?.click();
+    });
+</script>
+
+<style>
+    /* Custom Scrollbar for the Editor feel */
+    #projects-content::-webkit-scrollbar {
+        width: 12px;
+    }
+    #projects-content::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    #projects-content::-webkit-scrollbar-thumb {
+        background-color: #d1d5db;
+        border-radius: 6px;
+        border: 3px solid transparent;
+        background-clip: content-box;
+    }
+    #projects-content::-webkit-scrollbar-thumb:hover {
+        background-color: #9ca3af;
+    }
+
+    /* Dark mode scrollbar */
+    :global(.dark) #projects-content::-webkit-scrollbar-thumb {
+        background-color: #30363d;
+    }
+    :global(.dark) #projects-content::-webkit-scrollbar-thumb:hover {
+        background-color: #484f58;
+    }
+
+    /* Folder content animation */
+    .folder-content {
+        transition: all 0.2s ease;
+    }
+    .folder-content.hidden {
+        display: none;
+    }
+</style>

@@ -1,603 +1,416 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
+import IdeActivityBar from "../../components/ide/IdeActivityBar.astro";
+import IdeSidebar from "../../components/ide/IdeSidebar.astro";
+import MobileNav from "../../components/ide/MobileNav.astro";
+import NotebookCell from "../../components/NotebookCell.astro";
+
+const project = {
+    title: "AI Resume Builder",
+    type: "Full-Stack SaaS",
+    description:
+        "AI-powered resume builder using Gemini Model to optimize resumes based on job descriptions. Features multiple professional templates, PDF/Word export, and ATS optimization.",
+    image: "assets/resume_ai.png",
+    liveUrl: "https://resume-ai-tawny-seven.vercel.app",
+    backendUrl: "https://ai-resume-backend-production-f917.up.railway.app/docs",
+};
+
+const technologies = [
+    { name: "React 18", color: "blue" },
+    { name: "FastAPI", color: "green" },
+    { name: "Supabase", color: "purple" },
+    { name: "Gemini AI", color: "orange" },
+];
+
+const features = [
+    {
+        title: "AI Optimization",
+        icon: "🧠",
+        desc: "Gemini Model analyzes job descriptions and optimizes content with action verbs.",
+    },
+    {
+        title: "Multiple Templates",
+        icon: "📄",
+        desc: "Professional, Modern, and Creative templates for various industries.",
+    },
+    {
+        title: "Export Options",
+        icon: "📥",
+        desc: "Download as ATS-friendly PDF or Word (.docx) files.",
+    },
+    {
+        title: "ATS Check",
+        icon: "🛡️",
+        desc: "Ensures resumes pass Applicant Tracking Systems with optimum formatting.",
+    },
+];
+
+const plans = [
+    {
+        name: "Free",
+        price: "$0",
+        features: ["3 AI generations", "1 saved resume", "Basic template"],
+    },
+    {
+        name: "Pro",
+        price: "$9/mo",
+        active: true,
+        features: ["20 AI generations", "5 saved resumes", "All templates"],
+    },
+    {
+        name: "Premium",
+        price: "$19/mo",
+        features: [
+            "Unlimited generations",
+            "Unlimited resumes",
+            "Custom templates",
+        ],
+    },
+];
+
+const files = [
+    { name: "ai-resume-builder.tsx", active: true, icon: "✨" },
+    { name: "projects.json", active: false, icon: "📦" },
+    { name: "home-software-developer.ipynb", active: false, icon: "📝" },
+];
 ---
 
 <Layout
-    title="AI Resume Builder - Gemini Model Powered Resume Optimization | Noor Azami"
-    description="AI-powered resume builder using Gemini Model to optimize resumes based on job descriptions. Features multiple templates, PDF/Word export, and ATS optimization."
+    title="AI Resume Builder - Gemini Powered Optimization | Noor Azami"
+    description={project.description}
 >
-    <Header />
-    <main class="pt-16">
-        <!-- Back Button -->
-        <div class="px-4 sm:px-6 lg:px-8 py-4">
-            <button
-                id="back-to-projects"
-                class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group cursor-pointer"
+    <div
+        class="flex h-screen bg-white dark:bg-[#0d1117] text-gray-900 dark:text-gray-300 overflow-hidden font-sans transition-colors duration-300"
+    >
+        <IdeActivityBar />
+        <IdeSidebar files={files} />
+
+        <main
+            class="flex-1 flex flex-col min-w-0 bg-white dark:bg-[#0d1117] transition-colors duration-300"
+        >
+            <!-- Tab Bar -->
+            <div
+                class="flex bg-gray-100 dark:bg-[#010409] border-b border-gray-200 dark:border-gray-800 overflow-x-auto scrollbar-hide"
             >
-                <svg
-                    class="w-5 h-5 group-hover:-translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                <div
+                    class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#0d1117] border-t-2 border-orange-500 text-gray-900 dark:text-white text-sm min-w-fit cursor-pointer"
                 >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 19l-7-7 7-7"></path>
-                </svg>
-                Back to Projects
-            </button>
-        </div>
-        <!-- Project Hero Section -->
-        <section class="py-24 px-4 sm:px-6 lg:px-8">
-            <div class="container mx-auto max-w-4xl">
-                <div class="text-center mb-12 fade-in-scroll">
-                    <div class="flex justify-center mb-6">
-                        <span
-                            class="project-badge web-development text-lg px-6 py-3"
-                            >Full-Stack Application</span
-                        >
-                    </div>
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
-                        AI Resume Builder
-                    </h1>
-                    <p class="text-xl text-text-secondary max-w-3xl mx-auto">
-                        AI-powered resume builder using Gemini Model to optimize
-                        resumes based on job descriptions. Built with React,
-                        FastAPI, and Supabase.
-                    </p>
-                </div>
-
-                <!-- Project Image -->
-                <div class="mb-12 fade-in-scroll">
-                    <div
-                        class="rounded-lg shadow-2xl overflow-hidden border border-orange-500/30"
+                    <span>✨</span><span>ai-resume-builder.tsx</span><span
+                        class="ml-2 text-gray-500 cursor-pointer">×</span
                     >
-                        <img
-                            src={import.meta.env.BASE_URL +
-                                "assets/resume_ai.png"}
-                            alt="AI Resume Builder Dashboard"
-                            class="w-full h-auto object-cover"
-                        />
-                    </div>
                 </div>
+                <a
+                    href={import.meta.env.BASE_URL +
+                        "role-software-developer/projects"}
+                    class="flex items-center gap-2 px-4 py-2 text-gray-500 hover:bg-gray-200 dark:hover:bg-[#161b22] cursor-pointer text-sm min-w-fit"
+                >
+                    <span>📦</span><span>projects.json</span>
+                </a>
+            </div>
 
-                <!-- Project Overview -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-                    <div class="card fade-in-scroll">
-                        <h3 class="text-xl font-semibold mb-4">Project Type</h3>
-                        <p class="text-text-secondary">
-                            Full-Stack SaaS Application with AI Integration
-                        </p>
-                    </div>
-                    <div class="card fade-in-scroll">
-                        <h3 class="text-xl font-semibold mb-4">Status</h3>
-                        <p class="text-text-secondary">
-                            Production 🚀<br />Live on Vercel & Railway
-                        </p>
-                    </div>
-                    <div class="card fade-in-scroll">
-                        <h3 class="text-xl font-semibold mb-4">Technologies</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span
-                                class="px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded text-sm"
-                                >React 18</span
-                            >
-                            <span
-                                class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded text-sm"
-                                >FastAPI</span
-                            >
-                            <span
-                                class="px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded text-sm"
-                                >Supabase</span
-                            >
-                            <span
-                                class="px-3 py-1 bg-orange-500/20 text-orange-400 border border-orange-500/30 rounded text-sm"
-                                >Gemini Model</span
-                            >
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Key Features -->
-                <div class="mb-16 fade-in-scroll">
-                    <h2 class="text-3xl font-bold mb-8">Key Features</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="card">
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0"
-                                >
-                                    <svg
-                                        class="w-6 h-6 text-orange-400"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                                        ></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold mb-2">
-                                        AI-Powered Optimization
-                                    </h3>
-                                    <p class="text-text-secondary">
-                                        Gemini Model analyzes job descriptions
-                                        and optimizes resume content with action
-                                        verbs and quantifiable achievements.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0"
-                                >
-                                    <svg
-                                        class="w-6 h-6 text-blue-400"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-                                        ></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold mb-2">
-                                        Multiple Templates
-                                    </h3>
-                                    <p class="text-text-secondary">
-                                        Professional, Modern, and Creative
-                                        templates for various industries and
-                                        needs.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0"
-                                >
-                                    <svg
-                                        class="w-6 h-6 text-green-400"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                                        ></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold mb-2">
-                                        Export Options
-                                    </h3>
-                                    <p class="text-text-secondary">
-                                        Download as PDF (ATS-friendly) or Word
-                                        (.docx) for maximum flexibility.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0"
-                                >
-                                    <svg
-                                        class="w-6 h-6 text-purple-400"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                                        ></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold mb-2">
-                                        ATS Optimization
-                                    </h3>
-                                    <p class="text-text-secondary">
-                                        Ensures resumes pass Applicant Tracking
-                                        Systems with optimum formatting and
-                                        keywords.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tech Stack -->
-                <div class="mb-16 fade-in-scroll">
-                    <h2 class="text-3xl font-bold mb-8">Tech Stack</h2>
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        <div class="card">
-                            <h3
-                                class="text-xl font-semibold mb-4 text-blue-400"
-                            >
-                                Frontend
-                            </h3>
-                            <ul class="space-y-3 text-text-secondary">
-                                <li class="flex items-center gap-2">
-                                    <svg
-                                        class="w-4 h-4 text-blue-400"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    React 18 + TypeScript
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg
-                                        class="w-4 h-4 text-blue-400"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    Material-UI (MUI)
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg
-                                        class="w-4 h-4 text-blue-400"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    Vite + React Router
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg
-                                        class="w-4 h-4 text-blue-400"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    jsPDF & docx Export
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h3
-                                class="text-xl font-semibold mb-4 text-green-400"
-                            >
-                                Backend
-                            </h3>
-                            <ul class="space-y-3 text-text-secondary">
-                                <li class="flex items-center gap-2">
-                                    <svg
-                                        class="w-4 h-4 text-green-400"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    Python 3.8+ & FastAPI
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg
-                                        class="w-4 h-4 text-green-400"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    OpenAI API (via OpenRouter)
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg
-                                        class="w-4 h-4 text-green-400"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    Pydantic Validation
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg
-                                        class="w-4 h-4 text-green-400"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    Railway Deployment
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h3
-                                class="text-xl font-semibold mb-4 text-purple-400"
-                            >
-                                Database & Auth
-                            </h3>
-                            <ul class="space-y-3 text-text-secondary">
-                                <li class="flex items-center gap-2">
-                                    <svg
-                                        class="w-4 h-4 text-purple-400"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    Supabase PostgreSQL
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg
-                                        class="w-4 h-4 text-purple-400"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    Supabase Auth
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg
-                                        class="w-4 h-4 text-purple-400"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    Row Level Security (RLS)
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg
-                                        class="w-4 h-4 text-purple-400"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    Google OAuth
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- How It Works -->
-                <div class="mb-16 fade-in-scroll">
-                    <h2 class="text-3xl font-bold mb-8">How It Works</h2>
-                    <div class="prose prose-invert max-w-none">
-                        <div
-                            class="bg-gray-800/50 p-6 rounded-lg border border-gray-700 mb-6"
-                        >
-                            <h3 class="text-xl font-bold text-white mb-4">
-                                AI Resume Optimization Flow
-                            </h3>
-                            <div
-                                class="flex flex-wrap items-center justify-center gap-2 text-sm mb-6"
-                            >
-                                <span
-                                    class="px-3 py-2 bg-orange-500/20 text-orange-400 rounded"
-                                    >User Input</span
-                                >
-                                <span class="text-gray-500">→</span>
-                                <span
-                                    class="px-3 py-2 bg-blue-500/20 text-blue-400 rounded"
-                                    >Backend API</span
-                                >
-                                <span class="text-gray-500">→</span>
-                                <span
-                                    class="px-3 py-2 bg-purple-500/20 text-purple-400 rounded"
-                                    >AI Analysis</span
-                                >
-                                <span class="text-gray-500">→</span>
-                                <span
-                                    class="px-3 py-2 bg-green-500/20 text-green-400 rounded"
-                                    >Optimized Resume</span
-                                >
-                            </div>
-                            <ul
-                                class="list-disc list-inside text-gray-400 space-y-2"
-                            >
-                                <li>
-                                    <strong>Job Analysis:</strong> AI extracts keywords,
-                                    skills, and requirements from job descriptions
-                                </li>
-                                <li>
-                                    <strong>Content Optimization:</strong> AI rewrites
-                                    work experience with action verbs and quantifiable
-                                    achievements
-                                </li>
-                                <li>
-                                    <strong>Skills Matching:</strong> AI prioritizes
-                                    relevant skills and suggests improvements
-                                </li>
-                                <li>
-                                    <strong>Professional Summary:</strong> AI generates
-                                    compelling summaries that match job requirements
-                                </li>
-                                <li>
-                                    <strong>ATS Optimization:</strong> Formats content
-                                    to pass ATS scanners
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SaaS Model -->
-                <div class="mb-16 fade-in-scroll">
-                    <h2 class="text-3xl font-bold mb-8">Pricing Plans</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="card text-center">
-                            <h3 class="text-xl font-semibold mb-2">Free</h3>
-                            <p class="text-3xl font-bold text-green-400 mb-4">
-                                $0
-                            </p>
-                            <ul class="text-text-secondary space-y-2 text-sm">
-                                <li>3 AI generations (lifetime)</li>
-                                <li>1 saved resume</li>
-                                <li>Basic template</li>
-                                <li>PDF export</li>
-                            </ul>
-                        </div>
-                        <div class="card text-center border-orange-500/50">
-                            <h3 class="text-xl font-semibold mb-2">Pro</h3>
-                            <p class="text-3xl font-bold text-orange-400 mb-4">
-                                $9<span class="text-sm text-text-secondary"
-                                    >/month</span
-                                >
-                            </p>
-                            <ul class="text-text-secondary space-y-2 text-sm">
-                                <li>20 AI generations/month</li>
-                                <li>5 saved resumes</li>
-                                <li>All templates</li>
-                                <li>PDF & Word export</li>
-                            </ul>
-                        </div>
-                        <div class="card text-center">
-                            <h3 class="text-xl font-semibold mb-2">Premium</h3>
-                            <p class="text-3xl font-bold text-purple-400 mb-4">
-                                $19<span class="text-sm text-text-secondary"
-                                    >/month</span
-                                >
-                            </p>
-                            <ul class="text-text-secondary space-y-2 text-sm">
-                                <li>Unlimited generations</li>
-                                <li>Unlimited resumes</li>
-                                <li>Custom templates</li>
-                                <li>LinkedIn optimization</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Links -->
-                <div class="text-center fade-in-scroll">
-                    <h2 class="text-3xl font-bold mb-8">Project Links</h2>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
-                            href="https://resume-ai-tawny-seven.vercel.app"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="button_primary text-lg px-8 py-3"
-                        >
-                            <svg
-                                class="w-5 h-5 mr-2"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                ></path>
-                            </svg>
-                            View Live Demo
-                        </a>
-                        <a
-                            href="https://ai-resume-backend-production-f917.up.railway.app/docs"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="button_secondary text-lg px-8 py-3"
-                        >
-                            <svg
-                                class="w-5 h-5 mr-2"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                                ></path>
-                            </svg>
-                            API Documentation
-                        </a>
-                    </div>
+            <!-- Breadcrumbs -->
+            <div
+                class="flex items-center gap-2 px-4 py-1 bg-white dark:bg-[#0d1117] border-b border-gray-200 dark:border-gray-800 text-xs text-gray-500"
+            >
+                <span>src</span><span>›</span><span>projects</span><span>›</span
+                ><span>ai-resume-builder.tsx</span>
+                <div class="ml-auto flex gap-2">
+                    <span
+                        class="px-2 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded"
+                        >Full-Stack</span
+                    >
                 </div>
             </div>
-        </section>
-    </main>
+
+            <div
+                class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth"
+                id="project-content"
+            >
+                <NotebookCell
+                    cellNumber={1}
+                    code={`// Project: AI Resume Builder\nconst config = {\n  model: "Gemini-1.5-Pro",\n  auth: "Supabase",\n  hosting: "Vercel & Railway"\n};`}
+                >
+                    <section
+                        class="relative flex flex-col items-center justify-center text-center py-12 md:py-16 bg-gradient-to-br from-indigo-900 to-slate-900 rounded-lg overflow-hidden border border-orange-500/30 shadow-2xl"
+                    >
+                        <div class="z-10 px-4">
+                            <div class="flex justify-center mb-4">
+                                <span
+                                    class="px-4 py-1 bg-orange-500/20 border border-orange-500/30 rounded-full text-sm text-orange-300"
+                                    >SaaS Product</span
+                                >
+                            </div>
+                            <h1
+                                class="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg"
+                            >
+                                {project.title}
+                            </h1>
+                            <p
+                                class="text-base md:text-lg font-medium mb-6 max-w-2xl mx-auto text-gray-200"
+                            >
+                                {project.description}
+                            </p>
+                            <div
+                                class="flex flex-wrap justify-center gap-2 mb-6"
+                            >
+                                {
+                                    technologies.map((tech) => (
+                                        <span class="px-3 py-1 bg-black/30 backdrop-blur-md border border-white/20 rounded-full text-xs text-white">
+                                            {tech.name}
+                                        </span>
+                                    ))
+                                }
+                            </div>
+                            <div class="flex flex-wrap justify-center gap-4">
+                                <a
+                                    href={project.liveUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-medium transition-colors"
+                                >
+                                    <svg
+                                        class="w-5 h-5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        ><path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                        ></path></svg
+                                    >
+                                    Live Demo
+                                </a>
+                                <a
+                                    href={project.backendUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-lg font-medium transition-colors backdrop-blur-sm"
+                                >
+                                    <svg
+                                        class="w-5 h-5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        ><path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                                        ></path></svg
+                                    >
+                                    API Docs
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </NotebookCell>
+
+                <NotebookCell
+                    cellNumber={2}
+                    code={`// Load Dashboard Preview\nawait resumeBuilder.renderUI();`}
+                >
+                    <div
+                        class="rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 shadow-xl"
+                    >
+                        <img
+                            src={import.meta.env.BASE_URL + project.image}
+                            alt={project.title}
+                            class="w-full h-auto object-cover"
+                            loading="lazy"
+                        />
+                    </div>
+                </NotebookCell>
+
+                <NotebookCell
+                    cellNumber={3}
+                    code={`// Core AI Capabilities\nconst aiFeatures = ai.getModules();`}
+                >
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {
+                            features.map((feature) => (
+                                <div class="bg-white dark:bg-[#161b22] p-5 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-orange-500/50 transition-all">
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 bg-orange-500/10 dark:bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-2xl">
+                                            {feature.icon}
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold text-gray-900 dark:text-white mb-1">
+                                                {feature.title}
+                                            </h3>
+                                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                                {feature.desc}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </NotebookCell>
+
+                <NotebookCell
+                    cellNumber={4}
+                    code={`// AI Pipeline: Resume Optimization\nasync function optimizeResume(jobDescription) {\n  const skills = await ai.extractSkills(jobDescription);\n  const content = await ai.generateBulletPoints(skills);\n  return formatATS(content);\n}`}
+                >
+                    <div
+                        class="p-6 bg-orange-50/50 dark:bg-orange-900/10 rounded-lg border border-orange-200 dark:border-orange-500/30"
+                    >
+                        <h3
+                            class="text-lg font-bold text-orange-800 dark:text-orange-400 mb-4"
+                        >
+                            How the optimization flow works:
+                        </h3>
+                        <div
+                            class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6"
+                        >
+                            <div
+                                class="flex-1 flex flex-col items-center p-3 bg-white dark:bg-gray-800 rounded border border-orange-100 dark:border-gray-700 text-center w-full"
+                            >
+                                <span class="text-2xl mb-1">📝</span>
+                                <span
+                                    class="text-xs font-bold dark:text-gray-200"
+                                    >Input URL/Text</span
+                                >
+                            </div>
+                            <div class="hidden md:block text-orange-300">→</div>
+                            <div
+                                class="flex-1 flex flex-col items-center p-3 bg-white dark:bg-gray-800 rounded border border-orange-100 dark:border-gray-700 text-center w-full"
+                            >
+                                <span class="text-2xl mb-1">🧪</span>
+                                <span
+                                    class="text-xs font-bold dark:text-gray-200"
+                                    >AI Analysis</span
+                                >
+                            </div>
+                            <div class="hidden md:block text-orange-300">→</div>
+                            <div
+                                class="flex-1 flex flex-col items-center p-3 bg-white dark:bg-gray-800 rounded border border-orange-100 dark:border-gray-700 text-center w-full"
+                            >
+                                <span class="text-2xl mb-1">✨</span>
+                                <span
+                                    class="text-xs font-bold dark:text-gray-200"
+                                    >Smart Rewrite</span
+                                >
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            The Gemini LLM identifies key competencies from the
+                            target job posting and cross-references them with
+                            the candidate's history to produce optimized bullet
+                            points.
+                        </p>
+                    </div>
+                </NotebookCell>
+
+                <NotebookCell
+                    cellNumber={5}
+                    code={`// SaaS Business Model\nconst monetization = plans.pricing;`}
+                >
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {
+                            plans.map((plan) => (
+                                <div
+                                    class={`p-6 rounded-lg border flex flex-col ${plan.active ? "border-orange-500 bg-orange-50/20 dark:bg-orange-900/10" : "border-gray-200 dark:border-gray-800 bg-white dark:bg-[#161b22]"}`}
+                                >
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                        {plan.name}
+                                    </h3>
+                                    <p class="text-2xl font-bold text-orange-500 mb-4">
+                                        {plan.price}
+                                    </p>
+                                    <ul class="space-y-2 flex-grow">
+                                        {plan.features.map((f) => (
+                                            <li class="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                                                <svg
+                                                    class="w-3 h-3 text-green-500"
+                                                    fill="currentColor"
+                                                    viewBox="0 0 20 20"
+                                                >
+                                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                                </svg>
+                                                {f}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </NotebookCell>
+
+                <div class="mt-8 text-center pb-8">
+                    <a
+                        href={import.meta.env.BASE_URL +
+                            "role-software-developer/projects"}
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-orange-500/50 hover:text-orange-600 dark:hover:text-orange-400 transition-all"
+                    >
+                        <span>←</span> Back to All Projects
+                    </a>
+                </div>
+            </div>
+        </main>
+        <MobileNav files={files} />
+    </div>
 </Layout>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const backButton = document.getElementById("back-to-projects");
-        if (backButton) {
-            backButton.addEventListener("click", function () {
-                const profile =
-                    localStorage.getItem("selectedProfile") ||
-                    "software-developer";
-                const baseUrl = window.location.pathname.startsWith(
-                    "/portfolio",
-                )
-                    ? "/portfolio"
-                    : "";
-                window.location.href = `${baseUrl}/role-${profile}/projects`;
-            });
+    const themeBtn = document.getElementById("theme-toggle-btn");
+    const sunIcon = document.getElementById("sun-icon");
+    const moonIcon = document.getElementById("moon-icon");
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem("theme");
+    const systemDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+    ).matches;
+    if (savedTheme === "dark" || (!savedTheme && systemDark)) {
+        html.classList.add("dark");
+        sunIcon?.classList.remove("hidden");
+        moonIcon?.classList.add("hidden");
+    } else {
+        html.classList.remove("dark");
+        sunIcon?.classList.add("hidden");
+        moonIcon?.classList.remove("hidden");
+    }
+    themeBtn?.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        const isDark = html.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        if (isDark) {
+            sunIcon?.classList.remove("hidden");
+            moonIcon?.classList.add("hidden");
+        } else {
+            sunIcon?.classList.add("hidden");
+            moonIcon?.classList.remove("hidden");
         }
     });
+    document
+        .getElementById("mobile-files-btn")
+        ?.addEventListener("click", () => {
+            document
+                .getElementById("mobile-file-menu")
+                ?.classList.remove("hidden");
+        });
+    document
+        .getElementById("mobile-theme-btn")
+        ?.addEventListener("click", () => themeBtn?.click());
 </script>
+
+<style>
+    #project-content::-webkit-scrollbar {
+        width: 12px;
+    }
+    #project-content::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    #project-content::-webkit-scrollbar-thumb {
+        background-color: #d1d5db;
+        border-radius: 6px;
+        border: 3px solid transparent;
+        background-clip: content-box;
+    }
+    :global(.dark) #project-content::-webkit-scrollbar-thumb {
+        background-color: #30363d;
+    }
+</style>

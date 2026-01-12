@@ -1,8 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import SkillsProgress from '../components/SkillsProgress.astro';
-import SkillsCategorized from '../components/SkillsCategorized.astro';
+import Layout from "../layouts/Layout.astro";
+import IdeActivityBar from "../components/ide/IdeActivityBar.astro";
+import IdeSidebar from "../components/ide/IdeSidebar.astro";
+import MobileNav from "../components/ide/MobileNav.astro";
+import NotebookCell from "../components/NotebookCell.astro";
 
 const infrastructureSkills = [
     { name: "IT Troubleshooting", level: "Advanced" },
@@ -10,7 +11,7 @@ const infrastructureSkills = [
     { name: "Remote Support", level: "Advanced" },
     { name: "Linux Administration", level: "Intermediate" },
     { name: "Windows Administration", level: "Intermediate" },
-    { name: "VMware", level: "Intermediate" }
+    { name: "VMware", level: "Intermediate" },
 ];
 
 const developmentSkills = [
@@ -21,12 +22,12 @@ const developmentSkills = [
     { name: "Multimedia Design", level: "Intermediate" },
     { name: "Adobe Photoshop", level: "Intermediate" },
     { name: "Adobe Illustrator", level: "Intermediate" },
-    { name: "Canva", level: "Advanced" }
+    { name: "Canva", level: "Advanced" },
 ];
 
 const emergingTechSkills = [
     { name: "Prompt Engineering", level: "Intermediate" },
-    { name: "AWS Cloud", level: "Learning" }
+    { name: "AWS Cloud", level: "Learning" },
 ];
 
 const softSkills = [
@@ -35,207 +36,556 @@ const softSkills = [
     { name: "Leadership", level: "Advanced" },
     { name: "Project Management", level: "Intermediate" },
     { name: "Organization", level: "Intermediate" },
-    { name: "Team Management", level: "Intermediate" }
+    { name: "Team Management", level: "Intermediate" },
 ];
+
+// Files for sidebar
+const files = [
+    { name: "about.md", active: true, icon: "📄" },
+    { name: "skills.json", active: false, icon: "⚙️" },
+    { name: "certificates.json", active: false, icon: "📜" },
+    { name: "home-software-developer.ipynb", active: false, icon: "📝" },
+];
+
+const certificates = [
+    {
+        name: "Google IT Support",
+        issuer: "Google",
+        year: "2023",
+        link: "https://www.coursera.org/account/accomplishments/specialization/TJF7D2MPEIKO",
+    },
+    {
+        name: "CCNA: Introduction to Networks",
+        issuer: "Cisco",
+        year: "2024",
+        link: "https://www.credly.com/badges/9575fc0c-f43d-4870-b20f-d2b4546b2bc6/linked_in_profile",
+    },
+    {
+        name: "AI Essentials for Frontliners",
+        issuer: "HRD Corp & Skillsoft",
+        year: "2024",
+        link: "https://hrdcorp-ntw.digitalbadges.skillsoft.com/e51a7ae1-c4d1-416e-9b46-1cd43fd3ac92#acc.JnPzsym8",
+    },
+    {
+        name: "Principles of UX/UI Design",
+        issuer: "Meta",
+        year: "2024",
+        link: "https://www.coursera.org/account/accomplishments/verify/URH9T1WFMC23",
+    },
+];
+
+const getLevelColor = (level: string) => {
+    switch (level) {
+        case "Advanced":
+            return "text-green-600 dark:text-green-400";
+        case "Intermediate":
+            return "text-blue-600 dark:text-blue-400";
+        case "Learning":
+            return "text-yellow-600 dark:text-yellow-400";
+        default:
+            return "text-gray-600 dark:text-gray-400";
+    }
+};
 ---
 
-<Layout title="About - Noor Azami" description="Learn more about Noor Azami, an IT undergraduate with a passion for technology, problem-solving, and creative solutions." canonical="/about">
-    <Header />
-    <main class="pt-16">
-        <section class="py-24 px-4 sm:px-6 lg:px-8 text-center">
-            <div class="container mx-auto fade-in-scroll">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">About Me</h1>
-                <p class="text-lg text-text-secondary max-w-3xl mx-auto">A passionate IT student with a knack for problem-solving and a drive to create impactful technology solutions.</p>
-            </div>
-        </section>
+<Layout
+    title="About - Noor Azami"
+    description="Learn more about Noor Azami, an IT undergraduate with a passion for technology, problem-solving, and creative solutions."
+    canonical="/about"
+>
+    <div
+        class="flex h-screen bg-white dark:bg-[#0d1117] text-gray-900 dark:text-gray-300 overflow-hidden font-sans transition-colors duration-300"
+    >
+        <IdeActivityBar />
+        <IdeSidebar files={files} />
 
-        <section class="pb-24 px-4 sm:px-6 lg:px-8">
-            <div class="container mx-auto max-w-6xl">
-                <!-- Profile Image - Centered and Larger -->
-                <div class="text-center mb-16 fade-in-scroll">
-                    <div class="w-80 h-80 mx-auto rounded-lg bg-center bg-no-repeat bg-cover shadow-2xl" style={`background-image: url("${import.meta.env.BASE_URL}assets/profile.webp")`}></div>
+        <!-- Main Editor Area -->
+        <main
+            class="flex-1 flex flex-col min-w-0 bg-white dark:bg-[#0d1117] transition-colors duration-300"
+        >
+            <!-- Tab Bar -->
+            <div
+                class="flex bg-gray-100 dark:bg-[#010409] border-b border-gray-200 dark:border-gray-800 overflow-x-auto scrollbar-hide transition-colors duration-300"
+            >
+                <div
+                    class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#0d1117] border-t-2 border-orange-500 text-gray-900 dark:text-white text-sm min-w-fit cursor-pointer transition-colors duration-300"
+                >
+                    <span>📄</span>
+                    <span>about.md</span>
+                    <span
+                        class="ml-2 text-gray-500 hover:text-gray-900 dark:hover:text-white cursor-pointer"
+                        title="Close Editor">×</span
+                    >
                 </div>
-                
-                <!-- Content Sections - 3 Rows × 2 Sections Grid Layout -->
-                <div class="space-y-16 fade-in-scroll">
-                    <!-- Row 1: Personal Introduction + My Journey -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <a
+                    href={import.meta.env.BASE_URL + "home-software-developer/"}
+                    class="flex items-center gap-2 px-4 py-2 text-gray-500 hover:bg-gray-200 dark:hover:bg-[#161b22] cursor-pointer text-sm min-w-fit transition-colors duration-300"
+                >
+                    <span>📝</span>
+                    <span>home-software-developer.ipynb</span>
+                </a>
+            </div>
+
+            <!-- Breadcrumbs / Toolbar -->
+            <div
+                class="flex items-center gap-2 px-4 py-1 bg-white dark:bg-[#0d1117] border-b border-gray-200 dark:border-gray-800 text-xs text-gray-500 transition-colors duration-300"
+            >
+                <span>src</span>
+                <span>›</span>
+                <span>pages</span>
+                <span>›</span>
+                <span>about.md</span>
+                <div class="ml-auto flex gap-2">
+                    <span
+                        class="cursor-pointer hover:text-gray-900 dark:hover:text-white"
+                        title="Preview">👁️ Preview</span
+                    >
+                </div>
+            </div>
+
+            <!-- Notebook Content (Scrollable) -->
+            <div
+                class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth"
+                id="about-content"
+            >
+                <!-- Cell 1: Header -->
+                <NotebookCell
+                    cellNumber={1}
+                    code={`# About Me\n> A passionate IT student with a knack for problem-solving.\n\n## Table of Contents\n- Personal Introduction\n- My Journey\n- Skills & Expertise\n- Certificates`}
+                >
+                    <section
+                        id="hero"
+                        class="relative flex flex-col items-center justify-center text-center py-12 md:py-16 bg-gradient-to-br from-purple-900 to-slate-900 rounded-lg overflow-hidden border border-purple-500/30 shadow-2xl"
+                    >
+                        <div class="z-10 px-4">
+                            <!-- Profile Image -->
+                            <div
+                                class="w-40 h-40 mx-auto mb-6 rounded-full bg-center bg-no-repeat bg-cover border-4 border-purple-500/50 shadow-xl"
+                                style={`background-image: url("${import.meta.env.BASE_URL}assets/profile.webp")`}
+                            >
+                            </div>
+                            <h1
+                                class="text-3xl md:text-5xl font-bold mb-4 leading-tight text-white drop-shadow-lg"
+                            >
+                                About Me
+                            </h1>
+                            <p
+                                class="text-lg md:text-xl font-medium mb-6 max-w-3xl mx-auto leading-relaxed text-gray-100"
+                            >
+                                A passionate IT student with a knack for
+                                problem-solving and a drive to create impactful
+                                technology solutions.
+                            </p>
+                            <div class="flex flex-wrap justify-center gap-3">
+                                <span
+                                    class="px-3 py-1 bg-black/30 backdrop-blur-md border border-white/20 rounded-full text-sm text-white"
+                                    >🎓 UTHM Student</span
+                                >
+                                <span
+                                    class="px-3 py-1 bg-black/30 backdrop-blur-md border border-white/20 rounded-full text-sm text-white"
+                                    >💼 3+ Years IT Experience</span
+                                >
+                                <span
+                                    class="px-3 py-1 bg-black/30 backdrop-blur-md border border-white/20 rounded-full text-sm text-white"
+                                    >🚀 Open to Opportunities</span
+                                >
+                            </div>
+                        </div>
+                    </section>
+                </NotebookCell>
+
+                <!-- Cell 2: Personal Introduction & Journey -->
+                <NotebookCell
+                    cellNumber={2}
+                    code={`const developer = {\n  introduction: "IT undergraduate at UTHM...",\n  journey: "From IT events to troubleshooting..."\n};\n\nconsole.log(developer);`}
+                >
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <!-- Personal Introduction -->
-                        <div class="card p-8 text-center lg:text-left">
-                            <h2 class="text-3xl font-bold mb-6">Personal Introduction</h2>
-                            <p class="text-lg text-text-secondary leading-relaxed">
-                                I am an IT undergraduate at Universiti Tun Hussein Onn Malaysia with hands-on experience in technical support, leadership, and multimedia content creation. I thrive on solving IT problems, optimizing systems, and delivering creative solutions using technology.
+                        <div
+                            class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
+                        >
+                            <h2
+                                class="text-xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
+                            >
+                                <span>👤</span> Personal Introduction
+                            </h2>
+                            <p
+                                class="text-gray-700 dark:text-gray-300 leading-relaxed"
+                            >
+                                I am an IT undergraduate at Universiti Tun
+                                Hussein Onn Malaysia with hands-on experience in
+                                technical support, leadership, and multimedia
+                                content creation. I thrive on solving IT
+                                problems, optimizing systems, and delivering
+                                creative solutions using technology.
                             </p>
                         </div>
-                        
+
                         <!-- My Journey -->
-                        <div class="card p-8 text-center lg:text-left">
-                            <h3 class="text-2xl font-bold mb-6">My Journey</h3>
-                            <p class="text-lg text-text-secondary leading-relaxed">
-                                My experience ranges from managing IT events and troubleshooting systems to designing multimedia content and leading student organizations. I believe in combining technical expertise with strong people skills to deliver efficient and user-friendly IT solutions.
+                        <div
+                            class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
+                        >
+                            <h2
+                                class="text-xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
+                            >
+                                <span>🛤️</span> My Journey
+                            </h2>
+                            <p
+                                class="text-gray-700 dark:text-gray-300 leading-relaxed"
+                            >
+                                My experience ranges from managing IT events and
+                                troubleshooting systems to designing multimedia
+                                content and leading student organizations. I
+                                believe in combining technical expertise with
+                                strong people skills to deliver efficient and
+                                user-friendly IT solutions.
                             </p>
                         </div>
                     </div>
-                    
-                    <!-- Creative Break Line 1 -->
-                    <div class="flex justify-center">
-                        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[var(--primary-color)] to-transparent"></div>
-                        <div class="mx-4 w-3 h-3 rounded-full bg-[var(--primary-color)]"></div>
-                        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[var(--primary-color)] to-transparent"></div>
-                    </div>
-                    
-                    <!-- Row 2: Technical Skills + Career Goals -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                </NotebookCell>
+
+                <!-- Cell 3: Career Goals -->
+                <NotebookCell
+                    cellNumber={3}
+                    code={`const goals = {\n  shortTerm: "IT Internship at MNC",\n  focus: ["Cloud Computing", "Network Security"],\n  location: "Malaysia"\n};`}
+                >
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <!-- Technical Skills Overview -->
-                        <div class="card p-8 text-center lg:text-left">
-                            <h3 class="text-2xl font-bold mb-6">Technical Skills Overview</h3>
-                            <p class="text-lg text-text-secondary leading-relaxed">
-                                I specialize in IT infrastructure, web development, mobile app development with Flutter, and multimedia design. My technical foundation includes networking, system administration, and emerging technologies like cloud computing and AI.
+                        <div
+                            class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
+                        >
+                            <h2
+                                class="text-xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
+                            >
+                                <span>💻</span> Technical Skills Overview
+                            </h2>
+                            <p
+                                class="text-gray-700 dark:text-gray-300 leading-relaxed"
+                            >
+                                I specialize in IT infrastructure, web
+                                development, mobile app development with
+                                Flutter, and multimedia design. My technical
+                                foundation includes networking, system
+                                administration, and emerging technologies like
+                                cloud computing and AI.
                             </p>
                         </div>
-                        
+
                         <!-- Career Goals -->
-                        <div class="card p-8 text-center lg:text-left">
-                            <h3 class="text-2xl font-bold mb-6">Career Goals</h3>
-                            <p class="text-lg text-text-secondary leading-relaxed">
-                                My goal is to secure an IT internship at a multinational company in Malaysia where I can grow my skills in cloud computing and network security. I am eager to contribute to large-scale IT infrastructure and learn from experienced professionals in the industry.
+                        <div
+                            class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
+                        >
+                            <h2
+                                class="text-xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
+                            >
+                                <span>🎯</span> Career Goals
+                            </h2>
+                            <p
+                                class="text-gray-700 dark:text-gray-300 leading-relaxed"
+                            >
+                                My goal is to secure an IT internship at a
+                                multinational company in Malaysia where I can
+                                grow my skills in cloud computing and network
+                                security. I am eager to contribute to
+                                large-scale IT infrastructure.
                             </p>
                         </div>
                     </div>
-                    
-                    <!-- Creative Break Line 2 -->
-                    <div class="flex justify-center">
-                        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[var(--primary-color)] to-transparent"></div>
-                        <div class="mx-4 w-3 h-3 rounded-full bg-[var(--primary-color)]"></div>
-                        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[var(--primary-color)] to-transparent"></div>
-                    </div>
-                    
-                    <!-- Row 3: Malaysian Tech Ecosystem + What I'm Looking For -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <!-- Malaysian Tech Ecosystem -->
-                        <div class="card p-8 text-center lg:text-left">
-                            <h3 class="text-2xl font-bold mb-6">My Interest in the Malaysian Tech Ecosystem</h3>
-                            <p class="text-lg text-text-secondary leading-relaxed">
-                                I am actively following the growth of Malaysia's digital economy, particularly the developments outlined in the MyDIGITAL blueprint. I am excited by the increasing focus on cloud computing and cybersecurity within the nation's key industries and am eager to contribute to the innovative Malaysian companies driving this transformation.
-                            </p>
-                        </div>
-                        
-                        <!-- What I'm Looking For -->
-                        <div class="card p-8 text-center lg:text-left">
-                            <h3 class="text-2xl font-bold mb-6">What I'm Looking For</h3>
-                            <p class="text-lg text-text-secondary leading-relaxed">
-                                I'm seeking opportunities to apply my technical skills in real-world projects, particularly in cloud computing, network security, and system administration. I'm looking for mentorship from experienced professionals and the chance to contribute to meaningful IT solutions that drive business growth.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- Key Highlights - Centered below the grid -->
-                    <div class="text-center mt-16">
-                        <h3 class="text-2xl font-bold mb-8">Key Highlights</h3>
-                        <div class="flex flex-wrap gap-6 justify-center">
-                            <div class="flex items-center gap-2 text-sm text-text-secondary">
-                                <svg class="w-4 h-4 text-[var(--primary-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span>3+ Years IT Experience</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-text-secondary">
-                                <svg class="w-4 h-4 text-[var(--primary-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span>Leadership Roles</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-text-secondary">
-                                <svg class="w-4 h-4 text-[var(--primary-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span>Multimedia Expertise</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                </NotebookCell>
 
-        <section class="pb-24 px-4 sm:px-6 lg:px-8 bg-[var(--accent-color)]/20">
-            <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-12 fade-in-scroll">My Certificates</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <a href="https://www.coursera.org/account/accomplishments/specialization/TJF7D2MPEIKO" target="_blank" rel="noopener noreferrer" class="card fade-in-scroll hover:transform hover:-translate-y-1 transition-transform duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <svg class="size-8 text-[var(--primary-color)] group-hover:scale-110 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/><path d="M12 12v-4"/></svg>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary-color)] transition-colors duration-300">Google IT Support</h3>
-                                <p class="text-[var(--text-secondary)]">Google</p>
-                                <p class="text-sm text-[var(--primary-color)]">2023</p>
+                <!-- Cell 4: Skills -->
+                <NotebookCell
+                    cellNumber={4}
+                    code={`import skills from './data/skills.json';\n\n// Render skill matrix with proficiency levels\nskills.forEach(category => console.table(category));`}
+                >
+                    <div id="skills" class="space-y-6">
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white text-center mb-6"
+                        >
+                            My Skillset
+                        </h2>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <!-- Infrastructure & IT Support -->
+                            <div
+                                class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
+                            >
+                                <h3
+                                    class="text-lg font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
+                                >
+                                    <span>🔧</span> Infrastructure & IT Support
+                                </h3>
+                                <div class="space-y-2 font-mono text-sm">
+                                    {
+                                        infrastructureSkills.map((skill, i) => (
+                                            <div class="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700/50">
+                                                <span class="text-gray-700 dark:text-gray-300">
+                                                    {skill.name}
+                                                </span>
+                                                <span
+                                                    class={getLevelColor(
+                                                        skill.level,
+                                                    )}
+                                                >
+                                                    {skill.level}
+                                                </span>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
                             </div>
-                            <svg class="size-5 text-[var(--text-secondary)] group-hover:text-[var(--primary-color)] group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6l6 6-6 6"></path>
-                            </svg>
-                        </div>
-                    </a>
-                    
-                    <a href="https://www.credly.com/badges/9575fc0c-f43d-4870-b20f-d2b4546b2bc6/linked_in_profile" target="_blank" rel="noopener noreferrer" class="card fade-in-scroll hover:transform hover:-translate-y-1 transition-transform duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <svg class="size-8 text-[var(--primary-color)] group-hover:scale-110 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m10.5 11.5-2 2L10 15l-2 1.5"/><path d="m13.5 11.5 2 2L14 15l2 1.5"/></svg>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary-color)] transition-colors duration-300">CCNA: Introduction to Networks</h3>
-                                <p class="text-[var(--text-secondary)]">Cisco</p>
-                                <p class="text-sm text-[var(--primary-color)]">2024</p>
-                            </div>
-                            <svg class="size-5 text-[var(--text-secondary)] group-hover:text-[var(--primary-color)] group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6l6 6-6 6"></path>
-                            </svg>
-                        </div>
-                    </a>
-                    
-                    <a href="https://hrdcorp-ntw.digitalbadges.skillsoft.com/e51a7ae1-c4d1-416e-9b46-1cd43fd3ac92#acc.JnPzsym8" target="_blank" rel="noopener noreferrer" class="card fade-in-scroll hover:transform hover:-translate-y-1 transition-transform duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <svg class="size-8 text-[var(--primary-color)] group-hover:scale-110 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary-color)] transition-colors duration-300">AI Essentials for Frontliners</h3>
-                                <p class="text-[var(--text-secondary)]">HRD Corp & Skillsoft</p>
-                                <p class="text-sm text-[var(--primary-color)]">2024</p>
-                            </div>
-                            <svg class="size-5 text-[var(--text-secondary)] group-hover:text-[var(--primary-color)] group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6l6 6-6 6"></path>
-                            </svg>
-                        </div>
-                    </a>
-                    
-                    <a href="https://www.coursera.org/account/accomplishments/verify/URH9T1WFMC23" target="_blank" rel="noopener noreferrer" class="card fade-in-scroll hover:transform hover:-translate-y-1 transition-transform duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <svg class="size-8 text-[var(--primary-color)] group-hover:scale-110 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary-color)] transition-colors duration-300">Principles of UX/UI Design</h3>
-                                <p class="text-[var(--text-secondary)]">Meta</p>
-                                <p class="text-sm text-[var(--primary-color)]">2024</p>
-                            </div>
-                            <svg class="size-5 text-[var(--text-secondary)] group-hover:text-[var(--primary-color)] group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6l6 6-6 6"></path>
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
 
-        <section class="pb-24 px-4 sm:px-6 lg:px-8">
-            <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-12 fade-in-scroll">My Skillset</h2>
-                <div class="max-w-6xl mx-auto">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <div class="fade-in-scroll">
-                            <SkillsCategorized skills={infrastructureSkills} category="Infrastructure & IT Support" icon="🔧" />
-                            <SkillsCategorized skills={developmentSkills} category="Development" icon="💻" />
-                        </div>
-                        <div class="fade-in-scroll">
-                            <SkillsCategorized skills={emergingTechSkills} category="Cloud & Emerging Tech" icon="☁️" />
-                            <SkillsCategorized skills={softSkills} category="Soft Skills" icon="🤝" />
+                            <!-- Development -->
+                            <div
+                                class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
+                            >
+                                <h3
+                                    class="text-lg font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
+                                >
+                                    <span>💻</span> Development
+                                </h3>
+                                <div class="space-y-2 font-mono text-sm">
+                                    {
+                                        developmentSkills.map((skill, i) => (
+                                            <div class="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700/50">
+                                                <span class="text-gray-700 dark:text-gray-300">
+                                                    {skill.name}
+                                                </span>
+                                                <span
+                                                    class={getLevelColor(
+                                                        skill.level,
+                                                    )}
+                                                >
+                                                    {skill.level}
+                                                </span>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+
+                            <!-- Cloud & Emerging Tech -->
+                            <div
+                                class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
+                            >
+                                <h3
+                                    class="text-lg font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
+                                >
+                                    <span>☁️</span> Cloud & Emerging Tech
+                                </h3>
+                                <div class="space-y-2 font-mono text-sm">
+                                    {
+                                        emergingTechSkills.map((skill, i) => (
+                                            <div class="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700/50">
+                                                <span class="text-gray-700 dark:text-gray-300">
+                                                    {skill.name}
+                                                </span>
+                                                <span
+                                                    class={getLevelColor(
+                                                        skill.level,
+                                                    )}
+                                                >
+                                                    {skill.level}
+                                                </span>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+
+                            <!-- Soft Skills -->
+                            <div
+                                class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
+                            >
+                                <h3
+                                    class="text-lg font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
+                                >
+                                    <span>🤝</span> Soft Skills
+                                </h3>
+                                <div class="space-y-2 font-mono text-sm">
+                                    {
+                                        softSkills.map((skill, i) => (
+                                            <div class="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700/50">
+                                                <span class="text-gray-700 dark:text-gray-300">
+                                                    {skill.name}
+                                                </span>
+                                                <span
+                                                    class={getLevelColor(
+                                                        skill.level,
+                                                    )}
+                                                >
+                                                    {skill.level}
+                                                </span>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </NotebookCell>
+
+                <!-- Cell 5: Certificates -->
+                <NotebookCell
+                    cellNumber={5}
+                    code={`import certificates from './data/certificates.json';\n\n// Display verified certifications\ncertificates.map(cert => console.log(\`✅ \${cert.name}\`));`}
+                >
+                    <div id="certificates">
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white text-center mb-6"
+                        >
+                            My Certificates
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {
+                                certificates.map((cert, i) => (
+                                    <a
+                                        href={cert.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="bg-white dark:bg-[#161b22] p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-500/50 transition-all group"
+                                    >
+                                        <div class="flex items-center gap-3">
+                                            <div class="flex items-center justify-center w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                                                <span class="text-lg">📜</span>
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
+                                                    {cert.name}
+                                                </h3>
+                                                <p class="text-sm text-gray-500 dark:text-gray-400">
+                                                    {cert.issuer} • {cert.year}
+                                                </p>
+                                            </div>
+                                            <svg
+                                                class="w-5 h-5 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M10 6l6 6-6 6"
+                                                />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </NotebookCell>
+
+                <!-- Back to Profile -->
+                <div class="mt-8 text-center">
+                    <a
+                        href={import.meta.env.BASE_URL +
+                            "home-software-developer/"}
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-blue-500/50 hover:text-blue-600 dark:hover:text-blue-400 transition-all"
+                    >
+                        <span>←</span> Back to Developer Profile
+                    </a>
                 </div>
             </div>
-        </section>
-    </main>
+        </main>
+
+        <MobileNav files={files} />
+    </div>
 </Layout>
+
+<script>
+    // Theme Toggle Logic
+    const themeBtn = document.getElementById("theme-toggle-btn");
+    const sunIcon = document.getElementById("sun-icon");
+    const moonIcon = document.getElementById("moon-icon");
+    const html = document.documentElement;
+
+    const savedTheme = localStorage.getItem("theme");
+    const systemDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+    ).matches;
+
+    if (savedTheme === "dark" || (!savedTheme && systemDark)) {
+        html.classList.add("dark");
+        sunIcon?.classList.remove("hidden");
+        moonIcon?.classList.add("hidden");
+        document.getElementById("mobile-sun-icon")?.classList.remove("hidden");
+        document.getElementById("mobile-moon-icon")?.classList.add("hidden");
+    } else {
+        html.classList.remove("dark");
+        sunIcon?.classList.add("hidden");
+        moonIcon?.classList.remove("hidden");
+        document.getElementById("mobile-sun-icon")?.classList.add("hidden");
+        document.getElementById("mobile-moon-icon")?.classList.remove("hidden");
+    }
+
+    themeBtn?.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        const isDark = html.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+
+        if (isDark) {
+            sunIcon?.classList.remove("hidden");
+            moonIcon?.classList.add("hidden");
+            document
+                .getElementById("mobile-sun-icon")
+                ?.classList.remove("hidden");
+            document
+                .getElementById("mobile-moon-icon")
+                ?.classList.add("hidden");
+        } else {
+            sunIcon?.classList.add("hidden");
+            moonIcon?.classList.remove("hidden");
+            document.getElementById("mobile-sun-icon")?.classList.add("hidden");
+            document
+                .getElementById("mobile-moon-icon")
+                ?.classList.remove("hidden");
+        }
+    });
+
+    // Mobile Navigation
+    const mobileFilesBtn = document.getElementById("mobile-files-btn");
+    const mobileFileMenu = document.getElementById("mobile-file-menu");
+    const mobileMenuContent = mobileFileMenu?.querySelector("div");
+
+    mobileFilesBtn?.addEventListener("click", () => {
+        if (mobileFileMenu && mobileMenuContent) {
+            mobileFileMenu.classList.remove("hidden");
+            setTimeout(() => {
+                mobileFileMenu.classList.add("opacity-100");
+                mobileMenuContent.classList.remove("translate-y-full");
+            }, 10);
+        }
+    });
+
+    document
+        .getElementById("mobile-theme-btn")
+        ?.addEventListener("click", () => {
+            themeBtn?.click();
+        });
+</script>
+
+<style>
+    #about-content::-webkit-scrollbar {
+        width: 12px;
+    }
+    #about-content::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    #about-content::-webkit-scrollbar-thumb {
+        background-color: #d1d5db;
+        border-radius: 6px;
+        border: 3px solid transparent;
+        background-clip: content-box;
+    }
+    #about-content::-webkit-scrollbar-thumb:hover {
+        background-color: #9ca3af;
+    }
+    :global(.dark) #about-content::-webkit-scrollbar-thumb {
+        background-color: #30363d;
+    }
+    :global(.dark) #about-content::-webkit-scrollbar-thumb:hover {
+        background-color: #484f58;
+    }
+</style>
