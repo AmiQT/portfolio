@@ -1,16 +1,31 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/it-support/Header.astro";
 ---
 
-<Layout title="Network & Remote Access Setup Guide | Noor Azami" description="Comprehensive guide for network configuration, remote access setup (VPN, RDP), and connectivity troubleshooting for IT support professionals.">
+<Layout
+    title="Network & Remote Access Setup Guide | Noor Azami"
+    description="Comprehensive guide for network configuration, remote access setup (VPN, RDP), and connectivity troubleshooting for IT support professionals."
+>
     <Header />
     <main class="pt-16">
         <!-- Back Button -->
         <div class="px-4 sm:px-6 lg:px-8 py-4">
-            <button id="back-to-projects" class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group cursor-pointer">
-                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            <button
+                id="back-to-projects"
+                class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group cursor-pointer"
+            >
+                <svg
+                    class="w-5 h-5 group-hover:-translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"></path>
                 </svg>
                 Back to Projects
             </button>
@@ -20,97 +35,204 @@ import Header from '../../components/Header.astro';
             <div class="container mx-auto max-w-4xl">
                 <div class="text-center mb-12 fade-in-scroll">
                     <div class="flex justify-center mb-6">
-                        <span class="project-badge documentation text-lg px-6 py-3">IT Support Documentation</span>
+                        <span
+                            class="project-badge documentation text-lg px-6 py-3"
+                            >IT Support Documentation</span
+                        >
                     </div>
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Network & Remote Access Setup Guide</h1>
-                    <p class="text-xl text-text-secondary max-w-3xl mx-auto">A complete guide for setting up network infrastructure, VPN, remote desktop access, and troubleshooting connectivity issues.</p>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                        Network & Remote Access Setup Guide
+                    </h1>
+                    <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                        A complete guide for setting up network infrastructure,
+                        VPN, remote desktop access, and troubleshooting
+                        connectivity issues.
+                    </p>
                 </div>
 
                 <!-- Project Overview -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
                     <div class="card fade-in-scroll">
                         <h3 class="text-xl font-semibold mb-4">Project Type</h3>
-                        <p class="text-text-secondary">Technical documentation for network setup and remote access configuration.</p>
+                        <p class="text-text-secondary">
+                            Technical documentation for network setup and remote
+                            access configuration.
+                        </p>
                     </div>
                     <div class="card fade-in-scroll">
-                        <h3 class="text-xl font-semibold mb-4">Target Audience</h3>
-                        <p class="text-text-secondary">Network administrators, IT support staff, and remote workers.</p>
+                        <h3 class="text-xl font-semibold mb-4">
+                            Target Audience
+                        </h3>
+                        <p class="text-text-secondary">
+                            Network administrators, IT support staff, and remote
+                            workers.
+                        </p>
                     </div>
                     <div class="card fade-in-scroll">
                         <h3 class="text-xl font-semibold mb-4">Coverage</h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-teal-500/20 text-teal-400 border border-teal-500/30 rounded text-sm">Network</span>
-                            <span class="px-3 py-1 bg-teal-500/20 text-teal-400 border border-teal-500/30 rounded text-sm">VPN</span>
-                            <span class="px-3 py-1 bg-teal-500/20 text-teal-400 border border-teal-500/30 rounded text-sm">Remote Desktop</span>
+                            <span
+                                class="px-3 py-1 bg-teal-500/20 text-teal-400 border border-teal-500/30 rounded text-sm"
+                                >Network</span
+                            >
+                            <span
+                                class="px-3 py-1 bg-teal-500/20 text-teal-400 border border-teal-500/30 rounded text-sm"
+                                >VPN</span
+                            >
+                            <span
+                                class="px-3 py-1 bg-teal-500/20 text-teal-400 border border-teal-500/30 rounded text-sm"
+                                >Remote Desktop</span
+                            >
                         </div>
                     </div>
                 </div>
 
                 <!-- Documentation Content -->
                 <div class="mb-16 fade-in-scroll">
-                    <h2 class="text-3xl font-bold mb-8">Complete Network Setup Guide</h2>
+                    <h2 class="text-3xl font-bold mb-8">
+                        Complete Network Setup Guide
+                    </h2>
 
                     <!-- Table of Contents -->
-                    <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-semibold mb-4">📋 Topics Covered</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-text-secondary">
-                            <div class="flex items-center gap-2"><span class="text-teal-400">→</span> Network Basics & IP Addressing</div>
-                            <div class="flex items-center gap-2"><span class="text-teal-400">→</span> WiFi Network Configuration</div>
-                            <div class="flex items-center gap-2"><span class="text-teal-400">→</span> VPN Setup & Connection</div>
-                            <div class="flex items-center gap-2"><span class="text-teal-400">→</span> Remote Desktop Protocol (RDP)</div>
-                            <div class="flex items-center gap-2"><span class="text-teal-400">→</span> Network Troubleshooting</div>
-                            <div class="flex items-center gap-2"><span class="text-teal-400">→</span> Connectivity Diagnostics</div>
+                    <div
+                        class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mb-8"
+                    >
+                        <h3 class="text-xl font-semibold mb-4">
+                            📋 Topics Covered
+                        </h3>
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-2 gap-4 text-text-secondary"
+                        >
+                            <div class="flex items-center gap-2">
+                                <span class="text-teal-400">→</span> Network Basics
+                                & IP Addressing
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-teal-400">→</span> WiFi Network
+                                Configuration
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-teal-400">→</span> VPN Setup & Connection
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-teal-400">→</span> Remote Desktop
+                                Protocol (RDP)
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-teal-400">→</span> Network Troubleshooting
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-teal-400">→</span> Connectivity
+                                Diagnostics
+                            </div>
                         </div>
                     </div>
 
                     <!-- Section 1: Network Basics -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-blue-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">1. Network Basics & IP Addressing</h3>
-                            
-                            <div class="bg-blue-900/20 border border-blue-700 rounded p-4 mb-4">
-                                <p class="text-blue-300 font-semibold">Understanding Network Fundamentals</p>
+                            <h3 class="text-2xl font-bold mb-4">
+                                1. Network Basics & IP Addressing
+                            </h3>
+
+                            <div
+                                class="bg-blue-900/20 border border-blue-700 rounded p-4 mb-4"
+                            >
+                                <p class="text-blue-300 font-semibold">
+                                    Understanding Network Fundamentals
+                                </p>
                             </div>
 
                             <div class="space-y-4">
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">📌 IP Address Basics</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        📌 IP Address Basics
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <p><strong>IPv4 Format:</strong> 192.168.1.100 (four numbers separated by dots, each 0-255)</p>
-                                        <p><strong>Private IP Ranges:</strong></p>
-                                        <ul class="list-disc list-inside ml-4 space-y-1">
+                                        <p>
+                                            <strong>IPv4 Format:</strong> 192.168.1.100
+                                            (four numbers separated by dots, each
+                                            0-255)
+                                        </p>
+                                        <p>
+                                            <strong>Private IP Ranges:</strong>
+                                        </p>
+                                        <ul
+                                            class="list-disc list-inside ml-4 space-y-1"
+                                        >
                                             <li>10.0.0.0 to 10.255.255.255</li>
-                                            <li>172.16.0.0 to 172.31.255.255</li>
-                                            <li>192.168.0.0 to 192.168.255.255</li>
+                                            <li>
+                                                172.16.0.0 to 172.31.255.255
+                                            </li>
+                                            <li>
+                                                192.168.0.0 to 192.168.255.255
+                                            </li>
                                         </ul>
-                                        <p><strong>What you need to know:</strong> Used for local networks, not accessible from internet</p>
+                                        <p>
+                                            <strong
+                                                >What you need to know:</strong
+                                            > Used for local networks, not accessible
+                                            from internet
+                                        </p>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">📌 Subnet Mask</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        📌 Subnet Mask
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <p>Determines which part of IP is network, which is device.</p>
-                                        <p><strong>Common Subnet Masks:</strong></p>
-                                        <ul class="list-disc list-inside ml-4 space-y-1">
-                                            <li>255.255.255.0 (Class C - home/small office)</li>
-                                            <li>255.255.0.0 (Class B - larger network)</li>
+                                        <p>
+                                            Determines which part of IP is
+                                            network, which is device.
+                                        </p>
+                                        <p>
+                                            <strong
+                                                >Common Subnet Masks:</strong>
+                                        </p>
+                                        <ul
+                                            class="list-disc list-inside ml-4 space-y-1"
+                                        >
+                                            <li>
+                                                255.255.255.0 (Class C -
+                                                home/small office)
+                                            </li>
+                                            <li>
+                                                255.255.0.0 (Class B - larger
+                                                network)
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">Check Your Network Configuration</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        Check Your Network Configuration
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <ol class="list-decimal list-inside space-y-1">
+                                        <ol
+                                            class="list-decimal list-inside space-y-1"
+                                        >
                                             <li>Open Command Prompt</li>
-                                            <li>Type: <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">ipconfig</code></li>
+                                            <li>
+                                                Type: <code
+                                                    class="bg-gray-900 px-2 py-1 rounded text-cyan-300"
+                                                    >ipconfig</code>
+                                            </li>
                                             <li>Look for:</li>
                                         </ol>
-                                        <div class="bg-gray-900 rounded p-3 mt-2 text-cyan-300 font-mono text-sm">
-                                            IPv4 Address: 192.168.1.100<br/>
-                                            Subnet Mask: 255.255.255.0<br/>
-                                            Default Gateway: 192.168.1.1<br/>
+                                        <div
+                                            class="bg-gray-900 rounded p-3 mt-2 text-cyan-300 font-mono text-sm"
+                                        >
+                                            IPv4 Address: 192.168.1.100<br />
+                                            Subnet Mask: 255.255.255.0<br />
+                                            Default Gateway: 192.168.1.1<br />
                                             DNS Servers: 8.8.8.8
                                         </div>
                                     </div>
@@ -122,46 +244,139 @@ import Header from '../../components/Header.astro';
                     <!-- Section 2: WiFi Setup -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-green-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">2. WiFi Network Configuration</h3>
+                            <h3 class="text-2xl font-bold mb-4">
+                                2. WiFi Network Configuration
+                            </h3>
 
                             <div class="space-y-4">
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-green-500/20 px-3 py-1 rounded text-sm">SETUP</span> Initial Router Configuration</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-green-500/20 px-3 py-1 rounded text-sm"
+                                            >SETUP</span
+                                        > Initial Router Configuration
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <ol class="list-decimal list-inside space-y-1">
-                                            <li>Connect to router via Ethernet cable (default WiFi password on router)</li>
-                                            <li>Open browser: <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">http://192.168.1.1</code> or <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">http://192.168.0.1</code></li>
-                                            <li>Login with default credentials (admin/admin or from router manual)</li>
-                                            <li>Change admin password immediately</li>
-                                            <li>Find Wireless/WiFi settings section</li>
+                                        <ol
+                                            class="list-decimal list-inside space-y-1"
+                                        >
+                                            <li>
+                                                Connect to router via Ethernet
+                                                cable (default WiFi password on
+                                                router)
+                                            </li>
+                                            <li>
+                                                Open browser: <code
+                                                    class="bg-gray-900 px-2 py-1 rounded text-cyan-300"
+                                                    >http://192.168.1.1</code
+                                                > or <code
+                                                    class="bg-gray-900 px-2 py-1 rounded text-cyan-300"
+                                                    >http://192.168.0.1</code>
+                                            </li>
+                                            <li>
+                                                Login with default credentials
+                                                (admin/admin or from router
+                                                manual)
+                                            </li>
+                                            <li>
+                                                Change admin password
+                                                immediately
+                                            </li>
+                                            <li>
+                                                Find Wireless/WiFi settings
+                                                section
+                                            </li>
                                         </ol>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-green-500/20 px-3 py-1 rounded text-sm">CONFIGURE</span> WiFi Name & Security</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-green-500/20 px-3 py-1 rounded text-sm"
+                                            >CONFIGURE</span
+                                        > WiFi Name & Security
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <p><strong>In router admin panel:</strong></p>
-                                        <ol class="list-decimal list-inside space-y-1">
-                                            <li>WiFi Name (SSID): Use clear, professional name</li>
-                                            <li>Security: Select WPA3 (or WPA2 if older devices)</li>
-                                            <li>Password: Use strong password (12+ chars, mix of upper/lower/numbers/symbols)</li>
-                                            <li>WiFi Channel: Auto or manually choose 1, 6, or 11 (no interference)</li>
-                                            <li>Save changes and restart router</li>
+                                        <p>
+                                            <strong
+                                                >In router admin panel:</strong>
+                                        </p>
+                                        <ol
+                                            class="list-decimal list-inside space-y-1"
+                                        >
+                                            <li>
+                                                WiFi Name (SSID): Use clear,
+                                                professional name
+                                            </li>
+                                            <li>
+                                                Security: Select WPA3 (or WPA2
+                                                if older devices)
+                                            </li>
+                                            <li>
+                                                Password: Use strong password
+                                                (12+ chars, mix of
+                                                upper/lower/numbers/symbols)
+                                            </li>
+                                            <li>
+                                                WiFi Channel: Auto or manually
+                                                choose 1, 6, or 11 (no
+                                                interference)
+                                            </li>
+                                            <li>
+                                                Save changes and restart router
+                                            </li>
                                         </ol>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-green-500/20 px-3 py-1 rounded text-sm">BEST PRACTICE</span> WiFi Security Tips</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-green-500/20 px-3 py-1 rounded text-sm"
+                                            >BEST PRACTICE</span
+                                        > WiFi Security Tips
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <ul class="list-disc list-inside space-y-1">
-                                            <li>✓ Always enable security (WPA2/WPA3)</li>
-                                            <li>✓ Change default admin password</li>
-                                            <li>✓ Update router firmware regularly</li>
-                                            <li>✓ Hide SSID if maximum security needed</li>
-                                            <li>✓ Enable guest network for visitors (separate from main network)</li>
-                                            <li>✗ Avoid: Open networks, weak passwords, default credentials</li>
+                                        <ul
+                                            class="list-disc list-inside space-y-1"
+                                        >
+                                            <li>
+                                                ✓ Always enable security
+                                                (WPA2/WPA3)
+                                            </li>
+                                            <li>
+                                                ✓ Change default admin password
+                                            </li>
+                                            <li>
+                                                ✓ Update router firmware
+                                                regularly
+                                            </li>
+                                            <li>
+                                                ✓ Hide SSID if maximum security
+                                                needed
+                                            </li>
+                                            <li>
+                                                ✓ Enable guest network for
+                                                visitors (separate from main
+                                                network)
+                                            </li>
+                                            <li>
+                                                ✗ Avoid: Open networks, weak
+                                                passwords, default credentials
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -172,74 +387,172 @@ import Header from '../../components/Header.astro';
                     <!-- Section 3: VPN Setup -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-purple-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">3. VPN Setup & Connection</h3>
-                            
-                            <div class="bg-purple-900/20 border border-purple-700 rounded p-4 mb-4">
-                                <p class="text-purple-300 font-semibold">VPN (Virtual Private Network) encrypts your connection for security and privacy</p>
+                            <h3 class="text-2xl font-bold mb-4">
+                                3. VPN Setup & Connection
+                            </h3>
+
+                            <div
+                                class="bg-purple-900/20 border border-purple-700 rounded p-4 mb-4"
+                            >
+                                <p class="text-purple-300 font-semibold">
+                                    VPN (Virtual Private Network) encrypts your
+                                    connection for security and privacy
+                                </p>
                             </div>
 
                             <div class="space-y-4">
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">Why Use VPN?</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        Why Use VPN?
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <ul class="list-disc list-inside space-y-1">
-                                            <li>Secure connection on public WiFi</li>
-                                            <li>Access company resources remotely</li>
+                                        <ul
+                                            class="list-disc list-inside space-y-1"
+                                        >
+                                            <li>
+                                                Secure connection on public WiFi
+                                            </li>
+                                            <li>
+                                                Access company resources
+                                                remotely
+                                            </li>
                                             <li>Encrypt all network traffic</li>
-                                            <li>Hide IP address and location</li>
+                                            <li>
+                                                Hide IP address and location
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-purple-500/20 px-3 py-1 rounded text-sm">SETUP</span> Built-in Windows VPN</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-purple-500/20 px-3 py-1 rounded text-sm"
+                                            >SETUP</span
+                                        > Built-in Windows VPN
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <p><strong>Get Connection Details from IT:</strong></p>
-                                        <ul class="list-disc list-inside ml-4 space-y-1">
+                                        <p>
+                                            <strong
+                                                >Get Connection Details from IT:</strong>
+                                        </p>
+                                        <ul
+                                            class="list-disc list-inside ml-4 space-y-1"
+                                        >
                                             <li>VPN server address</li>
                                             <li>Connection name</li>
-                                            <li>Username and password (or certificate)</li>
+                                            <li>
+                                                Username and password (or
+                                                certificate)
+                                            </li>
                                             <li>VPN protocol type</li>
                                         </ul>
-                                        <p class="mt-3"><strong>Setup Steps:</strong></p>
-                                        <ol class="list-decimal list-inside space-y-1">
-                                            <li>Settings → Network & Internet → VPN</li>
+                                        <p class="mt-3">
+                                            <strong>Setup Steps:</strong>
+                                        </p>
+                                        <ol
+                                            class="list-decimal list-inside space-y-1"
+                                        >
+                                            <li>
+                                                Settings → Network & Internet →
+                                                VPN
+                                            </li>
                                             <li>Click "Add VPN"</li>
-                                            <li>VPN Provider: "Windows (built-in)"</li>
-                                            <li>Connection name: [company name] VPN</li>
-                                            <li>Server name or address: [from IT]</li>
-                                            <li>VPN type: [protocol from IT - usually L2TP or IKEv2]</li>
-                                            <li>Type of sign-in info: Username and password</li>
+                                            <li>
+                                                VPN Provider: "Windows
+                                                (built-in)"
+                                            </li>
+                                            <li>
+                                                Connection name: [company name]
+                                                VPN
+                                            </li>
+                                            <li>
+                                                Server name or address: [from
+                                                IT]
+                                            </li>
+                                            <li>
+                                                VPN type: [protocol from IT -
+                                                usually L2TP or IKEv2]
+                                            </li>
+                                            <li>
+                                                Type of sign-in info: Username
+                                                and password
+                                            </li>
                                             <li>Enter username and password</li>
                                             <li>Click "Save"</li>
                                         </ol>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-purple-500/20 px-3 py-1 rounded text-sm">CONNECT</span> Using VPN</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-purple-500/20 px-3 py-1 rounded text-sm"
+                                            >CONNECT</span
+                                        > Using VPN
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <ol class="list-decimal list-inside space-y-1">
-                                            <li>Click network icon (system tray bottom-right)</li>
+                                        <ol
+                                            class="list-decimal list-inside space-y-1"
+                                        >
+                                            <li>
+                                                Click network icon (system tray
+                                                bottom-right)
+                                            </li>
                                             <li>Click "VPN" section</li>
                                             <li>Select your VPN connection</li>
                                             <li>Click "Connect"</li>
                                             <li>Wait for "Connected" status</li>
-                                            <li>You should see VPN icon in system tray when active</li>
+                                            <li>
+                                                You should see VPN icon in
+                                                system tray when active
+                                            </li>
                                         </ol>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-purple-500/20 px-3 py-1 rounded text-sm">TROUBLESHOOT</span> VPN Connection Issues</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-purple-500/20 px-3 py-1 rounded text-sm"
+                                            >TROUBLESHOOT</span
+                                        > VPN Connection Issues
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <p><strong>VPN won't connect:</strong></p>
-                                        <ol class="list-decimal list-inside space-y-1">
-                                            <li>Verify internet connection is working</li>
-                                            <li>Check username and password are correct</li>
+                                        <p>
+                                            <strong>VPN won't connect:</strong>
+                                        </p>
+                                        <ol
+                                            class="list-decimal list-inside space-y-1"
+                                        >
+                                            <li>
+                                                Verify internet connection is
+                                                working
+                                            </li>
+                                            <li>
+                                                Check username and password are
+                                                correct
+                                            </li>
                                             <li>Restart computer</li>
                                             <li>Update Windows</li>
-                                            <li>Contact IT with connection failure details</li>
+                                            <li>
+                                                Contact IT with connection
+                                                failure details
+                                            </li>
                                         </ol>
                                     </div>
                                 </div>
@@ -250,62 +563,167 @@ import Header from '../../components/Header.astro';
                     <!-- Section 4: Remote Desktop -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-red-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">4. Remote Desktop Protocol (RDP) Setup</h3>
-                            
-                            <div class="bg-red-900/20 border border-red-700 rounded p-4 mb-4">
-                                <p class="text-red-300 font-semibold">RDP allows remote connection to a computer desktop from another location</p>
+                            <h3 class="text-2xl font-bold mb-4">
+                                4. Remote Desktop Protocol (RDP) Setup
+                            </h3>
+
+                            <div
+                                class="bg-red-900/20 border border-red-700 rounded p-4 mb-4"
+                            >
+                                <p class="text-red-300 font-semibold">
+                                    RDP allows remote connection to a computer
+                                    desktop from another location
+                                </p>
                             </div>
 
                             <div class="space-y-4">
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-red-500/20 px-3 py-1 rounded text-sm">ENABLE</span> RDP on Your Computer</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-red-500/20 px-3 py-1 rounded text-sm"
+                                            >ENABLE</span
+                                        > RDP on Your Computer
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <ol class="list-decimal list-inside space-y-1">
-                                            <li>Right-click "This PC" or "My Computer" → Properties</li>
-                                            <li>Click "Advanced system settings" (left side)</li>
+                                        <ol
+                                            class="list-decimal list-inside space-y-1"
+                                        >
+                                            <li>
+                                                Right-click "This PC" or "My
+                                                Computer" → Properties
+                                            </li>
+                                            <li>
+                                                Click "Advanced system settings"
+                                                (left side)
+                                            </li>
                                             <li>Click "Remote" tab</li>
-                                            <li>Under Remote Desktop: check "Allow remote connections to this computer"</li>
-                                            <li>Uncheck "Allow only from computers running Remote Desktop with Network Level Authentication" (if older OS)</li>
+                                            <li>
+                                                Under Remote Desktop: check
+                                                "Allow remote connections to
+                                                this computer"
+                                            </li>
+                                            <li>
+                                                Uncheck "Allow only from
+                                                computers running Remote Desktop
+                                                with Network Level
+                                                Authentication" (if older OS)
+                                            </li>
                                             <li>Click "Apply" → "OK"</li>
                                         </ol>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-red-500/20 px-3 py-1 rounded text-sm">FIND</span> Your Computer's Name</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-red-500/20 px-3 py-1 rounded text-sm"
+                                            >FIND</span
+                                        > Your Computer's Name
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <ol class="list-decimal list-inside space-y-1">
-                                            <li>Right-click "This PC" → Properties</li>
-                                            <li>Find "Computer name" (e.g., DESKTOP-ABC1234)</li>
-                                            <li>Share this with person who will connect remotely</li>
+                                        <ol
+                                            class="list-decimal list-inside space-y-1"
+                                        >
+                                            <li>
+                                                Right-click "This PC" →
+                                                Properties
+                                            </li>
+                                            <li>
+                                                Find "Computer name" (e.g.,
+                                                DESKTOP-ABC1234)
+                                            </li>
+                                            <li>
+                                                Share this with person who will
+                                                connect remotely
+                                            </li>
                                         </ol>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-red-500/20 px-3 py-1 rounded text-sm">CONNECT</span> Using Remote Desktop</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-red-500/20 px-3 py-1 rounded text-sm"
+                                            >CONNECT</span
+                                        > Using Remote Desktop
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <p><strong>From another computer:</strong></p>
-                                        <ol class="list-decimal list-inside space-y-1">
-                                            <li>Open "Remote Desktop Connection" (search for it)</li>
-                                            <li>Enter computer name or IP address</li>
+                                        <p>
+                                            <strong
+                                                >From another computer:</strong>
+                                        </p>
+                                        <ol
+                                            class="list-decimal list-inside space-y-1"
+                                        >
+                                            <li>
+                                                Open "Remote Desktop Connection"
+                                                (search for it)
+                                            </li>
+                                            <li>
+                                                Enter computer name or IP
+                                                address
+                                            </li>
                                             <li>Click "Connect"</li>
-                                            <li>Enter username and password when prompted</li>
-                                            <li>You'll see the remote desktop</li>
+                                            <li>
+                                                Enter username and password when
+                                                prompted
+                                            </li>
+                                            <li>
+                                                You'll see the remote desktop
+                                            </li>
                                         </ol>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-red-500/20 px-3 py-1 rounded text-sm">SECURITY</span> RDP Best Practices</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-red-500/20 px-3 py-1 rounded text-sm"
+                                            >SECURITY</span
+                                        > RDP Best Practices
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <ul class="list-disc list-inside space-y-1">
-                                            <li>✓ Use strong passwords (minimum 12 characters)</li>
-                                            <li>✓ Only enable RDP when needed</li>
-                                            <li>✓ Disable RDP for guest accounts</li>
-                                            <li>✓ Use VPN for remote connections when possible</li>
-                                            <li>✓ Keep Windows updated for security patches</li>
-                                            <li>✗ Avoid: Port forwarding for RDP without VPN</li>
+                                        <ul
+                                            class="list-disc list-inside space-y-1"
+                                        >
+                                            <li>
+                                                ✓ Use strong passwords (minimum
+                                                12 characters)
+                                            </li>
+                                            <li>
+                                                ✓ Only enable RDP when needed
+                                            </li>
+                                            <li>
+                                                ✓ Disable RDP for guest accounts
+                                            </li>
+                                            <li>
+                                                ✓ Use VPN for remote connections
+                                                when possible
+                                            </li>
+                                            <li>
+                                                ✓ Keep Windows updated for
+                                                security patches
+                                            </li>
+                                            <li>
+                                                ✗ Avoid: Port forwarding for RDP
+                                                without VPN
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -316,55 +734,148 @@ import Header from '../../components/Header.astro';
                     <!-- Section 5: Troubleshooting -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-yellow-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">5. Network Troubleshooting</h3>
+                            <h3 class="text-2xl font-bold mb-4">
+                                5. Network Troubleshooting
+                            </h3>
 
                             <div class="space-y-4">
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-yellow-500/20 px-3 py-1 rounded text-sm">TEST</span> Basic Network Connectivity</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-yellow-500/20 px-3 py-1 rounded text-sm"
+                                            >TEST</span
+                                        > Basic Network Connectivity
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <p><strong>Using Command Prompt:</strong></p>
-                                        <ol class="list-decimal list-inside space-y-1">
+                                        <p>
+                                            <strong
+                                                >Using Command Prompt:</strong>
+                                        </p>
+                                        <ol
+                                            class="list-decimal list-inside space-y-1"
+                                        >
                                             <li>Open Command Prompt</li>
-                                            <li>Type: <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">ping 8.8.8.8</code></li>
-                                            <li>If you get "Reply from": internet is working</li>
-                                            <li>If you get "Request timed out": connection issue</li>
+                                            <li>
+                                                Type: <code
+                                                    class="bg-gray-900 px-2 py-1 rounded text-cyan-300"
+                                                    >ping 8.8.8.8</code>
+                                            </li>
+                                            <li>
+                                                If you get "Reply from":
+                                                internet is working
+                                            </li>
+                                            <li>
+                                                If you get "Request timed out":
+                                                connection issue
+                                            </li>
                                         </ol>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-yellow-500/20 px-3 py-1 rounded text-sm">CHECK</span> DNS Resolution</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-yellow-500/20 px-3 py-1 rounded text-sm"
+                                            >CHECK</span
+                                        > DNS Resolution
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <ol class="list-decimal list-inside space-y-1">
+                                        <ol
+                                            class="list-decimal list-inside space-y-1"
+                                        >
                                             <li>Open Command Prompt</li>
-                                            <li>Type: <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">nslookup google.com</code></li>
-                                            <li>Should return IP address (DNS working)</li>
-                                            <li>If no address returned: DNS problem</li>
+                                            <li>
+                                                Type: <code
+                                                    class="bg-gray-900 px-2 py-1 rounded text-cyan-300"
+                                                    >nslookup google.com</code>
+                                            </li>
+                                            <li>
+                                                Should return IP address (DNS
+                                                working)
+                                            </li>
+                                            <li>
+                                                If no address returned: DNS
+                                                problem
+                                            </li>
                                         </ol>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-yellow-500/20 px-3 py-1 rounded text-sm">TRACE</span> Network Route</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-yellow-500/20 px-3 py-1 rounded text-sm"
+                                            >TRACE</span
+                                        > Network Route
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <ol class="list-decimal list-inside space-y-1">
+                                        <ol
+                                            class="list-decimal list-inside space-y-1"
+                                        >
                                             <li>Open Command Prompt</li>
-                                            <li>Type: <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">tracert google.com</code></li>
-                                            <li>Shows network path to destination</li>
-                                            <li>Identifies where connection fails</li>
+                                            <li>
+                                                Type: <code
+                                                    class="bg-gray-900 px-2 py-1 rounded text-cyan-300"
+                                                    >tracert google.com</code>
+                                            </li>
+                                            <li>
+                                                Shows network path to
+                                                destination
+                                            </li>
+                                            <li>
+                                                Identifies where connection
+                                                fails
+                                            </li>
                                         </ol>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-yellow-500/20 px-3 py-1 rounded text-sm">RESET</span> Network Settings</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-yellow-500/20 px-3 py-1 rounded text-sm"
+                                            >RESET</span
+                                        > Network Settings
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <p><strong>If all else fails:</strong></p>
-                                        <ol class="list-decimal list-inside space-y-1">
-                                            <li>Settings → Network & Internet → Status</li>
-                                            <li>Scroll down → "Network troubleshooter"</li>
-                                            <li>OR Settings → System → Recovery → Reset this PC</li>
-                                            <li>Keep files and reset network stack</li>
+                                        <p>
+                                            <strong>If all else fails:</strong>
+                                        </p>
+                                        <ol
+                                            class="list-decimal list-inside space-y-1"
+                                        >
+                                            <li>
+                                                Settings → Network & Internet →
+                                                Status
+                                            </li>
+                                            <li>
+                                                Scroll down → "Network
+                                                troubleshooter"
+                                            </li>
+                                            <li>
+                                                OR Settings → System → Recovery
+                                                → Reset this PC
+                                            </li>
+                                            <li>
+                                                Keep files and reset network
+                                                stack
+                                            </li>
                                         </ol>
                                     </div>
                                 </div>
@@ -373,14 +884,29 @@ import Header from '../../components/Header.astro';
                     </div>
 
                     <!-- Pro Tips -->
-                    <div class="bg-teal-900/20 border border-teal-700 rounded-lg p-6 mt-8">
-                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">💡 Network Admin Pro Tips</h3>
+                    <div
+                        class="bg-teal-900/20 border border-teal-700 rounded-lg p-6 mt-8"
+                    >
+                        <h3
+                            class="text-xl font-bold mb-4 flex items-center gap-2"
+                        >
+                            💡 Network Admin Pro Tips
+                        </h3>
                         <ul class="space-y-2 text-text-secondary">
-                            <li>• Document all network configurations and changes</li>
-                            <li>• Use consistent naming conventions for networks</li>
+                            <li>
+                                • Document all network configurations and
+                                changes
+                            </li>
+                            <li>
+                                • Use consistent naming conventions for networks
+                            </li>
                             <li>• Always change default router credentials</li>
-                            <li>• Keep a network diagram for troubleshooting</li>
-                            <li>• Test connectivity before declaring it fixed</li>
+                            <li>
+                                • Keep a network diagram for troubleshooting
+                            </li>
+                            <li>
+                                • Test connectivity before declaring it fixed
+                            </li>
                             <li>• Monitor bandwidth for unusual activity</li>
                             <li>• Regular backups of router configuration</li>
                         </ul>
@@ -388,32 +914,60 @@ import Header from '../../components/Header.astro';
                 </div>
 
                 <!-- Quick Reference -->
-                <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mt-8">
-                    <h3 class="text-xl font-bold mb-4">⚡ Quick Reference: Useful Commands</h3>
+                <div
+                    class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mt-8"
+                >
+                    <h3 class="text-xl font-bold mb-4">
+                        ⚡ Quick Reference: Useful Commands
+                    </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="bg-gray-900 rounded p-3">
-                            <p class="text-cyan-300 font-mono text-sm">ipconfig</p>
-                            <p class="text-text-secondary text-sm">View network configuration</p>
+                            <p class="text-cyan-300 font-mono text-sm">
+                                ipconfig
+                            </p>
+                            <p class="text-text-secondary text-sm">
+                                View network configuration
+                            </p>
                         </div>
                         <div class="bg-gray-900 rounded p-3">
-                            <p class="text-cyan-300 font-mono text-sm">ipconfig /all</p>
-                            <p class="text-text-secondary text-sm">Detailed network info</p>
+                            <p class="text-cyan-300 font-mono text-sm">
+                                ipconfig /all
+                            </p>
+                            <p class="text-text-secondary text-sm">
+                                Detailed network info
+                            </p>
                         </div>
                         <div class="bg-gray-900 rounded p-3">
-                            <p class="text-cyan-300 font-mono text-sm">ping [IP/domain]</p>
-                            <p class="text-text-secondary text-sm">Test connectivity</p>
+                            <p class="text-cyan-300 font-mono text-sm">
+                                ping [IP/domain]
+                            </p>
+                            <p class="text-text-secondary text-sm">
+                                Test connectivity
+                            </p>
                         </div>
                         <div class="bg-gray-900 rounded p-3">
-                            <p class="text-cyan-300 font-mono text-sm">nslookup [domain]</p>
-                            <p class="text-text-secondary text-sm">DNS lookup</p>
+                            <p class="text-cyan-300 font-mono text-sm">
+                                nslookup [domain]
+                            </p>
+                            <p class="text-text-secondary text-sm">
+                                DNS lookup
+                            </p>
                         </div>
                         <div class="bg-gray-900 rounded p-3">
-                            <p class="text-cyan-300 font-mono text-sm">tracert [IP/domain]</p>
-                            <p class="text-text-secondary text-sm">Trace network route</p>
+                            <p class="text-cyan-300 font-mono text-sm">
+                                tracert [IP/domain]
+                            </p>
+                            <p class="text-text-secondary text-sm">
+                                Trace network route
+                            </p>
                         </div>
                         <div class="bg-gray-900 rounded p-3">
-                            <p class="text-cyan-300 font-mono text-sm">netstat -an</p>
-                            <p class="text-text-secondary text-sm">Network connections</p>
+                            <p class="text-cyan-300 font-mono text-sm">
+                                netstat -an
+                            </p>
+                            <p class="text-text-secondary text-sm">
+                                Network connections
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -421,22 +975,60 @@ import Header from '../../components/Header.astro';
                 <!-- Additional Resources -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
                     <div class="card">
-                        <h3 class="text-xl font-semibold mb-4">📚 Related Documentation</h3>
+                        <h3 class="text-xl font-semibold mb-4">
+                            📚 Related Documentation
+                        </h3>
                         <ul class="text-text-secondary space-y-2">
-                            <li>• <a href="/projects/pc-setup-guide" class="text-blue-400 hover:text-blue-300">Windows 10/11 Setup Guide</a></li>
-                            <li>• <a href="/projects/windows-troubleshooting-guide" class="text-blue-400 hover:text-blue-300">Common IT Issues Troubleshooting</a></li>
+                            <li>
+                                • <a
+                                    href="/projects/pc-setup-guide"
+                                    class="text-blue-400 hover:text-blue-300"
+                                    >Windows 10/11 Setup Guide</a>
+                            </li>
+                            <li>
+                                • <a
+                                    href="/projects/windows-troubleshooting-guide"
+                                    class="text-blue-400 hover:text-blue-300"
+                                    >Common IT Issues Troubleshooting</a>
+                            </li>
                             <li>• Network Security Best Practices</li>
                             <li>• VPN Provider Comparison</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <h3 class="text-xl font-semibold mb-4">🛠️ Useful Resources</h3>
+                        <h3 class="text-xl font-semibold mb-4">
+                            🛠️ Useful Resources
+                        </h3>
                         <ul class="text-text-secondary space-y-2">
-                            <li>• <a href="https://www.speedtest.net/" class="text-blue-400 hover:text-blue-300" target="_blank">Speedtest</a> - Internet speed test</li>
-                            <li>• <a href="https://www.whoami.am/en/faq/" class="text-blue-400 hover:text-blue-300" target="_blank">Whoami</a> - Check public IP</li>
-                            <li>• <a href="https://www.advanced-ip-scanner.com/" class="text-blue-400 hover:text-blue-300" target="_blank">Advanced IP Scanner</a> - Network scanning</li>
-                            <li>• <a href="https://www.wireshark.org/" class="text-blue-400 hover:text-blue-300" target="_blank">Wireshark</a> - Network analysis</li>
+                            <li>
+                                • <a
+                                    href="https://www.speedtest.net/"
+                                    class="text-blue-400 hover:text-blue-300"
+                                    target="_blank">Speedtest</a
+                                > - Internet speed test
+                            </li>
+                            <li>
+                                • <a
+                                    href="https://www.whoami.am/en/faq/"
+                                    class="text-blue-400 hover:text-blue-300"
+                                    target="_blank">Whoami</a
+                                > - Check public IP
+                            </li>
+                            <li>
+                                • <a
+                                    href="https://www.advanced-ip-scanner.com/"
+                                    class="text-blue-400 hover:text-blue-300"
+                                    target="_blank">Advanced IP Scanner</a
+                                > - Network scanning
+                            </li>
+                            <li>
+                                • <a
+                                    href="https://www.wireshark.org/"
+                                    class="text-blue-400 hover:text-blue-300"
+                                    target="_blank">Wireshark</a
+                                > - Network analysis
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -453,19 +1045,27 @@ import Header from '../../components/Header.astro';
 
 <script>
     // IT Support Projects - Network Setup Guide is an IT project
-    document.addEventListener('DOMContentLoaded', function() {
-        const backButton = document.getElementById('back-to-projects');
+    document.addEventListener("DOMContentLoaded", function () {
+        const backButton = document.getElementById("back-to-projects");
         if (backButton) {
-            backButton.addEventListener('click', function() {
-                const profile = localStorage.getItem('selectedProfile') || 'software-developer';
-                const baseUrl = window.location.pathname.startsWith('/portfolio') ? '/portfolio' : '';
-                
-                if (profile === 'it-support') {
+            backButton.addEventListener("click", function () {
+                const profile =
+                    localStorage.getItem("selectedProfile") ||
+                    "software-developer";
+                const baseUrl = window.location.pathname.startsWith(
+                    "/portfolio",
+                )
+                    ? "/portfolio"
+                    : "";
+
+                if (profile === "it-support") {
                     // Go to IT Support projects
-                    window.location.href = baseUrl + '/role-it-support/projects';
+                    window.location.href =
+                        baseUrl + "/role-it-support/projects";
                 } else {
                     // Default to Software Developer projects
-                    window.location.href = baseUrl + '/role-software-developer/projects';
+                    window.location.href =
+                        baseUrl + "/role-software-developer/projects";
                 }
             });
         }

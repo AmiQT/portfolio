@@ -1,9 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import IdeActivityBar from "../../components/ide/IdeActivityBar.astro";
-import IdeSidebar from "../../components/ide/IdeSidebar.astro";
-import MobileNav from "../../components/ide/MobileNav.astro";
-import NotebookCell from "../../components/NotebookCell.astro";
+import IdeActivityBar from "../../components/software-dev/IdeActivityBar.astro";
+import IdeSidebar from "../../components/software-dev/IdeSidebar.astro";
+import MobileNav from "../../components/software-dev/MobileNav.astro";
+import NotebookCell from "../../components/software-dev/NotebookCell.astro";
 
 const project = {
     title: "Nasi Lemak Burger - Promotional Landing",
@@ -46,9 +46,24 @@ const features = [
 ];
 
 const files = [
-    { name: "nasi-lemak-burger.html", active: true, icon: "🍔" },
-    { name: "projects.json", active: false, icon: "📦" },
-    { name: "home-software-developer.ipynb", active: false, icon: "📝" },
+    {
+        name: "nasi-lemak-burger.html",
+        active: true,
+        icon: "🍔",
+        href: import.meta.env.BASE_URL + "projects/nasi-lemak-burger",
+    },
+    {
+        name: "projects.json",
+        active: false,
+        icon: "📦",
+        href: import.meta.env.BASE_URL + "role-software-developer/projects",
+    },
+    {
+        name: "home-software-developer.ipynb",
+        active: false,
+        icon: "📝",
+        href: import.meta.env.BASE_URL + "home-software-developer/",
+    },
 ];
 ---
 
@@ -92,7 +107,8 @@ const files = [
                 <div class="ml-auto">
                     <span
                         class="px-2 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded text-xs"
-                        >Promo</span>
+                        >Promo</span
+                    >
                 </div>
             </div>
 

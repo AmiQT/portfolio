@@ -1,9 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import IdeActivityBar from "../../components/ide/IdeActivityBar.astro";
-import IdeSidebar from "../../components/ide/IdeSidebar.astro";
-import MobileNav from "../../components/ide/MobileNav.astro";
-import NotebookCell from "../../components/NotebookCell.astro";
+import IdeActivityBar from "../../components/software-dev/IdeActivityBar.astro";
+import IdeSidebar from "../../components/software-dev/IdeSidebar.astro";
+import MobileNav from "../../components/software-dev/MobileNav.astro";
+import NotebookCell from "../../components/software-dev/NotebookCell.astro";
 
 const project = {
     title: "KME Pest Control Website",
@@ -46,9 +46,24 @@ const features = [
 ];
 
 const files = [
-    { name: "kme-pest-control.js", active: true, icon: "🛡️" },
-    { name: "projects.json", active: false, icon: "📦" },
-    { name: "home-software-developer.ipynb", active: false, icon: "📝" },
+    {
+        name: "kme-pest-control.js",
+        active: true,
+        icon: "🛡️",
+        href: import.meta.env.BASE_URL + "projects/kme-pest-control",
+    },
+    {
+        name: "projects.json",
+        active: false,
+        icon: "📦",
+        href: import.meta.env.BASE_URL + "role-software-developer/projects",
+    },
+    {
+        name: "home-software-developer.ipynb",
+        active: false,
+        icon: "📝",
+        href: import.meta.env.BASE_URL + "home-software-developer/",
+    },
 ];
 ---
 

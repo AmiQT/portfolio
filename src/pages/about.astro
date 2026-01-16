@@ -1,50 +1,82 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import IdeActivityBar from "../components/ide/IdeActivityBar.astro";
-import IdeSidebar from "../components/ide/IdeSidebar.astro";
-import MobileNav from "../components/ide/MobileNav.astro";
-import NotebookCell from "../components/NotebookCell.astro";
+import IdeActivityBar from "../components/software-dev/IdeActivityBar.astro";
+import IdeSidebar from "../components/software-dev/IdeSidebar.astro";
+import MobileNav from "../components/software-dev/MobileNav.astro";
+import NotebookCell from "../components/software-dev/NotebookCell.astro";
 
-const infrastructureSkills = [
-    { name: "IT Troubleshooting", level: "Advanced" },
-    { name: "Networking", level: "Advanced" },
-    { name: "Remote Support", level: "Advanced" },
-    { name: "Linux Administration", level: "Intermediate" },
-    { name: "Windows Administration", level: "Intermediate" },
-    { name: "VMware", level: "Intermediate" },
-];
-
-const developmentSkills = [
-    { name: "Python", level: "Intermediate" },
-    { name: "Web Development", level: "Intermediate" },
-    { name: "Mobile App Development (Flutter)", level: "Intermediate" },
-    { name: "System Development", level: "Intermediate" },
-    { name: "Multimedia Design", level: "Intermediate" },
-    { name: "Adobe Photoshop", level: "Intermediate" },
-    { name: "Adobe Illustrator", level: "Intermediate" },
-    { name: "Canva", level: "Advanced" },
-];
-
-const emergingTechSkills = [
-    { name: "Prompt Engineering", level: "Intermediate" },
-    { name: "AWS Cloud", level: "Learning" },
+const skillCategories = [
+    {
+        name: "Frontend",
+        icon: "🎨",
+        color: "blue",
+        skills: ["React", "Next.js", "Astro", "Tailwind CSS", "HTML/CSS"],
+    },
+    {
+        name: "Mobile",
+        icon: "📱",
+        color: "purple",
+        skills: ["Flutter"],
+    },
+    {
+        name: "Backend",
+        icon: "⚙️",
+        color: "green",
+        skills: ["Python (FastAPI)", "C++"],
+    },
+    {
+        name: "Database",
+        icon: "🗄️",
+        color: "orange",
+        skills: ["PostgreSQL (Supabase)", "Firebase", "NoSQL"],
+    },
+    {
+        name: "DevOps & Cloud",
+        icon: "☁️",
+        color: "cyan",
+        skills: ["Docker", "AWS (EC2)", "GCP", "Vercel", "Railway", "CI/CD"],
+    },
+    {
+        name: "Tools",
+        icon: "🛠️",
+        color: "pink",
+        skills: ["Git", "Figma"],
+    },
 ];
 
 const softSkills = [
-    { name: "Problem-Solving", level: "Advanced" },
-    { name: "Communication", level: "Advanced" },
-    { name: "Leadership", level: "Advanced" },
-    { name: "Project Management", level: "Intermediate" },
-    { name: "Organization", level: "Intermediate" },
-    { name: "Team Management", level: "Intermediate" },
+    { name: "Problem-Solving", icon: "🧩" },
+    { name: "Communication", icon: "💬" },
+    { name: "Leadership", icon: "👥" },
+    { name: "Team Collaboration", icon: "🤝" },
 ];
 
 // Files for sidebar
 const files = [
-    { name: "about.md", active: true, icon: "📄" },
-    { name: "skills.json", active: false, icon: "⚙️" },
-    { name: "certificates.json", active: false, icon: "📜" },
-    { name: "home-software-developer.ipynb", active: false, icon: "📝" },
+    {
+        name: "about.md",
+        active: true,
+        icon: "📄",
+        href: import.meta.env.BASE_URL + "about",
+    },
+    {
+        name: "skills.json",
+        active: false,
+        icon: "⚙️",
+        href: import.meta.env.BASE_URL + "about#skills",
+    },
+    {
+        name: "certificates.json",
+        active: false,
+        icon: "📜",
+        href: import.meta.env.BASE_URL + "about#certificates",
+    },
+    {
+        name: "home-software-developer.ipynb",
+        active: false,
+        icon: "📝",
+        href: import.meta.env.BASE_URL + "home-software-developer/",
+    },
 ];
 
 const certificates = [
@@ -73,19 +105,6 @@ const certificates = [
         link: "https://www.coursera.org/account/accomplishments/verify/URH9T1WFMC23",
     },
 ];
-
-const getLevelColor = (level: string) => {
-    switch (level) {
-        case "Advanced":
-            return "text-green-600 dark:text-green-400";
-        case "Intermediate":
-            return "text-blue-600 dark:text-blue-400";
-        case "Learning":
-            return "text-yellow-600 dark:text-yellow-400";
-        default:
-            return "text-gray-600 dark:text-gray-400";
-    }
-};
 ---
 
 <Layout
@@ -304,121 +323,44 @@ const getLevelColor = (level: string) => {
                         >
                             My Skillset
                         </h2>
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                            <!-- Infrastructure & IT Support -->
-                            <div
-                                class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
-                            >
-                                <h3
-                                    class="text-lg font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
-                                >
-                                    <span>🔧</span> Infrastructure & IT Support
-                                </h3>
-                                <div class="space-y-2 font-mono text-sm">
-                                    {
-                                        infrastructureSkills.map((skill, i) => (
-                                            <div class="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700/50">
-                                                <span class="text-gray-700 dark:text-gray-300">
-                                                    {skill.name}
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+                        >
+                            {
+                                skillCategories.map((category) => (
+                                    <div class="bg-white dark:bg-[#161b22] p-5 rounded-lg border border-gray-200 dark:border-gray-700">
+                                        <h3 class="text-lg font-bold mb-3 text-gray-900 dark:text-white flex items-center gap-2">
+                                            <span>{category.icon}</span>{" "}
+                                            {category.name}
+                                        </h3>
+                                        <div class="flex flex-wrap gap-2">
+                                            {category.skills.map((skill) => (
+                                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm border border-gray-200 dark:border-gray-700">
+                                                    {skill}
                                                 </span>
-                                                <span
-                                                    class={getLevelColor(
-                                                        skill.level,
-                                                    )}
-                                                >
-                                                    {skill.level}
-                                                </span>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
-                            </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
 
-                            <!-- Development -->
-                            <div
-                                class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
+                        <!-- Soft Skills -->
+                        <div class="mt-6">
+                            <h3
+                                class="text-lg font-bold text-gray-900 dark:text-white text-center mb-4"
                             >
-                                <h3
-                                    class="text-lg font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
-                                >
-                                    <span>💻</span> Development
-                                </h3>
-                                <div class="space-y-2 font-mono text-sm">
-                                    {
-                                        developmentSkills.map((skill, i) => (
-                                            <div class="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700/50">
-                                                <span class="text-gray-700 dark:text-gray-300">
-                                                    {skill.name}
-                                                </span>
-                                                <span
-                                                    class={getLevelColor(
-                                                        skill.level,
-                                                    )}
-                                                >
-                                                    {skill.level}
-                                                </span>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
-                            </div>
-
-                            <!-- Cloud & Emerging Tech -->
-                            <div
-                                class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
-                            >
-                                <h3
-                                    class="text-lg font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
-                                >
-                                    <span>☁️</span> Cloud & Emerging Tech
-                                </h3>
-                                <div class="space-y-2 font-mono text-sm">
-                                    {
-                                        emergingTechSkills.map((skill, i) => (
-                                            <div class="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700/50">
-                                                <span class="text-gray-700 dark:text-gray-300">
-                                                    {skill.name}
-                                                </span>
-                                                <span
-                                                    class={getLevelColor(
-                                                        skill.level,
-                                                    )}
-                                                >
-                                                    {skill.level}
-                                                </span>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
-                            </div>
-
-                            <!-- Soft Skills -->
-                            <div
-                                class="bg-white dark:bg-[#161b22] p-6 rounded-lg border border-gray-200 dark:border-gray-700"
-                            >
-                                <h3
-                                    class="text-lg font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2"
-                                >
-                                    <span>🤝</span> Soft Skills
-                                </h3>
-                                <div class="space-y-2 font-mono text-sm">
-                                    {
-                                        softSkills.map((skill, i) => (
-                                            <div class="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700/50">
-                                                <span class="text-gray-700 dark:text-gray-300">
-                                                    {skill.name}
-                                                </span>
-                                                <span
-                                                    class={getLevelColor(
-                                                        skill.level,
-                                                    )}
-                                                >
-                                                    {skill.level}
-                                                </span>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
+                                Soft Skills
+                            </h3>
+                            <div class="flex flex-wrap justify-center gap-3">
+                                {
+                                    softSkills.map((skill) => (
+                                        <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium flex items-center gap-2">
+                                            <span>{skill.icon}</span>{" "}
+                                            {skill.name}
+                                        </span>
+                                    ))
+                                }
                             </div>
                         </div>
                     </div>
@@ -437,7 +379,7 @@ const getLevelColor = (level: string) => {
                         </h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {
-                                certificates.map((cert, i) => (
+                                certificates.map((cert) => (
                                     <a
                                         href={cert.link}
                                         target="_blank"

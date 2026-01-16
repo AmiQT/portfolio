@@ -1,15 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import IdeActivityBar from '../components/ide/IdeActivityBar.astro';
-import IdeSidebar from '../components/ide/IdeSidebar.astro';
-import MobileNav from '../components/ide/MobileNav.astro';
-import NotebookCell from '../components/NotebookCell.astro';
+import IdeActivityBar from '../components/software-dev/IdeActivityBar.astro';
+import IdeSidebar from '../components/software-dev/IdeSidebar.astro';
+import MobileNav from '../components/software-dev/MobileNav.astro';
+import NotebookCell from '../components/software-dev/NotebookCell.astro';
 
 // Files for sidebar
 const files = [
-    { name: 'experience.json', active: true, icon: '💼' },
-    { name: 'home-software-developer.ipynb', active: false, icon: '📝' },
-    { name: 'about.md', active: false, icon: '📄' },
+    { name: 'experience.json', active: true, icon: '💼', href: import.meta.env.BASE_URL + 'experience' },
+    { name: 'home-software-developer.ipynb', active: false, icon: '📝', href: import.meta.env.BASE_URL + 'home-software-developer/' },
+    { name: 'about.md', active: false, icon: '📄', href: import.meta.env.BASE_URL + 'about' },
 ];
 
 const experiences = [

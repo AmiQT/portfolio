@@ -1,9 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import IdeActivityBar from "../../components/ide/IdeActivityBar.astro";
-import IdeSidebar from "../../components/ide/IdeSidebar.astro";
-import IdeTabBar from "../../components/ide/IdeTabBar.astro";
-import MobileNav from "../../components/ide/MobileNav.astro";
+import IdeActivityBar from "../../components/software-dev/IdeActivityBar.astro";
+import MobileNav from "../../components/software-dev/MobileNav.astro";
 import { projectsData as projects } from "../../data/software-developer";
 
 // Files for sidebar - organize projects as files
@@ -38,6 +36,25 @@ const getAssetPath = (path: string) => {
                     <span class="transform rotate-90">›</span> PROJECTS
                 </div>
                 
+                <!-- Full-Stack Projects Folder -->
+                <div class="pl-4 mb-2">
+                    <div class="flex items-center gap-1 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1 cursor-pointer" data-folder="fullstack-apps">
+                        <span class="folder-arrow transform rotate-90 transition-transform">›</span>
+                        <span>📁</span> full-stack/
+                    </div>
+                    <div class="pl-4 flex flex-col gap-1 folder-content" id="fullstack-apps-content">
+                        {projects.filter(p => p.type === 'Full-Stack').map((project) => (
+                            <div 
+                                class="flex items-center gap-2 px-2 py-1 rounded cursor-pointer text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-[#1f2428] hover:text-black dark:hover:text-white transition-colors"
+                                data-project-file={project.title}
+                            >
+                                <span>🎓</span>
+                                <span class="truncate text-xs">{project.title.toLowerCase().replace(/\s+/g, '-')}.tsx</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                
                 <!-- Web Apps Folder -->
                 <div class="pl-4 mb-2">
                     <div class="flex items-center gap-1 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1 cursor-pointer" data-folder="web-apps">
@@ -45,7 +62,7 @@ const getAssetPath = (path: string) => {
                         <span>📁</span> web-apps/
                     </div>
                     <div class="pl-4 flex flex-col gap-1 folder-content" id="web-apps-content">
-                        {projects.filter(p => p.type === 'Web').map((project, idx) => (
+                        {projects.filter(p => p.type === 'Web').map((project) => (
                             <div 
                                 class="flex items-center gap-2 px-2 py-1 rounded cursor-pointer text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-[#1f2428] hover:text-black dark:hover:text-white transition-colors"
                                 data-project-file={project.title}
@@ -115,6 +132,7 @@ const getAssetPath = (path: string) => {
                 <span>projects.json</span>
                 <div class="ml-auto flex gap-4 text-xs">
                     <span class="text-green-600 dark:text-green-400">{projects.length} projects loaded</span>
+                    <span class="text-cyan-600 dark:text-cyan-400">{projects.filter(p => p.type === 'Full-Stack').length} Full-Stack</span>
                     <span class="text-blue-600 dark:text-blue-400">{projects.filter(p => p.type === 'Web').length} Web</span>
                     <span class="text-purple-600 dark:text-purple-400">{projects.filter(p => p.type === 'App').length} Mobile</span>
                 </div>
@@ -215,8 +233,8 @@ const getAssetPath = (path: string) => {
                                     <div class="pl-4">
                                         <span class="text-blue-600 dark:text-blue-400">"type"</span>
                                         <span class="text-gray-500">:</span>
-                                        <span class={`ml-1 px-1.5 py-0.5 rounded text-[10px] font-sans ${project.type === 'App' ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300' : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'}`}>
-                                            {project.type === 'App' ? 'Mobile App' : 'Web App'}
+                                        <span class={`ml-1 px-1.5 py-0.5 rounded text-[10px] font-sans ${project.type === 'App' ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300' : project.type === 'Full-Stack' ? 'bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300' : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'}`}>
+                                            {project.type === 'App' ? 'Mobile App' : project.type === 'Full-Stack' ? 'Full-Stack' : 'Web App'}
                                         </span>
                                     </div>
                                 </div>

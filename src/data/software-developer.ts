@@ -9,10 +9,11 @@ export const profile = {
 };
 
 export const files = [
-    { name: 'home-software-developer.ipynb', active: true, icon: '📝' },
-    { name: 'projects.json', active: false, icon: '📦' },
-    { name: 'skills.config.js', active: false, icon: '⚙️' },
-    { name: 'contact.ts', active: false, icon: '📧' },
+    { name: 'home-software-developer.ipynb', active: true, icon: '📝', href: '/portfolio/home-software-developer/' },
+    { name: 'projects.json', active: false, icon: '📦', href: '/portfolio/role-software-developer/projects' },
+    { name: 'about.md', active: false, icon: '📄', href: '/portfolio/about' },
+    { name: 'experience.json', active: false, icon: '💼', href: '/portfolio/experience' },
+    { name: 'contact.ts', active: false, icon: '📧', href: '/portfolio/contact' },
 ];
 
 export const expertise = [
@@ -40,6 +41,15 @@ export const expertise = [
 ];
 
 export const projectsData = [
+    {
+        title: "Student Talent Profiling",
+        type: "Full-Stack",
+        desc: "AI-Powered ecosystem platform for UTHM students featuring Agentic AI Assistant (BM/Gen Z style), Flutter mobile app, Astro web dashboard, and auto-generated achievement reports.",
+        image: "assets/fyp-hero.png",
+        link: "projects/student-talent-profiling",
+        color: "cyan",
+        icon: "graduation"
+    },
     {
         title: "StyleHub E-Commerce",
         type: "Web",

@@ -1,0 +1,48 @@
+---
+import { Code } from 'astro:components';
+
+interface Props {
+  cellNumber?: number;
+  code?: string;
+  hideInput?: boolean;
+}
+
+const { cellNumber = 1, code = '', hideInput = false } = Astro.props;
+---
+
+<div class="notebook-cell mb-8 group">
+  {/* Input Area - The "Code" part */}
+  {!hideInput && (
+    <div class="flex flex-row items-start gap-2 mb-2 font-mono text-sm">
+      <div class="text-blue-600 dark:text-blue-400 select-none pt-1 min-w-[3rem] text-right font-bold">
+        In [{cellNumber}]:
+      </div>
+      <div class="flex-1 bg-gray-50 dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700 rounded-md shadow-inner overflow-hidden transition-colors duration-300">
+        <div class="p-3 overflow-x-auto">
+          <Code code={code} lang="javascript" theme="github-dark" />
+        </div>
+      </div>
+    </div>
+  )}
+
+  {/* Output Area - The "Visual" part */}
+  <div class="flex flex-row items-start gap-2">
+    <div class="text-red-500 dark:text-red-400 select-none pt-1 min-w-[3rem] text-right font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+      Out [{cellNumber}]:
+    </div>
+    <div class="flex-1 bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-700/50 rounded-lg p-1 shadow-lg backdrop-blur-sm overflow-hidden relative transition-colors duration-300">
+      {/* Visual Indicator of "Result" */}
+      <div class="absolute top-0 left-0 w-1 h-full bg-red-400/50"></div>
+      <div class="pl-2">
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Ensure code font is readable */
+  code {
+    font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  }
+</style>

@@ -1,0 +1,60 @@
+---
+export interface Props {
+    skills: Array<{
+        name: string;
+        level: string; // "Advanced", "Intermediate", "Learning"
+    }>;
+    category: string;
+    icon: string;
+}
+
+const { skills, category, icon } = Astro.props;
+
+const getLevelColor = (level: string) => {
+    switch (level) {
+        case "Advanced":
+            return "text-green-400";
+        case "Intermediate":
+            return "text-blue-400";
+        case "Learning":
+            return "text-yellow-400";
+        default:
+            return "text-gray-400";
+    }
+};
+
+const getLevelIcon = (level: string) => {
+    switch (level) {
+        case "Advanced":
+            return "🔵";
+        case "Intermediate":
+            return "🟢";
+        case "Learning":
+            return "🟡";
+        default:
+            return "⚪";
+    }
+};
+---
+
+<div class="skills-category mb-8">
+    <div class="flex items-center gap-3 mb-6">
+        <span class="text-2xl">{icon}</span>
+        <h3 class="text-xl font-bold text-[var(--text-primary)]">{category}</h3>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {skills.map(skill => (
+            <div class="flex items-center justify-between p-3 rounded-lg border border-[var(--border-color)] bg-[var(--card-background)] hover:shadow-lg hover:shadow-[var(--primary-color)]/20 hover:border-[var(--primary-color)]/50 hover:scale-105 transition-all duration-300 cursor-pointer">
+                <span class="font-medium text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors duration-300">
+                    {skill.name}
+                </span>
+                <div class="flex items-center gap-2 ml-4">
+                    <span class={`text-sm font-semibold ${getLevelColor(skill.level)}`}>{skill.level}</span>
+                    <span class="text-lg">{getLevelIcon(skill.level)}</span>
+                </div>
+            </div>
+        ))}
+    </div>
+</div>
+
+ 

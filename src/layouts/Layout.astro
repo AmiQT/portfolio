@@ -1,7 +1,7 @@
 ---
-import type { Props as AstroProps } from 'astro';
+import type { Props as AstroProps } from "astro";
 import "../styles/global.css";
-import ProfileSelector from '../components/ProfileSelector.astro';
+import ProfileSelector from "../components/shared/ProfileSelector.astro";
 
 export interface Props extends AstroProps {
 	title: string;
@@ -10,32 +10,50 @@ export interface Props extends AstroProps {
 	canonical?: string;
 }
 
-const { title, description, image = "assets/profile.webp", canonical } = Astro.props;
+const {
+	title,
+	description,
+	image = "assets/profile.webp",
+	canonical,
+} = Astro.props;
 const siteUrl = "https://noorazami.github.io/portfolio";
 const fullUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/x-icon" href={import.meta.env.BASE_URL + "favicon.ico"} />
-		<meta name="google-site-verification" content="U_F96d2ENnYwrAftLqwFcXkKc8Rk3wAq-Le-TSnLDTA" />
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href={import.meta.env.BASE_URL + "favicon.ico"}
+		/>
+		<meta
+			name="google-site-verification"
+			content="U_F96d2ENnYwrAftLqwFcXkKc8Rk3wAq-Le-TSnLDTA"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		
+
 		<!-- PWA Manifest -->
-		<link rel="manifest" href={import.meta.env.BASE_URL + "manifest.json"} />
+		<link
+			rel="manifest"
+			href={import.meta.env.BASE_URL + "manifest.json"}
+		/>
 		<meta name="theme-color" content="#0a58ca" />
 		<meta name="mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta
+			name="apple-mobile-web-app-status-bar-style"
+			content="black-translucent"
+		/>
 		<meta name="apple-mobile-web-app-title" content="Noor Azami" />
-		
+
 		<!-- Canonical URL -->
 		<link rel="canonical" href={fullUrl} />
-		
+
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={fullUrl} />
@@ -43,25 +61,35 @@ const fullUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={`${siteUrl}/${image}`} />
 		<meta property="og:site_name" content="Noor Azami - Portfolio" />
-		
+
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content={fullUrl} />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={`${siteUrl}/${image}`} />
-		
+
 		<!-- Additional SEO -->
 		<meta name="robots" content="index, follow" />
 		<meta name="author" content="Noor Azami" />
-		<meta name="keywords" content="IT Support, Networking, Multimedia, Web Development, Portfolio, Noor Azami" />
-		
+		<meta
+			name="keywords"
+			content="IT Support, Networking, Multimedia, Web Development, Portfolio, Noor Azami"
+		/>
+
 		<!-- Preload critical resources -->
-		<link rel="preload" href={import.meta.env.BASE_URL + "assets/profile.webp"} as="image" />
+		<link
+			rel="preload"
+			href={import.meta.env.BASE_URL + "assets/profile.webp"}
+			as="image"
+		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
-		
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+
 		<!-- Google Analytics -->
 		<!-- Uncomment and replace G-XXXXXXXXXX with your actual Google Analytics 4 ID -->
 		<!--
@@ -73,38 +101,47 @@ const fullUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
 			gtag('config', 'G-XXXXXXXXXX');
 		</script>
 		-->
-		
+
 		<!-- Structured Data -->
-		<script type="application/ld+json" set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "Person",
-			"name": "Noor Azami",
-			"jobTitle": "IT Support Specialist",
-			"description": "IT enthusiast and problem-solver, passionate about leveraging technology to create innovative solutions.",
-			"url": siteUrl,
-			"image": `${siteUrl}/assets/profile.webp`,
-			"email": "noorazami@outlook.my",
-			"telephone": "+6013-8799702",
-			"address": {
-				"@type": "PostalAddress",
-				"addressCountry": "MY"
-			},
-			"alumniOf": {
-				"@type": "CollegeOrUniversity",
-				"name": "Universiti Tun Hussein Onn Malaysia"
-			},
-			"knowsAbout": ["IT Support", "Networking", "Multimedia", "System Administration"],
-			"sameAs": [
-				"https://www.linkedin.com/in/noor-azami/",
-				"https://github.com/AmiQT"
-			]
-		})} />
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "Person",
+				name: "Noor Azami",
+				jobTitle: "IT Support Specialist",
+				description:
+					"IT enthusiast and problem-solver, passionate about leveraging technology to create innovative solutions.",
+				url: siteUrl,
+				image: `${siteUrl}/assets/profile.webp`,
+				email: "noorazami@outlook.my",
+				telephone: "+6013-8799702",
+				address: {
+					"@type": "PostalAddress",
+					addressCountry: "MY",
+				},
+				alumniOf: {
+					"@type": "CollegeOrUniversity",
+					name: "Universiti Tun Hussein Onn Malaysia",
+				},
+				knowsAbout: [
+					"IT Support",
+					"Networking",
+					"Multimedia",
+					"System Administration",
+				],
+				sameAs: [
+					"https://www.linkedin.com/in/noor-azami/",
+					"https://github.com/AmiQT",
+				],
+			})}
+		/>
 	</head>
 	<body>
 		<ProfileSelector />
 		<slot />
-		<script src={import.meta.env.BASE_URL + "js/profile-customizer.js"}></script>
-		<script src={import.meta.env.BASE_URL + "js/main.js"} is:inline></script>
+		<script src="/portfolio/js/profile-customizer.js" is:inline></script>
+		<script src="/portfolio/js/main.js" is:inline></script>
 		<script src="/portfolio/js/back-to-top.js" is:inline></script>
 	</body>
 </html>

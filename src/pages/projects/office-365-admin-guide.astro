@@ -1,16 +1,31 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/it-support/Header.astro";
 ---
 
-<Layout title="Office 365 Administration & Migration Guide | Noor Azami" description="A comprehensive guide for managing Office 365 environments, including user management, Exchange Online, SharePoint, and migration strategies.">
+<Layout
+    title="Office 365 Administration & Migration Guide | Noor Azami"
+    description="A comprehensive guide for managing Office 365 environments, including user management, Exchange Online, SharePoint, and migration strategies."
+>
     <Header />
     <main class="pt-16">
         <!-- Back Button -->
         <div class="px-4 sm:px-6 lg:px-8 py-4">
-            <button id="back-to-projects" class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group cursor-pointer">
-                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            <button
+                id="back-to-projects"
+                class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group cursor-pointer"
+            >
+                <svg
+                    class="w-5 h-5 group-hover:-translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"></path>
                 </svg>
                 Back to Projects
             </button>
@@ -20,71 +35,155 @@ import Header from '../../components/Header.astro';
             <div class="container mx-auto max-w-4xl">
                 <div class="text-center mb-12 fade-in-scroll">
                     <div class="flex justify-center mb-6">
-                        <span class="project-badge documentation text-lg px-6 py-3">IT Support Documentation</span>
+                        <span
+                            class="project-badge documentation text-lg px-6 py-3"
+                            >IT Support Documentation</span
+                        >
                     </div>
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Office 365 Administration & Migration Guide</h1>
-                    <p class="text-xl text-text-secondary max-w-3xl mx-auto">A comprehensive guide for managing Office 365 environments, including user management, Exchange Online, SharePoint, and migration strategies.</p>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                        Office 365 Administration & Migration Guide
+                    </h1>
+                    <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                        A comprehensive guide for managing Office 365
+                        environments, including user management, Exchange
+                        Online, SharePoint, and migration strategies.
+                    </p>
                 </div>
 
                 <!-- Project Overview -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
                     <div class="card fade-in-scroll">
                         <h3 class="text-xl font-semibold mb-4">Project Type</h3>
-                        <p class="text-text-secondary">IT Administration guide for Microsoft 365 / Office 365 management.</p>
+                        <p class="text-text-secondary">
+                            IT Administration guide for Microsoft 365 / Office
+                            365 management.
+                        </p>
                     </div>
                     <div class="card fade-in-scroll">
-                        <h3 class="text-xl font-semibold mb-4">Target Audience</h3>
-                        <p class="text-text-secondary">System Administrators, IT Support Specialists, and Cloud Architects.</p>
+                        <h3 class="text-xl font-semibold mb-4">
+                            Target Audience
+                        </h3>
+                        <p class="text-text-secondary">
+                            System Administrators, IT Support Specialists, and
+                            Cloud Architects.
+                        </p>
                     </div>
                     <div class="card fade-in-scroll">
                         <h3 class="text-xl font-semibold mb-4">Coverage</h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded text-sm">Admin Center</span>
-                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 border border-orange-500/30 rounded text-sm">Exchange</span>
-                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 rounded text-sm">SharePoint</span>
+                            <span
+                                class="px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded text-sm"
+                                >Admin Center</span
+                            >
+                            <span
+                                class="px-3 py-1 bg-orange-500/20 text-orange-400 border border-orange-500/30 rounded text-sm"
+                                >Exchange</span
+                            >
+                            <span
+                                class="px-3 py-1 bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 rounded text-sm"
+                                >SharePoint</span
+                            >
                         </div>
                     </div>
                 </div>
 
                 <!-- Documentation Content -->
                 <div class="mb-16 fade-in-scroll">
-                    <h2 class="text-3xl font-bold mb-8">Administration Guide</h2>
+                    <h2 class="text-3xl font-bold mb-8">
+                        Administration Guide
+                    </h2>
 
                     <!-- Table of Contents -->
-                    <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-semibold mb-4">📋 Table of Contents</h3>
+                    <div
+                        class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mb-8"
+                    >
+                        <h3 class="text-xl font-semibold mb-4">
+                            📋 Table of Contents
+                        </h3>
                         <ul class="space-y-2 text-text-secondary">
-                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> User & License Management</li>
-                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Exchange Online Configuration</li>
-                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> SharePoint & OneDrive Setup</li>
-                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Security & Compliance (MFA)</li>
-                            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Migration Strategies</li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-blue-400">→</span> User & License
+                                Management
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-blue-400">→</span> Exchange Online
+                                Configuration
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-blue-400">→</span> SharePoint &
+                                OneDrive Setup
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-blue-400">→</span> Security & Compliance
+                                (MFA)
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-blue-400">→</span> Migration Strategies
+                            </li>
                         </ul>
                     </div>
 
                     <!-- Section 1 -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-blue-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">1. User & License Management</h3>
+                            <h3 class="text-2xl font-bold mb-4">
+                                1. User & License Management
+                            </h3>
                             <div class="space-y-4">
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">Adding Users</h4>
-                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
-                                        <li>Log in to Microsoft 365 Admin Center</li>
-                                        <li>Go to <strong>Users > Active users</strong></li>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        Adding Users
+                                    </h4>
+                                    <ol
+                                        class="list-decimal list-inside text-text-secondary space-y-2 ml-4"
+                                    >
+                                        <li>
+                                            Log in to Microsoft 365 Admin Center
+                                        </li>
+                                        <li>
+                                            Go to <strong
+                                                >Users > Active users</strong>
+                                        </li>
                                         <li>Click "Add a user"</li>
-                                        <li>Fill in details (First name, Last name, Display name, Username)</li>
-                                        <li>Auto-generate password or create one</li>
-                                        <li>Assign product license (e.g., Microsoft 365 Business Standard)</li>
+                                        <li>
+                                            Fill in details (First name, Last
+                                            name, Display name, Username)
+                                        </li>
+                                        <li>
+                                            Auto-generate password or create one
+                                        </li>
+                                        <li>
+                                            Assign product license (e.g.,
+                                            Microsoft 365 Business Standard)
+                                        </li>
                                     </ol>
                                 </div>
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">Group Management</h4>
-                                    <p class="text-text-secondary mb-2">Types of groups:</p>
-                                    <ul class="list-disc list-inside text-text-secondary space-y-2 ml-4">
-                                        <li><strong>Microsoft 365 Group:</strong> Collaboration (Teams, SharePoint, Email)</li>
-                                        <li><strong>Distribution List:</strong> Email broadcasting</li>
-                                        <li><strong>Security Group:</strong> Access control and permissions</li>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        Group Management
+                                    </h4>
+                                    <p class="text-text-secondary mb-2">
+                                        Types of groups:
+                                    </p>
+                                    <ul
+                                        class="list-disc list-inside text-text-secondary space-y-2 ml-4"
+                                    >
+                                        <li>
+                                            <strong>Microsoft 365 Group:</strong
+                                            > Collaboration (Teams, SharePoint, Email)
+                                        </li>
+                                        <li>
+                                            <strong>Distribution List:</strong> Email
+                                            broadcasting
+                                        </li>
+                                        <li>
+                                            <strong>Security Group:</strong> Access
+                                            control and permissions
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -94,20 +193,44 @@ import Header from '../../components/Header.astro';
                     <!-- Section 2 -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-orange-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">2. Exchange Online Configuration</h3>
+                            <h3 class="text-2xl font-bold mb-4">
+                                2. Exchange Online Configuration
+                            </h3>
                             <div class="space-y-4">
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">Mailbox Management</h4>
-                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        Mailbox Management
+                                    </h4>
+                                    <ol
+                                        class="list-decimal list-inside text-text-secondary space-y-2 ml-4"
+                                    >
                                         <li>Access Exchange Admin Center</li>
-                                        <li>Manage user mailboxes (aliases, forwarding, automatic replies)</li>
-                                        <li>Create Shared Mailboxes for generic addresses (info@, support@)</li>
-                                        <li>Configure permissions (Full Access, Send As)</li>
+                                        <li>
+                                            Manage user mailboxes (aliases,
+                                            forwarding, automatic replies)
+                                        </li>
+                                        <li>
+                                            Create Shared Mailboxes for generic
+                                            addresses (info@, support@)
+                                        </li>
+                                        <li>
+                                            Configure permissions (Full Access,
+                                            Send As)
+                                        </li>
                                     </ol>
                                 </div>
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">Mail Flow Rules</h4>
-                                    <p class="text-text-secondary">Set up transport rules to control email flow, block spam, or add disclaimers.</p>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        Mail Flow Rules
+                                    </h4>
+                                    <p class="text-text-secondary">
+                                        Set up transport rules to control email
+                                        flow, block spam, or add disclaimers.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -116,13 +239,32 @@ import Header from '../../components/Header.astro';
                     <!-- Section 3 -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-cyan-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">3. SharePoint & OneDrive</h3>
-                            <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                <h4 class="font-semibold mb-3">Site Management</h4>
-                                <ul class="list-disc list-inside text-text-secondary space-y-2 ml-4">
-                                    <li>Create Team Sites for internal collaboration</li>
-                                    <li>Create Communication Sites for broadcasting information</li>
-                                    <li>Manage external sharing settings (Anyone, New and existing guests, Existing guests only, Only people in your organization)</li>
+                            <h3 class="text-2xl font-bold mb-4">
+                                3. SharePoint & OneDrive
+                            </h3>
+                            <div
+                                class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                            >
+                                <h4 class="font-semibold mb-3">
+                                    Site Management
+                                </h4>
+                                <ul
+                                    class="list-disc list-inside text-text-secondary space-y-2 ml-4"
+                                >
+                                    <li>
+                                        Create Team Sites for internal
+                                        collaboration
+                                    </li>
+                                    <li>
+                                        Create Communication Sites for
+                                        broadcasting information
+                                    </li>
+                                    <li>
+                                        Manage external sharing settings
+                                        (Anyone, New and existing guests,
+                                        Existing guests only, Only people in
+                                        your organization)
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -131,18 +273,39 @@ import Header from '../../components/Header.astro';
                     <!-- Section 4 -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-red-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">4. Security & Compliance</h3>
+                            <h3 class="text-2xl font-bold mb-4">
+                                4. Security & Compliance
+                            </h3>
                             <div class="space-y-4">
-                                <div class="bg-red-900/20 border border-red-700 rounded p-4 mb-4">
-                                    <p class="text-red-300 font-semibold">⚠️ CRITICAL: Enforce MFA for all users</p>
+                                <div
+                                    class="bg-red-900/20 border border-red-700 rounded p-4 mb-4"
+                                >
+                                    <p class="text-red-300 font-semibold">
+                                        ⚠️ CRITICAL: Enforce MFA for all users
+                                    </p>
                                 </div>
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">Multi-Factor Authentication (MFA)</h4>
-                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
-                                        <li>Go to Active Users > Multi-factor authentication</li>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        Multi-Factor Authentication (MFA)
+                                    </h4>
+                                    <ol
+                                        class="list-decimal list-inside text-text-secondary space-y-2 ml-4"
+                                    >
+                                        <li>
+                                            Go to Active Users > Multi-factor
+                                            authentication
+                                        </li>
                                         <li>Select users and click "Enable"</li>
-                                        <li>Enforce MFA to ensure users register on next login</li>
-                                        <li>Use Microsoft Authenticator app for best experience</li>
+                                        <li>
+                                            Enforce MFA to ensure users register
+                                            on next login
+                                        </li>
+                                        <li>
+                                            Use Microsoft Authenticator app for
+                                            best experience
+                                        </li>
                                     </ol>
                                 </div>
                             </div>
@@ -150,13 +313,31 @@ import Header from '../../components/Header.astro';
                     </div>
 
                     <!-- Quick Tips -->
-                    <div class="bg-blue-900/20 border border-blue-700 rounded-lg p-6 mt-8">
-                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">💡 Pro Tips</h3>
+                    <div
+                        class="bg-blue-900/20 border border-blue-700 rounded-lg p-6 mt-8"
+                    >
+                        <h3
+                            class="text-xl font-bold mb-4 flex items-center gap-2"
+                        >
+                            💡 Pro Tips
+                        </h3>
                         <ul class="space-y-2 text-text-secondary">
-                            <li>• Use PowerShell for bulk user creation and license assignment</li>
-                            <li>• Regularly review "Secure Score" in the Security Center</li>
-                            <li>• Set up alert policies for suspicious activities</li>
-                            <li>• Train users on how to use OneDrive vs SharePoint</li>
+                            <li>
+                                • Use PowerShell for bulk user creation and
+                                license assignment
+                            </li>
+                            <li>
+                                • Regularly review "Secure Score" in the
+                                Security Center
+                            </li>
+                            <li>
+                                • Set up alert policies for suspicious
+                                activities
+                            </li>
+                            <li>
+                                • Train users on how to use OneDrive vs
+                                SharePoint
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -164,18 +345,45 @@ import Header from '../../components/Header.astro';
                 <!-- Additional Resources -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
                     <div class="card">
-                        <h3 class="text-xl font-semibold mb-4">📚 Related Documentation</h3>
+                        <h3 class="text-xl font-semibold mb-4">
+                            📚 Related Documentation
+                        </h3>
                         <ul class="text-text-secondary space-y-2">
-                            <li>• <a href={import.meta.env.BASE_URL + "projects/active-directory-guide"} class="text-blue-400 hover:text-blue-300">Active Directory Guide</a></li>
-                            <li>• <a href={import.meta.env.BASE_URL + "projects/backup-recovery-guide"} class="text-blue-400 hover:text-blue-300">Backup & Recovery</a></li>
+                            <li>
+                                • <a
+                                    href={import.meta.env.BASE_URL +
+                                        "projects/active-directory-guide"}
+                                    class="text-blue-400 hover:text-blue-300"
+                                    >Active Directory Guide</a>
+                            </li>
+                            <li>
+                                • <a
+                                    href={import.meta.env.BASE_URL +
+                                        "projects/backup-recovery-guide"}
+                                    class="text-blue-400 hover:text-blue-300"
+                                    >Backup & Recovery</a>
+                            </li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <h3 class="text-xl font-semibold mb-4">🛠️ Useful Tools</h3>
+                        <h3 class="text-xl font-semibold mb-4">
+                            🛠️ Useful Tools
+                        </h3>
                         <ul class="text-text-secondary space-y-2">
-                            <li>• <a href="https://admin.microsoft.com" class="text-blue-400 hover:text-blue-300" target="_blank">Microsoft 365 Admin Center</a></li>
-                            <li>• <a href="https://entra.microsoft.com" class="text-blue-400 hover:text-blue-300" target="_blank">Entra ID (Azure AD)</a></li>
+                            <li>
+                                • <a
+                                    href="https://admin.microsoft.com"
+                                    class="text-blue-400 hover:text-blue-300"
+                                    target="_blank"
+                                    >Microsoft 365 Admin Center</a>
+                            </li>
+                            <li>
+                                • <a
+                                    href="https://entra.microsoft.com"
+                                    class="text-blue-400 hover:text-blue-300"
+                                    target="_blank">Entra ID (Azure AD)</a>
+                            </li>
                             <li>• Exchange Online PowerShell Module</li>
                         </ul>
                     </div>
@@ -192,17 +400,25 @@ import Header from '../../components/Header.astro';
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const backButton = document.getElementById('back-to-projects');
+    document.addEventListener("DOMContentLoaded", function () {
+        const backButton = document.getElementById("back-to-projects");
         if (backButton) {
-            backButton.addEventListener('click', function() {
-                const profile = localStorage.getItem('selectedProfile') || 'software-developer';
-                const baseUrl = window.location.pathname.startsWith('/portfolio') ? '/portfolio' : '';
-                
-                if (profile === 'it-support') {
-                    window.location.href = baseUrl + '/role-it-support/projects';
+            backButton.addEventListener("click", function () {
+                const profile =
+                    localStorage.getItem("selectedProfile") ||
+                    "software-developer";
+                const baseUrl = window.location.pathname.startsWith(
+                    "/portfolio",
+                )
+                    ? "/portfolio"
+                    : "";
+
+                if (profile === "it-support") {
+                    window.location.href =
+                        baseUrl + "/role-it-support/projects";
                 } else {
-                    window.location.href = baseUrl + '/role-software-developer/projects';
+                    window.location.href =
+                        baseUrl + "/role-software-developer/projects";
                 }
             });
         }

@@ -1,16 +1,31 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/it-support/Header.astro";
 ---
 
-<Layout title="Active Directory & User Management Guide | Noor Azami" description="Comprehensive guide for Active Directory administration, user account management, group policies, and domain configuration for IT support professionals.">
+<Layout
+    title="Active Directory & User Management Guide | Noor Azami"
+    description="Comprehensive guide for Active Directory administration, user account management, group policies, and domain configuration for IT support professionals."
+>
     <Header />
     <main class="pt-16">
         <!-- Back Button -->
         <div class="px-4 sm:px-6 lg:px-8 py-4">
-            <button id="back-to-projects" class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group cursor-pointer">
-                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            <button
+                id="back-to-projects"
+                class="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors group cursor-pointer"
+            >
+                <svg
+                    class="w-5 h-5 group-hover:-translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"></path>
                 </svg>
                 Back to Projects
             </button>
@@ -20,82 +35,172 @@ import Header from '../../components/Header.astro';
             <div class="container mx-auto max-w-4xl">
                 <div class="text-center mb-12 fade-in-scroll">
                     <div class="flex justify-center mb-6">
-                        <span class="project-badge documentation text-lg px-6 py-3">IT Documentation</span>
+                        <span
+                            class="project-badge documentation text-lg px-6 py-3"
+                            >IT Documentation</span
+                        >
                     </div>
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Active Directory & User Management Guide</h1>
-                    <p class="text-xl text-text-secondary max-w-3xl mx-auto">Master Active Directory administration, user account management, group policies, and domain configuration for enterprise IT environments.</p>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                        Active Directory & User Management Guide
+                    </h1>
+                    <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                        Master Active Directory administration, user account
+                        management, group policies, and domain configuration for
+                        enterprise IT environments.
+                    </p>
                 </div>
 
                 <!-- Project Overview -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
                     <div class="card fade-in-scroll">
                         <h3 class="text-xl font-semibold mb-4">Project Type</h3>
-                        <p class="text-text-secondary">IT administration and domain management documentation for enterprise environments.</p>
+                        <p class="text-text-secondary">
+                            IT administration and domain management
+                            documentation for enterprise environments.
+                        </p>
                     </div>
                     <div class="card fade-in-scroll">
-                        <h3 class="text-xl font-semibold mb-4">Target Audience</h3>
-                        <p class="text-text-secondary">Systems administrators, IT support staff, and network professionals.</p>
+                        <h3 class="text-xl font-semibold mb-4">
+                            Target Audience
+                        </h3>
+                        <p class="text-text-secondary">
+                            Systems administrators, IT support staff, and
+                            network professionals.
+                        </p>
                     </div>
                     <div class="card fade-in-scroll">
                         <h3 class="text-xl font-semibold mb-4">Coverage</h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded text-sm">Active Directory</span>
-                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded text-sm">User Mgmt</span>
-                            <span class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded text-sm">GPO</span>
+                            <span
+                                class="px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded text-sm"
+                                >Active Directory</span
+                            >
+                            <span
+                                class="px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded text-sm"
+                                >User Mgmt</span
+                            >
+                            <span
+                                class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded text-sm"
+                                >GPO</span
+                            >
                         </div>
                     </div>
                 </div>
 
                 <!-- Documentation Content -->
                 <div class="mb-16 fade-in-scroll">
-                    <h2 class="text-3xl font-bold mb-8">Complete Active Directory Guide</h2>
+                    <h2 class="text-3xl font-bold mb-8">
+                        Complete Active Directory Guide
+                    </h2>
 
                     <!-- Table of Contents -->
-                    <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-semibold mb-4">📋 Topics Covered</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-text-secondary">
-                            <div class="flex items-center gap-2"><span class="text-purple-400">→</span> AD Infrastructure Basics</div>
-                            <div class="flex items-center gap-2"><span class="text-purple-400">→</span> Creating User Accounts</div>
-                            <div class="flex items-center gap-2"><span class="text-purple-400">→</span> Group Management</div>
-                            <div class="flex items-center gap-2"><span class="text-purple-400">→</span> NTFS Permissions</div>
-                            <div class="flex items-center gap-2"><span class="text-purple-400">→</span> Group Policy Objects (GPO)</div>
-                            <div class="flex items-center gap-2"><span class="text-purple-400">→</span> Password Policies</div>
+                    <div
+                        class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mb-8"
+                    >
+                        <h3 class="text-xl font-semibold mb-4">
+                            📋 Topics Covered
+                        </h3>
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-2 gap-4 text-text-secondary"
+                        >
+                            <div class="flex items-center gap-2">
+                                <span class="text-purple-400">→</span> AD Infrastructure
+                                Basics
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-purple-400">→</span> Creating User
+                                Accounts
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-purple-400">→</span> Group Management
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-purple-400">→</span> NTFS Permissions
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-purple-400">→</span> Group Policy
+                                Objects (GPO)
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-purple-400">→</span> Password Policies
+                            </div>
                         </div>
                     </div>
 
                     <!-- Section 1: AD Basics -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-purple-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">1. Active Directory Infrastructure Basics</h3>
-                            
-                            <div class="bg-purple-900/20 border border-purple-700 rounded p-4 mb-4">
-                                <p class="text-purple-300 font-semibold">What is Active Directory?</p>
-                                <p class="text-text-secondary text-sm mt-2">Active Directory is a centralized directory service that manages users, computers, and resources on a Windows domain. It authenticates and authorizes users and computers in a network.</p>
+                            <h3 class="text-2xl font-bold mb-4">
+                                1. Active Directory Infrastructure Basics
+                            </h3>
+
+                            <div
+                                class="bg-purple-900/20 border border-purple-700 rounded p-4 mb-4"
+                            >
+                                <p class="text-purple-300 font-semibold">
+                                    What is Active Directory?
+                                </p>
+                                <p class="text-text-secondary text-sm mt-2">
+                                    Active Directory is a centralized directory
+                                    service that manages users, computers, and
+                                    resources on a Windows domain. It
+                                    authenticates and authorizes users and
+                                    computers in a network.
+                                </p>
                             </div>
 
                             <div class="space-y-4">
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">Key Components</h4>
-                                    <ul class="list-disc list-inside text-text-secondary space-y-2">
-                                        <li><strong>Domain Controller (DC):</strong> Server running Active Directory</li>
-                                        <li><strong>Forest:</strong> Top-level container (usually one per organization)</li>
-                                        <li><strong>Domain:</strong> Collection of computers sharing security policies</li>
-                                        <li><strong>Organizational Units (OUs):</strong> Containers for organizing users/computers</li>
-                                        <li><strong>Domain Users:</strong> User accounts with network access</li>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        Key Components
+                                    </h4>
+                                    <ul
+                                        class="list-disc list-inside text-text-secondary space-y-2"
+                                    >
+                                        <li>
+                                            <strong
+                                                >Domain Controller (DC):</strong
+                                            > Server running Active Directory
+                                        </li>
+                                        <li>
+                                            <strong>Forest:</strong> Top-level container
+                                            (usually one per organization)
+                                        </li>
+                                        <li>
+                                            <strong>Domain:</strong> Collection of
+                                            computers sharing security policies
+                                        </li>
+                                        <li>
+                                            <strong
+                                                >Organizational Units (OUs):</strong
+                                            > Containers for organizing users/computers
+                                        </li>
+                                        <li>
+                                            <strong>Domain Users:</strong> User accounts
+                                            with network access
+                                        </li>
                                     </ul>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">AD Architecture</h4>
-                                    <div class="bg-gray-900 rounded p-4 text-cyan-300 font-mono text-sm">
-                                        Forest (contoso.com)<br/>
-                                        ├── Domain (corp.contoso.com)<br/>
-                                        │   ├── OU: Sales<br/>
-                                        │   │   ├── User: john.smith<br/>
-                                        │   │   └── Computer: SALES-PC01<br/>
-                                        │   ├── OU: IT<br/>
-                                        │   │   ├── User: admin<br/>
-                                        │   │   └── Computer: IT-SVR01<br/>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        AD Architecture
+                                    </h4>
+                                    <div
+                                        class="bg-gray-900 rounded p-4 text-cyan-300 font-mono text-sm"
+                                    >
+                                        Forest (contoso.com)<br />
+                                        ├── Domain (corp.contoso.com)<br />
+                                        │ ├── OU: Sales<br />
+                                        │ │ ├── User: john.smith<br />
+                                        │ │ └── Computer: SALES-PC01<br />
+                                        │ ├── OU: IT<br />
+                                        │ │ ├── User: admin<br />
+                                        │ │ └── Computer: IT-SVR01<br />
                                     </div>
                                 </div>
                             </div>
@@ -105,51 +210,129 @@ import Header from '../../components/Header.astro';
                     <!-- Section 2: User Accounts -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-blue-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">2. Creating & Managing User Accounts</h3>
+                            <h3 class="text-2xl font-bold mb-4">
+                                2. Creating & Managing User Accounts
+                            </h3>
 
                             <div class="space-y-4">
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-blue-500/20 px-3 py-1 rounded text-sm">STEP 1</span> Open Active Directory Users and Computers</h4>
-                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-blue-500/20 px-3 py-1 rounded text-sm"
+                                            >STEP 1</span
+                                        > Open Active Directory Users and Computers
+                                    </h4>
+                                    <ol
+                                        class="list-decimal list-inside text-text-secondary space-y-2 ml-4"
+                                    >
                                         <li>Press Windows + R</li>
-                                        <li>Type: <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">dsa.msc</code></li>
+                                        <li>
+                                            Type: <code
+                                                class="bg-gray-900 px-2 py-1 rounded text-cyan-300"
+                                                >dsa.msc</code
+                                            >
+                                        </li>
                                         <li>Press Enter</li>
-                                        <li>Navigate to your domain and desired OU</li>
+                                        <li>
+                                            Navigate to your domain and desired
+                                            OU
+                                        </li>
                                     </ol>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-blue-500/20 px-3 py-1 rounded text-sm">STEP 2</span> Create New User</h4>
-                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-blue-500/20 px-3 py-1 rounded text-sm"
+                                            >STEP 2</span
+                                        > Create New User
+                                    </h4>
+                                    <ol
+                                        class="list-decimal list-inside text-text-secondary space-y-2 ml-4"
+                                    >
                                         <li>Right-click OU → New → User</li>
-                                        <li>Fill in user information:
-                                            <ul class="list-disc list-inside ml-4 mt-2 space-y-1">
+                                        <li>
+                                            Fill in user information:
+                                            <ul
+                                                class="list-disc list-inside ml-4 mt-2 space-y-1"
+                                            >
                                                 <li>First Name, Last Name</li>
-                                                <li>User logon name (e.g., john.smith)</li>
-                                                <li>UPN (User Principal Name): john.smith@contoso.com</li>
+                                                <li>
+                                                    User logon name (e.g.,
+                                                    john.smith)
+                                                </li>
+                                                <li>
+                                                    UPN (User Principal Name):
+                                                    john.smith@contoso.com
+                                                </li>
                                             </ul>
                                         </li>
                                         <li>Click Next</li>
-                                        <li>Set password and select appropriate options:
-                                            <ul class="list-disc list-inside ml-4 mt-2 space-y-1">
-                                                <li>✓ User must change password at next logon</li>
-                                                <li>✓ Password never expires (optional)</li>
-                                                <li>✓ Account is disabled (enable when ready)</li>
+                                        <li>
+                                            Set password and select appropriate
+                                            options:
+                                            <ul
+                                                class="list-disc list-inside ml-4 mt-2 space-y-1"
+                                            >
+                                                <li>
+                                                    ✓ User must change password
+                                                    at next logon
+                                                </li>
+                                                <li>
+                                                    ✓ Password never expires
+                                                    (optional)
+                                                </li>
+                                                <li>
+                                                    ✓ Account is disabled
+                                                    (enable when ready)
+                                                </li>
                                             </ul>
                                         </li>
                                         <li>Click Next → Finish</li>
                                     </ol>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-blue-500/20 px-3 py-1 rounded text-sm">BEST PRACTICE</span> User Naming Convention</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-blue-500/20 px-3 py-1 rounded text-sm"
+                                            >BEST PRACTICE</span
+                                        > User Naming Convention
+                                    </h4>
                                     <div class="text-text-secondary space-y-2">
-                                        <p><strong>Recommended format:</strong> firstname.lastname</p>
-                                        <ul class="list-disc list-inside space-y-1">
-                                            <li>Examples: john.smith, maria.garcia, robert.johnson</li>
-                                            <li>Keep consistent and lowercase</li>
-                                            <li>Avoid special characters except periods and hyphens</li>
-                                            <li>Maximum 20 characters for compatibility</li>
+                                        <p>
+                                            <strong>Recommended format:</strong> firstname.lastname
+                                        </p>
+                                        <ul
+                                            class="list-disc list-inside space-y-1"
+                                        >
+                                            <li>
+                                                Examples: john.smith,
+                                                maria.garcia, robert.johnson
+                                            </li>
+                                            <li>
+                                                Keep consistent and lowercase
+                                            </li>
+                                            <li>
+                                                Avoid special characters except
+                                                periods and hyphens
+                                            </li>
+                                            <li>
+                                                Maximum 20 characters for
+                                                compatibility
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -160,50 +343,126 @@ import Header from '../../components/Header.astro';
                     <!-- Section 3: Groups -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-green-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">3. Group Management</h3>
+                            <h3 class="text-2xl font-bold mb-4">
+                                3. Group Management
+                            </h3>
 
                             <div class="space-y-4">
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">Group Types</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        Group Types
+                                    </h4>
                                     <div class="space-y-3">
-                                        <div class="bg-gray-900/50 p-3 rounded border border-gray-700">
-                                            <p class="font-semibold text-green-400">Security Groups</p>
-                                            <p class="text-text-secondary text-sm">Used for permissions and access control. Can contain users and computers.</p>
+                                        <div
+                                            class="bg-gray-900/50 p-3 rounded border border-gray-700"
+                                        >
+                                            <p
+                                                class="font-semibold text-green-400"
+                                            >
+                                                Security Groups
+                                            </p>
+                                            <p
+                                                class="text-text-secondary text-sm"
+                                            >
+                                                Used for permissions and access
+                                                control. Can contain users and
+                                                computers.
+                                            </p>
                                         </div>
-                                        <div class="bg-gray-900/50 p-3 rounded border border-gray-700">
-                                            <p class="font-semibold text-green-400">Distribution Groups</p>
-                                            <p class="text-text-secondary text-sm">Used for email distribution lists. Cannot be used for permissions.</p>
+                                        <div
+                                            class="bg-gray-900/50 p-3 rounded border border-gray-700"
+                                        >
+                                            <p
+                                                class="font-semibold text-green-400"
+                                            >
+                                                Distribution Groups
+                                            </p>
+                                            <p
+                                                class="text-text-secondary text-sm"
+                                            >
+                                                Used for email distribution
+                                                lists. Cannot be used for
+                                                permissions.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-green-500/20 px-3 py-1 rounded text-sm">CREATE</span> New Group</h4>
-                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
-                                        <li>Open Active Directory Users and Computers</li>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-green-500/20 px-3 py-1 rounded text-sm"
+                                            >CREATE</span
+                                        > New Group
+                                    </h4>
+                                    <ol
+                                        class="list-decimal list-inside text-text-secondary space-y-2 ml-4"
+                                    >
+                                        <li>
+                                            Open Active Directory Users and
+                                            Computers
+                                        </li>
                                         <li>Navigate to desired OU</li>
                                         <li>Right-click → New → Group</li>
-                                        <li>Enter group name (e.g., "Sales_Dept")</li>
-                                        <li>Select Group type: Security or Distribution</li>
-                                        <li>Select Group scope:
-                                            <ul class="list-disc list-inside ml-4 mt-2 space-y-1">
-                                                <li>Global: For users within domain</li>
-                                                <li>Domain Local: For local permissions</li>
-                                                <li>Universal: For cross-domain access</li>
+                                        <li>
+                                            Enter group name (e.g.,
+                                            "Sales_Dept")
+                                        </li>
+                                        <li>
+                                            Select Group type: Security or
+                                            Distribution
+                                        </li>
+                                        <li>
+                                            Select Group scope:
+                                            <ul
+                                                class="list-disc list-inside ml-4 mt-2 space-y-1"
+                                            >
+                                                <li>
+                                                    Global: For users within
+                                                    domain
+                                                </li>
+                                                <li>
+                                                    Domain Local: For local
+                                                    permissions
+                                                </li>
+                                                <li>
+                                                    Universal: For cross-domain
+                                                    access
+                                                </li>
                                             </ul>
                                         </li>
                                         <li>Click OK</li>
                                     </ol>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-green-500/20 px-3 py-1 rounded text-sm">ADD</span> Users to Group</h4>
-                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-green-500/20 px-3 py-1 rounded text-sm"
+                                            >ADD</span
+                                        > Users to Group
+                                    </h4>
+                                    <ol
+                                        class="list-decimal list-inside text-text-secondary space-y-2 ml-4"
+                                    >
                                         <li>Find and right-click group</li>
                                         <li>Click Properties</li>
                                         <li>Go to Members tab</li>
                                         <li>Click Add</li>
-                                        <li>Type user names separated by semicolons</li>
+                                        <li>
+                                            Type user names separated by
+                                            semicolons
+                                        </li>
                                         <li>Click Check Names → OK</li>
                                     </ol>
                                 </div>
@@ -214,43 +473,108 @@ import Header from '../../components/Header.astro';
                     <!-- Section 4: NTFS Permissions -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-yellow-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">4. NTFS Permissions Management</h3>
+                            <h3 class="text-2xl font-bold mb-4">
+                                4. NTFS Permissions Management
+                            </h3>
 
                             <div class="space-y-4">
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">Common NTFS Permissions</h4>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        Common NTFS Permissions
+                                    </h4>
                                     <div class="space-y-2 text-text-secondary">
-                                        <p className="flex items-center gap-2"><span className="bg-gray-700 px-2 py-1 rounded text-xs">Full Control</span> Complete access: read, write, modify, delete</p>
-                                        <p className="flex items-center gap-2"><span className="bg-gray-700 px-2 py-1 rounded text-xs">Modify</span> Read and write, but cannot delete</p>
-                                        <p className="flex items-center gap-2"><span className="bg-gray-700 px-2 py-1 rounded text-xs">Read & Execute</span> View and run files, cannot modify</p>
-                                        <p className="flex items-center gap-2"><span className="bg-gray-700 px-2 py-1 rounded text-xs">Read</span> View files only</p>
-                                        <p className="flex items-center gap-2"><span className="bg-gray-700 px-2 py-1 rounded text-xs">Write</span> Create and modify files</p>
+                                        <p class="flex items-center gap-2">
+                                            <span
+                                                class="bg-gray-700 px-2 py-1 rounded text-xs"
+                                                >Full Control</span
+                                            > Complete access: read, write, modify,
+                                            delete
+                                        </p>
+                                        <p class="flex items-center gap-2">
+                                            <span
+                                                class="bg-gray-700 px-2 py-1 rounded text-xs"
+                                                >Modify</span
+                                            > Read and write, but cannot delete
+                                        </p>
+                                        <p class="flex items-center gap-2">
+                                            <span
+                                                class="bg-gray-700 px-2 py-1 rounded text-xs"
+                                                >Read & Execute</span
+                                            > View and run files, cannot modify
+                                        </p>
+                                        <p class="flex items-center gap-2">
+                                            <span
+                                                class="bg-gray-700 px-2 py-1 rounded text-xs"
+                                                >Read</span
+                                            > View files only
+                                        </p>
+                                        <p class="flex items-center gap-2">
+                                            <span
+                                                class="bg-gray-700 px-2 py-1 rounded text-xs"
+                                                >Write</span
+                                            > Create and modify files
+                                        </p>
                                     </div>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-yellow-500/20 px-3 py-1 rounded text-sm">SET</span> Folder Permissions</h4>
-                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-yellow-500/20 px-3 py-1 rounded text-sm"
+                                            >SET</span
+                                        > Folder Permissions
+                                    </h4>
+                                    <ol
+                                        class="list-decimal list-inside text-text-secondary space-y-2 ml-4"
+                                    >
                                         <li>Right-click folder → Properties</li>
                                         <li>Go to Security tab</li>
                                         <li>Click Edit</li>
                                         <li>Click Add to add user/group</li>
-                                        <li>Type user/group name → Check Names</li>
-                                        <li>Select user/group, then set permissions:
-                                            <ul class="list-disc list-inside ml-4 mt-2">
-                                                <li>Check Allow boxes for permissions</li>
-                                                <li>Uncheck Deny boxes to block</li>
+                                        <li>
+                                            Type user/group name → Check Names
+                                        </li>
+                                        <li>
+                                            Select user/group, then set
+                                            permissions:
+                                            <ul
+                                                class="list-disc list-inside ml-4 mt-2"
+                                            >
+                                                <li>
+                                                    Check Allow boxes for
+                                                    permissions
+                                                </li>
+                                                <li>
+                                                    Uncheck Deny boxes to block
+                                                </li>
                                             </ul>
                                         </li>
                                         <li>Click Apply → OK</li>
                                     </ol>
                                 </div>
 
-                                <div class="bg-yellow-900/20 border border-yellow-700 rounded p-4">
-                                    <p class="text-yellow-300 font-semibold">⚠️ Permission Best Practices</p>
-                                    <ul class="list-disc list-inside text-text-secondary space-y-2 mt-2">
-                                        <li>Always use groups, not individual users</li>
-                                        <li>Follow least privilege principle</li>
+                                <div
+                                    class="bg-yellow-900/20 border border-yellow-700 rounded p-4"
+                                >
+                                    <p class="text-yellow-300 font-semibold">
+                                        ⚠️ Permission Best Practices
+                                    </p>
+                                    <ul
+                                        class="list-disc list-inside text-text-secondary space-y-2 mt-2"
+                                    >
+                                        <li>
+                                            Always use groups, not individual
+                                            users
+                                        </li>
+                                        <li>
+                                            Follow least privilege principle
+                                        </li>
                                         <li>Document all permission changes</li>
                                         <li>Review permissions quarterly</li>
                                         <li>Use inheritance wisely</li>
@@ -263,33 +587,90 @@ import Header from '../../components/Header.astro';
                     <!-- Section 5: Group Policy -->
                     <div class="space-y-6 mb-12">
                         <div class="border-l-4 border-red-500 pl-6">
-                            <h3 class="text-2xl font-bold mb-4">5. Group Policy Objects (GPO)</h3>
+                            <h3 class="text-2xl font-bold mb-4">
+                                5. Group Policy Objects (GPO)
+                            </h3>
 
                             <div class="space-y-4">
-                                <div class="bg-red-900/20 border border-red-700 rounded p-4 mb-4">
-                                    <p class="text-red-300 font-semibold">What is Group Policy?</p>
-                                    <p class="text-text-secondary text-sm mt-2">GPO is a set of rules that control how computers and users function. Centralized settings for security, software, and system configurations.</p>
+                                <div
+                                    class="bg-red-900/20 border border-red-700 rounded p-4 mb-4"
+                                >
+                                    <p class="text-red-300 font-semibold">
+                                        What is Group Policy?
+                                    </p>
+                                    <p class="text-text-secondary text-sm mt-2">
+                                        GPO is a set of rules that control how
+                                        computers and users function.
+                                        Centralized settings for security,
+                                        software, and system configurations.
+                                    </p>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3 flex items-center gap-2"><span class="bg-red-500/20 px-3 py-1 rounded text-sm">OPEN</span> Group Policy Editor</h4>
-                                    <ol class="list-decimal list-inside text-text-secondary space-y-2 ml-4">
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4
+                                        class="font-semibold mb-3 flex items-center gap-2"
+                                    >
+                                        <span
+                                            class="bg-red-500/20 px-3 py-1 rounded text-sm"
+                                            >OPEN</span
+                                        > Group Policy Editor
+                                    </h4>
+                                    <ol
+                                        class="list-decimal list-inside text-text-secondary space-y-2 ml-4"
+                                    >
                                         <li>Press Windows + R</li>
-                                        <li>Type: <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">gpmc.msc</code> (for domain GPO management)</li>
-                                        <li>Or type: <code class="bg-gray-900 px-2 py-1 rounded text-cyan-300">gpedit.msc</code> (for local policy)</li>
+                                        <li>
+                                            Type: <code
+                                                class="bg-gray-900 px-2 py-1 rounded text-cyan-300"
+                                                >gpmc.msc</code
+                                            > (for domain GPO management)
+                                        </li>
+                                        <li>
+                                            Or type: <code
+                                                class="bg-gray-900 px-2 py-1 rounded text-cyan-300"
+                                                >gpedit.msc</code
+                                            > (for local policy)
+                                        </li>
                                         <li>Press Enter</li>
                                     </ol>
                                 </div>
 
-                                <div class="bg-gray-800/30 border border-gray-700 rounded p-4">
-                                    <h4 class="font-semibold mb-3">Common GPO Configurations</h4>
-                                    <ul class="list-disc list-inside text-text-secondary space-y-2">
-                                        <li><strong>Password Policies:</strong> Length, complexity, expiration</li>
-                                        <li><strong>Account Lockout:</strong> Failed login attempts</li>
-                                        <li><strong>Software Installation:</strong> Deploy apps to users/computers</li>
-                                        <li><strong>Security Settings:</strong> Firewall, UAC, encryption</li>
-                                        <li><strong>Desktop/Start Menu:</strong> Restrict user options</li>
-                                        <li><strong>Windows Updates:</strong> Schedule and enforce</li>
+                                <div
+                                    class="bg-gray-800/30 border border-gray-700 rounded p-4"
+                                >
+                                    <h4 class="font-semibold mb-3">
+                                        Common GPO Configurations
+                                    </h4>
+                                    <ul
+                                        class="list-disc list-inside text-text-secondary space-y-2"
+                                    >
+                                        <li>
+                                            <strong>Password Policies:</strong> Length,
+                                            complexity, expiration
+                                        </li>
+                                        <li>
+                                            <strong>Account Lockout:</strong> Failed
+                                            login attempts
+                                        </li>
+                                        <li>
+                                            <strong
+                                                >Software Installation:</strong
+                                            > Deploy apps to users/computers
+                                        </li>
+                                        <li>
+                                            <strong>Security Settings:</strong> Firewall,
+                                            UAC, encryption
+                                        </li>
+                                        <li>
+                                            <strong>Desktop/Start Menu:</strong> Restrict
+                                            user options
+                                        </li>
+                                        <li>
+                                            <strong>Windows Updates:</strong> Schedule
+                                            and enforce
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -297,16 +678,42 @@ import Header from '../../components/Header.astro';
                     </div>
 
                     <!-- Pro Tips -->
-                    <div class="bg-purple-900/20 border border-purple-700 rounded-lg p-6 mt-8">
-                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">💡 Active Directory Pro Tips</h3>
+                    <div
+                        class="bg-purple-900/20 border border-purple-700 rounded-lg p-6 mt-8"
+                    >
+                        <h3
+                            class="text-xl font-bold mb-4 flex items-center gap-2"
+                        >
+                            💡 Active Directory Pro Tips
+                        </h3>
                         <ul class="space-y-2 text-text-secondary">
-                            <li>• Always use descriptive group names (e.g., "Sales_Dept_ReadOnly")</li>
-                            <li>• Enable "User must change password at next logon" for new accounts</li>
-                            <li>• Regularly audit group membership and permissions</li>
-                            <li>• Use OUs to organize users logically by department</li>
-                            <li>• Test GPO changes on test OUs before domain-wide deployment</li>
-                            <li>• Document all custom GPOs and their purposes</li>
-                            <li>• Enable AD Recycle Bin for accidental deletion recovery</li>
+                            <li>
+                                • Always use descriptive group names (e.g.,
+                                "Sales_Dept_ReadOnly")
+                            </li>
+                            <li>
+                                • Enable "User must change password at next
+                                logon" for new accounts
+                            </li>
+                            <li>
+                                • Regularly audit group membership and
+                                permissions
+                            </li>
+                            <li>
+                                • Use OUs to organize users logically by
+                                department
+                            </li>
+                            <li>
+                                • Test GPO changes on test OUs before
+                                domain-wide deployment
+                            </li>
+                            <li>
+                                • Document all custom GPOs and their purposes
+                            </li>
+                            <li>
+                                • Enable AD Recycle Bin for accidental deletion
+                                recovery
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -314,21 +721,44 @@ import Header from '../../components/Header.astro';
                 <!-- Additional Resources -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
                     <div class="card">
-                        <h3 class="text-xl font-semibold mb-4">📚 Related Documentation</h3>
+                        <h3 class="text-xl font-semibold mb-4">
+                            📚 Related Documentation
+                        </h3>
                         <ul class="text-text-secondary space-y-2">
-                            <li>• <a href={import.meta.env.BASE_URL + "projects/pc-setup-guide"} class="text-blue-400 hover:text-blue-300">Windows PC Setup Guide</a></li>
-                            <li>• <a href={import.meta.env.BASE_URL + "projects/backup-recovery-guide"} class="text-blue-400 hover:text-blue-300">Backup & Recovery Plan</a></li>
+                            <li>
+                                • <a
+                                    href={import.meta.env.BASE_URL +
+                                        "projects/pc-setup-guide"}
+                                    class="text-blue-400 hover:text-blue-300"
+                                    >Windows PC Setup Guide</a
+                                >
+                            </li>
+                            <li>
+                                • <a
+                                    href={import.meta.env.BASE_URL +
+                                        "projects/backup-recovery-guide"}
+                                    class="text-blue-400 hover:text-blue-300"
+                                    >Backup & Recovery Plan</a
+                                >
+                            </li>
                             <li>• Windows Security Best Practices</li>
                             <li>• Domain Migration Guide</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <h3 class="text-xl font-semibold mb-4">🛠️ Useful Tools & References</h3>
+                        <h3 class="text-xl font-semibold mb-4">
+                            🛠️ Useful Tools & References
+                        </h3>
                         <ul class="text-text-secondary space-y-2">
-                            <li>• Active Directory Users and Computers (dsa.msc)</li>
+                            <li>
+                                • Active Directory Users and Computers (dsa.msc)
+                            </li>
                             <li>• Group Policy Management (gpmc.msc)</li>
-                            <li>• Active Directory Administrative Center (dsac.exe)</li>
+                            <li>
+                                • Active Directory Administrative Center
+                                (dsac.exe)
+                            </li>
                             <li>• PowerShell Active Directory Module</li>
                         </ul>
                     </div>
@@ -346,19 +776,27 @@ import Header from '../../components/Header.astro';
 
 <script>
     // IT Support Projects - Active Directory Guide is an IT project
-    document.addEventListener('DOMContentLoaded', function() {
-        const backButton = document.getElementById('back-to-projects');
+    document.addEventListener("DOMContentLoaded", function () {
+        const backButton = document.getElementById("back-to-projects");
         if (backButton) {
-            backButton.addEventListener('click', function() {
-                const profile = localStorage.getItem('selectedProfile') || 'software-developer';
-                const baseUrl = window.location.pathname.startsWith('/portfolio') ? '/portfolio' : '';
-                
-                if (profile === 'it-support') {
+            backButton.addEventListener("click", function () {
+                const profile =
+                    localStorage.getItem("selectedProfile") ||
+                    "software-developer";
+                const baseUrl = window.location.pathname.startsWith(
+                    "/portfolio",
+                )
+                    ? "/portfolio"
+                    : "";
+
+                if (profile === "it-support") {
                     // Go to IT Support projects
-                    window.location.href = baseUrl + '/role-it-support/projects';
+                    window.location.href =
+                        baseUrl + "/role-it-support/projects";
                 } else {
                     // Default to Software Developer projects
-                    window.location.href = baseUrl + '/role-software-developer/projects';
+                    window.location.href =
+                        baseUrl + "/role-software-developer/projects";
                 }
             });
         }
