@@ -1,0 +1,568 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { profile, techStack, certifications, featuredProjects, skills, terminalCommands } from "../../data/devops-engineer.ts";
+
+const baseUrl = import.meta.env.BASE_URL;
+const certIconMap: Record<string, string> = {
+    "Google Cloud Fundamentals: Core Infrastructure":
+        "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z",
+    "CCNA: Introduction to Networks":
+        "M4 6h4v4H4V6zm12 0h4v4h-4V6zM10 14h4v4h-4v-4zM8 8l4 6m4-6l-4 6",
+    "Google IT Support Professional":
+        "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z",
+    default:
+        "M9 12l2 2 4-4M12 3l6 2v6c0 5-3.5 8-6 9-2.5-1-6-4-6-9V5l6-2z",
+};
+const getCertIcon = (title: string) => certIconMap[title] ?? certIconMap.default;
+const certColorMap: Record<string, { text: string; border: string; bg: string }> = {
+    blue: { text: "text-blue-400", border: "border-blue-500/40", bg: "bg-blue-500/10" },
+    cyan: { text: "text-cyan-400", border: "border-cyan-500/40", bg: "bg-cyan-500/10" },
+    green: { text: "text-green-400", border: "border-green-500/40", bg: "bg-green-500/10" },
+};
+const getCertColors = (color?: string) => certColorMap[color ?? ""] ?? certColorMap.green;
+---
+
+<Layout
+    title={`${profile.name} - ${profile.role}`}
+    description={profile.tagline}
+    canonical="/role-devops-engineer/"
+>
+    <main class="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-green-400">
+        <!-- Terminal Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+            <!-- Matrix-like background effect -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="matrix-rain"></div>
+            </div>
+
+            <div class="relative z-10 w-full max-w-5xl">
+                <!-- Terminal Window -->
+                <div class="bg-gray-950 border-2 border-green-500/30 rounded-lg shadow-2xl shadow-green-500/20 overflow-hidden">
+                    <!-- Terminal Header -->
+                    <div class="bg-gray-800 px-4 py-2 flex items-center gap-2 border-b border-green-500/30">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="text-gray-400 text-sm ml-4 font-mono">noorazami@outlook.my:~$</span>
+                    </div>
+
+                    <!-- Terminal Body -->
+                    <div class="p-6 sm:p-8 font-mono text-sm sm:text-base">
+                        <!-- Typewriter Effect Commands -->
+                        <div class="space-y-3">
+                            {terminalCommands.map((cmd, index) => (
+                                <div class="terminal-line" style={`animation-delay: ${index * 0.8}s`}>
+                                    <div class="flex items-start gap-2">
+                                        <span class="text-green-400 whitespace-nowrap">$</span>
+                                        <span class="text-green-300 typewriter" style={`animation-delay: ${index * 0.8}s`}>
+                                            {cmd.command}
+                                        </span>
+                                    </div>
+                                    <div class="text-gray-300 ml-4 mt-1 terminal-output" style={`animation-delay: ${index * 0.8 + 0.4}s`}>
+                                        {cmd.output}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <!-- CTA Section -->
+                        <div class="mt-8 pt-6 border-t border-green-500/20 terminal-output" style="animation-delay: 4.5s">
+                            <div class="flex items-start gap-2 mb-4">
+                                <span class="text-green-400">$</span>
+                                <span class="text-green-300">./deploy --portfolio</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 ml-4">
+                                <a
+                                    href={baseUrl + "role-devops-engineer/contact"}
+                                    class="px-6 py-3 bg-green-500 hover:bg-green-600 text-black font-bold rounded transition-all hover:shadow-lg hover:shadow-green-500/50 hover:scale-105"
+                                >
+                                    <span class="inline-flex items-center gap-2">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                        </svg>
+                                        Contact Me
+                                    </span>
+                                </a>
+                                <a
+                                    href={profile.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-green-400 border border-green-500/50 font-bold rounded transition-all hover:shadow-lg hover:shadow-green-500/30"
+                                >
+                                    <span class="inline-flex items-center gap-2">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                        </svg>
+                                        GitHub
+                                    </span>
+                                </a>
+                                <a
+                                    href={baseUrl + profile.resume}
+                                    download
+                                    class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-green-400 border border-green-500/50 font-bold rounded transition-all hover:shadow-lg hover:shadow-green-500/30"
+                                >
+                                    <span class="inline-flex items-center gap-2">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5l5 5v11a2 2 0 01-2 2z"></path>
+                                        </svg>
+                                        Resume
+                                    </span>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- Blinking Cursor -->
+                        <div class="flex items-center gap-2 mt-4 terminal-output" style="animation-delay: 5s">
+                            <span class="text-green-400">$</span>
+                            <span class="blinking-cursor">_</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="text-center mt-8 animate-bounce">
+                    <a href="#tech-stack" class="text-green-400 hover:text-green-300">
+                        <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                        <span class="text-xs font-mono mt-2 block">SCROLL_DOWN</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="tech-stack" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-950/50">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 font-mono">
+                    <span class="text-green-400">&lt;</span>
+                    <span class="text-white">TECH_STACK</span>
+                    <span class="text-green-400">/&gt;</span>
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Infrastructure -->
+                    <div class="bg-gray-900 border border-green-500/30 rounded-lg p-6 hover:border-green-500/60 transition-all">
+                        <h3 class="text-xl font-bold text-green-400 mb-4 font-mono flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                            </svg>
+                            Infrastructure & Cloud
+                        </h3>
+                        <div class="space-y-3">
+                            {techStack.infrastructure.map(tech => (
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="inline-flex items-center gap-2 text-gray-300 font-mono text-sm">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L4.5 12.75l5.25-4.25m4.5 0l5.25 4.25L14.25 17"></path>
+                                            </svg>
+                                            {tech.name}
+                                        </span>
+                                        <span class="text-green-400 text-xs">{tech.level}%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-full h-2">
+                                        <div 
+                                            class="bg-gradient-to-r from-green-500 to-emerald-400 h-2 rounded-full transition-all duration-1000"
+                                            style={`width: ${tech.level}%`}
+                                        ></div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <!-- CI/CD -->
+                    <div class="bg-gray-900 border border-green-500/30 rounded-lg p-6 hover:border-green-500/60 transition-all">
+                        <h3 class="text-xl font-bold text-green-400 mb-4 font-mono flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            CI/CD & Automation
+                        </h3>
+                        <div class="space-y-3">
+                            {techStack.cicd.map(tech => (
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="inline-flex items-center gap-2 text-gray-300 font-mono text-sm">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h10M4 17h7"></path>
+                                            </svg>
+                                            {tech.name}
+                                        </span>
+                                        <span class="text-green-400 text-xs">{tech.level}%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-full h-2">
+                                        <div 
+                                            class="bg-gradient-to-r from-green-500 to-emerald-400 h-2 rounded-full transition-all duration-1000"
+                                            style={`width: ${tech.level}%`}
+                                        ></div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="bg-gray-900 border border-green-500/30 rounded-lg p-6 hover:border-green-500/60 transition-all">
+                        <h3 class="text-xl font-bold text-green-400 mb-4 font-mono flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10a2 2 0 002 2h12a2 2 0 002-2V7M4 7l4-4h8l4 4"></path>
+                            </svg>
+                            Backend & Databases
+                        </h3>
+                        <div class="space-y-3">
+                            {techStack.backend.map(tech => (
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="inline-flex items-center gap-2 text-gray-300 font-mono text-sm">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c4.418 0 8-1.343 8-3s-3.582-3-8-3-8 1.343-8 3 3.582 3 8 3zm0 0c-4.418 0-8 1.343-8 3s3.582 3 8 3 8-1.343 8-3-3.582-3-8-3zm0 6c-4.418 0-8 1.343-8 3s3.582 3 8 3 8-1.343 8-3-3.582-3-8-3z"></path>
+                                            </svg>
+                                            {tech.name}
+                                        </span>
+                                        <span class="text-green-400 text-xs">{tech.level}%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-full h-2">
+                                        <div 
+                                            class="bg-gradient-to-r from-green-500 to-emerald-400 h-2 rounded-full transition-all duration-1000"
+                                            style={`width: ${tech.level}%`}
+                                        ></div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <!-- AI -->
+                    <div class="bg-gray-900 border border-green-500/30 rounded-lg p-6 hover:border-green-500/60 transition-all">
+                        <h3 class="text-xl font-bold text-green-400 mb-4 font-mono flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0-4a4 4 0 00-4 4v3a2 2 0 002 2h4a2 2 0 002-2v-3a4 4 0 00-4-4zm0 0V5m-3 0h6M9 19h6"></path>
+                            </svg>
+                            AI & Innovation
+                        </h3>
+                        <div class="space-y-3">
+                            {techStack.ai.map(tech => (
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="inline-flex items-center gap-2 text-gray-300 font-mono text-sm">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.5 3A2.5 2.5 0 007 5.5v13A2.5 2.5 0 009.5 21h5a2.5 2.5 0 002.5-2.5v-13A2.5 2.5 0 0014.5 3h-5z"></path>
+                                            </svg>
+                                            {tech.name}
+                                        </span>
+                                        <span class="text-green-400 text-xs">{tech.level}%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-full h-2">
+                                        <div 
+                                            class="bg-gradient-to-r from-green-500 to-emerald-400 h-2 rounded-full transition-all duration-1000"
+                                            style={`width: ${tech.level}%`}
+                                        ></div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infrastructure Projects Section -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 font-mono">
+                    <span class="text-green-400">// </span>
+                    <span class="text-white">FEATURED_INFRASTRUCTURE</span>
+                </h2>
+
+                <div class="space-y-8">
+                    {featuredProjects.map((project) => (
+                        <div class="bg-gray-900 border border-green-500/30 rounded-lg overflow-hidden hover:border-green-500/60 transition-all hover:shadow-xl hover:shadow-green-500/10">
+                            <div class="p-6 sm:p-8">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 rounded-lg bg-green-500/10 border border-green-500/30 flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-bold text-white mb-2">{project.title}</h3>
+                                        <span class="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-sm font-mono rounded">
+                                            {project.type}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <p class="text-gray-300 mb-6">{project.description}</p>
+
+                                <!-- Architecture Flow (Mermaid-style with CSS) -->
+                                <div class="bg-black/50 border border-green-500/20 rounded-lg p-4 mb-6 font-mono text-sm">
+                                    <div class="text-green-400 mb-3 font-bold inline-flex items-center gap-2">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h5v5H4V6zm11 0h5v5h-5V6zM4 13h5v5H4v-5zm11 0h5v5h-5v-5z"></path>
+                                        </svg>
+                                        Architecture Flow:
+                                    </div>
+                                    <div class="space-y-2">
+                                        {project.architecture.map((flow, index) => (
+                                            <div class="flex items-center gap-2 text-gray-300">
+                                                <span class="text-green-500">{index + 1}.</span>
+                                                <span class="flex-1">{flow}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <!-- Highlights -->
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                                    {project.highlights.map((highlight) => (
+                                        <div class="flex items-start gap-2 text-gray-300 text-sm">
+                                            <svg class="w-4 h-4 text-green-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                            <span>{highlight}</span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <!-- Tech Tags -->
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    {project.tech.map((tech) => (
+                                        <span class="px-3 py-1 bg-gray-800 text-green-400 text-xs font-mono border border-green-500/30 rounded">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <!-- View Project Link -->
+                                {project.link !== "#" && (
+                                    <a
+                                        href={baseUrl + project.link}
+                                        class="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-mono text-sm transition-colors"
+                                    >
+                                        <span>→ View Full Architecture</span>
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div class="text-center mt-10">
+                    <a
+                        href={baseUrl + "role-devops-engineer/architecture"}
+                        class="inline-flex items-center gap-2 px-5 py-2 bg-gray-900 hover:bg-gray-800 text-green-400 border border-green-500/40 font-mono rounded transition-all"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h5v5H4V6zm11 0h5v5h-5V6zM4 13h5v5H4v-5zm11 0h5v5h-5v-5z"></path>
+                        </svg>
+                        View All Architectures
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-950/50">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 font-mono">
+                    <span class="text-green-400 inline-flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M12 3l6 2v6c0 5-3.5 8-6 9-2.5-1-6-4-6-9V5l6-2z"></path>
+                        </svg>
+                    </span>
+                    <span class="text-white">CERTIFICATIONS</span>
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {certifications.map((cert) => (
+                        (() => {
+                            const colors = getCertColors(cert.color);
+                            return (
+                        <div class="bg-gray-900 border border-green-500/30 rounded-lg p-6 text-center hover:border-green-500/60 transition-all hover:scale-105">
+                            <div class="flex justify-center mb-4">
+                                <div class={`w-14 h-14 rounded-full ${colors.bg} ${colors.border} flex items-center justify-center border`}>
+                                    {(() => {
+                                        const iconPath = getCertIcon(cert.title);
+                                        return (
+                                            <svg class={`w-7 h-7 ${colors.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={iconPath}></path>
+                                            </svg>
+                                        );
+                                    })()}
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">{cert.title}</h3>
+                            <p class={`text-sm mb-2 ${colors.text}`}>{cert.issuer}</p>
+                            <span class={`inline-block px-3 py-1 text-xs font-mono rounded ${colors.text} ${colors.bg} border ${colors.border}`}>
+                                {cert.year}
+                            </span>
+                        </div>
+                            );
+                        })()
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Matrix -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 font-mono">
+                    <span class="text-green-400">$ cat </span>
+                    <span class="text-white">skills.json</span>
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {skills.map((skillSet) => (
+                        <div class="bg-gray-900 border border-green-500/30 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-green-400 mb-4 font-mono">{skillSet.category}</h3>
+                            <ul class="space-y-2">
+                                {skillSet.items.map((item) => (
+                                    <li class="text-gray-300 flex items-start gap-2">
+                                        <span class="text-green-400 mt-1">▹</span>
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-950/50">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="bg-gray-900 border-2 border-green-500/30 rounded-lg p-8 sm:p-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 font-mono">
+                        Ready to Deploy?
+                    </h2>
+                    <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+                        Let's build scalable infrastructure together. Available for internships, collaborations, and DevOps opportunities.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a
+                            href={baseUrl + "role-devops-engineer/contact"}
+                            class="px-8 py-4 bg-green-500 hover:bg-green-600 text-black font-bold rounded-lg transition-all hover:shadow-lg hover:shadow-green-500/50 hover:scale-105"
+                        >
+                            <span class="inline-flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                </svg>
+                                Get In Touch
+                            </span>
+                        </a>
+                        <a
+                            href={baseUrl + "role-devops-engineer/experience"}
+                            class="px-8 py-4 bg-gray-800 hover:bg-gray-700 text-green-400 border border-green-500/50 font-bold rounded-lg transition-all"
+                        >
+                            <span class="inline-flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path>
+                                </svg>
+                                View Experience
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    /* Terminal Typewriter Effect */
+    @keyframes typewriter {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .typewriter {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        animation: typewriter 1s steps(40) forwards;
+        opacity: 0;
+        animation-fill-mode: forwards;
+    }
+
+    .terminal-line,
+    .terminal-output {
+        opacity: 0;
+        animation: fadeIn 0.3s forwards;
+    }
+
+    .blinking-cursor {
+        animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+        0%, 50% {
+            opacity: 1;
+        }
+        51%, 100% {
+            opacity: 0;
+        }
+    }
+
+    /* Matrix Rain Effect */
+    .matrix-rain {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, transparent 0%, rgba(16, 185, 129, 0.05) 100%);
+        animation: rain 20s linear infinite;
+    }
+
+    @keyframes rain {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(100%);
+        }
+    }
+
+    /* Smooth Scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #10b981;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #059669;
+    }
+</style>

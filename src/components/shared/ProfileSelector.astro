@@ -126,6 +126,43 @@
                         </li>
                     </ul>
                 </button>
+
+                <!-- DevOps Engineer Option -->
+                <button 
+                    id="select-devops-engineer" 
+                    class="profile-option group relative h-full text-left p-6 border-2 border-gray-700/50 rounded-xl hover:border-orange-500 hover:bg-orange-500/5 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20"
+                    data-profile="devops-engineer"
+                >
+                    <!-- Hover accent line -->
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 to-orange-500/50 rounded-t-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <!-- Icon Box -->
+                    <div class="w-16 h-16 bg-orange-500/15 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-500/25 transition-colors">
+                        <svg class="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+                        </svg>
+                    </div>
+                    
+                    <!-- Content -->
+                    <h2 class="text-lg font-bold text-white group-hover:text-orange-300 transition-colors mb-1">DevOps</h2>
+                    <p class="text-xs text-text-secondary mb-4 font-medium">Engineer</p>
+                    
+                    <!-- Features -->
+                    <ul class="space-y-2.5">
+                        <li class="flex items-center gap-2.5 text-sm text-text-secondary">
+                            <span class="w-1.5 h-1.5 bg-orange-400 rounded-full flex-shrink-0"></span>
+                            <span>CI/CD Pipelines</span>
+                        </li>
+                        <li class="flex items-center gap-2.5 text-sm text-text-secondary">
+                            <span class="w-1.5 h-1.5 bg-orange-400 rounded-full flex-shrink-0"></span>
+                            <span>Cloud Infrastructure</span>
+                        </li>
+                        <li class="flex items-center gap-2.5 text-sm text-text-secondary">
+                            <span class="w-1.5 h-1.5 bg-orange-400 rounded-full flex-shrink-0"></span>
+                            <span>Container Orchestration</span>
+                        </li>
+                    </ul>
+                </button>
             </div>
 
             <!-- Info Section -->
@@ -156,6 +193,7 @@
         const itSupportBtn = document.getElementById('select-it-support');
         const softwareDevBtn = document.getElementById('select-software-dev');
         const dataAnalystBtn = document.getElementById('select-data-analyst');
+        const devopsEngineerBtn = document.getElementById('select-devops-engineer');
         const modal = document.getElementById('profile-modal');
 
         if (itSupportBtn) {
@@ -173,6 +211,12 @@
         if (dataAnalystBtn) {
             dataAnalystBtn.addEventListener('click', () => {
                 selectProfile('data-analyst');
+            });
+        }
+
+        if (devopsEngineerBtn) {
+            devopsEngineerBtn.addEventListener('click', () => {
+                selectProfile('devops-engineer');
             });
         }
 
@@ -212,6 +256,8 @@
             redirectUrl = baseUrl + '/home-it-support/';
         } else if (profile === 'data-analyst') {
             redirectUrl = baseUrl + '/role-data-analyst/';
+        } else if (profile === 'devops-engineer') {
+            redirectUrl = baseUrl + '/role-devops-engineer/';
         } else {
             redirectUrl = baseUrl + '/home-software-developer/';
         }
