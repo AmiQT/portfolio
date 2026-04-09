@@ -4,6 +4,7 @@ import IdeActivityBar from "../../components/software-dev/IdeActivityBar.astro";
 import IdeSidebar from "../../components/software-dev/IdeSidebar.astro";
 import MobileNav from "../../components/software-dev/MobileNav.astro";
 import NotebookCell from "../../components/software-dev/NotebookCell.astro";
+import InfraNote from "../../components/InfraNote.astro";
 
 const project = {
     title: "AI Resume Builder",
@@ -142,6 +143,7 @@ const files = [
                 class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth"
                 id="project-content"
             >
+                <InfraNote />
                 <NotebookCell
                     cellNumber={1}
                     code={`// Project: AI Resume Builder\nconst config = {\n  model: "Gemini-1.5-Pro",\n  auth: "Supabase",\n  hosting: "Vercel & Railway"\n};`}

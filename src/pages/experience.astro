@@ -4,6 +4,7 @@ import IdeActivityBar from '../components/software-dev/IdeActivityBar.astro';
 import IdeSidebar from '../components/software-dev/IdeSidebar.astro';
 import MobileNav from '../components/software-dev/MobileNav.astro';
 import NotebookCell from '../components/software-dev/NotebookCell.astro';
+import { experiencesData } from '../data/experience';
 
 // Files for sidebar
 const files = [
@@ -12,44 +13,7 @@ const files = [
     { name: 'about.md', active: false, icon: '📄', href: import.meta.env.BASE_URL + 'about' },
 ];
 
-const experiences = [
-    {
-        title: "Vice President Club, Information Technology Club",
-        organization: "Universiti Tun Hussein Onn Malaysia",
-        duration: "December 2023 - January 2025",
-        icon: "🎯",
-        color: "blue",
-        responsibilities: [
-            "Successfully managed and executed 17 club events, including meetings, annual grand dinners, and team-building activities.",
-            "Provided critical support to the club president, including assisting with urgent matters and representing the club in official settings.",
-            "Actively participated in and led various club departments, demonstrating strong leadership and teamwork skills."
-        ]
-    },
-    {
-        title: "Facilitator Food Department Orientation Day (MHS)",
-        organization: "Universiti Tun Hussein Onn Malaysia",
-        duration: "October 2024 (2 Weeks)",
-        icon: "🍽️",
-        color: "green",
-        responsibilities: [
-            "Managed a food station responsible for collecting, gathering, and distributing food packs to 1900 students.",
-            "Conducted thorough inspections of food upon delivery from vendors to ensure quantity, quality, and safety standards were met.",
-            "Prioritized the dietary needs of all participants, ensuring immediate replacement of any food items causing allergic reactions."
-        ]
-    },
-    {
-        title: "Student Representative Council",
-        organization: "MPP Universiti Teknologi MARA, Johor",
-        duration: "December 2021 - February 2023",
-        icon: "📣",
-        color: "purple",
-        responsibilities: [
-            "Proficient in managing and creating engaging content for Instagram, Facebook, and Telegram platforms.",
-            "Skilled in designing and producing high-quality visual content, including social media graphics, mockups, and merchandise designs.",
-            "Experienced in editing video content for various purposes, including montages, trailers, and opening event sequences."
-        ]
-    }
-];
+const experiences = experiencesData.general;
 ---
 
 <Layout title="Experience - Noor Azami" description="Explore the professional experience and timeline of Noor Azami, highlighting key roles and accomplishments.">

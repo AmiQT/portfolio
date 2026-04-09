@@ -1,18 +1,23 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { profile } from "../../data/devops-engineer.ts";
+import { experiencesData } from "../../data/experience";
 
+// Use the "DevOps" angle — focuses on IAM, Compliance-as-Code, and Systems Automation
+const experiences = experiencesData.devops;
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout
-    title={`${profile.name} - DevOps Experience`}
-    description="DevOps Engineer experience and infrastructure journey."
+    title={`${profile.name} - DevOps Systems Experience`}
+    description="Systems Automation, Compliance-as-Code, and IAM management experience viewed through a DevOps engineering lens."
     canonical="/role-devops-engineer/experience/"
 >
     <main class="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-green-400">
         <section class="py-20 px-4 sm:px-6 lg:px-8">
             <div class="max-w-5xl mx-auto">
+
+                <!-- Terminal Header -->
                 <div class="bg-gray-950 border-2 border-green-500/30 rounded-lg shadow-2xl shadow-green-500/20 overflow-hidden">
                     <div class="bg-gray-800 px-4 py-2 flex items-center gap-2 border-b border-green-500/30">
                         <div class="flex gap-2">
@@ -20,68 +25,71 @@ const baseUrl = import.meta.env.BASE_URL;
                             <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
                             <div class="w-3 h-3 rounded-full bg-green-500"></div>
                         </div>
-                        <span class="text-gray-400 text-sm ml-4 font-mono">ami@devops:~/experience$</span>
+                        <span class="text-gray-400 text-sm ml-4 font-mono">ami@devops:~/experience$ cat experience.yaml</span>
                     </div>
 
                     <div class="p-6 sm:p-8 font-mono">
-                        <h1 class="text-3xl sm:text-4xl font-bold text-white mb-4">DevOps Experience</h1>
-                        <p class="text-gray-300 mb-8">
-                            Focused on cloud infrastructure, automation, and scalable deployments. Below is a concise timeline.
-                        </p>
+                        <!-- Hero text -->
+                        <div class="mb-8">
+                            <h1 class="text-3xl sm:text-4xl font-bold text-white mb-3">Infrastructure & Automation Experience</h1>
+                            <p class="text-gray-400 text-sm">
+                                <span class="text-green-400"># Angle:</span> Compliance-as-Code · IAM · Systems Automation · Security Hardening
+                            </p>
+                        </div>
 
-                        <div class="space-y-4">
-                            <div class="bg-gray-900 border border-green-500/30 rounded-lg p-5">
-                                <div class="flex items-center gap-3 mb-2">
-                                    <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path>
-                                    </svg>
-                                    <span class="text-white font-semibold">Incoming IT Digital Intern</span>
-                                </div>
-                                <p class="text-green-400 text-sm mb-2">DayOne • Feb 2026</p>
-                                <p class="text-gray-300">
-                                    Build automation workflows, improve deployment pipelines, and support cloud infrastructure operations.
-                                </p>
-                            </div>
+                        <!-- Experience Cards -->
+                        <div class="space-y-6">
+                            {experiences.map((exp, index) => (
+                                <div class="bg-gray-900 border border-green-500/30 hover:border-green-500/60 rounded-lg p-5 transition-all duration-300">
+                                    <!-- Terminal-style header for each card -->
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="text-2xl">{exp.icon}</span>
+                                        <div>
+                                            <h3 class="text-white font-semibold text-lg">{exp.title}</h3>
+                                            <p class="text-green-400 text-sm">{exp.organization} &bull; {exp.duration}</p>
+                                        </div>
+                                    </div>
 
-                            <div class="bg-gray-900 border border-green-500/30 rounded-lg p-5">
-                                <div class="flex items-center gap-3 mb-2">
-                                    <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10a2 2 0 002 2h12a2 2 0 002-2V7M4 7l4-4h8l4 4"></path>
-                                    </svg>
-                                    <span class="text-white font-semibold">Cloud Infrastructure Projects</span>
+                                    <!-- Responsibilities as terminal output -->
+                                    <div class="pl-4 border-l-2 border-green-500/30 mt-3 space-y-2">
+                                        {exp.responsibilities.map((resp) => (
+                                            <div class="flex gap-2 text-sm">
+                                                <span class="text-green-500 select-none">→</span>
+                                                <span class="text-gray-300">{resp}</span>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                                <p class="text-green-400 text-sm mb-2">2023 - Present</p>
-                                <p class="text-gray-300">
-                                    Deployed multi-service apps using Docker, CI/CD, and managed databases with AWS and Supabase.
-                                </p>
-                            </div>
+                            ))}
+                        </div>
 
-                            <div class="bg-gray-900 border border-green-500/30 rounded-lg p-5">
-                                <div class="flex items-center gap-3 mb-2">
-                                    <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
-                                    </svg>
-                                    <span class="text-white font-semibold">Automation & CI/CD</span>
-                                </div>
-                                <p class="text-green-400 text-sm mb-2">GitHub Actions • Docker Compose</p>
-                                <p class="text-gray-300">
-                                    Automated builds, testing, and deployments with repeatable workflows and versioned releases.
-                                </p>
+                        <!-- Tech Skills Row -->
+                        <div class="mt-10">
+                            <p class="text-green-400 font-mono text-sm mb-4">
+                                <span class="text-gray-500"># </span>core_competencies:
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                {["Python", "PowerShell", "Active Directory", "M365 IAM", "Compliance-as-Code", "CI/CD", "Docker", "AWS EC2", "Security Auditing"].map(skill => (
+                                    <span class="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded text-green-300 text-xs font-mono">
+                                        {skill}
+                                    </span>
+                                ))}
                             </div>
                         </div>
 
+                        <!-- CTA -->
                         <div class="mt-8 flex flex-wrap gap-3">
                             <a
                                 href={baseUrl + "role-devops-engineer/"}
-                                class="px-5 py-2 bg-gray-800 hover:bg-gray-700 text-green-400 border border-green-500/50 font-semibold rounded"
+                                class="px-5 py-2 bg-gray-800 hover:bg-gray-700 text-green-400 border border-green-500/50 font-semibold rounded transition-colors"
                             >
-                                Back to DevOps Home
+                                ← Back to DevOps Home
                             </a>
                             <a
                                 href={baseUrl + "role-devops-engineer/contact"}
-                                class="px-5 py-2 bg-green-500 hover:bg-green-600 text-black font-semibold rounded"
+                                class="px-5 py-2 bg-green-500 hover:bg-green-600 text-black font-semibold rounded transition-colors"
                             >
-                                Contact Me
+                                Request Live Demo →
                             </a>
                         </div>
                     </div>

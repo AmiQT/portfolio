@@ -248,12 +248,13 @@
         window.dispatchEvent(new CustomEvent('profileSelected', { detail: { profile } }));
         
         // Get base URL
-        const baseUrl = window.location.pathname.startsWith('/portfolio') ? '/portfolio' : '';
+        const isPortfolio = window.location.pathname.includes('/portfolio');
+        const baseUrl = isPortfolio ? '/portfolio' : '';
         
         // Redirect to appropriate home page based on profile
         let redirectUrl;
         if (profile === 'it-support') {
-            redirectUrl = baseUrl + '/home-it-support/';
+            redirectUrl = baseUrl + '/';
         } else if (profile === 'data-analyst') {
             redirectUrl = baseUrl + '/role-data-analyst/';
         } else if (profile === 'devops-engineer') {
@@ -261,6 +262,11 @@
         } else {
             redirectUrl = baseUrl + '/home-software-developer/';
         }
+        
+        // Ensure we don't have double slashes if baseUrl is empty
+        redirectUrl = redirectUrl.replace(/\/+/g, '/');
+        // But keep the protocol/domain slashes if any (though here it's paths)
+        if (!redirectUrl.startsWith('/')) redirectUrl = '/' + redirectUrl;
         
         setTimeout(() => {
             window.location.href = redirectUrl;

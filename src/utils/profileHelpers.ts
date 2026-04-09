@@ -49,7 +49,7 @@ export function getProjectsUrl(profile: ProfileType, baseUrl: string = '/portfol
  */
 export function getHomeUrl(profile: ProfileType, baseUrl: string = '/portfolio/'): string {
   const profileMap: Record<ProfileType, string> = {
-    'it-support': `${baseUrl}home-it-support/`,
+    'it-support': `${baseUrl}`,
     'software-developer': `${baseUrl}home-software-developer/`,
     'data-analyst': `${baseUrl}role-data-analyst/`,
   };

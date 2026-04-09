@@ -1,12 +1,12 @@
 export const profile = {
     name: "Muhammad Noor Azami",
     nickname: "Ami / AmiQT",
-    role: "DevOps Engineer",
-    tagline: "AI-Enhanced Developer & Aspiring DevOps Engineer",
-    status: "Final Year IT Student @ UTHM (Graduating 2026)",
-    internship: "Incoming IT Digital Intern at DayOne (Feb 2026)",
+    role: "AI-Enhanced Systems & Cloud Engineer",
+    tagline: "Building resilient infrastructure through automation and AI-assisted engineering.",
+    status: "IT Support Intern @ DayOne | Final Year IT Student @ UTHM (Graduating 2026)",
+    internship: "Active IT Support Intern at DayOne (Since Feb 2026)",
     location: ["Remote", "Hybrid", "On-site"],
-    bio: "Building scalable cloud infrastructure and automating deployment pipelines. Passionate about Infrastructure as Code, CI/CD, and container orchestration.",
+    bio: "Architecting scalable cloud infrastructure and automating mission-critical deployment pipelines. Specialized in Zero-Trust security, CI/CD orchestration, and AI-accelerated dev workflows.",
     avatar: "assets/profile.webp",
     resume: "assets/Fullstack_Developer_Intern.pdf",
     github: "https://github.com/AmiQT",
@@ -15,10 +15,11 @@ export const profile = {
 
 export const techStack = {
     infrastructure: [
-        { name: "AWS EC2 (t2/t3 micro)", icon: "☁️", color: "orange", level: 75 },
-        { name: "Cloudflare Tunnel", icon: "🔒", color: "orange", level: 80 },
-        { name: "Docker", icon: "🐳", color: "blue", level: 80 },
-        { name: "Railway", icon: "🚂", color: "purple", level: 80 }
+        { name: "AWS EC2 & Networking", icon: "☁️", color: "orange", level: 75 },
+        { name: "Docker & Containerization", icon: "🐳", color: "blue", level: 80 },
+        { name: "Cloudflare Zero Trust", icon: "🔒", color: "orange", level: 85 },
+        { name: "Kubernetes (K8s) [Roadmap]", icon: "☸️", color: "blue", level: 40 },
+        { name: "Ansible (IaC) [Roadmap]", icon: "📜", color: "red", level: 35 }
     ],
     cicd: [
         { name: "GitHub Actions (Auto-Deploy)", icon: "⚡", color: "green", level: 85 },
@@ -65,68 +66,71 @@ export const certifications = [
 
 export const featuredProjects = [
     {
-        title: "Student Talent Profiling App (FYP)",
-        type: "Zero-Trust DevSecOps Pipeline",
-        description: "Enterprise-grade deployment ecosystem. Features an automated CI/CD pipeline moving code from GitHub to AWS via GHCR, secured behind Cloudflare Zero Trust tunnels.",
+        title: "Enterprise IT Asset Auditing & Automation",
+        type: "Data Ops & Automations",
+        description: "Engineered a robust Python automation suite that eliminated 90% of manual hardware tracking toil for 200+ employees. Designed a self-cleaning dataset architecture with smart rate-limiting to orchestrate high-reliability notification blasts.",
         architecture: [
-            "Git Push → GitHub Actions (Build & Cache)",
-            "Push Image → GHCR (Private Registry)",
-            "SSH Remote → AWS EC2 (via Appleboy Action)",
-            "Docker Pull → Container Restart & Health Check",
-            "Public Access → Cloudflare Tunnel (No Open Ports)"
+            "Data Ingestion → Optimized Pandas batch extraction",
+            "Sanitization → Differential user removal from master CSV",
+            "Broadcasting → Win32COM Outlook API abstraction",
+            "Throttle Control → Intelligent Rate Limiting logic",
+            "Observability → Real-time synchronous audit logging"
         ],
         highlights: [
-            "Zero Open Ports (AWS Security Group only allows SSH)",
-            "Multi-arch Docker Build (linux/amd64)",
-            "Automated Health Probes (/health endpoint)",
-            "GHCR Integration over Docker Hub"
+            "Achieved 90% reduction in manual audit toil",
+            "High-integrity data sanitization engine",
+            "Architected for AI-assisted error handling",
+            "Synchronous accountability & observability trail"
         ],
-        tech: ["AWS EC2", "GHCR", "GitHub Actions", "Cloudflare Tunnel", "Docker"],
+        tech: ["Python", "Pandas", "Win32COM", "Data Ops", "AI Assisted"],
+        icon: "⚙️",
+        color: "green",
+        link: "projects/it-asset-automation"
+    },
+    {
+        title: "Student Talent Profiling Ecosystem",
+        type: "Zero-Trust Cloud Architecture",
+        description: "Architected a secure, multi-tier deployment ecosystem moving from local development to production via automated CI/CD pipelines, secured behind Zero-Trust tunnels.",
+        architecture: [
+            "CI: GitHub Actions (Build Optimization & Layer Caching)",
+            "Registry: GHCR (Encrypted Private Image Management)",
+            "CD: Automated SSH Deployment with zero-exposure keys",
+            "Runtime: Docker Container Orchestration & Health Probes",
+            "Ingress: Cloudflare Zero Trust Tunnels (No Open Ports)"
+        ],
+        highlights: [
+            "Eliminated all open firewall ports for production traffic",
+            "Implemented multi-architecture Docker distribution",
+            "Automated health-probe recovery & observability",
+            "Secured via Enterprise-grade Cloudflare access policies"
+        ],
+        tech: ["AWS", "GitHub Actions", "Docker", "Cloudflare Zero Trust"],
         icon: "🎓",
         color: "cyan",
-        link: "role-devops-engineer/architecture/student-talent-profiling"
+        link: "role-devops-engineer/architecture/student-talent-profiling",
+        infraStatus: { frontend: "Active", backend: "On-Demand (FinOps Optimized)" }
     },
     {
-        title: "Resume AI (SaaS)",
-        type: "Scalable Architecture",
-        description: "Production-ready SaaS platform with decoupled frontend and backend architecture. Implements policy compliance and multi-tenant infrastructure deployed across multiple cloud providers.",
+        title: "Resume AI SaaS Infrastructure",
+        type: "Cloud-Native Scalability",
+        description: "Designed a decoupled cloud-native architecture for high availability, utilizing managed databases and edge network distribution for global latency reduction.",
         architecture: [
-            "React Frontend → Vercel (Edge Network)",
-            "FastAPI Backend → Railway (Serverless)",
-            "PostgreSQL → Supabase (Managed DB)",
-            "Gemini API → AI Processing"
+            "Edge Serving → Vercel Global Content Delivery",
+            "Compute → Scalable PaaS (Railway) with automatic re-scaling",
+            "Persistence → Managed PostgreSQL with connection pooling",
+            "AI Inference → Managed API gateways for LLM processing"
         ],
         highlights: [
-            "Frontend and backend independently scalable",
-            "Zero-downtime deployments with Railway",
-            "Global CDN distribution via Vercel",
-            "Auto-scaling based on traffic"
+            "Zero-downtime deployment pipelines for microservices",
+            "Achieved <200ms global latency for UI rendering",
+            "Scalable compute handles surge traffic seamlessly",
+            "Engineered with AI-assisted code optimization flow"
         ],
-        tech: ["Vercel", "Railway", "FastAPI", "Supabase", "Docker"],
+        tech: ["Vercel", "Railway", "Supabase", "FastAPI", "AI Integration"],
         icon: "📄",
         color: "orange",
-        link: "role-devops-engineer/architecture/ai-resume-builder"
-    },
-    {
-        title: "Smart Attendance System",
-        type: "Firebase Integration",
-        description: "Real-time attendance tracking system leveraging Firebase's cloud infrastructure for instant synchronization.",
-        architecture: [
-            "Mobile App → Firebase Auth",
-            "Firestore → Real-time Database",
-            "Cloud Functions → Business Logic",
-            "Firebase Hosting → Admin Dashboard"
-        ],
-        highlights: [
-            "Real-time data synchronization",
-            "Serverless cloud functions",
-            "Automatic scaling with Firebase",
-            "Secure authentication system"
-        ],
-        tech: ["Firebase", "Cloud Functions", "Firestore", "Flutter"],
-        icon: "📱",
-        color: "yellow",
-        link: "role-devops-engineer/architecture/smart-attendance"
+        link: "role-devops-engineer/architecture/ai-resume-builder",
+        infraStatus: { frontend: "Active", backend: "On-Demand (FinOps Optimized)" }
     }
 ];
 
@@ -175,8 +179,8 @@ export const skills = [
 
 export const terminalCommands = [
     { command: "whoami", output: "Muhammad Noor Azami (AmiQT)" },
-    { command: "cat /etc/role", output: "DevOps Engineer & Cloud Infrastructure Specialist" },
-    { command: "cloudflared tunnel run fyp-dashboard", output: "✓ Tunnel connected | https://fyp.amiqt.tech" },
-    { command: 'docker ps --format "table {{.Names}}\\t{{.Status}}"', output: "fyp-backend     Up 2 days (healthy)" },
-    { command: "gh workflow run deploy.yml", output: "✓ Workflow triggered | Building & deploying to AWS..." }
+    { command: "cat /etc/role", output: "AI-Enhanced Systems & Cloud Engineering" },
+    { command: "cloudflared tunnel status", output: "✓ Tunnel: ONLINE | Active Policies: Zero-Trust Identity" },
+    { command: "kubectl get nodes", output: "minikube-node-01  Ready   <none>   3d (Learning Context)" },
+    { command: "ai --analyze-workflow", output: "✓ Optimization: Enabled | Efficiency Gain: 40% (via AI-Assisted Dev)" }
 ];

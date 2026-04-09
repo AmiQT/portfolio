@@ -123,7 +123,7 @@ const getAssetPath = (path: string) => {
                   📄 Download Resume
                 </a>
                 <a
-                  href="/portfolio/experience"
+                  href={import.meta.env.BASE_URL + "role-software-developer/experience"}
                   class="bg-white/10 hover:bg-white/20 border border-white/30 text-white text-base font-bold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
                 >
                   View Experience
@@ -404,7 +404,7 @@ const getAssetPath = (path: string) => {
     profileBtn.addEventListener("click", () => {
       // Navigate to IT Support profile
       const baseUrl = import.meta.env.BASE_URL;
-      window.location.href = baseUrl + "home-it-support";
+      window.location.href = baseUrl;
     });
   }
 

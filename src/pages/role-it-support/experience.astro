@@ -2,55 +2,20 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/it-support/Header.astro";
 import ProfileSelector from "../../components/shared/ProfileSelector.astro";
+import { experiencesData } from "../../data/experience";
 
-const experiences = [
-    {
-        title: "Vice President Club, Information Technology Club",
-        organization: "Universiti Tun Hussein Onn Malaysia",
-        duration: "December 2023 - January 2025",
-        icon: "🎯",
-        color: "cyan",
-        responsibilities: [
-            "Successfully managed and executed 17 club events, including meetings, annual grand dinners, and team-building activities.",
-            "Provided critical support to the club president, including assisting with urgent matters and representing the club in official settings.",
-            "Actively participated in and led various club departments, demonstrating strong leadership and teamwork skills."
-        ]
-    },
-    {
-        title: "Facilitator Food Department Orientation Day (MHS)",
-        organization: "Universiti Tun Hussein Onn Malaysia",
-        duration: "October 2024 (2 Weeks)",
-        icon: "🍽️",
-        color: "teal",
-        responsibilities: [
-            "Managed a food station responsible for collecting, gathering, and distributing food packs to 1900 students.",
-            "Conducted thorough inspections of food upon delivery from vendors to ensure quantity, quality, and safety standards were met.",
-            "Prioritized the dietary needs of all participants, ensuring immediate replacement of any food items causing allergic reactions."
-        ]
-    },
-    {
-        title: "Student Representative Council",
-        organization: "MPP Universiti Teknologi MARA, Johor",
-        duration: "December 2021 - February 2023",
-        icon: "📣",
-        color: "blue",
-        responsibilities: [
-            "Proficient in managing and creating engaging content for Instagram, Facebook, and Telegram platforms.",
-            "Skilled in designing and producing high-quality visual content, including social media graphics, mockups, and merchandise designs.",
-            "Experienced in editing video content for various purposes, including montages, trailers, and opening event sequences."
-        ]
-    }
-];
+// Use the "IT Support" angle — focuses on L1/L2 Support, Hardware, and AD/M365 Management
+const experiences = experiencesData.itSupport;
 ---
 
-<Layout 
-    title="Experience - IT Support - Noor Azami" 
+<Layout
+    title="Experience - IT Support - Noor Azami"
     description="Professional experience and qualifications of Noor Azami in IT Support and leadership roles."
     canonical="/role-it-support/experience"
 >
     <Header />
     <ProfileSelector />
-    
+
     <main class="pt-16">
         <!-- Hero Section -->
         <section class="py-24 px-4 sm:px-6 lg:px-8 text-center animated-gradient">
@@ -60,7 +25,7 @@ const experiences = [
                 </div>
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Professional Experience</h1>
                 <p class="text-lg text-text-secondary max-w-2xl mx-auto">
-                    Leadership roles and hands-on experience in IT, event management, and technical support.
+                    Hands-on IT Support, L1/L2 troubleshooting, and user access management experience.
                 </p>
                 <div class="mt-6 flex flex-wrap justify-center gap-3">
                     <span class="px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-sm text-cyan-400">
@@ -70,7 +35,7 @@ const experiences = [
                         2021 - Present
                     </span>
                     <span class="px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-sm text-cyan-400">
-                        Leadership Focus
+                        IT Support Focus
                     </span>
                 </div>
             </div>
@@ -83,10 +48,10 @@ const experiences = [
                     {experiences.map((exp, index) => (
                         <div class="relative pl-8 border-l-2 border-cyan-500/30 fade-in-scroll">
                             <!-- Timeline dot -->
-                            <div class="absolute -left-3 top-0 w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center text-xs">
+                            <div class="absolute -left-3 top-0 w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center text-xs text-black font-bold">
                                 {index + 1}
                             </div>
-                            
+
                             <!-- Card -->
                             <div class="bg-accent-color rounded-xl p-6 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300">
                                 <div class="flex items-start gap-4 mb-4">
@@ -99,7 +64,7 @@ const experiences = [
                                         <p class="text-sm text-text-secondary mt-1">{exp.duration}</p>
                                     </div>
                                 </div>
-                                
+
                                 <div class="space-y-2 ml-16">
                                     <h4 class="text-sm font-semibold text-text-secondary uppercase tracking-wider">Key Responsibilities</h4>
                                     <ul class="space-y-2">
@@ -118,26 +83,26 @@ const experiences = [
             </div>
         </section>
 
-        <!-- Skills Summary -->
+        <!-- Core Competencies -->
         <section class="py-16 px-4 sm:px-6 lg:px-8 bg-accent-color">
             <div class="container mx-auto max-w-4xl">
-                <h2 class="text-2xl font-bold text-center mb-8">Core Competencies Gained</h2>
+                <h2 class="text-2xl font-bold text-center mb-8">Core IT Competencies</h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="text-center p-4 bg-background-color rounded-lg border border-cyan-500/20">
-                        <div class="text-3xl mb-2">🎨</div>
-                        <p class="text-sm font-medium">Visual Design</p>
+                        <div class="text-3xl mb-2">🛠️</div>
+                        <p class="text-sm font-medium">L1/L2 Support</p>
                     </div>
                     <div class="text-center p-4 bg-background-color rounded-lg border border-cyan-500/20">
-                        <div class="text-3xl mb-2">📊</div>
-                        <p class="text-sm font-medium">Event Management</p>
+                        <div class="text-3xl mb-2">🔐</div>
+                        <p class="text-sm font-medium">AD / M365 IAM</p>
                     </div>
                     <div class="text-center p-4 bg-background-color rounded-lg border border-cyan-500/20">
-                        <div class="text-3xl mb-2">👥</div>
-                        <p class="text-sm font-medium">Team Leadership</p>
+                        <div class="text-3xl mb-2">🖥️</div>
+                        <p class="text-sm font-medium">Hardware Mgmt</p>
                     </div>
                     <div class="text-center p-4 bg-background-color rounded-lg border border-cyan-500/20">
-                        <div class="text-3xl mb-2">💻</div>
-                        <p class="text-sm font-medium">IT Support</p>
+                        <div class="text-3xl mb-2">⚙️</div>
+                        <p class="text-sm font-medium">IT Automation</p>
                     </div>
                 </div>
             </div>
@@ -154,7 +119,7 @@ const experiences = [
                     <a href={import.meta.env.BASE_URL + "role-it-support/projects"} class="button_primary px-8 py-3 font-bold">
                         View IT Projects
                     </a>
-                    <a href={import.meta.env.BASE_URL + "home-it-support/"} class="px-8 py-3 font-bold border border-cyan-500/50 rounded-lg hover:bg-cyan-500/10 transition-colors">
+                    <a href={import.meta.env.BASE_URL + "role-it-support/"} class="px-8 py-3 font-bold border border-cyan-500/50 rounded-lg hover:bg-cyan-500/10 transition-colors">
                         Back to IT Support Profile
                     </a>
                 </div>
@@ -169,14 +134,14 @@ const experiences = [
         transform: translateY(20px);
         animation: fadeInUp 0.6s ease-out forwards;
     }
-    
+
     @keyframes fadeInUp {
         to {
             opacity: 1;
             transform: translateY(0);
         }
     }
-    
+
     .fade-in-scroll:nth-child(1) { animation-delay: 0.1s; }
     .fade-in-scroll:nth-child(2) { animation-delay: 0.2s; }
     .fade-in-scroll:nth-child(3) { animation-delay: 0.3s; }
