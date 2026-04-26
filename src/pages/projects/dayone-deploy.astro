@@ -1,0 +1,185 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import IdeActivityBar from "../../components/software-dev/IdeActivityBar.astro";
+import IdeSidebar from "../../components/software-dev/IdeSidebar.astro";
+import MobileNav from "../../components/software-dev/MobileNav.astro";
+import NotebookCell from "../../components/software-dev/NotebookCell.astro";
+
+const project = {
+    title: "DayOne Deploy",
+    type: "Enterprise Automation Suite",
+    description:
+        "Robust C# (.NET 10) automation suite simulating zero-touch laptop provisioning. Features offline network staging, resilient orchestration via RunOnce, and real-time observability with Spectre.Console.",
+    githubUrl: "https://github.com/AmiQT/dayone-deploy", // Placeholder
+};
+
+const technologies = [
+    { name: "C# 13", color: "purple", icon: "💎" },
+    { name: ".NET 10", color: "blue", icon: "🚀" },
+    { name: "Windows Forms", color: "cyan", icon: "🪟" },
+    { name: "Spectre.Console", color: "yellow", icon: "📺" },
+    { name: "WMI", color: "emerald", icon: "⚙️" },
+    { name: "PowerShell", color: "indigo", icon: "🐚" },
+];
+
+const features = [
+    {
+        title: "Offline Network Staging",
+        icon: "📡",
+        desc: "Automates staging of 6GB+ software payload from network share to local SSD to prevent network-drop failures.",
+        highlight: true,
+    },
+    {
+        title: "Resilient Orchestration",
+        icon: "🔄",
+        desc: "Uses Windows RunOnce registry keys to survive forced system reboots and maintain deployment state.",
+    },
+    {
+        title: "Interactive Observability",
+        icon: "📊",
+        desc: "Real-time metrics, live progress spinners, and automated Toast notifications for deployment tracking.",
+    },
+    {
+        title: "Security & Credentialing",
+        icon: "🔐",
+        desc: "Dynamic isolation of sensitive credentials locally via DotNetEnv and enforced UAC Administrator privileges.",
+    },
+];
+
+const architecture = [
+    { step: "1", title: "Network Staging", desc: "Local SSD Payload Staging", icon: "📡" },
+    { step: "2", title: "Domain Join", desc: "WMI/PowerShell Automation", icon: "🌐" },
+    { step: "3", title: "Software Install", desc: "Idempotent Layered Execution", icon: "📦" },
+    { step: "4", title: "State Persistence", desc: "RunOnce Registry Keys", icon: "💾" },
+    { step: "5", title: "Observability", desc: "Spectre.Console + DWM API", icon: "📺" },
+];
+
+const files = [
+    {
+        name: "dayone-deploy.cs",
+        active: true,
+        icon: "⚙️",
+        href: import.meta.env.BASE_URL + "projects/dayone-deploy",
+    },
+    {
+        name: "projects.json",
+        active: false,
+        icon: "📦",
+        href: import.meta.env.BASE_URL + "role-software-developer/projects",
+    },
+    {
+        name: "home-software-developer.ipynb",
+        active: false,
+        icon: "📝",
+        href: import.meta.env.BASE_URL + "role-software-developer/",
+    },
+];
+---
+
+<Layout
+    title="DayOne Deploy - Enterprise Automation | Noor Azami"
+    description={project.description}
+>
+    <div class="flex h-screen bg-white dark:bg-[#0d1117] text-gray-900 dark:text-gray-300 overflow-hidden font-sans transition-colors duration-300">
+        <IdeActivityBar />
+        <IdeSidebar files={files} />
+
+        <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-[#0d1117] transition-colors duration-300">
+            <!-- Tab Bar -->
+            <div class="flex bg-gray-100 dark:bg-[#010409] border-b border-gray-200 dark:border-gray-800 overflow-x-auto scrollbar-hide">
+                <div class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#0d1117] border-t-2 border-blue-500 text-gray-900 dark:text-white text-sm min-w-fit cursor-pointer">
+                    <span>⚙️</span><span>dayone-deploy.cs</span><span class="ml-2 text-gray-500 cursor-pointer">×</span>
+                </div>
+                <a href={import.meta.env.BASE_URL + "role-software-developer/projects"} class="flex items-center gap-2 px-4 py-2 text-gray-500 hover:bg-gray-200 dark:hover:bg-[#161b22] cursor-pointer text-sm min-w-fit">
+                    <span>📦</span><span>projects.json</span>
+                </a>
+            </div>
+
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 px-4 py-1 bg-white dark:bg-[#0d1117] border-b border-gray-200 dark:border-gray-800 text-xs text-gray-500">
+                <span>src</span><span>›</span><span>projects</span><span>›</span><span>dayone-deploy.cs</span>
+                <div class="ml-auto flex gap-2">
+                    <span class="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded">Enterprise</span>
+                    <span class="px-2 py-0.5 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded">Automation</span>
+                </div>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth" id="project-content">
+                <!-- Hero Section -->
+                <NotebookCell cellNumber={1} code={`// Initialize DayOne Deploy Suite\nconst deployer = new DeploymentEngine({\n  os: "Windows 11 Enterprise",\n  target: "Zero-Touch Provisioning",\n  framework: ".NET 10",\n  observability: "Spectre.Console"\n});\n\nawait deployer.StartAsync();`}>
+                    <section class="relative flex flex-col items-center justify-center text-center py-12 md:py-16 bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 rounded-lg overflow-hidden border border-blue-500/30 shadow-2xl">
+                        <div class="z-10 px-4">
+                            <div class="flex justify-center gap-2 mb-4">
+                                <span class="px-4 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-sm text-blue-300">⚙️ Intern Project</span>
+                                <span class="px-4 py-1 bg-indigo-500/20 border border-indigo-500/30 rounded-full text-sm text-indigo-300">DayOne</span>
+                            </div>
+                            <h1 class="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">{project.title}</h1>
+                            <p class="text-base md:text-lg font-medium mb-6 max-w-2xl mx-auto text-gray-200">{project.description}</p>
+                            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                                {technologies.map((tech) => (
+                                    <span class="px-3 py-1 bg-black/30 backdrop-blur-md border border-white/20 rounded-full text-xs text-white flex items-center gap-1">
+                                        <span>{tech.icon}</span>{tech.name}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                </NotebookCell>
+
+                <!-- Key Features -->
+                <NotebookCell cellNumber={2} code={`// Deployment Layer Configuration\nconst provisioningLayers = [\n  "NetworkStaging",\n  "DomainJoin",\n  "SoftwareInstallation",\n  "StateManagement"\n];`}>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {features.map((feature) => (
+                            <div class={`p-5 rounded-lg border transition-all ${feature.highlight ? "bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-blue-500/50" : "bg-white dark:bg-[#161b22] border-gray-200 dark:border-gray-700"}`}>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 text-2xl bg-blue-500/10 dark:bg-blue-500/20">
+                                        {feature.icon}
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-900 dark:text-white mb-1">{feature.title}</h3>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">{feature.desc}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </NotebookCell>
+
+                <!-- Architecture Flow -->
+                <NotebookCell cellNumber={3} code={`// RunOnce State Machine Flow\nwhile (deployment.IsInProgress()) {\n  await deployment.ProceedToNextLayer();\n  if (rebootRequired) system.ScheduleReboot();\n}`}>
+                    <div class="p-6 bg-gradient-to-r from-blue-50/50 to-indigo-50/50 dark:from-blue-900/10 dark:to-indigo-900/10 rounded-lg border border-blue-200 dark:border-blue-500/30">
+                        <h3 class="text-lg font-bold text-blue-800 dark:text-blue-400 mb-6 text-center">Provisioning State Machine</h3>
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                            {architecture.map((item, idx) => (
+                                <>
+                                    <div class="flex-1 flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg border border-blue-100 dark:border-gray-700 text-center w-full min-w-[120px]">
+                                        <div class="w-10 h-10 bg-blue-500/10 dark:bg-blue-500/20 rounded-full flex items-center justify-center mb-2 text-xl">{item.icon}</div>
+                                        <span class="text-xs font-bold text-gray-900 dark:text-gray-200">{item.title}</span>
+                                        <span class="text-[10px] text-gray-500 dark:text-gray-400">{item.desc}</span>
+                                    </div>
+                                    {idx < architecture.length - 1 && <div class="hidden md:block text-blue-400 text-xl">→</div>}
+                                </>
+                            ))}
+                        </div>
+                    </div>
+                </NotebookCell>
+
+                <!-- Back Button -->
+                <div class="mt-8 text-center pb-8">
+                    <a href={import.meta.env.BASE_URL + "role-software-developer/projects"} class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-blue-500/50 transition-all">
+                        <span>←</span> Back to All Projects
+                    </a>
+                </div>
+            </div>
+        </main>
+        <MobileNav files={files} />
+    </div>
+</Layout>
+
+
+<style>
+    #project-content::-webkit-scrollbar { width: 12px; }
+    #project-content::-webkit-scrollbar-track { background: transparent; }
+    #project-content::-webkit-scrollbar-thumb { background-color: #d1d5db; border-radius: 6px; border: 3px solid transparent; background-clip: content-box; }
+    :global(.dark) #project-content::-webkit-scrollbar-thumb { background-color: #30363d; }
+</style>

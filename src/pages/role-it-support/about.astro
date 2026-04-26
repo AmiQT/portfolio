@@ -1,7 +1,5 @@
----
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/it-support/Header.astro";
-import ProfileSelector from "../../components/shared/ProfileSelector.astro";
 
 const itSkills = [
     { name: "Troubleshooting", level: 90, icon: "🔧" },
@@ -22,15 +20,27 @@ const softSkills = [
 const certifications = [
     {
         name: "Google IT Support Professional",
-        issuer: "Google",
+        issuer: "Coursera / Google",
         year: "2024",
         icon: "🏆",
     },
     {
-        name: "CompTIA A+ (In Progress)",
-        issuer: "CompTIA",
+        name: "Google IT Automation with Python",
+        issuer: "Coursera / Google",
         year: "2024",
-        icon: "📜",
+        icon: "🐍",
+    },
+    {
+        name: "CCNA: Introduction To Network",
+        issuer: "Cisco Networking Academy",
+        year: "2024",
+        icon: "🌐",
+    },
+    {
+        name: "Google Cloud Fundamentals",
+        issuer: "Google Cloud",
+        year: "2024",
+        icon: "☁️",
     },
 ];
 ---
@@ -41,7 +51,6 @@ const certifications = [
     canonical="/role-it-support/about"
 >
     <Header />
-    <ProfileSelector />
 
     <main class="pt-16">
         <!-- Hero Section -->

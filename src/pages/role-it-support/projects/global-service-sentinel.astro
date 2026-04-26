@@ -1,0 +1,156 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/it-support/Header.astro";
+
+const project = {
+    title: "Global Service Sentinel",
+    type: "Incident & Uptime Monitoring",
+    description: "An enterprise-grade monitoring solution designed to provide real-time service availability status and instant incident alerting via Telegram.",
+};
+
+const metrics = [
+    { label: "Monitoring Interval", value: "3 Seconds", icon: "⏱️" },
+    { label: "Notification Delay", value: "< 1 Second", icon: "⚡" },
+    { label: "Alert Reliability", value: "3-Strike Logic", icon: "🛡️" },
+    { label: "Protocol", value: "TLS Stealth", icon: "🌐" },
+];
+
+const highlights = [
+    {
+        title: "24/7 Availability Checks",
+        desc: "Automated probing of critical internal and external services to ensure zero downtime visibility for the IT team.",
+    },
+    {
+        title: "Smart Incident Alerting",
+        desc: "Telegram bot integration that filters out transient network blips using a threshold-based alerting system.",
+    },
+    {
+        title: "WAF Compatibility",
+        desc: "Advanced networking configuration to ensure monitoring agents are not flagged as malicious by security filters.",
+    },
+];
+---
+
+<Layout
+    title="Global Service Sentinel - IT Support Portfolio | Noor Azami"
+    description={project.description}
+>
+    <Header />
+    <main class="pt-16">
+        <!-- Back Button -->
+        <div class="px-4 sm:px-6 lg:px-8 py-4">
+            <a
+                href={import.meta.env.BASE_URL + "role-it-support/projects"}
+                class="inline-flex items-center gap-2 text-text-secondary hover:text-cyan-400 transition-colors group"
+            >
+                <svg
+                    class="w-5 h-5 group-hover:-translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to IT Projects
+            </a>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="py-16 px-4 sm:px-6 lg:px-8 animated-gradient overflow-hidden">
+            <div class="container mx-auto max-w-4xl text-center relative z-10">
+                <div class="inline-block px-4 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-sm text-cyan-400 mb-6">
+                    Incident Response & Monitoring
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
+                    {project.title}
+                </h1>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto mb-10">
+                    {project.description}
+                </p>
+                
+                <!-- Status Bar -->
+                <div class="bg-background-color/60 backdrop-blur-md rounded-2xl border border-cyan-500/20 p-6 shadow-xl max-w-3xl mx-auto">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        {metrics.map(metric => (
+                            <div class="text-center">
+                                <div class="text-2xl mb-1">{metric.icon}</div>
+                                <div class="text-xs text-text-secondary uppercase tracking-widest mb-1">{metric.label}</div>
+                                <div class="text-lg font-bold text-cyan-400">{metric.value}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Details -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-5xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 border-l-4 border-cyan-500 pl-6">Core Support Value</h2>
+                        <div class="space-y-6">
+                            {highlights.map(item => (
+                                <div class="flex gap-4">
+                                    <div class="w-2 h-2 rounded-full bg-cyan-500 mt-2 shrink-0"></div>
+                                    <div>
+                                        <h3 class="font-bold text-lg mb-1">{item.title}</h3>
+                                        <p class="text-text-secondary leading-relaxed">{item.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div class="relative">
+                         <div class="absolute -inset-4 bg-cyan-500/10 blur-2xl rounded-full"></div>
+                         <div class="relative bg-accent-color border border-cyan-500/20 rounded-2xl p-8 shadow-2xl">
+                             <div class="flex items-center gap-2 mb-6 text-cyan-400">
+                                 <div class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
+                                 <span class="text-sm font-bold tracking-widest uppercase">Live Alert Simulation</span>
+                             </div>
+                             <div class="space-y-4 font-mono text-sm">
+                                 <div class="text-text-secondary italic"># Sentinel Bot Notification</div>
+                                 <div class="text-cyan-400">[CRITICAL] Maybank2u HTTP 403</div>
+                                 <div class="text-white">Timestamp: 2024-04-11 14:02:10</div>
+                                 <div class="text-white">Reason: Failed 3 consecutive probes</div>
+                                 <div class="text-white">WAF State: Investigating Bypass...</div>
+                                 <div class="pt-4 border-t border-white/10 text-green-400">>> Status: Alert Sent to IT Group</div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+
+                <div class="bg-accent-color rounded-2xl p-10 border border-cyan-500/20 text-center">
+                    <h2 class="text-2xl font-bold mb-4">Enterprise Compliance & Reliability</h2>
+                    <p class="text-text-secondary max-w-2xl mx-auto mb-8">
+                        This project was built to meet the rigorous uptime standards of financial institutions, ensuring that blocking mechanisms are handled gracefully without compromising monitoring integrity.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="px-4 py-2 bg-background-color rounded-lg border border-white/5 text-sm">Python 3.12</span>
+                        <span class="px-4 py-2 bg-background-color rounded-lg border border-white/5 text-sm">FastAPI</span>
+                        <span class="px-4 py-2 bg-background-color rounded-lg border border-white/5 text-sm">Telegram Bot API</span>
+                        <span class="px-4 py-2 bg-background-color rounded-lg border border-white/5 text-sm">TLS Fingerprinting</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .animated-gradient {
+        background: linear-gradient(-45deg, #0f172a, #010409, #083344, #010409);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+    }
+
+    @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+</style>

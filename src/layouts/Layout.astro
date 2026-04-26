@@ -16,14 +16,18 @@ const {
 	image = "assets/profile.webp",
 	canonical,
 } = Astro.props;
-const siteUrl = "https://noorazami.github.io/portfolio";
+const siteUrl = "https://www.noorazami.me";
 const fullUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
+    <head>
+        <meta charset="UTF-8" />
+        <script is:inline>
+            // Force Dark Mode Everywhere - Simple and Consistent
+            document.documentElement.classList.add('dark');
+        </script>
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link
@@ -140,8 +144,8 @@ const fullUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
 	<body>
 		<ProfileSelector />
 		<slot />
-		<script src="/portfolio/js/profile-customizer.js" is:inline></script>
-		<script src="/portfolio/js/main.js" is:inline></script>
-		<script src="/portfolio/js/back-to-top.js" is:inline></script>
+		<script src="/js/profile-customizer.js" is:inline></script>
+		<script src="/js/main.js" is:inline></script>
+		<script src="/js/back-to-top.js" is:inline></script>
 	</body>
 </html>

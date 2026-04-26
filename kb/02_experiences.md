@@ -10,6 +10,7 @@
   - **Centralized Troubleshooting Tool:** Streamlined L1 technical support by engineering a unified PowerShell script, automatically diagnosing and resolving over 10 recurring system issues based on the internal Knowledge Base.
   - **Technical Support & IAM:** Managed the complete IT onboarding process, provisioning hardware and configuring user access profiles (Active Directory/M365) to ensure immediate operational readiness.
   - **IT Asset & Inventory Management:** Overseeing the end-to-end lifecycle of enterprise IT assets, ensuring accurate inventory records and strict security compliance across the organization.
+- **Allowance:** RM2000 (Intern Level)
 - **Tech Stack Used:** Python (Automation), Microsoft 365 / Teams, Windows/Linux OS, Ticketing System
 
 ## Education / Current Status
@@ -19,5 +20,9 @@
 - **Highlights:** 
   - Hands-on experience in technical support, leadership, and multimedia content creation.
   - Active in managing IT events, troubleshooting systems, and designing multimedia content.
+
+## Leadership & Co-Curricular
+- **Naib Presiden Kelab ITC UTHM (Ijazah):** Leading the Information Technology Club, managing events, and fostering student developer community.
+- **Eksekutif Multimedia MPP UiTM (Diploma):** Managed multimedia content, digital branding, and communications for the Student Representative Council.
 
 *(Sila tambah experience kerja/freelance yang lain kat sini!)*

@@ -29,31 +29,33 @@ export function saveProfile(profile: ProfileType): void {
 /**
  * Get the projects page URL for a given profile
  * @param profile - The profile type
- * @param baseUrl - The base URL (default: /portfolio/)
+ * @param baseUrl - The base URL (default: /)
  * @returns The full projects page URL
  */
-export function getProjectsUrl(profile: ProfileType, baseUrl: string = '/portfolio/'): string {
-  const profileMap: Record<ProfileType, string> = {
+export function getProjectsUrl(profile: ProfileType, baseUrl: string = '/'): string {
+  const profileMap: Record<string, string> = {
     'it-support': `${baseUrl}role-it-support/projects`,
     'software-developer': `${baseUrl}role-software-developer/projects`,
     'data-analyst': `${baseUrl}role-data-analyst/projects`,
+    'devops-engineer': `${baseUrl}role-devops-engineer/projects`,
   };
-  return profileMap[profile];
+  return profileMap[profile as string];
 }
 
 /**
  * Get the home page URL for a given profile
  * @param profile - The profile type
- * @param baseUrl - The base URL (default: /portfolio/)
+ * @param baseUrl - The base URL (default: /)
  * @returns The full home page URL
  */
-export function getHomeUrl(profile: ProfileType, baseUrl: string = '/portfolio/'): string {
-  const profileMap: Record<ProfileType, string> = {
+export function getHomeUrl(profile: ProfileType, baseUrl: string = '/'): string {
+  const profileMap: Record<string, string> = {
     'it-support': `${baseUrl}`,
-    'software-developer': `${baseUrl}home-software-developer/`,
+    'software-developer': `${baseUrl}role-software-developer/`,
     'data-analyst': `${baseUrl}role-data-analyst/`,
+    'devops-engineer': `${baseUrl}role-devops-engineer/`,
   };
-  return profileMap[profile];
+  return profileMap[profile as string];
 }
 
 /**
@@ -62,5 +64,5 @@ export function getHomeUrl(profile: ProfileType, baseUrl: string = '/portfolio/'
  * @returns true if profile is valid
  */
 export function isValidProfile(profile: unknown): profile is ProfileType {
-  return ['it-support', 'software-developer', 'data-analyst'].includes(profile as string);
+  return ['it-support', 'software-developer', 'data-analyst', 'devops-engineer'].includes(profile as string);
 }

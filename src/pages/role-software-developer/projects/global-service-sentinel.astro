@@ -1,0 +1,221 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import IdeActivityBar from "../../../components/software-dev/IdeActivityBar.astro";
+import IdeSidebar from "../../../components/software-dev/IdeSidebar.astro";
+import MobileNav from "../../../components/software-dev/MobileNav.astro";
+import NotebookCell from "../../../components/software-dev/NotebookCell.astro";
+import InfraNote from "../../../components/InfraNote.astro";
+
+const project = {
+    title: "Global Service Sentinel",
+    type: "Backend & Stealth Engine",
+    description:
+        "A high-performance monitoring engine built with Python 3.12 and FastAPI. Focuses on bypass logic, asynchronous performance, and clean dashboard implementation.",
+    image: "assets/sentinel_dashboard.png",
+    githubUrl: "https://github.com/AmiQT/web-pulse",
+    liveUrl: "#",
+};
+
+const technologies = [
+    { name: "Python 3.12", color: "blue" },
+    { name: "FastAPI", color: "green" },
+    { name: "Asyncio", color: "cyan" },
+    { name: "Glassmorphism UI", color: "purple" },
+    { name: "Loguru", color: "orange" },
+];
+
+const features = [
+    {
+        title: "Impersonation Engine",
+        icon: "🎭",
+        desc: "Advanced TLS impersonation using curl_cffi to match browser fingerprints at the socket level.",
+    },
+    {
+        title: "High Concurrency",
+        icon: "🚀",
+        desc: "Utilizing fully asynchronous event loops (async/await) for high-frequency monitoring throughput.",
+    },
+    {
+        title: "Clean API Design",
+        icon: "🛠️",
+        desc: "RESTful architecture for the monitoring state, enabling easy integration with modern frontend dashboards.",
+    },
+    {
+        title: "Real-time Observability",
+        icon: "💎",
+        desc: "A premium Glassmorphism UI that polls monitoring data in real-time with smooth CSS transitions.",
+    },
+];
+
+const files = [
+    {
+        name: "global_service_sentinel.py",
+        active: true,
+        icon: "🐍",
+        href: import.meta.env.BASE_URL + "role-software-developer/projects/global-service-sentinel",
+    },
+    {
+        name: "projects.json",
+        active: false,
+        icon: "📦",
+        href: import.meta.env.BASE_URL + "role-software-developer/projects",
+    },
+    {
+        name: "home-software-developer.ipynb",
+        active: false,
+        icon: "📓",
+        href: import.meta.env.BASE_URL + "role-software-developer/",
+    },
+];
+---
+
+<Layout
+    title="Global Service Sentinel - Software Development Portfolio | Noor Azami"
+    description={project.description}
+>
+    <div
+        class="flex h-screen bg-[#0d1117] text-gray-300 overflow-hidden font-sans transition-colors duration-300"
+    >
+        <IdeActivityBar />
+        <IdeSidebar files={files} />
+
+        <main
+            class="flex-1 flex flex-col min-w-0 bg-[#0d1117] transition-colors duration-300"
+        >
+            <!-- Tab Bar -->
+            <div
+                class="flex bg-[#010409] border-b border-gray-800 overflow-x-auto scrollbar-hide"
+            >
+                <div
+                    class="flex items-center gap-2 px-4 py-2 bg-[#0d1117] border-t-2 border-blue-500 text-white text-sm min-w-fit cursor-pointer"
+                >
+                    <span>🐍</span><span>global_service_sentinel.py</span><span
+                        class="ml-2 text-gray-500 cursor-pointer text-xs">×</span>
+                </div>
+                <a
+                    href={import.meta.env.BASE_URL + "role-software-developer/projects"}
+                    class="flex items-center gap-2 px-4 py-2 text-gray-500 hover:bg-[#161b22] cursor-pointer text-sm min-w-fit transition-colors"
+                >
+                    <span>📦</span><span>projects.json</span>
+                </a>
+            </div>
+
+            <!-- Breadcrumbs -->
+            <div
+                class="flex items-center gap-2 px-4 py-1 bg-[#0d1117] border-b border-gray-800 text-xs text-gray-500"
+            >
+                <span>src</span><span>›</span><span>engine</span><span>›</span><span>global_service_sentinel.py</span>
+            </div>
+
+            <div
+                class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth"
+                id="project-content"
+            >
+                <InfraNote />
+                <NotebookCell
+                    cellNumber={1}
+                    code={`# Real-time Monitoring Logic (Software Dev Focus)\n# Implementing Asynchronous Target Probing\n\nasync def run_monitoring_cycle():\n    tasks = [check_target(t) for t in targets]\n    results = await asyncio.gather(*tasks)\n    update_ui_state(results)`}
+                >
+                    <section
+                        class="relative flex flex-col items-center justify-center text-center py-12 md:py-16 bg-gradient-to-br from-indigo-900 to-slate-900 rounded-lg overflow-hidden border border-blue-500/30 shadow-2xl"
+                    >
+                        <div class="z-10 px-4">
+                            <div class="flex justify-center mb-4">
+                                <span
+                                    class="px-4 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-sm text-blue-300"
+                                    >Software Engineering</span
+                                >
+                            </div>
+                            <h1
+                                class="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg"
+                            >
+                                {project.title}
+                            </h1>
+                            <p
+                                class="text-base md:text-lg font-medium mb-6 max-w-2xl mx-auto text-gray-200"
+                            >
+                                {project.description}
+                            </p>
+                            <div
+                                class="flex flex-wrap justify-center gap-2 mb-6"
+                            >
+                                {
+                                    technologies.map((tech) => (
+                                        <span class="px-3 py-1 bg-black/30 backdrop-blur-md border border-white/20 rounded-full text-xs text-white">
+                                            {tech.name}
+                                        </span>
+                                    ))
+                                }
+                            </div>
+                            <div class="flex flex-wrap justify-center gap-4">
+                                <a
+                                    href={project.githubUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                                >
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </NotebookCell>
+
+                <NotebookCell
+                    cellNumber={2}
+                    code={`# Core Features Implementation\nimport features from './manifest'`}
+                >
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {
+                            features.map((feature) => (
+                                <div class="bg-[#161b22] p-5 rounded-lg border border-gray-700 hover:border-blue-500/50 transition-all">
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-2xl">
+                                            {feature.icon}
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold text-white mb-1 drop-shadow-sm">
+                                                {feature.title}
+                                            </h3>
+                                            <p class="text-sm text-gray-400">
+                                                {feature.desc}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </NotebookCell>
+
+                <div class="mt-8 text-center pb-8">
+                    <a
+                        href={import.meta.env.BASE_URL + "role-software-developer/projects"}
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-[#161b22] border border-gray-700 rounded-lg text-sm font-medium text-gray-300 hover:border-blue-500/50 hover:text-blue-400 transition-all font-mono"
+                    >
+                        <span>←</span> Back to projects.json
+                    </a>
+                </div>
+            </div>
+        </main>
+        <MobileNav files={files} />
+    </div>
+</Layout>
+
+<style>
+    #project-content::-webkit-scrollbar {
+        width: 12px;
+    }
+    #project-content::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    #project-content::-webkit-scrollbar-thumb {
+        background-color: #30363d;
+        border-radius: 6px;
+        border: 3px solid transparent;
+        background-clip: content-box;
+    }
+</style>

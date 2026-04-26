@@ -18,6 +18,7 @@ export const techStack = {
         { name: "AWS EC2 & Networking", icon: "☁️", color: "orange", level: 75 },
         { name: "Docker & Containerization", icon: "🐳", color: "blue", level: 80 },
         { name: "Cloudflare Zero Trust", icon: "🔒", color: "orange", level: 85 },
+        { name: "Terraform (IaC)", icon: "🏗️", color: "purple", level: 80 },
         { name: "Kubernetes (K8s) [Roadmap]", icon: "☸️", color: "blue", level: 40 },
         { name: "Ansible (IaC) [Roadmap]", icon: "📜", color: "red", level: 35 }
     ],
@@ -61,34 +62,87 @@ export const certifications = [
         icon: "🛠️",
         color: "green",
         year: "2023"
+    },
+    {
+        title: "Google IT Automation with Python",
+        issuer: "Google",
+        icon: "🐍",
+        color: "blue",
+        year: "2024"
     }
 ];
 
 export const featuredProjects = [
     {
-        title: "Enterprise IT Asset Auditing & Automation",
-        type: "Data Ops & Automations",
-        description: "Engineered a robust Python automation suite that eliminated 90% of manual hardware tracking toil for 200+ employees. Designed a self-cleaning dataset architecture with smart rate-limiting to orchestrate high-reliability notification blasts.",
+        title: "Central-Infra",
+        type: "Kubernetes Sandbox Architecture",
+        description: "Modular, multi-tier k3d cluster simulating production environments. Provisioned via Terraform across 4 layers (Cluster, Platform, Apps, Workloads) with NGINX Ingress and Prometheus/Grafana stack.",
         architecture: [
-            "Data Ingestion → Optimized Pandas batch extraction",
-            "Sanitization → Differential user removal from master CSV",
-            "Broadcasting → Win32COM Outlook API abstraction",
-            "Throttle Control → Intelligent Rate Limiting logic",
-            "Observability → Real-time synchronous audit logging"
+            "IaC: Terraform (4-layer isolation strategy)",
+            "Orchestration: k3d (1 server, 2 agent nodes)",
+            "Networking: NGINX Ingress Controller via Helm",
+            "Observability: Kube-Prometheus-Stack (Metrics & Visualization)",
+            "Security: RBAC, Isolated Namespaces, ServiceAccounts"
         ],
         highlights: [
-            "Achieved 90% reduction in manual audit toil",
-            "High-integrity data sanitization engine",
-            "Architected for AI-assisted error handling",
-            "Synchronous accountability & observability trail"
+            "Production-grade local cluster simulation",
+            "Modular infrastructure-as-code design",
+            "Full observability into workload health",
+            "Scalable networking via NGINX Ingress"
         ],
-        tech: ["Python", "Pandas", "Win32COM", "Data Ops", "AI Assisted"],
-        icon: "⚙️",
-        color: "green",
-        link: "projects/it-asset-automation"
+        tech: ["Kubernetes", "Terraform", "Helm", "k3d", "Prometheus", "Grafana"],
+        icon: "☸️",
+        color: "blue",
+        link: "role-devops-engineer/architecture/central-infra",
+        github: "https://github.com/AmiQT/layer4-workloads"
     },
     {
-        title: "Student Talent Profiling Ecosystem",
+        title: "Go-Lumina",
+        type: "High-Performance Proxy",
+        description: "Engineered a high-concurrency reverse proxy in Go (1.26+) handling up to 7,500 RPS. Features multi-stage Docker builds for minimal footprint (~15MB Alpine image).",
+        architecture: [
+            "Concurrency: Custom Go worker-pools (1M concurrent reqs handling)",
+            "Caching: Thread-Safe LRU Cache (hashicorp/golang-lru)",
+            "Reliability: Singleflight, Stale-While-Revalidate (SWR)",
+            "Security: Rate Limiting & TLS Handshake Optimization",
+            "Packaging: Docker Multi-stage (UPX compressed)"
+        ],
+        highlights: [
+            "Sustained 5,000-7,500 RPS performance",
+            "Significant reduction in backend load via SWR",
+            "Ultra-lean production image management",
+            "Production-ready rate limiting & security"
+        ],
+        tech: ["Go", "Docker", "Singleflight", "LRU Cache", "Rate Limiting"],
+        icon: "⚡",
+        color: "cyan",
+        link: "projects/go-lumina"
+    },
+    {
+        title: "Gopher-Ops",
+        type: "AI SRE Control Bot",
+        description: "Secure AI ChatOps bot (Go + Gemini 2.5) for Docker management and OS telemetry. Implements Zero-Trust identity gating via Telegram ID verification.",
+        architecture: [
+            "AI: Gemini 2.5 (Natural language intent parsing)",
+            "Telemetry: gopsutil & Docker SDK integration",
+            "Execution: HITL (Human-in-the-loop) action buttons",
+            "Sec: Zero-Trust ID gating via Telegram API",
+            "CI: GitHub Actions (Testing & TF Validation)"
+        ],
+        highlights: [
+            "Seamless natural language infra management",
+            "Secure, gateway-controlled remote execution",
+            "Real-time host & container telemetry",
+            "Automated CI/CD for infra validation"
+        ],
+        tech: ["Go", "Gemini API", "Docker SDK", "Terraform", "GitHub Actions"],
+        icon: "🤖",
+        color: "indigo",
+        link: "projects/gopher-ops",
+        github: "https://github.com/AmiQT/Gopher-Ops"
+    },
+    {
+        title: "Student Talent Profiling Pipeline",
         type: "Zero-Trust Cloud Architecture",
         description: "Architected a secure, multi-tier deployment ecosystem moving from local development to production via automated CI/CD pipelines, secured behind Zero-Trust tunnels.",
         architecture: [
@@ -109,28 +163,6 @@ export const featuredProjects = [
         color: "cyan",
         link: "role-devops-engineer/architecture/student-talent-profiling",
         infraStatus: { frontend: "Active", backend: "On-Demand (FinOps Optimized)" }
-    },
-    {
-        title: "Resume AI SaaS Infrastructure",
-        type: "Cloud-Native Scalability",
-        description: "Designed a decoupled cloud-native architecture for high availability, utilizing managed databases and edge network distribution for global latency reduction.",
-        architecture: [
-            "Edge Serving → Vercel Global Content Delivery",
-            "Compute → Scalable PaaS (Railway) with automatic re-scaling",
-            "Persistence → Managed PostgreSQL with connection pooling",
-            "AI Inference → Managed API gateways for LLM processing"
-        ],
-        highlights: [
-            "Zero-downtime deployment pipelines for microservices",
-            "Achieved <200ms global latency for UI rendering",
-            "Scalable compute handles surge traffic seamlessly",
-            "Engineered with AI-assisted code optimization flow"
-        ],
-        tech: ["Vercel", "Railway", "Supabase", "FastAPI", "AI Integration"],
-        icon: "📄",
-        color: "orange",
-        link: "role-devops-engineer/architecture/ai-resume-builder",
-        infraStatus: { frontend: "Active", backend: "On-Demand (FinOps Optimized)" }
     }
 ];
 
@@ -141,7 +173,7 @@ export const skills = [
             "AWS EC2 Deployment",
             "Docker Containerization",
             "Cloud Platform Management",
-            "Infrastructure as Code",
+            "Terraform (Infrastructure as Code)",
             "Load Balancing & Auto-scaling"
         ]
     },

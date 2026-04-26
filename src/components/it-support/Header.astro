@@ -58,6 +58,16 @@
 					? "page"
 					: undefined}>Contact</a
 			>
+			<button
+				id="profile-toggle-btn"
+				class="p-2 text-gray-400 hover:text-[var(--primary-color)] transition-colors focus:outline-none"
+				title="Switch Profile"
+			>
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+					<circle cx="12" cy="7" r="4"></circle>
+				</svg>
+			</button>
 		</div>
 		<div class="lg:hidden">
 			<button
@@ -132,6 +142,12 @@
 					? "page"
 					: undefined}>Contact</a
 			>
+			<button
+				id="profile-toggle-btn-mobile"
+				class="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:bg-[var(--accent-color)] transition-colors"
+			>
+				Switch Profile
+			</button>
 		</div>
 	</div>
 </header>
@@ -154,12 +170,17 @@
 			projectsPath = baseUrl + "role-data-analyst/projects";
 			aboutPath = baseUrl + "about";
 			experiencePath = baseUrl + "experience";
-			contactPath = baseUrl + "contact";
+			contactPath = baseUrl + "role-data-analyst/contact";
+		} else if (profile === "devops-engineer") {
+			projectsPath = baseUrl + "role-devops-engineer/projects";
+			aboutPath = baseUrl + "about";
+			experiencePath = baseUrl + "role-devops-engineer/experience";
+			contactPath = baseUrl + "role-devops-engineer/contact";
 		} else {
 			projectsPath = baseUrl + "role-software-developer/projects";
 			aboutPath = baseUrl + "about";
-			experiencePath = baseUrl + "experience";
-			contactPath = baseUrl + "contact";
+			experiencePath = baseUrl + "role-software-developer/experience";
+			contactPath = baseUrl + "role-software-developer/contact";
 		}
 
 		// Update desktop links
@@ -205,4 +226,12 @@
 
 	// Listen for profile changes
 	window.addEventListener("profileChanged", updateNavLinks);
+
+	// Profile Modal Trigger
+	document.getElementById('profile-toggle-btn')?.addEventListener('click', () => {
+		window.dispatchEvent(new CustomEvent('openProfileModal'));
+	});
+	document.getElementById('profile-toggle-btn-mobile')?.addEventListener('click', () => {
+		window.dispatchEvent(new CustomEvent('openProfileModal'));
+	});
 </script>

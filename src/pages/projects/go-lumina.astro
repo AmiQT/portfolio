@@ -1,0 +1,131 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import IdeActivityBar from "../../components/software-dev/IdeActivityBar.astro";
+import IdeSidebar from "../../components/software-dev/IdeSidebar.astro";
+import MobileNav from "../../components/software-dev/MobileNav.astro";
+import NotebookCell from "../../components/software-dev/NotebookCell.astro";
+
+const project = {
+    title: "Go-Lumina",
+    type: "Senior Backend / SRE",
+    description:
+        "High-performance caching reverse proxy engineered in Go (1.26+). Sustains 7,500 RPS and handles 1,000,000 concurrent requests using custom worker-pools and thread-safe LRU caching.",
+};
+
+const technologies = [
+    { name: "Go 1.26+", color: "cyan", icon: "🐹" },
+    { name: "Docker (Multi-stage)", color: "blue", icon: "🐳" },
+    { name: "LRU Cache", color: "green", icon: "🧠" },
+    { name: "Singleflight", color: "orange", icon: "⚡" },
+    { name: "Rate Limiting", color: "red", icon: "🚦" },
+    { name: "UPX", color: "purple", icon: "📦" },
+];
+
+const stats = [
+    { label: "Request Handling", value: "7,500 RPS", icon: "🔥" },
+    { label: "Concurrency", value: "1M Requests", icon: "🚀" },
+    { label: "Image Size", value: "~15MB", icon: "📦" },
+    { label: "Build Time", value: "<10s", icon: "⏱️" },
+];
+
+const features = [
+    {
+        title: "Thread-Safe LRU Cache",
+        icon: "🧠",
+        desc: "Custom implementation using hashicorp/golang-lru to reduce backend load by 60%.",
+        highlight: true,
+    },
+    {
+        title: "Request Coalescing",
+        icon: "⚡",
+        desc: "Singleflight integration to prevent cache stampede for high-traffic keys.",
+    },
+    {
+        title: "Worker Pool Architecture",
+        icon: "🏗️",
+        desc: "Custom Go worker-pools to optimize CPU usage during high concurrency bursts.",
+    },
+    {
+        title: "Docker Optimization",
+        icon: "🐳",
+        desc: "Multi-stage builds with UPX compression for ultra-lean production artifacts.",
+    },
+];
+
+const files = [
+    {
+        name: "main.go",
+        active: true,
+        icon: "🐹",
+        href: import.meta.env.BASE_URL + "projects/go-lumina",
+    },
+    {
+        name: "projects.json",
+        active: false,
+        icon: "📦",
+        href: import.meta.env.BASE_URL + "role-software-developer/projects",
+    },
+];
+---
+
+<Layout
+    title="Go-Lumina - High Performance Proxy | Noor Azami"
+    description={project.description}
+>
+    <div class="flex h-screen bg-white dark:bg-[#0d1117] text-gray-900 dark:text-gray-300 overflow-hidden font-sans transition-colors duration-300">
+        <IdeActivityBar />
+        <IdeSidebar files={files} />
+
+        <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-[#0d1117] transition-colors duration-300">
+            <!-- Tab Bar -->
+            <div class="flex bg-gray-100 dark:bg-[#010409] border-b border-gray-200 dark:border-gray-800 overflow-x-auto scrollbar-hide">
+                <div class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#0d1117] border-t-2 border-cyan-500 text-gray-900 dark:text-white text-sm min-w-fit cursor-pointer">
+                    <span>🐹</span><span>main.go</span><span class="ml-2 text-gray-500 cursor-pointer">×</span>
+                </div>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth" id="project-content">
+                <!-- Hero Section -->
+                <NotebookCell cellNumber={1} code={`// High-Performance Proxy Implementation\npackage main\n\nfunc main() {\n  proxy := lumina.NewProxy(lumina.Config{\n    RPS: 7500,\n    Cache: "LRU",\n    Workers: 1024\n  });\n  proxy.ListenAndServe(":8080");\n}`}>
+                    <section class="relative flex flex-col items-center justify-center text-center py-12 md:py-16 bg-gradient-to-br from-cyan-900 via-slate-900 to-blue-900 rounded-lg overflow-hidden border border-cyan-500/30 shadow-2xl">
+                        <div class="z-10 px-4">
+                            <h1 class="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">{project.title}</h1>
+                            <p class="text-base md:text-lg font-medium mb-6 max-w-2xl mx-auto text-gray-200">{project.description}</p>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                {stats.map(s => (
+                                    <div class="bg-black/40 p-3 rounded-lg border border-white/10">
+                                        <div class="text-xl mb-1">{s.icon}</div>
+                                        <div class="text-lg font-bold text-cyan-400">{s.value}</div>
+                                        <div class="text-[10px] uppercase tracking-wider text-gray-400">{s.label}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                </NotebookCell>
+
+                <!-- Features -->
+                <NotebookCell cellNumber={2} code={`// Performance Tuning Summary\n/*\n * 1. Singleflight for stampede protection\n * 2. LRU Cache with TTL & SWR\n * 3. UPX Compression for static binaries\n */`}>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {features.map((feature) => (
+                            <div class={`p-5 rounded-lg border transition-all ${feature.highlight ? "bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 border-cyan-500/50" : "bg-white dark:bg-[#161b22] border-gray-200 dark:border-gray-700"}`}>
+                                <h3 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+                                    <span class="text-xl">{feature.icon}</span>{feature.title}
+                                </h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">{feature.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </NotebookCell>
+
+                <!-- Back Button -->
+                <div class="mt-8 text-center pb-8">
+                    <a href={import.meta.env.BASE_URL + "role-software-developer/projects"} class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-cyan-500/50 transition-all">
+                        <span>←</span> Back to All Projects
+                    </a>
+                </div>
+            </div>
+        </main>
+        <MobileNav files={files} />
+    </div>
+</Layout>

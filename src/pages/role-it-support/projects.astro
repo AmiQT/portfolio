@@ -1,7 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/it-support/Header.astro";
-import ProfileSelector from "../../components/shared/ProfileSelector.astro";
 ---
 
 <Layout
@@ -10,7 +9,6 @@ import ProfileSelector from "../../components/shared/ProfileSelector.astro";
     canonical="/role-it-support/projects"
 >
     <Header />
-    <ProfileSelector />
     <main class="pt-16">
         <section
             class="py-24 px-4 sm:px-6 lg:px-8 text-center animated-gradient"
@@ -36,12 +34,194 @@ import ProfileSelector from "../../components/shared/ProfileSelector.astro";
                 <!-- Filter Counter -->
                 <div class="flex flex-col items-center mb-12 fade-in-scroll">
                     <div class="filter-counter text-lg font-semibold">
-                        8 IT Support Projects
+                        10 IT Support Projects
                     </div>
                 </div>
 
                 <!-- Project Grid -->
                 <div class="projects-grid project-grid">
+                    <!-- Project: DayOne Deploy -->
+                    <div
+                        class="project-card fade-in-scroll"
+                        data-category="automation"
+                    >
+                        <div class="project-image-container">
+                            <div
+                                class="w-full h-full bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-lg flex items-center justify-center border border-blue-500/30"
+                            >
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2"
+                                    >
+                                        <svg
+                                            class="w-8 h-8 text-blue-400"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-blue-400">
+                                        Automation
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">
+                                    DayOne Deploy
+                                </h3>
+                                <div class="project-badges">
+                                    <span class="project-badge automation"
+                                        >Automation</span
+                                    >
+                                    <div class="skills-tags">
+                                        <span
+                                            class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded"
+                                            >C# .NET 10</span
+                                        >
+                                        <span
+                                            class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded"
+                                            >WinForms</span
+                                        >
+                                        <span
+                                            class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded"
+                                            >Spectre.Console</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">
+                                Enterprise-grade automation suite for zero-touch laptop provisioning. Automates everything from domain joining to software staging using a custom state machine.
+                            </p>
+                            <div class="project-actions">
+                                <a
+                                    href={import.meta.env.BASE_URL +
+                                        "role-it-support/projects/dayone-deploy"}
+                                    class="project-action-button primary"
+                                >
+                                    <svg
+                                        class="w-4 h-4"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                        ></path>
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                                        ></path>
+                                    </svg>
+                                    View Report
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: IT Asset Automation -->
+                    <div
+                        class="project-card fade-in-scroll"
+                        data-category="automation"
+                    >
+                        <div class="project-image-container">
+                            <div
+                                class="w-full h-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-lg flex items-center justify-center border border-emerald-500/30"
+                            >
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-2"
+                                    >
+                                        <svg
+                                            class="w-8 h-8 text-emerald-400"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-emerald-400">
+                                        Asset Ops
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-header">
+                                <h3 class="project-title">
+                                    Enterprise IT Asset Automation
+                                </h3>
+                                <div class="project-badges">
+                                    <span class="project-badge automation"
+                                        >Automation</span
+                                    >
+                                    <div class="skills-tags">
+                                        <span
+                                            class="px-2 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded"
+                                            >Python</span
+                                        >
+                                        <span
+                                            class="px-2 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded"
+                                            >Inventory</span
+                                        >
+                                        <span
+                                            class="px-2 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded"
+                                            >Audit</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="project-description mb-4">
+                                Automated tracking for 200+ hardware assets using custom Python scripts. Includes smart rate-limiting, error handling, and synchronous audit logging for corporate accountability.
+                            </p>
+                            <div class="project-actions">
+                                <a
+                                    href={import.meta.env.BASE_URL +
+                                        "role-it-support/projects/it-asset-automation"}
+                                    class="project-action-button primary"
+                                >
+                                    <svg
+                                        class="w-4 h-4"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                        ></path>
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                                        ></path>
+                                    </svg>
+                                    View Report
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Project: PC Setup Guide -->
                     <div
                         class="project-card fade-in-scroll"
@@ -835,3 +1015,7 @@ import ProfileSelector from "../../components/shared/ProfileSelector.astro";
         </section>
     </main>
 </Layout>
+
+<script>
+    localStorage.setItem("selectedProfile", "it-support");
+</script>

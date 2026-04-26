@@ -1,7 +1,5 @@
----
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/it-support/Header.astro";
-import ProfileSelector from "../../components/shared/ProfileSelector.astro";
 ---
 
 <Layout
@@ -10,7 +8,6 @@ import ProfileSelector from "../../components/shared/ProfileSelector.astro";
 	canonical="/role-data-analyst/"
 >
 	<Header />
-	<ProfileSelector />
 	<main class="pt-16">
 		<section
 			class="relative flex items-center justify-center h-screen text-center px-4 sm:px-6 lg:px-8 animated-gradient"
@@ -57,13 +54,13 @@ import ProfileSelector from "../../components/shared/ProfileSelector.astro";
 				</div>
 				<div class="flex flex-wrap justify-center gap-4">
 					<a
-						href="/portfolio/role-data-analyst/projects"
+						href="/role-data-analyst/projects"
 						class="button_primary text-lg font-bold px-8 py-3"
 					>
 						View Analytics Projects
 					</a>
 					<a
-						href="/portfolio/contact"
+						href={import.meta.env.BASE_URL + "role-data-analyst/contact"}
 						class="button_secondary text-lg font-bold px-8 py-3"
 					>
 						Contact Me
@@ -434,9 +431,8 @@ import ProfileSelector from "../../components/shared/ProfileSelector.astro";
 				</div>
 				<div class="text-center mt-12 fade-in-scroll">
 					<a
-						href="/portfolio/role-data-analyst/projects"
-						class="button_secondary">View All Analytics Projects</a
-					>
+						href="/role-data-analyst/projects"
+						class="button_secondary">View All Analytics Projects</a>
 				</div>
 			</div>
 		</section>
@@ -450,12 +446,10 @@ import ProfileSelector from "../../components/shared/ProfileSelector.astro";
 					Let's create powerful analytics solutions with Power BI
 				</p>
 				<div class="flex flex-wrap justify-center gap-4">
-					<a href="/portfolio/contact" class="button_primary"
-						>Get In Touch</a
-					>
-					<a href="/portfolio/about" class="button_secondary"
-						>Learn More</a
-					>
+					<a href="/contact" class="button_primary"
+						>Get In Touch</a>
+					<a href="/about" class="button_secondary"
+						>Learn More</a>
 				</div>
 			</div>
 		</section>

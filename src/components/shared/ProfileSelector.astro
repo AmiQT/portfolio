@@ -236,7 +236,7 @@
     }
 
     // Save profile selection and redirect to appropriate home page
-    function selectProfile(profile) {
+    function selectProfile(profile: string) {
         localStorage.setItem('selectedProfile', profile);
         const modal = document.getElementById('profile-modal');
         if (modal) {
@@ -260,7 +260,7 @@
         } else if (profile === 'devops-engineer') {
             redirectUrl = baseUrl + '/role-devops-engineer/';
         } else {
-            redirectUrl = baseUrl + '/home-software-developer/';
+            redirectUrl = baseUrl + '/role-software-developer/';
         }
         
         // Ensure we don't have double slashes if baseUrl is empty
@@ -282,9 +282,34 @@
     document.addEventListener('DOMContentLoaded', checkProfileSelection);
     setupProfileSelection();
 
+    // Global toggle function
+    function toggleProfileModal(show = true) {
+        const modal = document.getElementById('profile-modal');
+        if (modal) {
+            modal.style.display = show ? 'flex' : 'none';
+            document.body.style.overflow = show ? 'hidden' : 'auto';
+
+            if (show) {
+                const currentProfile = localStorage.getItem('selectedProfile');
+                document.querySelectorAll('.profile-option').forEach(opt => {
+                    opt.classList.remove('ring-4', 'ring-blue-500', 'border-blue-500', 'bg-blue-500/5', 'ring-green-500', 'border-green-500', 'bg-green-500/5', 'ring-orange-500', 'border-orange-500', 'bg-orange-500/5');
+                    
+                    if (opt.getAttribute('data-profile') === currentProfile) {
+                        const color = currentProfile === 'software-developer' ? 'green' : (currentProfile === 'it-support' ? 'blue' : 'orange');
+                        opt.classList.add(`ring-2`, `ring-${color}-500/50`, `border-${color}-500`, `bg-${color}-500/5`);
+                    }
+                });
+            }
+        }
+    }
+
+    // Listen for manual triggers from other components
+    window.addEventListener('openProfileModal', () => toggleProfileModal(true));
+
     // Make functions available globally
-    window.selectProfile = selectProfile;
-    window.getCurrentProfile = getCurrentProfile;
+    (window as any).selectProfile = selectProfile;
+    (window as any).getCurrentProfile = getCurrentProfile;
+    (window as any).toggleProfileModal = toggleProfileModal;
 </script>
 
 <style>

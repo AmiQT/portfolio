@@ -1,7 +1,5 @@
----
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/it-support/Header.astro";
-import ProfileSelector from "../../components/shared/ProfileSelector.astro";
 ---
 
 <Layout
@@ -10,7 +8,6 @@ import ProfileSelector from "../../components/shared/ProfileSelector.astro";
     canonical="/role-data-analyst/projects"
 >
     <Header />
-    <ProfileSelector />
     <main class="pt-16">
         <section class="py-24 px-4 sm:px-6 lg:px-8 text-center">
             <div class="container mx-auto fade-in-scroll">
@@ -335,12 +332,10 @@ import ProfileSelector from "../../components/shared/ProfileSelector.astro";
                     Let's build powerful analytics with Power BI
                 </p>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="/portfolio/contact" class="button_primary"
-                        >Get In Touch</a
-                    >
-                    <a href="/portfolio/about" class="button_secondary"
-                        >Learn More</a
-                    >
+                    <a href="/contact" class="button_primary"
+                        >Get In Touch</a>
+                    <a href="/about" class="button_secondary"
+                        >Learn More</a>
                 </div>
             </div>
         </section>

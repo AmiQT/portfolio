@@ -10,11 +10,8 @@ export const profile = {
 };
 
 export const files = [
-    { name: 'home-software-developer.ipynb', active: true, icon: '📝', href: '/portfolio/home-software-developer/' },
-    { name: 'projects.json', active: false, icon: '📦', href: '/portfolio/role-software-developer/projects' },
-    { name: 'about.md', active: false, icon: '📄', href: '/portfolio/about' },
-    { name: 'experience.json', active: false, icon: '💼', href: '/portfolio/experience' },
-    { name: 'contact.ts', active: false, icon: '📧', href: '/portfolio/contact' },
+    { name: 'projects.json', active: false, icon: '📦', href: 'role-software-developer/projects' },
+    { name: 'home-software-developer.ipynb', active: true, icon: '📓', href: 'role-software-developer/' },
 ];
 
 export const expertise = [
@@ -43,19 +40,50 @@ export const expertise = [
 
 export const projectsData = [
     {
-        title: "Enterprise IT Asset Automation",
-        type: "Backend Script",
-        desc: "Engineered a robust enterprise automation suite using Python/Pandas that eliminated 90% of manual hardware tracking toil for 200+ employees via smart rate-limited notifications.",
+        title: "DayOne Deploy",
+        type: "C# Automation Suite",
+        desc: "Enterprise-grade C# (.NET 10) suite for zero-touch laptop provisioning. Features offline network staging, resilient state orchestration via RunOnce, and real-time observability with Spectre.Console.",
         image: "gradient",
-        link: "projects/it-asset-automation",
-        color: "green",
-        icon: "server",
+        link: "projects/dayone-deploy",
+        color: "blue",
+        icon: "cpu",
         aiEmpowered: true
+    },
+    {
+        title: "Go-Lumina",
+        type: "Backend / SRE",
+        desc: "High-performance caching reverse proxy in Go capable of 7,500 RPS. Implements thread-safe LRU cache, Singleflight for request coalescing, and SWR for extreme reliability.",
+        image: "gradient",
+        link: "projects/go-lumina",
+        color: "cyan",
+        icon: "zap"
+    },
+    {
+        title: "Gopher-Ops",
+        type: "AI SRE Bot",
+        desc: "Secure AI ChatOps bot (Go + Gemini 2.5) managing Docker & Cloud metrics via Telegram. Features live telemetry and HITL execution via interactive buttons.",
+        image: "gradient",
+        link: "projects/gopher-ops",
+        color: "blue",
+        icon: "bot",
+        github: "https://github.com/AmiQT/Gopher-Ops",
+        aiEmpowered: true
+    },
+    {
+        title: "Web-Pulse",
+        type: "Monitoring Tool",
+        desc: "Fast monitoring system in Python/FastAPI checking services every 60s. Simulates browser traffic to bypass security shields and provides real-time Telegram alerts.",
+        image: "gradient",
+        link: "projects/web-pulse",
+        color: "emerald",
+        icon: "activity",
+        github: "https://github.com/AmiQT/web-pulse",
+        aiEmpowered: false
     },
     {
         title: "Student Talent Profiling",
         type: "Full-Stack",
-        desc: "Architected an AI-powered ecosystem for UTHM students featuring Gemini-integrated RAG systems and automated DevOps pipelines, reducing report generation time by 70%.",
+        desc: "Architected an AI-powered ecosystem for UTHM students featuring Gemini-integrated Agentic AI Assistant, Flutter mobile app, and automated DevOps pipelines.",
         image: "assets/fyp-hero.png",
         link: "projects/student-talent-profiling",
         color: "cyan",
@@ -64,61 +92,34 @@ export const projectsData = [
         infraStatus: { frontend: "Active", backend: "On-Demand (FinOps Optimized)" }
     },
     {
-        title: "StyleHub E-Commerce",
-        type: "Web",
-        desc: "Developed a scalable full-stack fashion platform using React/PostgreSQL, achieving a 40% faster checkout flow through an optimized state management and AI-assisted UX tuning.",
-        image: "assets/stylehub.png",
-        link: "projects/stylehub",
-        color: "pink",
-        icon: "shopping-bag",
+        title: "Resume AI",
+        type: "Full-Stack SaaS",
+        desc: "Full-stack SaaS for automated resume generation using React, Supabase, and FastAPI. Features Toyyibpay integration and ATS-optimized templates.",
+        image: "assets/resume_ai.png",
+        link: "projects/resume-ai",
+        color: "orange",
+        icon: "document",
+        aiEmpowered: true,
         infraStatus: { frontend: "Active", backend: "On-Demand (FinOps Optimized)" }
     },
     {
-        title: "Rumah Tenang",
-        type: "Web",
-        desc: "Spearheaded a mental wellness community platform with real-time support integration, fostering a safe environment for 500+ active Malaysian community members.",
-        image: "assets/rumah_tenang.webp",
-        link: "projects/rumah-tenang",
-        color: "blue",
-        icon: "heart"
-    },
-    {
-        title: "Nasi Lemak Burger",
-        type: "App",
-        desc: "Crafted a restaurant ordering system with real-time delivery tracking, improving order processing efficiency by 30% for local food vendors.",
-        image: "assets/burger.webp",
-        link: "projects/nasi-lemak-burger",
-        color: "purple",
-        icon: "burger"
+        title: "Enterprise IT Asset Automation",
+        type: "Backend Tooling",
+        desc: "Engineered a robust Python automation suite for tracking 200+ hardware assets. Uses rate-limited Python orchestration to prevent system bottlenecks during audits.",
+        image: "gradient",
+        link: "role-software-developer/projects/it-asset-automation",
+        color: "green",
+        icon: "server",
+        aiEmpowered: true
     },
     {
         title: "Healthy Food App",
-        type: "App",
-        desc: "Built a vision-capable nutrition tracking app utilizing ML models to automate calorie counting and meal planning for health-conscious users.",
+        type: "Mobile App",
+        desc: "Built a nutrition tracking app with Flutter & Firebase. Features real-time ordering, favorites, and secure admin control panel.",
         image: "assets/healthy-food.webp",
         placeholder: true,
         link: "projects/healthy-food-app",
         color: "green",
         icon: "apple"
-    },
-    {
-        title: "KME Pest Control",
-        type: "Web",
-        desc: "Modernized a legacy pest control platform using a dual-architecture React approach, resulting in 50% better SEO rankings and improved lead generation.",
-        image: "gradient",
-        link: "projects/kme-pest-control",
-        color: "teal",
-        icon: "shield"
-    },
-    {
-        title: "AI Resume Builder",
-        type: "Web",
-        desc: "Powered a SaaS platform with GPT-4 to generate ATS-optimized resumes, helping students achieve a 25% higher candidate response rate in job applications.",
-        image: "assets/resume_ai.png",
-        link: "projects/ai-resume-builder",
-        color: "orange",
-        icon: "document",
-        aiEmpowered: true,
-        infraStatus: { frontend: "Active", backend: "On-Demand (FinOps Optimized)" }
     }
 ];

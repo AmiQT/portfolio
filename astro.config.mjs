@@ -4,8 +4,8 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
-  site: 'https://noorazami.github.io',
-  base: '/portfolio/',
+  site: 'https://www.noorazami.me',
+  base: '/',
   build: {
     assets: 'assets',
   },
