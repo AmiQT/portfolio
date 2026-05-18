@@ -1,7 +1,6 @@
 ---
 import type { Props as AstroProps } from "astro";
 import "../styles/global.css";
-import ProfileSelector from "../components/shared/ProfileSelector.astro";
 
 export interface Props extends AstroProps {
 	title: string;
@@ -142,7 +141,6 @@ const fullUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
 		></script>
 	</head>
 	<body>
-		<ProfileSelector />
 		<slot />
 		<script src="/js/profile-customizer.js" is:inline></script>
 		<script src="/js/main.js" is:inline></script>

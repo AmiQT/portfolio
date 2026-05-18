@@ -38,36 +38,5 @@ const baseUrl = import.meta.env.BASE_URL;
   </div>
 
 
-  <!-- Profile Switcher Button -->
-  <button
-    id="profile-toggle-btn"
-    aria-label="Change profile"
-    title="Current: Software Developer | Click to change profile"
-    class="mt-auto flex flex-col items-center gap-1 p-2 cursor-pointer text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors group"
-  >
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
-    >
-      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-      <circle cx="12" cy="7" r="4"></circle>
-    </svg>
-    <span class="text-[10px] font-medium">Role</span>
-  </button>
-
-  <script>
-    const profileBtn = document.getElementById('profile-toggle-btn');
-    profileBtn?.addEventListener('click', () => {
-      window.dispatchEvent(new CustomEvent('openProfileModal'));
-    });
-  </script>
-
-  <div class="p-2 text-gray-500" title="Settings">⚙️</div>
+  <div class="mt-auto p-2 text-gray-500" title="Settings">⚙️</div>
 </aside>
