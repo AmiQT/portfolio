@@ -1,9 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import IdeActivityBar from "../../components/software-dev/IdeActivityBar.astro";
-import IdeSidebar from "../../components/software-dev/IdeSidebar.astro";
-import MobileNav from "../../components/software-dev/MobileNav.astro";
-import NotebookCell from "../../components/software-dev/NotebookCell.astro";
+import IdeActivityBar from "../../components/shared/IdeActivityBar.astro";
+import IdeSidebar from "../../components/shared/IdeSidebar.astro";
+import MobileNav from "../../components/shared/MobileNav.astro";
+import NotebookCell from "../../components/shared/NotebookCell.astro";
 
 const project = {
     title: "DayOne Deploy",
@@ -65,13 +65,13 @@ const files = [
         name: "projects.json",
         active: false,
         icon: "📦",
-        href: import.meta.env.BASE_URL + "role-software-developer/projects",
+        href: import.meta.env.BASE_URL + "role-devops-engineer/architecture",
     },
     {
-        name: "home-software-developer.ipynb",
+        name: "devops-home.ipynb",
         active: false,
         icon: "📝",
-        href: import.meta.env.BASE_URL + "role-software-developer/",
+        href: import.meta.env.BASE_URL + "role-devops-engineer/",
     },
 ];
 ---
@@ -90,7 +90,7 @@ const files = [
                 <div class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#0d1117] border-t-2 border-blue-500 text-gray-900 dark:text-white text-sm min-w-fit cursor-pointer">
                     <span>⚙️</span><span>dayone-deploy.cs</span><span class="ml-2 text-gray-500 cursor-pointer">×</span>
                 </div>
-                <a href={import.meta.env.BASE_URL + "role-software-developer/projects"} class="flex items-center gap-2 px-4 py-2 text-gray-500 hover:bg-gray-200 dark:hover:bg-[#161b22] cursor-pointer text-sm min-w-fit">
+                <a href={import.meta.env.BASE_URL + "role-devops-engineer/architecture"} class="flex items-center gap-2 px-4 py-2 text-gray-500 hover:bg-gray-200 dark:hover:bg-[#161b22] cursor-pointer text-sm min-w-fit">
                     <span>📦</span><span>projects.json</span>
                 </a>
             </div>
@@ -166,7 +166,7 @@ const files = [
 
                 <!-- Back Button -->
                 <div class="mt-8 text-center pb-8">
-                    <a href={import.meta.env.BASE_URL + "role-software-developer/projects"} class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-blue-500/50 transition-all">
+                    <a href={import.meta.env.BASE_URL + "role-devops-engineer/architecture"} class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-blue-500/50 transition-all">
                         <span>←</span> Back to All Projects
                     </a>
                 </div>
