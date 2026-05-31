@@ -138,57 +138,49 @@ document.addEventListener('DOMContentLoaded', () => {
         filterProjects('all');
     }
 
-    // Fade-in-on-scroll animation with Intersection Observer
+    // Fade-in-on-scroll (legacy)
     const fadeInScrolls = document.querySelectorAll('.fade-in-scroll');
-    const observer = new IntersectionObserver(entries => {
+    const legacyObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+                legacyObserver.unobserve(entry.target);
             }
         });
-    }, { 
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    fadeInScrolls.forEach(el => legacyObserver.observe(el));
 
-    fadeInScrolls.forEach(fadeInScroll => {
-        observer.observe(fadeInScroll);
+    // Fade-up observer (new dashboard design)
+    const fadeUps = document.querySelectorAll('.fade-up');
+    const fadeUpObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                fadeUpObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    fadeUps.forEach(el => fadeUpObserver.observe(el));
+
+    // Stats counter
+    document.querySelectorAll('[data-counter]').forEach(el => {
+        const target = parseInt(el.dataset.counter);
+        let current = 0;
+        const step = Math.ceil(target / 25);
+        const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            el.textContent = current;
+            if (current >= target) clearInterval(timer);
+        }, 40);
     });
     
-    // Enhanced Project Card Interactions
+    // Project card hover — let CSS handle the lift, JS only manages z-index
     projectCards.forEach(card => {
-        // Add hover sound effect (optional - just for fun)
         card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
             this.style.zIndex = '10';
         });
-        
         card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-            this.style.zIndex = '1';
-        });
-        
-        // Add click ripple effect
-        card.addEventListener('click', function(e) {
-            if (e.target.tagName === 'A') return; // Don't add ripple to links
-            
-            const ripple = document.createElement('div');
-            ripple.style.position = 'absolute';
-            ripple.style.borderRadius = '50%';
-            ripple.style.background = 'rgba(255, 255, 255, 0.3)';
-            ripple.style.transform = 'scale(0)';
-            ripple.style.animation = 'ripple 0.6s linear';
-            ripple.style.left = (e.clientX - this.offsetLeft) + 'px';
-            ripple.style.top = (e.clientY - this.offsetTop) + 'px';
-            ripple.style.width = ripple.style.height = '20px';
-            ripple.style.pointerEvents = 'none';
-            
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
+            this.style.zIndex = '';
         });
     });
     

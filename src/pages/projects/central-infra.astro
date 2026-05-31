@@ -5,44 +5,62 @@ import Icon from "../../components/shared/Icon.astro";
 const baseUrl = import.meta.env.BASE_URL;
 
 const project = {
-    title: "Gopher-Ops",
-    type: "AI SRE ChatOps Bot",
+    title: "Central-Infra",
+    type: "Kubernetes Sandbox Architecture",
     category: "devops",
     status: "active",
-    description: "Secure AI SRE bot engineered in Go, utilizing Gemini 2.5 for natural language infrastructure control. Manages Docker environments and host telemetry via Telegram with Zero-Trust identity gating.",
-    tech: ["Go", "Gemini 2.5 API", "Docker SDK", "Telegram Bot API", "Terraform", "GitHub Actions"],
-    github: "https://github.com/AmiQT/Gopher-Ops",
+    description: "Modular, multi-tier k3d cluster simulating production environments. Provisioned via Terraform across 4 layers with NGINX Ingress and Prometheus/Grafana observability stack.",
+    tech: ["Kubernetes", "Terraform", "Helm", "k3d", "Prometheus", "Grafana", "NGINX Ingress", "RBAC"],
+    github: "https://github.com/AmiQT/layer4-workloads",
 };
 
 const features = [
     {
-        icon: "cpu",
-        title: "AI Intent Parsing",
-        desc: "Gemini 2.5 parses natural language (e.g. 'restart my nginx container') into executable Docker commands.",
+        icon: "kubernetes",
+        title: "4-Layer Terraform Isolation",
+        desc: "Infrastructure provisioned across 4 isolated layers using Terraform — each layer independently managed for modularity and safe teardown.",
         highlight: true,
     },
     {
-        icon: "user",
-        title: "HITL Execution",
-        desc: "Human-in-the-loop validation via interactive Telegram buttons for safe remote execution.",
+        icon: "settings",
+        title: "k3d Local Cluster",
+        desc: "Lightweight k3d cluster (1 server + 2 agent nodes) simulating a production-grade multi-node Kubernetes environment on local hardware.",
     },
     {
-        icon: "shield",
-        title: "Zero-Trust Gating",
-        desc: "Strict Telegram ID verification ensuring only authorized users can query or control the infra.",
+        icon: "globe",
+        title: "NGINX Ingress via Helm",
+        desc: "Ingress controller deployed via Helm chart, enabling path-based and host-based routing across services within the cluster.",
     },
     {
         icon: "antenna",
-        title: "Telemetry Streaming",
-        desc: "Real-time CPU/RAM metrics and container status reported directly to the chat interface.",
+        title: "Full Observability Stack",
+        desc: "Kube-Prometheus-Stack deployed for metrics collection and Grafana dashboards — real-time visibility into node health, pod status, and workload performance.",
     },
+    {
+        icon: "shield",
+        title: "Zero-Trust Security Baseline",
+        desc: "RBAC policies, isolated namespaces per workload, and dedicated ServiceAccounts enforcing least-privilege access across the cluster.",
+    },
+    {
+        icon: "lightning",
+        title: "Production Simulation",
+        desc: "Mirrors real production cluster behaviour — rolling updates, health probes, resource limits, and namespace-level isolation.",
+    },
+];
+
+const architecture = [
+    { step: "1", title: "Layer 0", desc: "Cluster Bootstrap (k3d)" },
+    { step: "2", title: "Layer 1", desc: "Networking (NGINX + Helm)" },
+    { step: "3", title: "Layer 2", desc: "Workloads & Services" },
+    { step: "4", title: "Layer 3", desc: "Observability (Prometheus + Grafana)" },
+    { step: "5", title: "Layer 4", desc: "Security (RBAC + ServiceAccounts)" },
 ];
 ---
 
 <Layout
-    title="Gopher-Ops | AI SRE Bot | Noor Azami"
+    title="Central-Infra | Kubernetes Sandbox | Noor Azami"
     description={project.description}
-    canonical="/projects/gopher-ops"
+    canonical="/projects/central-infra"
 >
     <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
@@ -52,13 +70,13 @@ const features = [
             <span>/</span>
             <a href={baseUrl + "projects"} class="hover:text-white transition-colors">projects</a>
             <span>/</span>
-            <span class="text-[#e6edf3]">gopher-ops</span>
+            <span class="text-[#e6edf3]">central-infra</span>
         </div>
 
         <!-- Header Card -->
         <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 sm:p-8 mb-8">
             <div class="flex flex-col sm:flex-row sm:items-start gap-4 mb-6">
-                <span class="text-[#8b949e] shrink-0"><Icon name="robot" class="w-10 h-10" /></span>
+                <span class="text-[#8b949e] shrink-0"><Icon name="kubernetes" class="w-10 h-10" /></span>
                 <div class="flex-1">
                     <div class="flex flex-wrap items-center gap-2 mb-1">
                         <h1 class="text-2xl font-bold text-white">{project.title}</h1>
@@ -107,6 +125,25 @@ const features = [
                             <p class="text-xs text-[#8b949e] leading-relaxed">{f.desc}</p>
                         </div>
                     </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Architecture Flow -->
+        <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 mb-8">
+            <h2 class="text-sm font-semibold text-white font-mono mb-5">// cluster_layer_architecture</h2>
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-3">
+                {architecture.map((item, idx) => (
+                    <>
+                        <div class="flex-1 bg-[#0d1117] border border-[#30363d] rounded-lg p-4 text-center min-w-[110px]">
+                            <div class="text-xs text-blue-400 font-mono font-bold mb-1">{item.step}.</div>
+                            <div class="text-sm font-semibold text-[#e6edf3] mb-0.5">{item.title}</div>
+                            <div class="text-[10px] text-[#8b949e] font-mono">{item.desc}</div>
+                        </div>
+                        {idx < architecture.length - 1 && (
+                            <span class="hidden md:block text-[#8b949e] text-lg shrink-0">→</span>
+                        )}
+                    </>
                 ))}
             </div>
         </div>

@@ -17,132 +17,172 @@ const {
 } = Astro.props;
 const siteUrl = "https://www.noorazami.me";
 const fullUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
+const baseUrl = import.meta.env.BASE_URL;
+
+const navLinks = [
+	{ href: "", label: "Home" },
+	{ href: "projects", label: "Projects" },
+	{ href: "experience", label: "Experience" },
+	{ href: "contact", label: "Contact" },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <script is:inline>
-            // Force Dark Mode Everywhere - Simple and Consistent
-            document.documentElement.classList.add('dark');
-        </script>
+	<head>
+		<meta charset="UTF-8" />
+		<script is:inline>
+			document.documentElement.classList.add("dark");
+		</script>
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="icon"
-			type="image/x-icon"
-			href={import.meta.env.BASE_URL + "favicon.ico"}
-		/>
-		<meta
-			name="google-site-verification"
-			content="U_F96d2ENnYwrAftLqwFcXkKc8Rk3wAq-Le-TSnLDTA"
-		/>
+		<link rel="icon" type="image/x-icon" href={import.meta.env.BASE_URL + "favicon.ico"} />
+		<meta name="google-site-verification" content="U_F96d2ENnYwrAftLqwFcXkKc8Rk3wAq-Le-TSnLDTA" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-
-		<!-- PWA Manifest -->
-		<link
-			rel="manifest"
-			href={import.meta.env.BASE_URL + "manifest.json"}
-		/>
-		<meta name="theme-color" content="#0a58ca" />
+		<link rel="manifest" href={import.meta.env.BASE_URL + "manifest.json"} />
+		<meta name="theme-color" content="#161b22" />
 		<meta name="mobile-web-app-capable" content="yes" />
-		<meta
-			name="apple-mobile-web-app-status-bar-style"
-			content="black-translucent"
-		/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		<meta name="apple-mobile-web-app-title" content="Noor Azami" />
-
-		<!-- Canonical URL -->
 		<link rel="canonical" href={fullUrl} />
-
-		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={fullUrl} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={`${siteUrl}/${image}`} />
 		<meta property="og:site_name" content="Noor Azami - Portfolio" />
-
-		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content={fullUrl} />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={`${siteUrl}/${image}`} />
-
-		<!-- Additional SEO -->
 		<meta name="robots" content="index, follow" />
 		<meta name="author" content="Noor Azami" />
-		<meta
-			name="keywords"
-			content="DevOps Engineer, SRE, Cloud Infrastructure, CI/CD, Kubernetes, Docker, Automation, Portfolio, Noor Azami"
-		/>
-
-		<!-- Preload critical resources -->
-		<link
-			rel="preload"
-			href={import.meta.env.BASE_URL + "assets/profile.webp"}
-			as="image"
-		/>
+		<meta name="keywords" content="DevOps Engineer, SRE, Cloud Infrastructure, CI/CD, Kubernetes, Docker, Automation, Portfolio, Noor Azami" />
+		<link rel="preload" href={import.meta.env.BASE_URL + "assets/profile.webp"} as="image" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap"
-			rel="stylesheet"
-		/>
-
-		<!-- Google Analytics -->
-		<!-- Uncomment and replace G-XXXXXXXXXX with your actual Google Analytics 4 ID -->
-		<!--
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'G-XXXXXXXXXX');
-		</script>
-		-->
-
-		<!-- Structured Data -->
-		<script
-			type="application/ld+json"
-			set:html={JSON.stringify({
-				"@context": "https://schema.org",
-				"@type": "Person",
-				name: "Noor Azami",
-				jobTitle: "DevOps Engineer",
-				description:
-					"DevOps Engineer and SRE with a background in IT Support and Software Development, passionate about building scalable infrastructure and automation pipelines.",
-				url: siteUrl,
-				image: `${siteUrl}/assets/profile.webp`,
-				email: "noorazami@outlook.my",
-				telephone: "+6013-8799702",
-				address: {
-					"@type": "PostalAddress",
-					addressCountry: "MY",
-				},
-				alumniOf: {
-					"@type": "CollegeOrUniversity",
-					name: "Universiti Tun Hussein Onn Malaysia",
-				},
-				knowsAbout: [
-					"IT Support",
-					"Networking",
-					"Multimedia",
-					"System Administration",
-				],
-				sameAs: [
-					"https://www.linkedin.com/in/noor-azami/",
-					"https://github.com/AmiQT",
-				],
-			})}
-		></script>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Person",
+			name: "Noor Azami",
+			jobTitle: "DevOps Engineer",
+			description: "DevOps Engineer and SRE with a background in IT Support and Software Development, passionate about building scalable infrastructure and automation pipelines.",
+			url: siteUrl,
+			image: `${siteUrl}/assets/profile.webp`,
+			email: "noorazami@outlook.my",
+			telephone: "+6013-8799702",
+			address: { "@type": "PostalAddress", addressCountry: "MY" },
+			alumniOf: { "@type": "CollegeOrUniversity", name: "Universiti Tun Hussein Onn Malaysia" },
+			knowsAbout: ["DevOps", "Cloud Infrastructure", "CI/CD", "IT Support", "Software Development"],
+			sameAs: ["https://www.linkedin.com/in/noor-azami/", "https://github.com/AmiQT"],
+		})}></script>
 	</head>
-	<body>
+	<body class="bg-[#0d1117] text-[#e6edf3] min-h-screen font-sans antialiased">
+
+		<!-- Top Navigation -->
+		<nav class="sticky top-0 z-50 bg-[#161b22]/95 backdrop-blur border-b border-[#30363d]">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex items-center justify-between h-14">
+
+					<!-- Logo -->
+					<a href={baseUrl} class="flex items-center gap-2.5 group">
+						<span class="font-bold text-white font-mono">AmiQT</span>
+						<span class="text-[#8b949e] text-sm hidden sm:block font-mono">/portfolio</span>
+					</a>
+
+					<!-- Desktop Nav -->
+					<div class="hidden md:flex items-center gap-0.5">
+						{navLinks.map(link => {
+							const href = baseUrl + link.href;
+							const isActive = currentPath === href.replace(/\/$/, "") || currentPath === href;
+							return (
+								<a
+									href={href}
+									class={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors duration-150 ${
+										isActive
+											? "bg-[#21262d] text-white"
+											: "text-[#8b949e] hover:text-white hover:bg-[#21262d]"
+									}`}
+								>
+									{link.label}
+								</a>
+							);
+						})}
+					</div>
+
+					<!-- Right side -->
+					<div class="flex items-center gap-3">
+						<span class="hidden sm:flex items-center text-xs text-green-400 font-mono border border-green-500/30 bg-green-500/10 px-2.5 py-1 rounded-full">
+							AVAILABLE
+						</span>
+						<a
+							href="https://github.com/AmiQT"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-[#8b949e] hover:text-white transition-colors"
+							title="GitHub"
+						>
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+								<path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+							</svg>
+						</a>
+						<!-- Mobile menu button -->
+						<button id="mobile-menu-btn" class="md:hidden text-[#8b949e] hover:text-white transition-colors p-1">
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+							</svg>
+						</button>
+					</div>
+				</div>
+
+				<!-- Mobile Nav -->
+				<div id="mobile-menu" class="md:hidden hidden border-t border-[#30363d] py-2">
+					{navLinks.map(link => {
+						const href = baseUrl + link.href;
+						const isActive = currentPath === href.replace(/\/$/, "") || currentPath === href;
+						return (
+							<a
+								href={href}
+								class={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+									isActive
+										? "bg-[#21262d] text-white"
+										: "text-[#8b949e] hover:text-white hover:bg-[#21262d]"
+								}`}
+							>
+								{link.label}
+							</a>
+						);
+					})}
+				</div>
+			</div>
+		</nav>
+
 		<slot />
-<script src="/js/main.js" is:inline></script>
+
+		<!-- Footer -->
+		<footer class="border-t border-[#30363d] mt-24 py-10 px-4">
+			<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[#8b949e] font-mono">
+				<span>© 2026 Muhammad Noor Azami · AmiQT</span>
+				<div class="flex items-center gap-4">
+					<a href="https://github.com/AmiQT" target="_blank" rel="noopener" class="hover:text-white transition-colors">GitHub</a>
+					<a href="https://www.linkedin.com/in/noor-azami/" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a>
+					<a href={baseUrl + "contact"} class="hover:text-white transition-colors">Contact</a>
+				</div>
+			</div>
+		</footer>
+
+		<script src="/js/main.js" is:inline></script>
 		<script src="/js/back-to-top.js" is:inline></script>
+		<script is:inline>
+			document.getElementById("mobile-menu-btn")?.addEventListener("click", () => {
+				document.getElementById("mobile-menu")?.classList.toggle("hidden");
+			});
+		</script>
 	</body>
 </html>

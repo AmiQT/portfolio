@@ -1,0 +1,154 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/shared/Icon.astro";
+import { profile, allProjects } from "../data/devops-engineer.ts";
+
+const baseUrl = import.meta.env.BASE_URL;
+
+const categoryMeta = {
+    devops: { label: "DevOps", color: "text-blue-400", bg: "bg-blue-500/15", border: "border-blue-500/30" },
+    dev:    { label: "Dev",    color: "text-violet-400", bg: "bg-violet-500/15", border: "border-violet-500/30" },
+    it:     { label: "IT Support", color: "text-amber-400", bg: "bg-amber-500/15", border: "border-amber-500/30" },
+};
+
+const statusMeta = {
+    active:   { label: "Active",   dot: "bg-green-400",  text: "text-green-400" },
+    intern:   { label: "Intern",   dot: "bg-amber-400",  text: "text-amber-400" },
+    archived: { label: "Archived", dot: "bg-gray-500",   text: "text-gray-400" },
+};
+
+const devopsCount = allProjects.filter(p => p.category === "devops").length;
+const devCount    = allProjects.filter(p => p.category === "dev").length;
+const itCount     = allProjects.filter(p => p.category === "it").length;
+---
+
+<Layout
+    title={`Projects | ${profile.name}`}
+    description="All projects by Noor Azami — DevOps infrastructure, full-stack development, and IT automation."
+    canonical="/projects"
+>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Header -->
+        <div class="flex items-center gap-2 text-[#8b949e] text-sm font-mono mb-6">
+            <a href={baseUrl} class="hover:text-white transition-colors">home</a>
+            <span>/</span>
+            <span class="text-[#e6edf3]">projects</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+            <div>
+                <h1 class="text-3xl font-bold text-white mb-2">Projects</h1>
+                <p class="text-[#8b949e] text-sm">All {allProjects.length} projects across DevOps, development, and IT automation.</p>
+            </div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap gap-2 mb-8" id="filter-tabs">
+            <button data-filter="all" class="filter-tab active-tab px-3 py-1.5 text-sm font-medium rounded-md bg-[#21262d] text-white border border-[#8b949e]/30 transition-colors">
+                All <span class="ml-1 text-xs text-[#8b949e]">{allProjects.length}</span>
+            </button>
+            <button data-filter="devops" class="filter-tab px-3 py-1.5 text-sm font-medium rounded-md text-[#8b949e] border border-[#30363d] hover:border-blue-500/40 hover:text-blue-400 transition-colors">
+                DevOps <span class="ml-1 text-xs">{devopsCount}</span>
+            </button>
+            <button data-filter="dev" class="filter-tab px-3 py-1.5 text-sm font-medium rounded-md text-[#8b949e] border border-[#30363d] hover:border-violet-500/40 hover:text-violet-400 transition-colors">
+                Dev <span class="ml-1 text-xs">{devCount}</span>
+            </button>
+            <button data-filter="it" class="filter-tab px-3 py-1.5 text-sm font-medium rounded-md text-[#8b949e] border border-[#30363d] hover:border-amber-500/40 hover:text-amber-400 transition-colors">
+                IT Support <span class="ml-1 text-xs">{itCount}</span>
+            </button>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="project-grid">
+            {allProjects.map(project => {
+                const cat = categoryMeta[project.category];
+                const stat = statusMeta[project.status];
+                return (
+                    <div
+                        class="project-card group bg-[#161b22] border border-[#30363d] rounded-xl p-5 hover:border-[#8b949e]/60 transition-all duration-200 flex flex-col"
+                        data-category={project.category}
+                    >
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[#8b949e]"><Icon name={project.icon} class="w-5 h-5" /></span>
+                                <div>
+                                    <h3 class="font-semibold text-white text-sm group-hover:text-blue-300 transition-colors">{project.title}</h3>
+                                    <p class="text-xs text-[#8b949e] font-mono">{project.type}</p>
+                                </div>
+                            </div>
+                            <span class={`flex items-center gap-1 text-xs font-mono ${stat.text}`}>
+                                <span class={`w-1.5 h-1.5 rounded-full ${stat.dot}`}></span>
+                                {stat.label}
+                            </span>
+                        </div>
+
+                        <p class="text-[#8b949e] text-xs leading-relaxed mb-4 flex-1">{project.description}</p>
+
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            {project.tech.slice(0, 4).map(t => (
+                                <span class="text-[10px] font-mono px-2 py-0.5 bg-[#21262d] text-[#8b949e] rounded border border-[#30363d]">
+                                    {t}
+                                </span>
+                            ))}
+                            {project.tech.length > 4 && (
+                                <span class="text-[10px] font-mono px-2 py-0.5 text-[#8b949e]">+{project.tech.length - 4}</span>
+                            )}
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <span class={`text-[10px] font-mono px-2 py-0.5 rounded border ${cat.color} ${cat.bg} ${cat.border}`}>
+                                {cat.label}
+                            </span>
+                            <div class="flex items-center gap-2">
+                                {project.github && (
+                                    <a href={project.github} target="_blank" rel="noopener" class="text-[#8b949e] hover:text-white transition-colors" title="GitHub">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22  6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </a>
+                                )}
+                                {project.liveUrl && (
+                                    <a href={project.liveUrl} target="_blank" rel="noopener" class="text-[#8b949e] hover:text-white transition-colors" title="Live">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                        </svg>
+                                    </a>
+                                )}
+                                {project.link.includes("/") && (
+                                    <a href={baseUrl + project.link} class="text-xs font-mono text-[#8b949e] hover:text-white transition-colors">
+                                        Details →
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
+
+    </main>
+</Layout>
+
+<script>
+    const tabs = document.querySelectorAll<HTMLButtonElement>(".filter-tab");
+    const cards = document.querySelectorAll<HTMLElement>(".project-card");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            const filter = tab.dataset.filter ?? "all";
+
+            tabs.forEach(t => {
+                t.classList.remove("active-tab", "bg-[#21262d]", "text-white", "border-[#8b949e]/30");
+                t.classList.add("text-[#8b949e]", "border-[#30363d]");
+            });
+            tab.classList.add("active-tab", "bg-[#21262d]", "text-white", "border-[#8b949e]/30");
+            tab.classList.remove("text-[#8b949e]", "border-[#30363d]");
+
+            cards.forEach(card => {
+                const match = filter === "all" || card.dataset.category === filter;
+                card.style.display = match ? "" : "none";
+            });
+        });
+    });
+</script>

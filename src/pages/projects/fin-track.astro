@@ -5,71 +5,68 @@ import Icon from "../../components/shared/Icon.astro";
 const baseUrl = import.meta.env.BASE_URL;
 
 const project = {
-    title: "Student Talent Profiling",
-    type: "AI-Powered Full-Stack FYP",
+    title: "FinTrack Pro",
+    type: "Enterprise Payroll & HR Management System",
     category: "dev",
     status: "active",
-    description: "End-to-end platform for UTHM student talent profiling — Python FastAPI backend, Flutter mobile client, and Astro web dashboard. Agentic AI (Gemini + LangGraph) goes beyond chatbots: it executes tools, queries databases, and provides predictive insights in Bahasa Melayu.",
-    tech: ["Flutter", "FastAPI", "Supabase", "Gemini + LangGraph", "Astro v5", "Chart.js", "Cloudinary", "GitHub Actions"],
-    github: "https://github.com/AmiQT/student-talent-profling-app",
-    mobileUrl: "https://talent-app-black.vercel.app/",
-    dashboardUrl: "https://student-talent-profiling-app.vercel.app/",
+    description: "Enterprise-grade Payroll & HR Management System built with Spring Boot 3.2 + React 18. Automates EPF (11%/13%), SOCSO, and PCB tax calculations, manages multi-role leave workflows, and generates professional PDF payslips via iText 7. Ships with full CI/CD, 42 Testcontainers-backed integration tests, Prometheus telemetry, and Bucket4j API rate limiting.",
+    tech: ["Java 21", "Spring Boot 3.2", "React 18", "PostgreSQL 16", "Redis 7", "JWT", "iText 7", "Docker Compose", "GitHub Actions", "Prometheus", "JUnit 5", "Testcontainers", "Recharts", "Tailwind CSS"],
+    github: "https://github.com/AmiQT/fin-track",
 };
 
 const features = [
     {
-        icon: "robot",
-        title: "Agentic AI (Gemini + LangGraph)",
-        desc: "Stateful multi-turn AI built with LangGraph — executes tools, queries DB, and provides predictive insights in Bahasa Melayu with voice support.",
+        icon: "server",
+        title: "Automated Payroll Engine",
+        desc: "Precise EPF (11%/13%), SOCSO, EIS, and PCB tax calculations. Auto-deducts salary for approved unpaid leaves based on working days. Interactive Recharts analytics for monthly trends.",
         highlight: true,
     },
     {
-        icon: "graduation",
-        title: "Talent Profiling & Skill Tagging",
-        desc: "Upload certificates (PDF/Image) and Vision AI auto-tags skills. QR Code event check-ins track kokurikulum participation.",
+        icon: "monitor",
+        title: "Employee Management",
+        desc: "Full CRUD for employee records with Role-Based Access Control — distinct dashboards for Admin, HR, and Employee roles. Active/inactive personnel status tracking.",
+    },
+    {
+        icon: "check",
+        title: "Leave Workflow",
+        desc: "Employees apply for Annual, Medical, or Unpaid leave with real-time balance tracking. HR/Managers approve or reject — rejected requests auto-refund leave balances.",
     },
     {
         icon: "document",
-        title: "Smart PDF Reports",
-        desc: "Auto-generate PDF Achievement Reports for departments — one click, production-ready, driven by student data.",
+        title: "Digital Payslips & Security",
+        desc: "Professional PDF payslips generated on-demand via iText 7. JWT stateless auth with Bucket4j API rate limiting to prevent brute-force attacks.",
     },
     {
         icon: "antenna",
-        title: "Rich Analytics Dashboard",
-        desc: "Astro v5 admin portal with Chart.js — visualise student risk scores, CGPA trends, and department performance.",
+        title: "Observability & CI/CD",
+        desc: "GitHub Actions runs all 42 tests (Testcontainers + real PostgreSQL) on every push. Jacoco coverage reports auto-generated. Prometheus metrics at /actuator/prometheus for Grafana.",
+    },
+    {
+        icon: "database",
+        title: "Performance Caching",
+        desc: "Redis 7 caches dashboard and API responses for high-throughput scenarios. Logback profile-aware logging: dev console + prod rolling files (10MB/file, 1GB retention).",
     },
 ];
 
 const architecture = [
-    { step: "1", title: "Mobile App", desc: "Flutter cross-platform" },
-    { step: "2", title: "FastAPI Backend", desc: "Python REST API" },
-    { step: "3", title: "Gemini AI Agent", desc: "Conversation + Tools" },
-    { step: "4", title: "Supabase DB", desc: "PostgreSQL + Auth" },
-    { step: "5", title: "Admin Dashboard", desc: "Astro + Analytics" },
+    { step: "1", title: "React Frontend", desc: "Vite + Tailwind + Recharts" },
+    { step: "2", title: "Spring Boot API", desc: "JWT Auth + Rate Limiting" },
+    { step: "3", title: "PostgreSQL 16", desc: "Relational data store" },
+    { step: "4", title: "Redis 7", desc: "Dashboard cache layer" },
+    { step: "5", title: "iText 7", desc: "PDF payslip engine" },
 ];
 
-const demoCredentials = [
-    {
-        label: "Mobile App (Student)",
-        icon: "monitor",
-        color: "blue",
-        email: "student2@uthm.edu.my",
-        password: "123456",
-    },
-    {
-        label: "Dashboard (Admin)",
-        icon: "briefcase",
-        color: "violet",
-        email: "demo@uthm.edu.my",
-        password: "demo123",
-    },
+const roles = [
+    { label: "Admin", color: "blue", desc: "Full system access — employees, payroll, reports" },
+    { label: "HR", color: "violet", desc: "Leave approvals, employee management" },
+    { label: "Employee", color: "green", desc: "Own leaves, payslips, and profile" },
 ];
 ---
 
 <Layout
-    title="Student Talent Profiling | AI FYP | Noor Azami"
+    title="FinTrack Pro | Payroll & HR System | Noor Azami"
     description={project.description}
-    canonical="/projects/student-talent-profiling"
+    canonical="/projects/fin-track"
 >
     <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
@@ -79,13 +76,13 @@ const demoCredentials = [
             <span>/</span>
             <a href={baseUrl + "projects"} class="hover:text-white transition-colors">projects</a>
             <span>/</span>
-            <span class="text-[#e6edf3]">student-talent-profiling</span>
+            <span class="text-[#e6edf3]">fin-track</span>
         </div>
 
         <!-- Header Card -->
         <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 sm:p-8 mb-8">
             <div class="flex flex-col sm:flex-row sm:items-start gap-4 mb-6">
-                <span class="text-[#8b949e] shrink-0"><Icon name="graduation" class="w-10 h-10" /></span>
+                <span class="text-[#8b949e] shrink-0"><Icon name="document" class="w-10 h-10" /></span>
                 <div class="flex-1">
                     <div class="flex flex-wrap items-center gap-2 mb-1">
                         <h1 class="text-2xl font-bold text-white">{project.title}</h1>
@@ -93,7 +90,7 @@ const demoCredentials = [
                             Active
                         </span>
                         <span class="text-xs text-violet-400 bg-violet-500/10 border border-violet-500/25 px-2 py-0.5 rounded-full font-mono">Dev</span>
-                        <span class="text-xs text-[#8b949e] bg-[#21262d] border border-[#30363d] px-2 py-0.5 rounded-full font-mono">FYP · UTHM</span>
+                        <span class="text-xs text-[#8b949e] bg-[#21262d] border border-[#30363d] px-2 py-0.5 rounded-full font-mono">Completed</span>
                     </div>
                     <p class="text-[#8b949e] text-sm font-mono mb-3">{project.type}</p>
                     <p class="text-[#e6edf3] text-sm leading-relaxed">{project.description}</p>
@@ -109,28 +106,6 @@ const demoCredentials = [
 
             <!-- Actions -->
             <div class="flex flex-wrap gap-3 pt-5 border-t border-[#30363d]">
-                <a
-                    href={project.mobileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 px-4 py-2 bg-white text-[#0d1117] text-sm font-semibold rounded-lg hover:bg-[#e6edf3] transition-colors"
-                >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                    Mobile Demo
-                </a>
-                <a
-                    href={project.dashboardUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 px-4 py-2 bg-[#21262d] text-[#e6edf3] text-sm font-semibold rounded-lg border border-[#30363d] hover:border-[#8b949e] transition-colors"
-                >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                    Dashboard Demo
-                </a>
                 <a
                     href={project.github}
                     target="_blank"
@@ -155,7 +130,7 @@ const demoCredentials = [
                         <div>
                             <div class="flex items-center gap-2 mb-1">
                                 <h3 class="font-semibold text-[#e6edf3] text-sm">{f.title}</h3>
-                                {f.highlight && <span class="text-[10px] font-mono text-blue-400 bg-blue-500/10 border border-blue-500/25 px-1.5 py-0.5 rounded">USP</span>}
+                                {f.highlight && <span class="text-[10px] font-mono text-blue-400 bg-blue-500/10 border border-blue-500/25 px-1.5 py-0.5 rounded">Core</span>}
                             </div>
                             <p class="text-xs text-[#8b949e] leading-relaxed">{f.desc}</p>
                         </div>
@@ -166,7 +141,7 @@ const demoCredentials = [
 
         <!-- Architecture Flow -->
         <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 mb-8">
-            <h2 class="text-sm font-semibold text-white font-mono mb-5">// platform_architecture</h2>
+            <h2 class="text-sm font-semibold text-white font-mono mb-5">// system_architecture</h2>
             <div class="flex flex-col md:flex-row items-start md:items-center gap-3">
                 {architecture.map((item, idx) => (
                     <>
@@ -183,20 +158,18 @@ const demoCredentials = [
             </div>
         </div>
 
-        <!-- Demo Credentials -->
+        <!-- Role-Based Access -->
         <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 mb-8">
-            <h2 class="text-sm font-semibold text-white font-mono mb-4">// demo_credentials</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {demoCredentials.map(cred => (
+            <h2 class="text-sm font-semibold text-white font-mono mb-4">// role_based_access</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {roles.map(r => (
                     <div class="bg-[#0d1117] border border-[#30363d] rounded-lg p-4">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-[#8b949e]"><Icon name={cred.icon} class="w-4 h-4" /></span>
-                            <span class="text-sm font-semibold text-[#e6edf3]">{cred.label}</span>
-                        </div>
-                        <div class="font-mono text-xs space-y-1.5">
-                            <p class="text-[#8b949e]">Email: <span class="text-blue-400">{cred.email}</span></p>
-                            <p class="text-[#8b949e]">Password: <span class="text-blue-400">{cred.password}</span></p>
-                        </div>
+                        <span class={`inline-block text-xs font-mono px-2 py-0.5 rounded-full mb-2 ${
+                            r.color === "blue" ? "text-blue-400 bg-blue-500/10 border border-blue-500/25" :
+                            r.color === "violet" ? "text-violet-400 bg-violet-500/10 border border-violet-500/25" :
+                            "text-green-400 bg-green-500/10 border border-green-500/25"
+                        }`}>{r.label}</span>
+                        <p class="text-xs text-[#8b949e] leading-relaxed">{r.desc}</p>
                     </div>
                 ))}
             </div>

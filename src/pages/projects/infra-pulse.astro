@@ -1,0 +1,238 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Icon from "../../components/shared/Icon.astro";
+
+const baseUrl = import.meta.env.BASE_URL;
+
+const project = {
+    title: "Infra-Pulse",
+    type: "Production-Grade Infrastructure Health Microservice",
+    category: "devops",
+    status: "active",
+    description: "Java 21 microservice simulating an infrastructure health monitoring system — exposes real-time node status, active alerts, and SRE-specific metrics. The goal is not just the Java app: it demonstrates the entire DevOps lifecycle from dual CI pipelines to Kubernetes orchestration, Terraform IaC, and a full Prometheus + Grafana observability stack.",
+    tech: ["Java 21", "Spring Boot 3.2.5", "Virtual Threads", "Micrometer", "Prometheus", "Grafana", "Kubernetes (k3d)", "Helm", "Terraform", "Jenkins", "GitHub Actions", "Docker (multi-stage)", "GHCR", "JaCoCo", "SonarQube", "Logstash Logback"],
+    github: "https://github.com/AmiQT/infra-pulse",
+};
+
+const features = [
+    {
+        icon: "server",
+        title: "Modern Java 21 Engineering",
+        desc: "Virtual Threads for high concurrency, Records as DTOs, clean Entity/DTO separation. H2 in-memory DB with self-seeding DataInitializer — demo-ready on any machine instantly.",
+        highlight: true,
+    },
+    {
+        icon: "lightning",
+        title: "Dual CI Pipeline",
+        desc: "Jenkins enterprise pipeline: Checkout → Build → Test → Package → Docker Build → Push to GHCR → Deploy to K8s. GitHub Actions for PR checks, JaCoCo (min 70%), and SonarQube quality gate.",
+    },
+    {
+        icon: "kubernetes",
+        title: "Kubernetes Orchestration",
+        desc: "k3d local cluster with 2-replica Helm deployment. NGINX Ingress at infra-pulse.local, ClusterIP service, configmap-driven app config. Production-like resource requests and limits.",
+    },
+    {
+        icon: "antenna",
+        title: "Full Observability Stack",
+        desc: "Prometheus scrapes /actuator/prometheus every 15s. Pre-built Grafana dashboard (active alerts, node health, API RPS, JVM heap, HTTP p50/p95/p99). Structured JSON logging via Logstash Logback.",
+        highlight: true,
+    },
+    {
+        icon: "cloud",
+        title: "Infrastructure as Code",
+        desc: "Terraform manages the full lifecycle: K8s namespace, Infra-Pulse Helm release, Prometheus stack, and Grafana — consistent IaC approach across all layers.",
+    },
+    {
+        icon: "target",
+        title: "Custom SRE Metrics",
+        desc: "Business-level Micrometer gauges and counters: infrapulse.alerts.active, nodes.total, nodes.healthy, nodes.warning, api.requests.total — not just JVM defaults.",
+    },
+];
+
+const layers = [
+    { step: "1", title: "Source Layer", desc: "Java 21 · Spring Boot · Maven" },
+    { step: "2", title: "CI Pipelines", desc: "Jenkins + GitHub Actions" },
+    { step: "3", title: "Kubernetes (k3d)", desc: "Helm · 2 replicas · Ingress" },
+    { step: "4", title: "Observability", desc: "Prometheus · Grafana · Loki" },
+    { step: "5", title: "IaC (Terraform)", desc: "Namespace · Helm releases" },
+];
+
+const metrics = [
+    { name: "infrapulse.alerts.active", type: "Gauge", desc: "Unresolved active alerts" },
+    { name: "infrapulse.nodes.total", type: "Gauge", desc: "Total nodes monitored" },
+    { name: "infrapulse.nodes.healthy", type: "Gauge", desc: "Nodes with HEALTHY status" },
+    { name: "infrapulse.nodes.warning", type: "Gauge", desc: "Nodes with WARNING status" },
+    { name: "infrapulse.api.requests.total", type: "Counter", desc: "Total API requests served" },
+];
+
+const endpoints = [
+    { method: "GET", path: "/api/health", desc: "Overall system health summary" },
+    { method: "GET", path: "/api/nodes", desc: "All node statuses (CPU, memory, uptime)" },
+    { method: "GET", path: "/api/alerts", desc: "All active infrastructure alerts" },
+    { method: "GET", path: "/actuator/prometheus", desc: "Prometheus metrics endpoint" },
+    { method: "GET", path: "/swagger-ui.html", desc: "Interactive API documentation" },
+];
+---
+
+<Layout
+    title="Infra-Pulse | DevOps/SRE Microservice | Noor Azami"
+    description={project.description}
+    canonical="/projects/infra-pulse"
+>
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 text-[#8b949e] text-sm font-mono mb-8">
+            <a href={baseUrl} class="hover:text-white transition-colors">home</a>
+            <span>/</span>
+            <a href={baseUrl + "projects"} class="hover:text-white transition-colors">projects</a>
+            <span>/</span>
+            <span class="text-[#e6edf3]">infra-pulse</span>
+        </div>
+
+        <!-- Header Card -->
+        <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 sm:p-8 mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-4 mb-6">
+                <span class="text-[#8b949e] shrink-0"><Icon name="antenna" class="w-10 h-10" /></span>
+                <div class="flex-1">
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                        <h1 class="text-2xl font-bold text-white">{project.title}</h1>
+                        <span class="flex items-center text-xs text-green-400 bg-green-500/10 border border-green-500/25 px-2 py-0.5 rounded-full font-mono">
+                            Active
+                        </span>
+                        <span class="text-xs text-blue-400 bg-blue-500/10 border border-blue-500/25 px-2 py-0.5 rounded-full font-mono">DevOps</span>
+                        <span class="text-xs text-[#8b949e] bg-[#21262d] border border-[#30363d] px-2 py-0.5 rounded-full font-mono">SRE Portfolio</span>
+                    </div>
+                    <p class="text-[#8b949e] text-sm font-mono mb-3">{project.type}</p>
+                    <p class="text-[#e6edf3] text-sm leading-relaxed">{project.description}</p>
+                </div>
+            </div>
+
+            <!-- Tech Tags -->
+            <div class="flex flex-wrap gap-1.5 mb-6">
+                {project.tech.map(t => (
+                    <span class="text-xs font-mono px-2.5 py-1 bg-[#21262d] text-[#e6edf3] rounded border border-[#30363d]">{t}</span>
+                ))}
+            </div>
+
+            <!-- Actions -->
+            <div class="flex flex-wrap gap-3 pt-5 border-t border-[#30363d]">
+                <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-[#21262d] text-[#e6edf3] text-sm font-semibold rounded-lg border border-[#30363d] hover:border-[#8b949e] transition-colors"
+                >
+                    <Icon name="github" class="w-4 h-4" />
+                    GitHub
+                </a>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="mb-8">
+            <h2 class="text-sm font-semibold text-white font-mono mb-4">// key_capabilities</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {features.map(f => (
+                    <div class={`bg-[#161b22] border rounded-xl p-5 flex gap-4 ${f.highlight ? "border-blue-500/40" : "border-[#30363d]"}`}>
+                        <span class={`shrink-0 mt-0.5 ${f.highlight ? "text-blue-400" : "text-[#8b949e]"}`}>
+                            <Icon name={f.icon} class="w-5 h-5" />
+                        </span>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3 class="font-semibold text-[#e6edf3] text-sm">{f.title}</h3>
+                                {f.highlight && <span class="text-[10px] font-mono text-blue-400 bg-blue-500/10 border border-blue-500/25 px-1.5 py-0.5 rounded">USP</span>}
+                            </div>
+                            <p class="text-xs text-[#8b949e] leading-relaxed">{f.desc}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Architecture Flow -->
+        <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 mb-8">
+            <h2 class="text-sm font-semibold text-white font-mono mb-5">// pipeline_architecture</h2>
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-3 mb-4">
+                {layers.map((item, idx) => (
+                    <>
+                        <div class="flex-1 bg-[#0d1117] border border-[#30363d] rounded-lg p-4 text-center min-w-[110px]">
+                            <div class="text-xs text-blue-400 font-mono font-bold mb-1">{item.step}.</div>
+                            <div class="text-sm font-semibold text-[#e6edf3] mb-0.5">{item.title}</div>
+                            <div class="text-[10px] text-[#8b949e] font-mono">{item.desc}</div>
+                        </div>
+                        {idx < layers.length - 1 && (
+                            <span class="hidden md:block text-[#8b949e] text-lg shrink-0">→</span>
+                        )}
+                    </>
+                ))}
+            </div>
+            <p class="text-xs text-[#8b949e] font-mono">git push → Jenkins builds → Docker image pushed to GHCR → helm upgrade deploys to k3d → Prometheus scrapes every 15s</p>
+        </div>
+
+        <!-- Custom SRE Metrics -->
+        <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 mb-8">
+            <h2 class="text-sm font-semibold text-white font-mono mb-4">// custom_sre_metrics</h2>
+            <div class="space-y-2">
+                {metrics.map(m => (
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 bg-[#0d1117] border border-[#30363d] rounded-lg px-4 py-3">
+                        <span class="text-xs font-mono text-blue-400 shrink-0">{m.name}</span>
+                        <span class="text-xs font-mono text-amber-400 bg-amber-500/10 border border-amber-500/25 px-2 py-0.5 rounded shrink-0">{m.type}</span>
+                        <span class="text-xs text-[#8b949e] sm:ml-auto">{m.desc}</span>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- API Endpoints -->
+        <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 mb-8">
+            <h2 class="text-sm font-semibold text-white font-mono mb-4">// api_endpoints</h2>
+            <div class="space-y-2">
+                {endpoints.map(api => (
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 bg-[#0d1117] border border-[#30363d] rounded-lg px-4 py-3">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/25 px-2 py-0.5 rounded shrink-0">{api.method}</span>
+                        <span class="text-xs font-mono text-[#e6edf3] shrink-0">{api.path}</span>
+                        <span class="text-xs text-[#8b949e] sm:ml-auto">{api.desc}</span>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Quick Start -->
+        <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 mb-8">
+            <h2 class="text-sm font-semibold text-white font-mono mb-4">// quick_start</h2>
+            <div class="space-y-3">
+                <div>
+                    <p class="text-xs text-[#8b949e] mb-2 font-mono">Local (Maven)</p>
+                    <div class="bg-[#0d1117] border border-[#30363d] rounded-lg p-4 font-mono text-sm">
+                        <span class="text-green-400">$</span>
+                        <span class="text-[#e6edf3]"> mvn spring-boot:run</span>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-xs text-[#8b949e] mb-2 font-mono">Full K8s (Terraform + Helm)</p>
+                    <div class="bg-[#0d1117] border border-[#30363d] rounded-lg p-4 font-mono text-sm space-y-1">
+                        <div><span class="text-green-400">$</span><span class="text-[#e6edf3]"> terraform -chdir=terraform/ apply</span></div>
+                        <div><span class="text-green-400">$</span><span class="text-[#e6edf3]"> helm upgrade --install infra-pulse ./helm -n infra-pulse</span></div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-4 text-xs font-mono text-[#8b949e] pt-1">
+                    <span>API → <span class="text-blue-400">localhost:8080/api</span></span>
+                    <span>Swagger → <span class="text-blue-400">localhost:8080/swagger-ui.html</span></span>
+                    <span>Metrics → <span class="text-blue-400">localhost:8080/actuator/prometheus</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="flex items-center gap-4">
+            <a
+                href={baseUrl + "projects"}
+                class="inline-flex items-center gap-2 px-4 py-2 bg-[#21262d] text-[#e6edf3] text-sm font-mono rounded-lg border border-[#30363d] hover:border-[#8b949e] transition-colors"
+            >
+                ← Back to Projects
+            </a>
+        </div>
+
+    </main>
+</Layout>

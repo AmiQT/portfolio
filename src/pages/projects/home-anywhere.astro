@@ -5,71 +5,69 @@ import Icon from "../../components/shared/Icon.astro";
 const baseUrl = import.meta.env.BASE_URL;
 
 const project = {
-    title: "Student Talent Profiling",
-    type: "AI-Powered Full-Stack FYP",
+    title: "Home Anywhere",
+    type: "Open-Source Homestay Booking Platform",
     category: "dev",
     status: "active",
-    description: "End-to-end platform for UTHM student talent profiling — Python FastAPI backend, Flutter mobile client, and Astro web dashboard. Agentic AI (Gemini + LangGraph) goes beyond chatbots: it executes tools, queries databases, and provides predictive insights in Bahasa Melayu.",
-    tech: ["Flutter", "FastAPI", "Supabase", "Gemini + LangGraph", "Astro v5", "Chart.js", "Cloudinary", "GitHub Actions"],
-    github: "https://github.com/AmiQT/student-talent-profling-app",
-    mobileUrl: "https://talent-app-black.vercel.app/",
-    dashboardUrl: "https://student-talent-profiling-app.vercel.app/",
+    description: "Self-hostable homestay booking platform you can run for any property portfolio — boutique stays, family villas, hill retreats, city apartments. Bundles a multi-step guest booking flow, admin dashboard with built-in CMS, Stripe deposit payments, Google Calendar sync, and GA4 analytics. One-command Docker deploy.",
+    tech: ["Next.js 14", "React 18", "TypeScript", "Laravel 11", "PHP 8.3", "Tailwind CSS v4", "shadcn/ui", "Stripe", "Google Calendar API", "SQLite / MySQL", "Docker Compose", "Jest", "PHPUnit"],
+    github: "https://github.com/AmiQT/home-anywhere",
 };
 
 const features = [
     {
-        icon: "robot",
-        title: "Agentic AI (Gemini + LangGraph)",
-        desc: "Stateful multi-turn AI built with LangGraph — executes tools, queries DB, and provides predictive insights in Bahasa Melayu with voice support.",
+        icon: "check",
+        title: "Multi-Step Booking Flow",
+        desc: "Pick a stay → pick a date → confirm details. Real availability loaded live from the backend — no double bookings, no stale slots.",
         highlight: true,
     },
     {
-        icon: "graduation",
-        title: "Talent Profiling & Skill Tagging",
-        desc: "Upload certificates (PDF/Image) and Vision AI auto-tags skills. QR Code event check-ins track kokurikulum participation.",
+        icon: "server",
+        title: "Stripe Deposit Payments",
+        desc: "Guests pay 30% to confirm; balance settled on check-in. Works in demo mode without Stripe keys — no friction for local development.",
     },
     {
-        icon: "document",
-        title: "Smart PDF Reports",
-        desc: "Auto-generate PDF Achievement Reports for departments — one click, production-ready, driven by student data.",
+        icon: "globe",
+        title: "Google Calendar Sync",
+        desc: "Every confirmed booking creates a Calendar event via service account. Cancellations remove the event and trigger automatic Stripe refund.",
+    },
+    {
+        icon: "monitor",
+        title: "Admin Dashboard & CMS",
+        desc: "Full CRUD for stays, slots, and bookings. Edit the hero, stats, testimonials, and CTA banner from the dashboard — no code, no redeploy.",
     },
     {
         icon: "antenna",
-        title: "Rich Analytics Dashboard",
-        desc: "Astro v5 admin portal with Chart.js — visualise student risk scores, CGPA trends, and department performance.",
+        title: "Analytics & Notifications",
+        desc: "GA4 funnel events (view_schedule, start_booking, complete_booking) out of the box. Email confirmations via SMTP; WhatsApp stub ready for Twilio.",
+    },
+    {
+        icon: "docker",
+        title: "One-Command Docker Deploy",
+        desc: "docker compose up boots database, backend, and frontend — auto-generates app key, runs migrations, and seeds demo stays. Both apps ship with Dockerfiles.",
     },
 ];
 
 const architecture = [
-    { step: "1", title: "Mobile App", desc: "Flutter cross-platform" },
-    { step: "2", title: "FastAPI Backend", desc: "Python REST API" },
-    { step: "3", title: "Gemini AI Agent", desc: "Conversation + Tools" },
-    { step: "4", title: "Supabase DB", desc: "PostgreSQL + Auth" },
-    { step: "5", title: "Admin Dashboard", desc: "Astro + Analytics" },
+    { step: "1", title: "Next.js 14", desc: "App Router + TypeScript" },
+    { step: "2", title: "Laravel 11 API", desc: "PHP 8.3 backend" },
+    { step: "3", title: "SQLite / MySQL", desc: "Relational data store" },
+    { step: "4", title: "Stripe Checkout", desc: "Deposit + webhooks" },
+    { step: "5", title: "Google Calendar", desc: "Booking events sync" },
 ];
 
-const demoCredentials = [
-    {
-        label: "Mobile App (Student)",
-        icon: "monitor",
-        color: "blue",
-        email: "student2@uthm.edu.my",
-        password: "123456",
-    },
-    {
-        label: "Dashboard (Admin)",
-        icon: "briefcase",
-        color: "violet",
-        email: "demo@uthm.edu.my",
-        password: "demo123",
-    },
+const apiHighlights = [
+    { method: "POST", path: "/api/bookings", desc: "Create booking → Stripe checkout URL" },
+    { method: "POST", path: "/api/webhooks/stripe", desc: "Payment confirmation + calendar event" },
+    { method: "POST", path: "/api/admin/cancel", desc: "Cancel + refund + remove calendar event" },
+    { method: "GET/PUT", path: "/api/admin/site-content", desc: "CMS — view/edit homepage copy" },
 ];
 ---
 
 <Layout
-    title="Student Talent Profiling | AI FYP | Noor Azami"
+    title="Home Anywhere | Homestay Booking Platform | Noor Azami"
     description={project.description}
-    canonical="/projects/student-talent-profiling"
+    canonical="/projects/home-anywhere"
 >
     <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
@@ -79,13 +77,13 @@ const demoCredentials = [
             <span>/</span>
             <a href={baseUrl + "projects"} class="hover:text-white transition-colors">projects</a>
             <span>/</span>
-            <span class="text-[#e6edf3]">student-talent-profiling</span>
+            <span class="text-[#e6edf3]">home-anywhere</span>
         </div>
 
         <!-- Header Card -->
         <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 sm:p-8 mb-8">
             <div class="flex flex-col sm:flex-row sm:items-start gap-4 mb-6">
-                <span class="text-[#8b949e] shrink-0"><Icon name="graduation" class="w-10 h-10" /></span>
+                <span class="text-[#8b949e] shrink-0"><Icon name="globe" class="w-10 h-10" /></span>
                 <div class="flex-1">
                     <div class="flex flex-wrap items-center gap-2 mb-1">
                         <h1 class="text-2xl font-bold text-white">{project.title}</h1>
@@ -93,7 +91,7 @@ const demoCredentials = [
                             Active
                         </span>
                         <span class="text-xs text-violet-400 bg-violet-500/10 border border-violet-500/25 px-2 py-0.5 rounded-full font-mono">Dev</span>
-                        <span class="text-xs text-[#8b949e] bg-[#21262d] border border-[#30363d] px-2 py-0.5 rounded-full font-mono">FYP · UTHM</span>
+                        <span class="text-xs text-[#8b949e] bg-[#21262d] border border-[#30363d] px-2 py-0.5 rounded-full font-mono">Open Source · MIT</span>
                     </div>
                     <p class="text-[#8b949e] text-sm font-mono mb-3">{project.type}</p>
                     <p class="text-[#e6edf3] text-sm leading-relaxed">{project.description}</p>
@@ -109,28 +107,6 @@ const demoCredentials = [
 
             <!-- Actions -->
             <div class="flex flex-wrap gap-3 pt-5 border-t border-[#30363d]">
-                <a
-                    href={project.mobileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 px-4 py-2 bg-white text-[#0d1117] text-sm font-semibold rounded-lg hover:bg-[#e6edf3] transition-colors"
-                >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                    Mobile Demo
-                </a>
-                <a
-                    href={project.dashboardUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 px-4 py-2 bg-[#21262d] text-[#e6edf3] text-sm font-semibold rounded-lg border border-[#30363d] hover:border-[#8b949e] transition-colors"
-                >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                    Dashboard Demo
-                </a>
                 <a
                     href={project.github}
                     target="_blank"
@@ -155,7 +131,7 @@ const demoCredentials = [
                         <div>
                             <div class="flex items-center gap-2 mb-1">
                                 <h3 class="font-semibold text-[#e6edf3] text-sm">{f.title}</h3>
-                                {f.highlight && <span class="text-[10px] font-mono text-blue-400 bg-blue-500/10 border border-blue-500/25 px-1.5 py-0.5 rounded">USP</span>}
+                                {f.highlight && <span class="text-[10px] font-mono text-blue-400 bg-blue-500/10 border border-blue-500/25 px-1.5 py-0.5 rounded">Core</span>}
                             </div>
                             <p class="text-xs text-[#8b949e] leading-relaxed">{f.desc}</p>
                         </div>
@@ -166,7 +142,7 @@ const demoCredentials = [
 
         <!-- Architecture Flow -->
         <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 mb-8">
-            <h2 class="text-sm font-semibold text-white font-mono mb-5">// platform_architecture</h2>
+            <h2 class="text-sm font-semibold text-white font-mono mb-5">// system_architecture</h2>
             <div class="flex flex-col md:flex-row items-start md:items-center gap-3">
                 {architecture.map((item, idx) => (
                     <>
@@ -183,22 +159,31 @@ const demoCredentials = [
             </div>
         </div>
 
-        <!-- Demo Credentials -->
+        <!-- Key API Endpoints -->
         <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 mb-8">
-            <h2 class="text-sm font-semibold text-white font-mono mb-4">// demo_credentials</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {demoCredentials.map(cred => (
-                    <div class="bg-[#0d1117] border border-[#30363d] rounded-lg p-4">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-[#8b949e]"><Icon name={cred.icon} class="w-4 h-4" /></span>
-                            <span class="text-sm font-semibold text-[#e6edf3]">{cred.label}</span>
-                        </div>
-                        <div class="font-mono text-xs space-y-1.5">
-                            <p class="text-[#8b949e]">Email: <span class="text-blue-400">{cred.email}</span></p>
-                            <p class="text-[#8b949e]">Password: <span class="text-blue-400">{cred.password}</span></p>
-                        </div>
+            <h2 class="text-sm font-semibold text-white font-mono mb-4">// key_api_endpoints</h2>
+            <div class="space-y-2">
+                {apiHighlights.map(api => (
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 bg-[#0d1117] border border-[#30363d] rounded-lg px-4 py-3">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/25 px-2 py-0.5 rounded shrink-0">{api.method}</span>
+                        <span class="text-xs font-mono text-[#e6edf3] shrink-0">{api.path}</span>
+                        <span class="text-xs text-[#8b949e] sm:ml-auto">{api.desc}</span>
                     </div>
                 ))}
+            </div>
+        </div>
+
+        <!-- Quick Start -->
+        <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 mb-8">
+            <h2 class="text-sm font-semibold text-white font-mono mb-4">// quick_start</h2>
+            <p class="text-xs text-[#8b949e] mb-3">One command spins up the full stack — database, backend, and frontend.</p>
+            <div class="bg-[#0d1117] border border-[#30363d] rounded-lg p-4 font-mono text-sm">
+                <span class="text-green-400">$</span>
+                <span class="text-[#e6edf3]"> docker compose up</span>
+            </div>
+            <div class="mt-3 flex flex-wrap gap-4 text-xs font-mono text-[#8b949e]">
+                <span>Guest site → <span class="text-blue-400">localhost:3000</span></span>
+                <span>Admin → <span class="text-blue-400">localhost:3000/admin</span></span>
             </div>
         </div>
 

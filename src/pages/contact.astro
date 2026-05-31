@@ -1,0 +1,113 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/shared/Icon.astro";
+import { profile } from "../data/devops-engineer.ts";
+
+const baseUrl = import.meta.env.BASE_URL;
+
+const contacts = [
+    {
+        label: "Email",
+        value: "noorazami@outlook.my",
+        href: "mailto:noorazami@outlook.my",
+        icon: "mail",
+        desc: "Best for formal inquiries"
+    },
+    {
+        label: "LinkedIn",
+        value: "linkedin.com/in/noor-azami",
+        href: "https://www.linkedin.com/in/noor-azami/",
+        icon: "briefcase",
+        desc: "DevOps & professional network",
+        external: true
+    },
+    {
+        label: "GitHub",
+        value: "github.com/AmiQT",
+        href: profile.github,
+        icon: "github",
+        desc: "Code & open source",
+        external: true
+    },
+    {
+        label: "Resume",
+        value: "Download PDF",
+        href: baseUrl + profile.resume,
+        icon: "document",
+        desc: "Latest CV",
+        download: true
+    }
+];
+---
+
+<Layout
+    title={`Contact | ${profile.name}`}
+    description="Get in touch with Noor Azami for DevOps, IT, or development opportunities."
+    canonical="/contact"
+>
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Header -->
+        <div class="mb-10">
+            <div class="flex items-center gap-2 text-[#8b949e] text-sm font-mono mb-3">
+                <a href={baseUrl} class="hover:text-white transition-colors">home</a>
+                <span>/</span>
+                <span class="text-[#e6edf3]">contact</span>
+            </div>
+            <h1 class="text-3xl font-bold text-white mb-2">Get in Touch</h1>
+            <p class="text-[#8b949e]">
+                Available for internships, part-time roles, freelance, and open-source collaboration.
+            </p>
+        </div>
+
+        <!-- Status Banner -->
+        <div class="bg-green-500/10 border border-green-500/25 rounded-xl p-4 mb-8 flex items-center gap-3">
+            <div>
+                <p class="text-green-400 text-sm font-semibold">Currently Available</p>
+                <p class="text-[#8b949e] text-xs font-mono">IT Support Intern @ DayOne · Final Year UTHM 2026 · Open to new opportunities</p>
+            </div>
+        </div>
+
+        <!-- Contact Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            {contacts.map(c => (
+                <a
+                    href={c.href}
+                    target={c.external ? "_blank" : undefined}
+                    rel={c.external ? "noopener noreferrer" : undefined}
+                    download={c.download ? true : undefined}
+                    class="group bg-[#161b22] border border-[#30363d] rounded-xl p-5 hover:border-[#8b949e]/60 transition-all duration-200 flex items-start gap-4"
+                >
+                    <span class="text-[#8b949e] shrink-0 mt-0.5"><Icon name={c.icon} class="w-5 h-5" /></span>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-xs text-[#8b949e] font-mono uppercase tracking-wider mb-1">{c.label}</p>
+                        <p class="text-sm font-semibold text-[#e6edf3] group-hover:text-white transition-colors truncate">{c.value}</p>
+                        <p class="text-xs text-[#8b949e] mt-0.5">{c.desc}</p>
+                    </div>
+                    <svg class="w-4 h-4 text-[#8b949e] group-hover:text-white shrink-0 mt-1 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            ))}
+        </div>
+
+        <!-- Quick Context -->
+        <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6">
+            <h2 class="text-sm font-semibold text-white mb-4 font-mono">// What I'm looking for</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {[
+                    { label: "DevOps / SRE", icon: "cloud", desc: "CI/CD, IaC, cloud infra" },
+                    { label: "IT Support", icon: "wrench", desc: "Sysadmin, IAM, automation" },
+                    { label: "Full-Stack Dev", icon: "laptop", desc: "FastAPI, React, AI apps" }
+                ].map(role => (
+                    <div class="bg-[#0d1117] border border-[#30363d] rounded-lg p-4 text-center">
+                        <span class="flex justify-center mb-2 text-[#8b949e]"><Icon name={role.icon} class="w-6 h-6" /></span>
+                        <p class="text-sm font-medium text-[#e6edf3] mb-1">{role.label}</p>
+                        <p class="text-xs text-[#8b949e]">{role.desc}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+    </main>
+</Layout>
