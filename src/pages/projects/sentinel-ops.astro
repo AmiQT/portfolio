@@ -1,0 +1,144 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Icon from "../../components/shared/Icon.astro";
+
+const baseUrl = import.meta.env.BASE_URL;
+
+const project = {
+    title: "Sentinel-Ops",
+    type: "Agentic IT Support & Log-Driven Auto-Remediation Engine",
+    category: "devops",
+    status: "active",
+    description: "Enterprise-grade Cloud-LLM (DeepSeek) & Local-Vision (InsightFace ArcFace) AI kiosk agent. Automates L1/L2 IT support (app provisioning, VPN cert installs, log-based troubleshooting) via text log diagnostics, ChromaDB RAG, WinRM remote laptop remediation protected by a 20+ regex safety blocklist, and MS Teams Adaptive Cards with HMAC-verified JIT approval.",
+    tech: ["Python", "FastAPI", "DeepSeek API", "InsightFace ArcFace", "ChromaDB", "WinRM", "MS Teams API", "Tkinter", "Docker"],
+    github: "https://github.com/AmiQT/sentinel-ops",
+};
+
+const features = [
+    {
+        icon: "shield",
+        title: "Two-Phase WinRM Log Diagnostics & Fix",
+        desc: "Phase 1 analyzes diagnostic logs automatically (read-only). Phase 2 generates an admin-reviewed fix plan before executing PowerShell remediation via WinRM.",
+        highlight: true,
+    },
+    {
+        icon: "lock",
+        title: "20+ Safety Regex Blocklist",
+        desc: "Rigorous command validation blocking recursive deletion, privilege escalation, Defender disabling, credential dumping, and execution policy bypasses.",
+        highlight: true,
+    },
+    {
+        icon: "chat",
+        title: "MS Teams JIT Approval + HMAC",
+        desc: "Pushes Adaptive Cards to MS Teams for IT Manager approval with HMAC-signed token verification preventing replay attacks.",
+    },
+    {
+        icon: "eye",
+        title: "InsightFace ArcFace Local Vision",
+        desc: "Extracts 512-d facial embeddings locally via ONNX with identity frame caching (~87% inference reduction) for real-time user recognition.",
+    },
+    {
+        icon: "cpu",
+        title: "DeepSeek Prompt Caching & Intent Routing",
+        desc: "Uses static system prompts (50x cost reduction via prompt cache) and structured JSON intent routing for zero-latency tool execution.",
+    },
+    {
+        icon: "database",
+        title: "ChromaDB RAG Knowledge Base",
+        desc: "Ingests enterprise PDFs & Markdown section-chunked guides into a local ChromaDB vector store for precise IT query resolution.",
+    },
+];
+
+const architectureSteps = [
+    "👀 EYES (Local Vision): InsightFace ArcFace (buffalo_s) extracts 512-d embeddings via ONNX to recognize enrolled users.",
+    "🧠 BRAIN (Agentic LLM): DeepSeek API parses user intent into JSON actions (enroll_face, trigger_remote_support, trigger_jit_admin). Static system prompts achieve ~50x prompt caching cost reduction.",
+    "🛡️ SAFETY & SECURITY: WinRM commands pass through a 4-layer defense-in-depth safety engine (Static Prompt -> 20+ Regex Blocklist -> Admin Approval -> Service Scope).",
+    "💬 INTEGRATIONS: MS Teams Adaptive Cards with HMAC signature verification for JIT Admin and Remote Fix Plan approvals. Full SQLite audit log tracking."
+];
+---
+
+<Layout
+    title="Sentinel-Ops | Agentic IT Support Engine | Noor Azami"
+    description={project.description}
+    canonical="/projects/sentinel-ops"
+>
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 text-[#8b949e] text-sm font-mono mb-8">
+            <a href={baseUrl} class="hover:text-white transition-colors">home</a>
+            <span>/</span>
+            <a href={baseUrl + "projects"} class="hover:text-white transition-colors">projects</a>
+            <span>/</span>
+            <span class="text-[#e6edf3]">sentinel-ops</span>
+        </div>
+
+        <!-- Header Card -->
+        <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 sm:p-8 mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-4 mb-6">
+                <span class="text-[#8b949e] shrink-0"><Icon name="robot" class="w-10 h-10" /></span>
+                <div class="flex-1">
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                        <h1 class="text-2xl font-bold text-white">{project.title}</h1>
+                        <span class="flex items-center text-xs text-green-400 bg-green-500/10 border border-green-500/25 px-2 py-0.5 rounded-full font-mono">
+                            Active
+                        </span>
+                        <span class="text-xs text-blue-400 bg-blue-500/10 border border-blue-500/25 px-2 py-0.5 rounded-full font-mono">DevOps & AI</span>
+                    </div>
+                    <p class="text-[#8b949e] text-sm font-mono mb-3">{project.type}</p>
+                    <p class="text-[#e6edf3] text-sm leading-relaxed">{project.description}</p>
+                </div>
+            </div>
+
+            <!-- Tech Tags -->
+            <div class="flex flex-wrap gap-1.5 mb-6">
+                {project.tech.map(t => (
+                    <span class="text-xs font-mono px-2.5 py-1 bg-[#21262d] text-[#e6edf3] rounded border border-[#30363d]">{t}</span>
+                ))}
+            </div>
+
+            <!-- Actions -->
+            <div class="flex flex-wrap gap-3 pt-5 border-t border-[#30363d]">
+                <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-[#21262d] text-[#e6edf3] text-sm font-semibold rounded-lg border border-[#30363d] hover:border-[#8b949e] transition-colors"
+                >
+                    <Icon name="github" class="w-4 h-4" />
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="mb-10">
+            <h2 class="text-sm font-semibold text-white font-mono mb-4">// key_features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {features.map(f => (
+                    <div class={`bg-[#161b22] border rounded-xl p-5 ${f.highlight ? "border-blue-500/40 bg-blue-500/5" : "border-[#30363d]"}`}>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-[#8b949e]"><Icon name={f.icon} class="w-5 h-5" /></span>
+                            <h3 class="text-sm font-semibold text-white">{f.title}</h3>
+                        </div>
+                        <p class="text-xs text-[#8b949e] leading-relaxed">{f.desc}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Architecture Breakdown -->
+        <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 sm:p-8">
+            <h2 class="text-sm font-semibold text-white font-mono mb-4">// architecture_highlights</h2>
+            <div class="space-y-3">
+                {architectureSteps.map(step => (
+                    <div class="flex gap-3 text-sm bg-[#0d1117] border border-[#30363d] p-3.5 rounded-lg">
+                        <span class="text-blue-400 shrink-0">→</span>
+                        <span class="text-[#e6edf3] leading-relaxed">{step}</span>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+    </main>
+</Layout>

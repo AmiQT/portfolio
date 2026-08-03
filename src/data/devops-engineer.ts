@@ -3,11 +3,12 @@ export const profile = {
     nickname: "Ami / AmiQT",
     role: "AI-Enhanced Systems & Cloud Engineer",
     tagline: "Building resilient infrastructure through automation and AI-assisted engineering.",
-    status: "IT Support Intern @ DayOne | Final Year IT Student @ UTHM (Graduating 2026)",
-    internship: "Active IT Support Intern at DayOne (Since Feb 2026)",
+    status: "IT Support Intern @ DayOne | Seeking Full-Time Roles",
+    internship: "Active IT Support Intern at DayOne (Since Feb 2026) · Seeking Full-Time Roles",
     location: ["Remote", "Hybrid", "On-site"],
     bio: "Architecting scalable cloud infrastructure and automating mission-critical deployment pipelines. Specialized in Zero-Trust security, CI/CD orchestration, and AI-accelerated dev workflows.",
     avatar: "assets/profile.webp",
+    resume: "assets/Muhammad_Noor_Azami_Resume.pdf",
     github: "https://github.com/AmiQT",
     linkedin: "https://www.linkedin.com/in/noor-azami/",
     portfolio: "https://amiqt.github.io/portfolio"
@@ -251,6 +252,24 @@ export const allProjects: Project[] = [
         icon: "globe",
         link: "projects/home-anywhere",
         github: "https://github.com/AmiQT/home-anywhere"
+    },
+    {
+        title: "Sentinel-Ops",
+        type: "Agentic IT Support & Log-Driven Auto-Remediation Engine",
+        description: "Cloud-LLM (DeepSeek) & local-vision (InsightFace ArcFace) AI kiosk agent. Automates L1/L2 IT support (app provisioning, VPN cert installs, log-based troubleshooting) via text log diagnostics, ChromaDB RAG, WinRM remote laptop remediation protected by a 20+ regex safety blocklist, and MS Teams Adaptive Cards with HMAC JIT approval.",
+        category: "devops",
+        status: "active",
+        tech: ["Python", "FastAPI", "DeepSeek API", "InsightFace ArcFace", "ChromaDB", "WinRM", "MS Teams API", "Tkinter", "Docker"],
+        icon: "robot",
+        link: "projects/sentinel-ops",
+        github: "https://github.com/AmiQT/sentinel-ops",
+        architecture: [
+            "Vision: InsightFace ArcFace (512-d embeddings, 87% frame-caching inference reduction)",
+            "LLM Agentic Tooling: DeepSeek API (JSON Intent Routing, 50x Static Prompt Caching)",
+            "Remote Support: Two-Phase WinRM execution (Phase 1 Read-only Diagnose, Phase 2 Admin Execution)",
+            "Security: 20+ Regex Safety Blocklist & MS Teams Adaptive Cards + HMAC Token Signing",
+            "RAG Knowledge Base: ChromaDB vector store with PDF & Markdown semantic chunking"
+        ]
     }
 ];
 
