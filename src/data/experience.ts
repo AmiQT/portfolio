@@ -8,15 +8,24 @@ export interface Experience {
 
 export const experiencesData: Experience[] = [
     {
-        title: "IT Support Intern",
+        title: "IT Support Engineer",
         organization: "DayOne",
-        duration: "February 2026 - Present",
+        duration: "August 2026 - Present",
         icon: "wrench",
         responsibilities: [
-            "Architected a Compliance-as-Code engine using Python to audit 200+ endpoints, minimizing security risks through automated tracking.",
-            "Implemented Standardized Configuration Management for L1 support systems via PowerShell, ensuring systemic consistency across the office network.",
+            "Supported mission-critical data center IT operations and server infrastructure, maintaining high-availability uptime standards and rapid operational incident resolution.",
+            "Architected a Compliance-as-Code engine using Python to audit 200+ endpoints, proactively reducing vulnerability blast radius and configuration drift."
+        ]
+    },
+    {
+        title: "IT Support Intern",
+        organization: "DayOne",
+        duration: "February 2026 - August 2026",
+        icon: "wrench",
+        responsibilities: [
+            "Implemented Standardized Configuration Management for L1 support systems via PowerShell, accelerating provisioning speed across local network segments.",
             "Administered Identity & Access Management (IAM) flows via Active Directory and M365, adhering to strict enterprise security and onboarding protocols.",
-            "Optimized internal deployment workflows for IT support tools, utilizing health-check logic and standardized logging."
+            "Resolved 150+ L1/L2 hardware, OS, and networking incidents, maintaining a 98%+ first-contact resolution SLA."
         ]
     },
     {
