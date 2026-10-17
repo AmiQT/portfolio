@@ -1,0 +1,138 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Icon from "../../components/shared/Icon.astro";
+
+const baseUrl = import.meta.env.BASE_URL;
+
+const project = {
+	title: "Agency-Bridge",
+	type: "High-Throughput Model Serving & MCP Tool Proxy",
+	category: "dev",
+	status: "active",
+	description: "Asynchronous OpenAI-compatible API gateway supporting Server-Sent Events (SSE) streaming, dynamic Pydantic tool-calling validation, automated circuit breakers, token-based rate limiting, and a Hybrid AI Telegram Remote Ops HQ.",
+	tech: ["Python", "FastAPI", "Asyncio", "ASGI SSE Streaming", "Model Context Protocol (MCP)", "Pydantic v2", "Redis", "Telegram Bot API"],
+};
+
+const features = [
+	{
+		icon: "lightning",
+		title: "OpenAI-Compatible SSE Gateway",
+		desc: "Asynchronous HTTP bridge (/v1) streaming real-time Server-Sent Events (SSE) responses with zero-overhead protocol translation for local and cloud AI agents.",
+		highlight: true,
+	},
+	{
+		icon: "shield",
+		title: "Circuit Breaker & Token Rate-Limiting",
+		desc: "Protects upstream LLM providers with automated circuit breaking, exponential backoff, and token-aware rate limiting.",
+		highlight: true,
+	},
+	{
+		icon: "puzzle",
+		title: "MCP Tool Proxy & Pydantic Validation",
+		desc: "Dynamically validates agent tool-calling schemas using Pydantic v2 and enforces strict sandboxing on file and system operations.",
+	},
+	{
+		icon: "robot",
+		title: "24/7 Hybrid AI Remote Ops HQ",
+		desc: "Dual-engine Telegram remote control interface with watchdog auto-recovery, hardware telemetry, and Zero-Trust path/extension security boundaries.",
+	},
+];
+
+const architectureSteps = [
+	"⚡ INGRESS GATEWAY: FastAPI + ASGI asynchronous server exposing OpenAI-compatible /v1 endpoints with SSE streaming.",
+	"🛡️ RESILIENCE LAYER: Automated Circuit Breaker & token rate-limiter protecting upstream model quotas and preventing cascade failures.",
+	"🔧 MCP & TOOL SANDBOX: Dynamic Pydantic schema validation with strict directory/file-extension blocklists (.env, .pem, .key, hardlinks).",
+	"📡 WATCHDOG & REMOTE HQ: 24/7 background daemon with self-healing watchdog logs and Telegram ChatOps control."
+];
+---
+
+<Layout
+	title="Agency-Bridge | Model Serving & MCP Proxy | Noor Azami"
+	description={project.description}
+	canonical="/projects/agency-bridge"
+>
+	<main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+		<!-- Breadcrumb -->
+		<div class="flex items-center gap-2 text-[#8b949e] text-sm font-mono mb-8">
+			<a href={baseUrl} class="hover:text-white transition-colors">home</a>
+			<span>/</span>
+			<a href={baseUrl + "projects"} class="hover:text-white transition-colors">projects</a>
+			<span>/</span>
+			<span class="text-[#e6edf3]">agency-bridge</span>
+		</div>
+
+		<!-- Header Card -->
+		<div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 sm:p-8 mb-8">
+			<div class="flex flex-col sm:flex-row sm:items-start gap-4 mb-6">
+				<span class="text-[#8b949e] shrink-0"><Icon name="cpu" class="w-10 h-10" /></span>
+				<div class="flex-1">
+					<div class="flex flex-wrap items-center gap-2 mb-1">
+						<h1 class="text-2xl font-bold text-white">{project.title}</h1>
+						<span class="flex items-center text-xs text-green-400 bg-green-500/10 border border-green-500/25 px-2 py-0.5 rounded-full font-mono">
+							Active
+						</span>
+						<span class="text-xs text-violet-400 bg-violet-500/10 border border-violet-500/25 px-2 py-0.5 rounded-full font-mono">Dev</span>
+					</div>
+					<p class="text-[#8b949e] text-sm font-mono mb-3">{project.type}</p>
+					<p class="text-[#e6edf3] text-sm leading-relaxed">{project.description}</p>
+				</div>
+			</div>
+
+			<!-- Tech Tags -->
+			<div class="flex flex-wrap gap-1.5 mb-6">
+				{project.tech.map(t => (
+					<span class="text-xs font-mono px-2.5 py-1 bg-[#21262d] text-[#e6edf3] rounded border border-[#30363d]">{t}</span>
+				))}
+			</div>
+
+			<!-- Actions -->
+			<div class="flex flex-wrap gap-3 pt-5 border-t border-[#30363d]">
+				<span class="inline-flex items-center gap-2 px-4 py-2 bg-[#21262d]/60 text-[#8b949e] text-sm font-mono rounded-lg border border-[#30363d]">
+					<Icon name="shield" class="w-4 h-4" />
+					Private Repository (Architecture Case Study)
+				</span>
+			</div>
+		</div>
+
+		<!-- Key Features -->
+		<div class="mb-10">
+			<h2 class="text-sm font-semibold text-white font-mono mb-4">// key_features</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				{features.map(f => (
+					<div class={`bg-[#161b22] border rounded-xl p-5 ${f.highlight ? "border-violet-500/40 bg-violet-500/5" : "border-[#30363d]"}`}>
+						<div class="flex items-center gap-3 mb-2">
+							<span class="text-[#8b949e]"><Icon name={f.icon} class="w-5 h-5" /></span>
+							<h3 class="text-sm font-semibold text-white">{f.title}</h3>
+						</div>
+						<p class="text-xs text-[#8b949e] leading-relaxed">{f.desc}</p>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- Architecture Breakdown -->
+		<div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 sm:p-8 mb-8">
+			<h2 class="text-sm font-semibold text-white font-mono mb-4">// architecture_highlights</h2>
+			<div class="space-y-3">
+				{architectureSteps.map(step => (
+					<div class="flex gap-3 text-sm bg-[#0d1117] border border-[#30363d] p-3.5 rounded-lg">
+						<span class="text-violet-400 shrink-0">→</span>
+						<span class="text-[#e6edf3] leading-relaxed">{step}</span>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- Back -->
+		<div class="flex items-center gap-4">
+			<a
+				href={baseUrl + "projects"}
+				class="inline-flex items-center gap-2 px-4 py-2 bg-[#21262d] text-[#e6edf3] text-sm font-mono rounded-lg border border-[#30363d] hover:border-[#8b949e] transition-colors"
+			>
+				← Back to Projects
+			</a>
+		</div>
+
+	</main>
+</Layout>

@@ -8,12 +8,13 @@ export interface Experience {
 
 export const experiencesData: Experience[] = [
     {
-        title: "IT Support Engineer",
+        title: "IT Support, Junior Engineer",
         organization: "DayOne",
         duration: "August 2026 - Present",
         icon: "wrench",
         responsibilities: [
             "Supported mission-critical data center IT operations and server infrastructure, maintaining high-availability uptime standards and rapid operational incident resolution.",
+            "Assisted and supported the enterprise migration to a new Microsoft Active Directory (AD) server, ensuring seamless domain transition, policy replication, and minimal operational downtime.",
             "Architected a Compliance-as-Code engine using Python to audit 200+ endpoints, proactively reducing vulnerability blast radius and configuration drift."
         ]
     },

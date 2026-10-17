@@ -3,8 +3,8 @@ export const profile = {
     nickname: "Ami / AmiQT",
     role: "AI-Enhanced Systems & Cloud Engineer",
     tagline: "Building resilient infrastructure through automation and AI-assisted engineering.",
-    status: "IT Support Engineer @ DayOne | Seeking Cloud / DevOps Roles",
-    internship: "IT Support Engineer at DayOne · Seeking Cloud / DevOps Roles",
+    status: "IT Support, Junior Engineer @ DayOne | Seeking Cloud / DevOps Roles",
+    internship: "IT Support, Junior Engineer at DayOne · Seeking Cloud / DevOps Roles",
     location: ["Remote", "Hybrid", "On-site"],
     bio: "Architecting scalable cloud infrastructure and automating mission-critical deployment pipelines. Specialized in Zero-Trust security, CI/CD orchestration, and AI-accelerated dev workflows.",
     avatar: "assets/profile.webp",
@@ -22,6 +22,8 @@ export const techStack = {
         { name: "C#", devicon: "devicon-csharp-plain" },
         { name: "TypeScript", devicon: "devicon-typescript-plain" },
         { name: "JavaScript", devicon: "devicon-javascript-plain" },
+        { name: "PowerShell", devicon: "devicon-powershell-plain" },
+        { name: "Bash", devicon: "devicon-bash-plain" },
         { name: "Dart", devicon: "devicon-dart-plain" }
     ],
     frontend: [
@@ -32,7 +34,9 @@ export const techStack = {
         { name: "Figma", devicon: "devicon-figma-plain" }
     ],
     infrastructure: [
-        { name: "AWS EC2 & Networking", devicon: "devicon-amazonwebservices-plain" },
+        { name: "AWS (EC2, VPC, IAM, S3)", devicon: "devicon-amazonwebservices-plain-wordmark" },
+        { name: "AWS Cloud Support & Troubleshooting", devicon: "devicon-amazonwebservices-plain-wordmark" },
+        { name: "Microsoft Active Directory (AD)", devicon: "" },
         { name: "Docker & Containerization", devicon: "devicon-docker-plain" },
         { name: "Cloudflare Zero Trust", devicon: "" },
         { name: "Terraform (IaC)", devicon: "devicon-terraform-plain" },
@@ -53,6 +57,7 @@ export const techStack = {
     observability: [
         { name: "Prometheus", devicon: "devicon-prometheus-plain" },
         { name: "Grafana", devicon: "devicon-grafana-plain" },
+        { name: "AWS CloudWatch", devicon: "devicon-amazonwebservices-plain-wordmark" },
         { name: "Kube-Prometheus-Stack", devicon: "" },
         { name: "Micrometer", devicon: "" },
         { name: "Logstash", devicon: "devicon-logstash-plain" }
@@ -72,6 +77,7 @@ export const techStack = {
     ],
     ai: [
         { name: "Gemini AI", devicon: "devicon-google-plain" },
+        { name: "Model Context Protocol (MCP)", devicon: "" },
         { name: "LangChain", devicon: "" },
         { name: "LangGraph", devicon: "" },
         { name: "Ollama", devicon: "" },
@@ -82,6 +88,14 @@ export const techStack = {
 };
 
 export const certifications = [
+    {
+        title: "AWS Cloud Support Associate",
+        issuer: "Amazon Web Services (AWS)",
+        icon: "cloud",
+        color: "amber",
+        year: "2026",
+        url: "https://www.coursera.org/account/accomplishments/specialization/M6U0U9OQVOSR"
+    },
     {
         title: "Google Cloud Fundamentals: Core Infrastructure",
         issuer: "Google Cloud",
@@ -143,7 +157,7 @@ export const allProjects: Project[] = [
         tech: ["Kubernetes", "Terraform", "Helm", "k3d", "Prometheus", "Grafana"],
         icon: "kubernetes",
         link: "projects/central-infra",
-        github: "https://github.com/AmiQT/layer4-workloads",
+        github: "https://github.com/AmiQT/central-infra",
         architecture: [
             "IaC: Terraform (4-layer isolation strategy)",
             "Orchestration: k3d (1 server, 2 agent nodes)",
@@ -153,26 +167,36 @@ export const allProjects: Project[] = [
         ],
     },
     {
-        title: "Go-Lumina",
-        type: "High-Performance Reverse Proxy",
-        description: "Engineered a high-concurrency reverse proxy in Go handling up to 7,500 RPS. Features multi-stage Docker builds for minimal footprint (~15MB Alpine image).",
-        category: "devops",
-        status: "active",
-        tech: ["Go", "Docker", "Singleflight", "LRU Cache", "Rate Limiting"],
-        icon: "lightning",
-        link: "projects/go-lumina",
-        github: "https://github.com/AmiQT/go-lumina",
-    },
-    {
         title: "Gopher-Ops",
-        type: "AI SRE Control Bot",
-        description: "Secure AI ChatOps bot (Go + Gemini 2.5) for Docker management and OS telemetry. Implements Zero-Trust identity gating via Telegram ID verification.",
+        type: "AI-Driven SRE ChatOps Platform",
+        description: "AI SRE bot in Go + Gemini 2.5 managing Docker & Kubernetes clusters via natural language. Features 1-hour in-memory metric buffers for Automated RCA, MCP Server Kubernetes integration, and HITL Telegram execution.",
         category: "devops",
         status: "active",
-        tech: ["Go", "Gemini API", "Docker SDK", "Terraform", "GitHub Actions"],
+        tech: ["Go", "Kubernetes", "MCP Go SDK", "Gemini 2.5", "Docker SDK", "Terraform", "GitHub Actions"],
         icon: "robot",
         link: "projects/gopher-ops",
         github: "https://github.com/AmiQT/Gopher-Ops",
+    },
+    {
+        title: "Agency-Bridge",
+        type: "High-Throughput Model Serving & MCP Tool Proxy",
+        description: "Asynchronous OpenAI-compatible API gateway supporting SSE streaming, dynamic Pydantic tool-calling validation, automated circuit breakers, token rate-limiting, and a hybrid AI Telegram Remote Ops HQ.",
+        category: "dev",
+        status: "active",
+        tech: ["Python", "FastAPI", "Asyncio", "SSE Streaming", "MCP", "Pydantic", "Redis"],
+        icon: "cpu",
+        link: "projects/agency-bridge",
+    },
+    {
+        title: "Go-Lumina",
+        type: "High-Performance Reverse Proxy",
+        description: "Engineered a high-concurrency reverse proxy in Go handling up to 7,500 RPS with sub-millisecond p99 latency. Eliminates upstream cache stampedes via singleflight deduplication and thread-safe LRU caching.",
+        category: "devops",
+        status: "active",
+        tech: ["Go", "Docker", "Singleflight", "LRU Cache", "k6", "pprof"],
+        icon: "lightning",
+        link: "projects/go-lumina",
+        github: "https://github.com/AmiQT/go-lumina",
     },
     {
         title: "Student Talent Profiling",
@@ -188,45 +212,43 @@ export const allProjects: Project[] = [
     },
     {
         title: "Web-Pulse",
-        type: "Uptime Monitoring System",
-        description: "Fast and reliable website monitoring tool using Python/FastAPI. Simulates normal browser traffic to bypass WAFs and delivers real-time Telegram alerts for downtime.",
+        type: "Real-Time Remote Service Monitoring & Alerting",
+        description: "SRE-driven website monitoring system using Python/FastAPI and curl_cffi TLS fingerprint impersonation to monitor WAF-protected endpoints with real-time Telegram threshold alerting.",
         category: "devops",
         status: "active",
-        tech: ["Python", "FastAPI", "Telegram API", "Asyncio", "BeautifulSoup4"],
+        tech: ["Python", "FastAPI", "curl_cffi (TLS)", "Asyncio", "Telegram Bot API"],
         icon: "antenna",
         link: "projects/web-pulse",
         github: "https://github.com/AmiQT/web-pulse"
     },
     {
         title: "AI Resume Builder",
-        type: "Full-Stack SaaS",
-        description: "AI-powered resume builder using Gemini to optimize resumes based on job descriptions. Features professional templates, PDF/Word export, and ATS optimization.",
+        type: "Live Production Full-Stack SaaS",
+        description: "Commercial AI resume studio using Gemini 2.5 Flash for real-time ATS optimization against job descriptions. Secured with Supabase RLS, JWT auth, slowapi rate-limiting (60 req/min), and ToyyibPay FPX/E-Wallet integration.",
         category: "dev",
         status: "active",
-        tech: ["React 18", "FastAPI", "Supabase", "Gemini AI"],
+        tech: ["React 18", "FastAPI", "Supabase RLS", "Gemini 2.5", "Docker", "ToyyibPay"],
         icon: "document",
         link: "projects/ai-resume-builder",
-        github: "https://github.com/AmiQT/ai-resume",
         liveUrl: "https://resume-ai-tawny-seven.vercel.app"
     },
     {
         title: "DayOne Deploy",
         type: "Enterprise Automation Suite",
-        description: "C# (.NET 10) automation suite for zero-touch laptop provisioning at DayOne internship. Features offline network staging, resilient orchestration, and real-time observability.",
+        description: "C# (.NET 10) automation suite for zero-touch laptop provisioning at DayOne. Features offline network staging, resilient orchestration via RunOnce, and real-time observability.",
         category: "it",
         status: "intern",
         tech: ["C#", ".NET 10", "PowerShell", "WMI", "Spectre.Console"],
         icon: "monitor",
         link: "projects/dayone-deploy",
-        github: "https://github.com/AmiQT/dayone-deploy"
     },
     {
         title: "FinTrack Pro",
-        type: "Enterprise Payroll & HR Management System",
-        description: "Enterprise-grade Payroll & HR platform with automated EPF/SOCSO/PCB calculations, leave approval workflows, and PDF payslip generation. Full CI/CD with 42 Testcontainers-backed tests, Prometheus telemetry, and Bucket4j rate limiting.",
+        type: "Enterprise Payroll & Financial Ledger System",
+        description: "Enterprise Payroll & ACID financial ledger platform with Redis 7 distributed locking (Redlock), HikariCP query optimization (+40% throughput), 42 Testcontainers-backed tests, Prometheus telemetry, and Bucket4j rate limiting.",
         category: "dev",
         status: "active",
-        tech: ["Java 21", "Spring Boot", "React 18", "PostgreSQL", "Redis", "JWT", "Docker", "GitHub Actions"],
+        tech: ["Java 21", "Spring Boot", "React 18", "PostgreSQL", "Redis 7", "Testcontainers", "Docker", "GitHub Actions"],
         icon: "document",
         link: "projects/fin-track",
         github: "https://github.com/AmiQT/fin-track"
@@ -262,7 +284,6 @@ export const allProjects: Project[] = [
         tech: ["Python", "FastAPI", "DeepSeek API", "InsightFace ArcFace", "ChromaDB", "WinRM", "MS Teams API", "Tkinter", "Docker"],
         icon: "robot",
         link: "projects/sentinel-ops",
-        github: "https://github.com/AmiQT/sentinel-ops",
         architecture: [
             "Vision: InsightFace ArcFace (512-d embeddings, 87% frame-caching inference reduction)",
             "LLM Agentic Tooling: DeepSeek API (JSON Intent Routing, 50x Static Prompt Caching)",

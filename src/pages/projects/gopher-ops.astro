@@ -6,35 +6,36 @@ const baseUrl = import.meta.env.BASE_URL;
 
 const project = {
     title: "Gopher-Ops",
-    type: "AI SRE ChatOps Bot",
+    type: "AI-Driven SRE ChatOps Platform",
     category: "devops",
     status: "active",
-    description: "Secure AI SRE bot engineered in Go, utilizing Gemini 2.5 for natural language infrastructure control. Manages Docker environments and host telemetry via Telegram with Zero-Trust identity gating.",
-    tech: ["Go", "Gemini 2.5 API", "Docker SDK", "Telegram Bot API", "Terraform", "GitHub Actions"],
+    description: "AI SRE bot engineered in Go + Gemini 2.5 to manage Docker containers and Kubernetes clusters via natural language. Features a 1-hour in-memory metric history buffer for Automated Root Cause Analysis (RCA), Model Context Protocol (MCP) Kubernetes integration, and HITL Telegram execution.",
+    tech: ["Go 1.22+", "Kubernetes", "MCP Go SDK", "MCP Server K8s", "Gemini 2.5 Flash", "Docker SDK", "Terraform", "GitHub Actions"],
     github: "https://github.com/AmiQT/Gopher-Ops",
 };
 
 const features = [
     {
+        icon: "kubernetes",
+        title: "MCP Server Kubernetes & Docker Control",
+        desc: "Connects AI agents directly to native Kubernetes tooling via Model Context Protocol (MCP) and Docker SDK for natural language cluster operations.",
+        highlight: true,
+    },
+    {
         icon: "cpu",
-        title: "AI Intent Parsing",
-        desc: "Gemini 2.5 parses natural language (e.g. 'restart my nginx container') into executable Docker commands.",
+        title: "Automated Root Cause Analysis (RCA)",
+        desc: "Maintains a 1-hour in-memory metric buffer to detect load spikes and trigger automated Gemini AI RCA when nodes or containers fail.",
         highlight: true,
     },
     {
         icon: "user",
-        title: "HITL Execution",
-        desc: "Human-in-the-loop validation via interactive Telegram buttons for safe remote execution.",
+        title: "Human-In-The-Loop (HITL) Triage",
+        desc: "Guided incident triage with interactive Telegram inline approval buttons before executing state-mutating infrastructure commands.",
     },
     {
         icon: "shield",
-        title: "Zero-Trust Gating",
-        desc: "Strict Telegram ID verification ensuring only authorized users can query or control the infra.",
-    },
-    {
-        icon: "antenna",
-        title: "Telemetry Streaming",
-        desc: "Real-time CPU/RAM metrics and container status reported directly to the chat interface.",
+        title: "Zero-Trust Chat ID Gating",
+        desc: "Strict Telegram identity verification ensuring only authorized SREs can query telemetry or control cluster workloads.",
     },
 ];
 ---
